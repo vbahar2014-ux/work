@@ -46,6 +46,7 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
+  /* ---------- MASTHEAD ---------- */
   .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
   .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
   .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
@@ -60,6 +61,7 @@
   .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
   .dateline b{color:var(--navy);font-weight:600}
 
+  /* ---------- STICKY NAV ---------- */
   .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
   .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
@@ -74,6 +76,7 @@
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
 
+  /* ---------- HERO (pattern + diff) ---------- */
   .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
   .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
   .pattern .ph .teeth{color:var(--red);font-style:italic}
@@ -93,6 +96,7 @@
   .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
   .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
 
+  /* ---------- ACTION REQUIRED ---------- */
   .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
   .action-band .kicker{color:#ff8a98}
   .action-band .kicker::after{background:rgba(255,255,255,.18)}
@@ -109,6 +113,7 @@
   .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
   .act .meta-row span b{color:#fff;font-weight:600}
 
+  /* ---------- FILTER BAR ---------- */
   .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
     border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
     display:flex;gap:18px;align-items:center;flex-wrap:wrap}
@@ -129,6 +134,7 @@
   .toggle input:checked{background:var(--red)}
   .toggle input:checked::after{left:17px}
 
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
   .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
   .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
   .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
@@ -157,6 +163,7 @@
   .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .card.full{grid-column:1/-1}
 
+  /* compliance table inside gov card */
   table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
   table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
     color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
@@ -169,6 +176,7 @@
 
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
 
+  /* ---------- LEGEND + FOOTER ---------- */
   .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
   .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
   .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
@@ -198,28 +206,30 @@
 </head>
 <body>
 
+<!-- MASTHEAD -->
 <header class="masthead">
   <div class="wrap">
     <div class="brandline">
       <div class="brand"><span class="mark">▰</span> Anadolu Group Holding · Technology Architecture</div>
-      <div class="issue">ISSUE #3 · 6 DOMAINS · 20 ITEMS</div>
+      <div class="issue">ISSUE #3 · 6 DOMAINS · 23 ITEMS</div>
     </div>
     <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
     <div class="dateline">
       <span><b>Tuesday, 9 June 2026</b></span>
-      <span>3 critical · 9 watch · 8 fyi</span>
-      <span>~6 min read</span>
+      <span>3 critical · 11 watch · 9 fyi</span>
+      <span>~7 min read</span>
     </div>
   </div>
 </header>
 
+<!-- STICKY NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="#tech">Tech &amp; Sector <span class="ct">3</span></a>
     <a href="#cloud">Cloud <span class="ct">4</span></a>
-    <a href="#dc">Data Centers <span class="ct">3</span></a>
+    <a href="#dc">Data Centers <span class="ct">5</span></a>
     <a href="#net">Networking <span class="ct">3</span></a>
-    <a href="#ai">AI &amp; Agents <span class="ct">4</span></a>
+    <a href="#ai">AI &amp; Agents <span class="ct">5</span></a>
     <a href="#gov">Governance <span class="ct">3</span></a>
     <span class="nav-sep"></span>
     <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
@@ -228,11 +238,12 @@
 
 <div class="wrap">
 
+  <!-- HERO: PATTERN + DIFF -->
   <section class="hero reveal" style="border-bottom:1px solid var(--line)">
     <div class="pattern">
       <div class="kicker">⚡ Pattern of the Day</div>
       <div class="ph">After the shock, the substrate <span class="teeth">answers back.</span></div>
-      <p>Last week's twin jolts — a working agentic worm and the EU's published Omnibus — drew their responses this week, and they share a direction. Sovereignty stopped being an infrastructure story and <strong>climbed the stack</strong>: SAP + Microsoft put RISE on a sovereign Azure cloud and IBM shipped Sovereign Core at the runtime layer — governance now lives where workloads and data do. The agentic talk pivoted from "can we secure it" to <strong>"will it even work"</strong> (Gartner: 40% of agentic projects scrapped by 2027), and the regulatory map hardened into two rulebooks — the US 2 June EO disclaiming licensing against the EU's binding GPAI date, now <strong>under eight weeks away</strong>.</p>
+      <p>Last week's twin jolts — a working agentic worm and the EU's published Omnibus — drew their responses this week, and they share a direction. Sovereignty stopped being an infrastructure story and <strong>climbed the stack</strong>: SAP + Microsoft put RISE on a sovereign Azure cloud and IBM shipped Sovereign Core at the runtime layer — governance now lives where workloads and data do. The agentic talk pivoted from "can we secure it" to <strong>"will it even work"</strong> (Gartner: 40% of agentic projects scrapped by 2027), and Microsoft Build reframed the agent battle around <strong>reliability, not capability</strong> — shipping audit trails and an open governance spec as table stakes. Underneath, Europe's sovereign capacity went concrete (SoftBank's €75B / 5 GW France build), while the regulatory map hardened into two rulebooks — the US 2 June EO disclaiming licensing against the EU's binding GPAI date, now <strong>under eight weeks away</strong>.</p>
       <div class="ag-take">
         <b>For AG</b>
         The work shifts from watching the shocks to operationalising the responses: sovereign landing zones for the SAP/data estate, process-redesign gates before agents, and a dual-track US/EU posture with August locked.
@@ -270,12 +281,18 @@
         <div class="diff-item">
           <div class="diff-states"><span class="st old">mega-build ground-breakings</span><span class="arrow">→</span><span class="st new">hard power constraint</span></div>
           <div class="diff-topic">Data centers</div>
-          <div class="diff-detail">Interconnection queues at 5–7 years vs 1–3 year builds; capex revised up to $710–726B; new global builds (Stratos 9 GW Utah, Kasi Lagos).</div>
+          <div class="diff-detail">Interconnection queues at 5–7 years vs 1–3 year builds; capex revised up to $710–726B; new builds (Stratos 9 GW Utah, Kasi Lagos) — and SoftBank's €75B / 5 GW France bet lands the power-constrained sovereign build in Europe.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">audit trails optional</span><span class="arrow">→</span><span class="st new">governance is default</span></div>
+          <div class="diff-topic">Agent platforms</div>
+          <div class="diff-detail">Microsoft Build 2026 reframed the agent battle around reliability, not capability — shipping a Foundry open governance spec, agent audit trails, memory and eval tooling. Every major vendor now ships agent audit trails as standard.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ACTION REQUIRED -->
   <section id="action" style="border:none;padding-top:34px">
     <div class="action-band reveal">
       <div class="kicker">Action Required Today</div>
@@ -315,6 +332,7 @@
     </div>
   </section>
 
+  <!-- FILTER BAR -->
   <div class="filterbar" id="filterbar">
     <div class="fgroup">
       <span class="flabel">Domain</span>
@@ -338,6 +356,7 @@
   <div id="grid"></div>
   <div class="empty" id="empty">No items match the current filter.</div>
 
+  <!-- LEGEND -->
   <section style="border-bottom:none">
     <div class="kicker">Severity Key</div>
     <div class="legend">
@@ -349,9 +368,10 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="src-line">
-      <strong style="color:var(--navy)">Sources ·</strong> Gartner · Deloitte · EM360Tech · TechCrunch · OpenAI · Microsoft Azure Blog · CIO Dive · IBM / StockTitan · EnkiAI / Dell'Oro · Data Center Knowledge · Ropes &amp; Gray · blog.mean.ceo · Frontier Affairs · Computer Weekly · Ericsson · The Register · Windows News · Augusto Digital · ComplianceHub · Latham &amp; Watkins · K&amp;L Gates · artificialintelligenceact.eu · European Commission
+      <strong style="color:var(--navy)">Sources ·</strong> Gartner · Deloitte · EM360Tech · TechCrunch · OpenAI · Microsoft Azure Blog · CIO Dive · IBM / StockTitan · EnkiAI / Dell'Oro · Data Center Knowledge · Data Center Dynamics · Ropes &amp; Gray · Texas Tribune · blog.mean.ceo · Frontier Affairs · Computer Weekly · Ericsson · The Register · Windows News · The New Stack · Augusto Digital · ComplianceHub · Latham &amp; Watkins · K&amp;L Gates · artificialintelligenceact.eu · European Commission
     </div>
     <div class="colophon"><span class="mark">▰</span> AG Group Holding · Technology Architecture · Daily Sector Intelligence Digest · Issue #3</div>
   </footer>
@@ -369,28 +389,37 @@ const DOMAINS = [
 ];
 
 const ITEMS = [
+  // TECH
   {dom:"tech",sev:"crit",action:true,title:"Gartner: ~40% of enterprise apps will embed task-specific AI agents by end-2026 — but 40% of agentic projects will be scrapped by 2027, mostly for automating broken processes",src:"Gartner · Top Strategic Tech Trends 2026",url:"https://www.gartner.com/en/articles/top-technology-trends-2026",why:"The failure mode is organisational, not technical. Gate agent initiatives on <b>process maturity</b>, not model readiness — and expect board-level ROI scrutiny."},
   {dom:"tech",sev:"watch",title:"“Geopatriation” emerges as a named strategy: enterprises shifting workloads to sovereign/regional clouds to hedge geopolitical risk",src:"EM360Tech & Gartner · Jun 2026",url:"https://em360tech.com/tech-articles/emerging-tech-enterprise-strategy-2026",why:"The trend now has a label and analyst backing — directly validates AG's sovereign-first posture and keeping on-prem/regional options live."},
   {dom:"tech",sev:"fyi",title:"OpenAI launches “OpenAI Deployment Company” — partnership with 19 firms (Bain, McKinsey, Capgemini) to embed AI into enterprise core operations",src:"TechCrunch · 2026",url:"https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/",why:"Signals a consultancy-led deployment wave — expect inbound pitching “agentic transformation.” Useful leverage, but reinforces process-first discipline."},
 
+  // CLOUD
   {dom:"cloud",sev:"crit",action:true,title:"SAP Sapphire 2026: SAP + Microsoft expand RISE with SAP on Sovereign Cloud (Azure); SAP Business Data Cloud adds a Germany region in June, scaling to 13 Azure regions by end-2026",src:"Microsoft Azure Blog · Jun 2026",url:"https://azure.microsoft.com/en-us/blog/advancing-enterprise-ai-new-sap-on-azure-announcements-from-sap-sapphire-2026/",why:"Directly relevant to AG's SAP estate — mission-critical SAP workloads can now run on a sovereign Azure footprint without compromising residency. A concrete EU-resident option for the ERP/data layer."},
   {dom:"cloud",sev:"watch",title:"IBM Sovereign Core reaches GA — embeds policy at the infrastructure-runtime level so governance adapts as regulation evolves, prioritising workload portability",src:"IBM Think 2026 · StockTitan",url:"https://www.stocktitan.net/news/IBM/think-2026-ibm-delivers-the-blueprint-for-the-ai-operating-model-as-ds1izli55ros.html",why:"“Policy embedded at runtime” is a different governance pattern from perimeter controls — evaluate against AWS/Azure sovereign offerings for regulated estates."},
   {dom:"cloud",sev:"watch",title:"Microsoft strengthens sovereign cloud with new services supporting AI model hosting",src:"CIO Dive & Azure Blog · Jun 2026",url:"https://www.ciodive.com/news/microsoft-expands-sovereign-cloud-capabilities/813831/",why:"Sovereign cloud now extends to AI model hosting, not just compute/storage — closing the gap that forced sensitive AI workloads off-sovereign."},
   {dom:"cloud",sev:"fyi",title:"Hyperscaler 2026 capex revised up to ~$710B (top five) / $726B sector (Dell'Oro) — power-gated, not capital-gated",src:"EnkiAI / Dell'Oro · 2026",url:"https://enkiai.com/ai-infrastructure/hyperscaler-data-center-capex/",why:"Capex keeps climbing but power is the binding constraint. Expect capacity/region availability — not price — to gate AG's cloud growth in some markets."},
 
+  // DC
   {dom:"dc",sev:"watch",title:"Grid interconnection queues now stretch 5–7 years vs a 1–3 year build cycle — power is the severe binding constraint; ~50 GW of behind-the-meter gas announced to bypass it",src:"Data Center Knowledge & Ropes & Gray · Jun 2026",url:"https://www.ropesgray.com/en/insights/viewpoints/102mvfl/data-center-investment-in-2026-ai-demand-power-constraints-and-private-equity",why:"Plan AG capacity around <b>power lead-times</b>, not construction timelines. Behind-the-meter generation and pre-secured power are now the differentiators for any colo/self-build."},
   {dom:"dc",sev:"fyi",title:"Stratos: a proposed 9 GW AI & data center campus in Utah (O'Leary-backed) emerges as one of the most ambitious builds of the AI boom",src:"Data Center Knowledge · Jun 2026",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-june-2026",why:"Pipeline scale keeps escalating — single-campus power asks are now multi-gigawatt."},
   {dom:"dc",sev:"fyi",title:"Kasi Cloud opens its Lekki campus in Lagos — West Africa's first hyperscale-ready, AI-capable, carrier-neutral platform",src:"Data Centers News · Jun 2026",url:"https://blog.mean.ceo/data-centers-news-june-2026/",why:"Emerging-market AI capacity is starting to land; relevant if AG expands data-residency options into African markets."},
+  {dom:"dc",sev:"watch",title:"SoftBank to invest up to €75B (~$87B) building 5 GW of AI data center capacity in France — first phase €45B / 3.1 GW in Hauts-de-France by 2031, with Schneider Electric and EDF (400 MW Bouchain site)",src:"Data Center Dynamics & TechCrunch · Jun 2026",url:"https://www.datacenterdynamics.com/en/news/softbank-plans-up-to-5gw-data-center-buildout-in-france-investment-of-up-to-75bn/",why:"Europe's sovereign AI capacity surge is now concrete and power-centric (utility-sited builds). A signal that large EU-resident AI compute is landing — relevant to AG's European data-residency and capacity-sourcing options."},
+  {dom:"dc",sev:"fyi",title:"Texas moves to regulate its data-center boom — new oversight of grid impact, electricity and water as ERCOT load forecasts surge",src:"Texas Tribune · 8 Jun 2026",url:"https://www.texastribune.org/2026/06/08/texas-regulation-data-centers-electricity-power-water/",why:"Even the most permissive US market is adding constraints — reinforces that power/water permitting, not capital, gates the next wave of capacity globally."},
 
+  // NET
   {dom:"net",sev:"watch",title:"Open RAN crosses the adoption threshold: 30+ major operators committed by April 2026, cutting infrastructure costs an estimated 20–30%",src:"Frontier Affairs & Computer Weekly · 2026",url:"https://www.computerweekly.com/news/366636882/The-networks-that-will-turn-potential-into-profit-in-2026",why:"Disaggregated RAN is becoming mainstream — relevant to AG private-network sourcing economics and vendor lock-in posture for campus/industrial deployments."},
   {dom:"net",sev:"watch",title:"5G-Advanced positioned as “the first mobile infrastructure purpose-built for AI”; industrial 5G now generating ~$80B/yr in productivity gains globally",src:"Computer Weekly · 2026",url:"https://www.computerweekly.com/news/366636882/The-networks-that-will-turn-potential-into-profit-in-2026",why:"Strengthens the near-term case for private 5G-Advanced at AG manufacturing/logistics sites needing deterministic, AI-ready connectivity — available now, not waiting on 6G."},
   {dom:"net",sev:"fyi",title:"3GPP Release 21 checkpoint underway this month — go/no-go on first 6G spec sequencing",src:"Ericsson & The Register · Jun 2026",url:"https://www.theregister.com/networks/2026/06/03/dont-repeat-5g-mistakes-with-6g-plead-mobile-operators/",why:"Continuation of yesterday's decision-point item — sets whether 6G arrives as a clean single Release. AG edge horizon still 2030+."},
 
+  // AI
   {dom:"ai",sev:"watch",title:"OpenAI makes GPT-5.5 Instant the default ChatGPT model — its strongest agentic capability yet, completing equivalent tasks with significantly fewer tokens (lower cost per task)",src:"TechCrunch & OpenAI · 2026",url:"https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",why:"The default-model upgrade raises the agentic baseline for the entire workforce at once — and lowers cost per task. Factor the new price/performance into AG's agent-platform business cases."},
   {dom:"ai",sev:"watch",title:"The “agentic client” becomes the new chokepoint: the platform war shifts from model leaderboards to who owns enterprise memory, context and execution",src:"Windows News · Jun 2026",url:"https://windowsnews.ai/article/agentic-ai-platform-war-who-controls-enterprise-memory-context-and-action-in-june-2026.423571",why:"Lock-in risk is migrating from the foundation model to the agent runtime/client layer. Keep client portability and an abstraction boundary in AG's reference architecture."},
   {dom:"ai",sev:"fyi",title:"Anthropic Claude reaches ~$30B revenue run-rate; Claude Code at $2.5B ARR — agentic coding driving enterprise adoption",src:"Augusto Digital · LLM News Jun 2026",url:"https://augusto.digital/insights/blogs/monthly-llm-news-june-2026/",why:"Agentic developer tooling is maturing into a primary adoption vector — relevant to AG's software-delivery toolchain choices."},
   {dom:"ai",sev:"fyi",title:"Google ships Gemini 3.5 Flash + Gemini Spark personal agent from I/O — flagship-class performance at 4× speed, beating Gemini 3.1 Pro on coding/agentic benchmarks",src:"Augusto Digital · LLM News Jun 2026",url:"https://augusto.digital/insights/blogs/monthly-llm-news-june-2026/",why:"Cheaper, faster agentic inference broadens the range of deployable use cases."},
+  {dom:"ai",sev:"watch",title:"Microsoft Build 2026: Foundry bets the enterprise agent battle is about reliability, not capability — ships hosted agent infrastructure, an open governance spec, agent audit trails, memory, eval tooling and 11,000+ model catalog",src:"The New Stack · 8 Jun 2026",url:"https://thenewstack.io/microsoft-foundry-build-2026-ai-agents/",why:"Validates the governance-plane-first posture: agent audit trails, evaluation and an open governance spec are now table stakes from the biggest enterprise vendor. Benchmark AG's agent control plane against Foundry's pattern and require audit/eval before production."},
 
+  // GOV (red item rendered specially with table)
   {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"US–EU AI governance divergence crystallises: the US 2 June frontier-AI executive order disclaims mandatory licensing, while the EU's binding GPAI obligations activate 2 Aug 2026 — now under eight weeks away",src:"ComplianceHub & Latham & Watkins · Jun 2026",url:"https://compliancehub.wiki/us-eu-ai-governance-divergence-frontier-eo-ai-act-2026/"},
   {dom:"gov",sev:"watch",title:"GPAI Code of Practice signatory picture firms up: ~24 organisations signed; Meta and xAI are notable holdouts (xAI signed only the Safety/Security chapter)",src:"artificialintelligenceact.eu & European Commission",url:"https://digital-strategy.ec.europa.eu/en/policies/signatory-taskforce-gpai-code-practice",why:"The Code is becoming the de facto route to demonstrate GPAI compliance. Decide AG's signatory/alignment posture and factor vendor signatory status into model-sourcing diligence."},
   {dom:"gov",sev:"fyi",title:"Digital Omnibus still not law: Parliament plenary vote + Council adoption + Official Journal publication required before 2 Aug 2026",src:"K&L Gates & Latham & Watkins · 2026",url:"https://www.lw.com/en/insights/ai-act-update-eu-resolves-to-change-rules-and-extend-deadlines",why:"The deferred high-risk dates (Annex III → Dec 2027) are not yet legally locked until the Omnibus completes its path. Rephase Annex III work — do not cancel."},
@@ -464,6 +493,7 @@ function applyFilters(){
   document.getElementById('empty').style.display = anyVisible?'none':'block';
 }
 
+// domain chips
 document.querySelectorAll('.chip.dom').forEach(ch=>{
   ch.addEventListener('click',()=>{
     document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
@@ -472,6 +502,7 @@ document.querySelectorAll('.chip.dom').forEach(ch=>{
     applyFilters();
   });
 });
+// severity chips (multi-toggle)
 document.querySelectorAll('.chip.sev').forEach(ch=>{
   ch.addEventListener('click',()=>{
     const s = ch.dataset.sev;
@@ -486,6 +517,7 @@ document.getElementById('actionOnly').addEventListener('change',e=>{
 
 render();
 
+// stagger reveal for cards on load
 window.addEventListener('load',()=>{
   document.querySelectorAll('.card').forEach((c,i)=>{
     c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
