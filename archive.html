@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Editions — Daily Sector Intelligence Digest · AG Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;--paper-2:#efeae0;--ink:#1b2a3a;--ink-soft:#42546a;
+    --navy:#1b3a5c;--navy-deep:#142c45;--red:#c8102e;--red-deep:#9c0c23;
+    --amber:#b7791f;--slate:#64748b;--line:#d9d2c4;--line-strong:#c3baa8;--card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background-color:var(--paper);
+    background-image:radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,60px);line-height:.96;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;}
+  .title .em{font-style:italic;color:var(--red)}
+  .sub{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .sub a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .sub a:hover{color:var(--red);border-color:var(--red)}
+
+  .lede{padding:30px 0 8px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+  .kicker .ct{color:var(--navy);background:var(--paper-2);padding:1px 8px;border-radius:20px;font-size:10px}
+
+  ul.editions{list-style:none;display:flex;flex-direction:column;gap:14px;padding:8px 0 40px}
+  .ed{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:11px;
+    padding:18px 22px;box-shadow:var(--shadow);transition:transform .15s, box-shadow .15s;}
+  .ed:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .ed.latest{border-left-color:var(--red)}
+  .ed a.row{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;text-decoration:none;color:inherit}
+  .ed .left{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .ed .iss{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--line-strong);line-height:.9}
+  .ed.latest .iss{color:var(--red)}
+  .ed .date{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--navy-deep)}
+  .ed .tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--red);padding:2px 8px;border-radius:20px;margin-left:6px}
+  .ed .tallies{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:.02em;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .ed .tallies .open{color:var(--navy);font-weight:600;border-bottom:1px dotted var(--line-strong)}
+  .ed .pip{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .pip.crit{background:var(--red)} .pip.watch{background:var(--amber)} .pip.fyi{background:var(--slate)}
+
+  footer{padding:24px 0 60px;border-top:1px solid var(--line)}
+  footer .colophon{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+  footer .colophon .mark{color:var(--red)}
+  @media(max-width:560px){.ed a.row{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">▰</span> Anadolu Group Holding · Technology Architecture</div>
+      <div class="issue"><a href="index.html" style="color:var(--navy);text-decoration:none">← Latest issue</a></div>
+    </div>
+    <h1 class="title">Past <span class="em">Editions</span></h1>
+    <div class="sub">Daily Sector Intelligence Digest · archive of every issue · <a href="https://digest.blackbox.icu/">digest.blackbox.icu</a></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="lede">
+    <div class="kicker">All issues <span class="ct" id="count">5 editions</span></div>
+  </div>
+
+  <ul class="editions" id="editions">
+    <li class="ed latest">
+      <a class="row" href="digest-2026-06-11.html">
+        <span class="left"><span class="iss">#5</span><span class="date">Thursday, 11 June 2026 <span class="tag">Latest</span></span></span>
+        <span class="tallies"><span>14 items</span><span><span class="pip crit"></span>2 crit</span><span><span class="pip watch"></span>8 watch</span><span><span class="pip fyi"></span>4 fyi</span><span class="open">Open ↗</span></span>
+      </a>
+    </li>
+    <li class="ed">
+      <a class="row" href="digest-2026-06-10.html">
+        <span class="left"><span class="iss">#4</span><span class="date">Wednesday, 10 June 2026</span></span>
+        <span class="tallies"><span>21 items</span><span><span class="pip crit"></span>3 crit</span><span><span class="pip watch"></span>12 watch</span><span><span class="pip fyi"></span>6 fyi</span><span class="open">Open ↗</span></span>
+      </a>
+    </li>
+    <li class="ed">
+      <a class="row" href="digest-2026-06-09.html">
+        <span class="left"><span class="iss">#3</span><span class="date">Tuesday, 9 June 2026</span></span>
+        <span class="tallies"><span>23 items</span><span><span class="pip crit"></span>3 crit</span><span><span class="pip watch"></span>11 watch</span><span><span class="pip fyi"></span>9 fyi</span><span class="open">Open ↗</span></span>
+      </a>
+    </li>
+    <li class="ed">
+      <a class="row" href="digest-2026-06-08.html">
+        <span class="left"><span class="iss">#2</span><span class="date">Monday, 8 June 2026</span></span>
+        <span class="tallies"><span>19 items</span><span><span class="pip crit"></span>3 crit</span><span><span class="pip watch"></span>9 watch</span><span><span class="pip fyi"></span>7 fyi</span><span class="open">Open ↗</span></span>
+      </a>
+    </li>
+    <li class="ed">
+      <a class="row" href="digest-2026-06-07.html">
+        <span class="left"><span class="iss">#1</span><span class="date">Sunday, 7 June 2026 <span class="tag" style="background:var(--navy)">First issue</span></span></span>
+        <span class="tallies"><span>Inaugural edition</span><span class="open">Open ↗</span></span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    <div class="colophon"><span class="mark">▰</span> AG Group Holding · Technology Architecture · Daily Sector Intelligence Digest · Archive</div>
+  </footer>
+</div>
+
+</body>
+</html>
