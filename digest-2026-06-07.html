@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 7 June 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3352;
+    --accent: #4f7cff;
+    --accent2: #7c5fff;
+    --green: #22d3a5;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-bg: #1e2640;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #111827 0%, #1a1d27 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 40px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-left {}
+  .header-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .header-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .header-meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .header-meta span { color: var(--green); font-weight: 600; }
+  .header-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .nav-pill {
+    padding: 5px 12px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .nav-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* LAYOUT */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 40px;
+  }
+
+  /* THROUGH-LINE BANNER */
+  .throughline {
+    background: linear-gradient(135deg, rgba(79,124,255,0.12) 0%, rgba(124,95,255,0.08) 100%);
+    border: 1px solid rgba(79,124,255,0.3);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .throughline-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .throughline-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.55;
+  }
+  .throughline-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* SECTIONS */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .section-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--tag-bg);
+    padding: 2px 9px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  /* CARDS */
+  .cards { display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: rgba(79,124,255,0.4); }
+  .card-headline {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .card-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  .card-source:hover { text-decoration: underline; }
+  .card-source-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .ag-note {
+    background: rgba(34,211,165,0.07);
+    border: 1px solid rgba(34,211,165,0.2);
+    border-radius: 7px;
+    padding: 9px 13px;
+    font-size: 12.5px;
+    color: #c7f7ec;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  .ag-note-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 3px;
+  }
+
+  /* FLAG CARDS */
+  .card.flag-high { border-left: 3px solid var(--red); }
+  .card.flag-medium { border-left: 3px solid var(--amber); }
+  .card.flag-low { border-left: 3px solid var(--border); }
+
+  /* REGULATION TABLE */
+  .reg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .reg-table th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+  }
+  .reg-table td {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .reg-table tr:hover td { background: rgba(79,124,255,0.04); }
+  .old-date { color: var(--red); text-decoration: line-through; font-size: 12px; }
+  .new-date { color: var(--green); font-weight: 600; }
+  .live-badge {
+    background: rgba(239,68,68,0.15);
+    border: 1px solid rgba(239,68,68,0.4);
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 40px;
+  }
+  .footer a { color: var(--muted); }
+
+  /* SECTION COLORS */
+  .icon-tech { background: rgba(79,124,255,0.15); }
+  .icon-cloud { background: rgba(56,189,248,0.15); }
+  .icon-dc { background: rgba(245,158,11,0.15); }
+  .icon-net { background: rgba(168,85,247,0.15); }
+  .icon-ai { background: rgba(34,211,165,0.15); }
+  .icon-gov { background: rgba(239,68,68,0.15); }
+
+  @media (max-width: 700px) {
+    .header { padding: 20px; }
+    .container { padding: 20px; }
+    .header-right { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-label">AG Group Holding · Technology Architecture</div>
+    <div class="header-title">Daily Sector Intelligence Digest</div>
+    <div class="header-meta">Sunday, 7 June 2026 &nbsp;·&nbsp; <span>19 items</span> &nbsp;·&nbsp; 6 domains &nbsp;·&nbsp; First issue</div>
+  </div>
+  <div class="header-right">
+    <a class="nav-pill" href="#tech">Tech &amp; Sector</a>
+    <a class="nav-pill" href="#cloud">Cloud</a>
+    <a class="nav-pill" href="#dc">Data Centers</a>
+    <a class="nav-pill" href="#net">Networking</a>
+    <a class="nav-pill" href="#ai">AI &amp; Agents</a>
+    <a class="nav-pill" href="#gov">Governance</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- THROUGH-LINE -->
+  <div class="throughline">
+    <div class="throughline-label">⚡ Pattern of the Day</div>
+    <div class="throughline-text">The governance gap is the real constraint — not the technology.</div>
+    <div class="throughline-sub">Across every domain today: agents exist but can't be governed at scale; cloud is multicloud-native but agent traffic has no observability; EU AI Act deadlines softened but the clock hasn't stopped; data centers have power and land but not regulatory clarity to use it freely; 6G promises sub-millisecond latency nobody can yet monetise. For AG, this is a single architectural challenge: <strong style="color:#fff">build the agent and AI governance plane before the agents outrun it.</strong></div>
+  </div>
+
+  <!-- 1. TECH & SECTOR -->
+  <div class="section" id="tech">
+    <div class="section-header">
+      <div class="section-icon icon-tech">🔬</div>
+      <div class="section-title">1 · Technology &amp; Sector Shifts</div>
+      <div class="section-count">3 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-medium">
+        <div class="card-headline">Gartner: AI coding agents market entering competitive realignment — 40% of enterprise apps to embed task-specific agents by end-2026 (up from &lt;5%)</div>
+        <a class="card-source" href="https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-says-the-market-for-enterprise-ai-coding-agents-is-entering-a-new-phase-of-expansion-and-competitive-realignment" target="_blank"><span class="card-source-dot"></span>Gartner · 20 May 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Agentic coding will reshape DevOps and platform engineering resourcing at speed. AG's software delivery model should be benchmarked against this 40%-embedded-agents target now.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Geopatriation becomes mainstream cloud strategy as geopolitical risk rises — organisations actively migrating workloads to sovereign or regional clouds</div>
+        <a class="card-source" href="https://www.gartner.com/en/articles/top-technology-trends-2026" target="_blank"><span class="card-source-dot"></span>Gartner · 2026 Strategic Trends</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Workload migration to sovereign/regional clouds is now a strategic risk management play, not a compliance checkbox — directly relevant to AG's infrastructure roadmap.
+        </div>
+      </div>
+
+      <div class="card flag-low">
+        <div class="card-headline">Only 48% of enterprise digital initiatives meet targets; 94% of CIOs expect major disruption within 24 months</div>
+        <a class="card-source" href="https://www.ciodive.com/news/4-cio-trends-2026/809042/" target="_blank"><span class="card-source-dot"></span>CIO Dive · 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Validates the need for tighter integration governance and architecture guardrails before scaling AI-driven transformation initiatives across the group.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. CLOUD -->
+  <div class="section" id="cloud">
+    <div class="section-header">
+      <div class="section-icon icon-cloud">☁️</div>
+      <div class="section-title">2 · Cloud</div>
+      <div class="section-count">4 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-high">
+        <div class="card-headline">Google launches "Agentic Data Cloud" + Cross-Cloud Lakehouse (Iceberg REST Catalog) — AI agents can traverse data across AWS, Azure and GCP seamlessly</div>
+        <a class="card-source" href="https://www.ciodive.com/news/google-launches-agentic-data-cloud/818235/" target="_blank"><span class="card-source-dot"></span>CIO Dive &amp; Google Cloud Blog · Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Cross-Cloud Lakehouse is a critical architectural primitive if AG operates a multi-cloud data estate — agents can now query across providers without custom integration plumbing.
+        </div>
+      </div>
+
+      <div class="card flag-high">
+        <div class="card-headline">AWS + Google Cloud multicloud network link in preview; Azure to follow — first vendor-native multicloud networking product</div>
+        <a class="card-source" href="https://www.ciodive.com/news/aws-google-link-cloud-products/806705/" target="_blank"><span class="card-source-dot"></span>CIO Dive · 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Reduces the custom integration burden AG's network and cloud teams currently carry for cross-cloud connectivity. Evaluate when Azure joins.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Gemini on Blackwell B200/B300 GPUs now available for on-premises sovereign deployment — air-gapped options included</div>
+        <a class="card-source" href="https://www.bain.com/insights/google_cloud_next_2026_the_agentic_enterprise_control_plane_comes_into_view/" target="_blank"><span class="card-source-dot"></span>Bain &amp; Co / Google Cloud Next '26</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Sovereign AI on-prem is now a concrete, not theoretical, deployment option. Removes the last blocker for AG's high-security/data-residency use cases.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Google Cloud introduces Agent Gateway (cross-cloud agentic traffic control) and Confidential External Key Management at Next '26</div>
+        <a class="card-source" href="https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up" target="_blank"><span class="card-source-dot"></span>Google Cloud Blog · Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Agent Gateway is a new network control plane class for AI agent traffic. AG's network architecture team should evaluate this alongside Cloud Network Insights as part of the integration layer design.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. DATA CENTERS -->
+  <div class="section" id="dc">
+    <div class="section-header">
+      <div class="section-icon icon-dc">🏗️</div>
+      <div class="section-title">3 · Infrastructure &amp; Data Centers</div>
+      <div class="section-count">5 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-low">
+        <div class="card-headline">QTS announces $10B data center campus (7 buildings, 902 acres) in Van Wert, Ohio — 200 FTE + 1,500 construction jobs; community event June 11</div>
+        <a class="card-source" href="https://www.datacenterdynamics.com/en/news/qts-behind-van-wert-ohio-mega-site-acquisition-announces-10-billion-data-center-campus/" target="_blank"><span class="card-source-dot"></span>Data Center Dynamics · Jun 2026</a>
+      </div>
+
+      <div class="card flag-low">
+        <div class="card-headline">OpenAI Stargate "Freebird" Texas campus first phase: 548,950 sq ft — physical footprint of next-gen AI capacity is materialising rapidly</div>
+        <a class="card-source" href="https://www.datacenterdynamics.com/en/news/openai-stargates-milam-texas-freebird-data-center-to-span-548950-sq-ft-in-first-phase/" target="_blank"><span class="card-source-dot"></span>Data Center Dynamics · Jun 2026</a>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">US Senator proposes bill allowing AI data centers to bypass federal power rules via off-grid energy development</div>
+        <a class="card-source" href="https://www.datacenterdynamics.com/en/news/us-senator-proposes-bill-permitting-ai-data-centers-to-bypass-federal-power-rules-via-off-grid-energy-infrastructure-development/" target="_blank"><span class="card-source-dot"></span>Data Center Dynamics · Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Regulatory carve-outs for power-hungry AI workloads signal a new energy-sovereignty dimension in data center siting. Watch for EU equivalents as European AI infrastructure demand rises.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">IEA: Global data center power consumption on track for 1,050 TWh by end-2026 — GPU/AI workloads the primary driver</div>
+        <a class="card-source" href="https://www.datacenterdynamics.com/en/opinions/data-centers-the-ten-main-trends-for-2026/" target="_blank"><span class="card-source-dot"></span>Data Center Dynamics · 2026 Trend Report</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Energy cost and availability are becoming primary constraints on AI infrastructure scale. Factor into AG's cloud cost modelling and vendor negotiation strategy.
+        </div>
+      </div>
+
+      <div class="card flag-low">
+        <div class="card-headline">NREL publishes US data center geospatial infrastructure map — capacity planning and resiliency analysis reference</div>
+        <a class="card-source" href="https://www.datacenterdynamics.com/en/news/nrel-launches-us-data-center-infrastructure-map/" target="_blank"><span class="card-source-dot"></span>Data Center Dynamics · Jun 2026</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 4. NETWORKING -->
+  <div class="section" id="net">
+    <div class="section-header">
+      <div class="section-icon icon-net">🌐</div>
+      <div class="section-title">4 · Connectivity &amp; Networking</div>
+      <div class="section-count">3 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-medium">
+        <div class="card-headline">NGMN Alliance pleads with 3GPP: don't repeat 5G complexity mistakes with 6G — deliver full specs in a single Release 21 drop, not piecemeal</div>
+        <a class="card-source" href="https://www.theregister.com/networks/2026/06/03/dont-repeat-5g-mistakes-with-6g-plead-mobile-operators/" target="_blank"><span class="card-source-dot"></span>The Register · 3 Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          5G SA adoption gaps in Europe already create connectivity asymmetries for enterprise edge deployments. 6G standardisation fragmentation risk is now formally flagged by operators — enterprise edge strategies should not be built on 6G assumptions before 2030.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Europe's 5G Standalone stall risks falling structurally behind US and Asia — SA-grade latency for enterprise edge remains delayed</div>
+        <a class="card-source" href="https://www.theregister.com/2026/02/18/europe_falling_behind_5g/" target="_blank"><span class="card-source-dot"></span>The Register · Feb 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Any AG workload relying on mobile edge compute in European markets faces a longer wait for SA-grade latency guarantees than peer markets — plan accordingly in edge architecture.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Google Cloud Network Insights + Agent Gateway introduced — first-party observability for agentic traffic across cloud boundaries</div>
+        <a class="card-source" href="https://cloud.google.com/blog/topics/google-cloud-next/google-cloud-next-2026-wrap-up" target="_blank"><span class="card-source-dot"></span>Google Cloud Next '26</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Agent-to-agent traffic is a new and ungoverned network class in most enterprises. AG's network governance model must explicitly account for this — Agent Gateway is the first production tool to address it.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. AI & AGENTS -->
+  <div class="section" id="ai">
+    <div class="section-header">
+      <div class="section-icon icon-ai">🤖</div>
+      <div class="section-title">5 · AI &amp; Agentic Systems</div>
+      <div class="section-count">5 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-high">
+        <div class="card-headline">Microsoft launches Scout — first "Autopilot" always-on autonomous M365 agent, built on open-source OpenClaw with Entra identity + Purview compliance controls</div>
+        <a class="card-source" href="https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/02/introducing-microsoft-scout-your-always-on-personal-agent/" target="_blank"><span class="card-source-dot"></span>Microsoft 365 Blog · 2 Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Scout is the first enterprise-grade persistent autonomous agent with governance baked in — not bolted on. The OpenClaw + Entra + Purview architecture is the governance reference pattern AG should study. Requires: M365 Copilot + GitHub Copilot licence + Frontier enrolment.
+        </div>
+      </div>
+
+      <div class="card flag-high">
+        <div class="card-headline">The Register (5 Jun): Enterprises stuck in agentic pilot purgatory — &gt;50% report "agentic sprawl" despite governance frameworks, ROI unproven</div>
+        <a class="card-source" href="https://www.theregister.com/ai-and-ml/2026/06/05/agentic-ai-hype-races-ahead-as-enterprises-remain-stuck-in-pilot-mode/" target="_blank"><span class="card-source-dot"></span>The Register · 5 Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Agent inventory and runtime observability must be a Day 1 requirement, not a retrofit. AG should treat agentic governance infrastructure as a prerequisite to any production agent deployment, not a Phase 2 deliverable.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Forrester: Long-horizon agents (days/weeks) now exist in production — but stateful agent management, not orchestration, is the new architectural bottleneck</div>
+        <a class="card-source" href="https://www.theregister.com/ai-and-ml/2026/06/05/agentic-ai-hype-races-ahead-as-enterprises-remain-stuck-in-pilot-mode/" target="_blank"><span class="card-source-dot"></span>The Register / Forrester · Jun 2026</a>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Gartner: 40% of enterprise apps will embed task-specific AI agents by end-2026 — velocity of integration work sharply higher than roadmaps assumed 12 months ago</div>
+        <a class="card-source" href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank"><span class="card-source-dot"></span>Gartner · 2026</a>
+      </div>
+
+      <div class="card flag-high">
+        <div class="card-headline">Five Eyes intelligence alliance formally warns: agentic AI deployment pace is outrunning safety frameworks — too dangerous for rapid enterprise rollout</div>
+        <a class="card-source" href="https://www.theregister.com/2026/05/04/five_eyes_agentic_ai_recommendations/" target="_blank"><span class="card-source-dot"></span>The Register · 4 May 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Nation-state level signal that autonomous agent deployment pace is outrunning safety frameworks — directly relevant for AG's agentic governance policy and board-level risk posture.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 6. GOVERNANCE / REGULATION -->
+  <div class="section" id="gov">
+    <div class="section-header">
+      <div class="section-icon icon-gov">⚖️</div>
+      <div class="section-title">6 · Enterprise Architecture &amp; Governance / Regulation Watch</div>
+      <div class="section-count">4 items</div>
+    </div>
+    <div class="cards">
+
+      <div class="card flag-high">
+        <div class="card-headline">EU AI Act Omnibus (agreed 7 May 2026): high-risk deadlines deferred — but August 2, 2026 remains a live compliance date until formal publication (expected July)</div>
+        <a class="card-source" href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank"><span class="card-source-dot"></span>Council of the EU · 7 May 2026</a>
+
+        <table class="reg-table" style="margin-top:12px; margin-bottom:12px;">
+          <tr>
+            <th>Obligation</th>
+            <th>Original deadline</th>
+            <th>New deadline</th>
+          </tr>
+          <tr>
+            <td>Annex III HRAIS<br><small style="color:var(--muted)">recruitment, credit scoring, law enforcement</small></td>
+            <td><span class="old-date">2 Aug 2026</span><br><span class="live-badge">Still live until July</span></td>
+            <td><span class="new-date">2 Dec 2027</span><br><small style="color:var(--muted)">+16 months</small></td>
+          </tr>
+          <tr>
+            <td>Annex I HRAIS<br><small style="color:var(--muted)">medical devices, radio equipment, lifts</small></td>
+            <td><span class="old-date">2 Aug 2027</span></td>
+            <td><span class="new-date">2 Aug 2028</span><br><small style="color:var(--muted)">+12 months</small></td>
+          </tr>
+          <tr>
+            <td>New prohibition: AI-generated NCII + CSAM</td>
+            <td>—</td>
+            <td><span class="new-date">2 Dec 2026</span></td>
+          </tr>
+        </table>
+
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          Do NOT stand down August compliance preparations. The AI Office's centralised oversight of GPAI models reduces governance fragmentation risk for AG's model strategy. SME/SMC simplified compliance pathway may apply to AG subsidiaries — verify scope.
+        </div>
+      </div>
+
+      <div class="card flag-high">
+        <div class="card-headline">EU Commission published high-risk AI system guidelines 3 months late — compressing implementation window for Annex III systems already in operation</div>
+        <a class="card-source" href="https://www.gblock.app/articles/eu-commission-high-risk-ai-guidelines-may-2026" target="_blank"><span class="card-source-dot"></span>EU Commission / gblock.app tracker · May 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          AG may already be operating Annex III systems (HR screening, fraud scoring, credit-adjacent tools). Late guidance compresses the compliance window further — prioritise gap assessment now.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">ISO/IEC 42001 AI governance frameworks being deployed as the operating scaffold for EU AI Act compliance across enterprises</div>
+        <a class="card-source" href="https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide" target="_blank"><span class="card-source-dot"></span>SureCloud · June 2026 Compliance Guide</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          ISO 42001 is emerging as the enterprise operating system for AI Act compliance — model inventories, risk assessments, monitoring pipelines, cross-functional governance committees. AG's EA governance function should assess current alignment gap urgently.
+        </div>
+      </div>
+
+      <div class="card flag-medium">
+        <div class="card-headline">Microsoft's 2026 EA licensing transition missing critical architecture from original design — governance coverage gaps identified by original architect</div>
+        <a class="card-source" href="https://www.theregister.com/oses/2026/06/01/i-designed-microsofts-5b-ea-channel-architecture-in-2001-the-2026-transition-is-missing-what-made-it-work/" target="_blank"><span class="card-source-dot"></span>The Register · 1 Jun 2026</a>
+        <div class="ag-note">
+          <div class="ag-note-label">Why it matters for AG</div>
+          If AG holds a Microsoft EA, the 2026 transition terms may have structural governance coverage gaps. Validate with Microsoft account teams before the transition completes.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Sources: The Register · Data Center Dynamics · CIO Dive · Gartner · World Economic Forum · Google Cloud Blog · Microsoft 365 Blog · Council of the EU · Gibson Dunn · DLA Piper · Bain &amp; Company · SureCloud &nbsp;·&nbsp;
+  <a href="digest-2026-06-07.md">View markdown version</a>
+</div>
+
+</body>
+</html>
