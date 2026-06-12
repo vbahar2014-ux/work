@@ -176,6 +176,7 @@
   .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
 
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
 
   /* ---------- LEGEND + FOOTER ---------- */
   .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
@@ -227,11 +228,11 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#tech">Tech &amp; Sector <span class="ct">2</span></a>
-    <a href="#cloud">Cloud <span class="ct">2</span></a>
-    <a href="#dc">Data Centers <span class="ct">2</span></a>
-    <a href="#net">Networking <span class="ct">2</span></a>
-    <a href="#ai">AI &amp; Agents <span class="ct">3</span></a>
-    <a href="#gov">Governance <span class="ct">3</span></a>
+    <a href="#ai">AI &amp; Workforce <span class="ct">4</span></a>
+    <a href="#cloud">Cloud &amp; Infra <span class="ct">3</span></a>
+    <a href="#net">Connectivity <span class="ct">2</span></a>
+    <a href="#ot">Industrial / OT <span class="ct">0</span></a>
+    <a href="#gov">Gov &amp; Cyber <span class="ct">3</span></a>
     <span class="nav-sep"></span>
     <a href="archive.html">Past editions ↗</a>
     <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
@@ -302,7 +303,7 @@
         <div class="act">
           <div class="num">01</div>
           <div>
-            <span class="domain-tag">AI &amp; Agentic Systems</span>
+            <span class="domain-tag">AI &amp; Workforce Transformation</span>
             <h4>Agentic deployment goes population-scale (KPMG 276k Agent 365) with governance as the product — and Work IQ APIs GA 16 Jun</h4>
             <div class="sug"><b>Suggested action · </b> Pick Group's agent control-plane + identity standard deliberately before the next production rollout — that choice sets Group's identity, audit and lock-in model.</div>
             <div class="meta-row"><span>Owner: <b>Sovereign AI / Enterprise Architecture</b></span><span>By when: <b>before next agent rollout</b></span></div>
@@ -311,7 +312,7 @@
         <div class="act">
           <div class="num">02</div>
           <div>
-            <span class="domain-tag">Governance / Regulation</span>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory</span>
             <h4>EU AI Act GPAI + Article 50 marking live 2 Aug 2026 (~51 days); Digital Omnibus deferral still not adopted</h4>
             <div class="sug"><b>Suggested action · </b> Keep the August readiness programme fully funded; inventory AI-generated customer content for machine-readable marking; do not rephase Annex III work on the unlegislated Dec-2027 deferral.</div>
             <div class="meta-row"><span>Owner: <b>AI Governance</b></span><span>By when: <b>2 Aug 2026</b></span></div>
@@ -327,11 +328,11 @@
       <span class="flabel">Domain</span>
       <span class="chip dom on" data-dom="all">All</span>
       <span class="chip dom" data-dom="tech">Tech</span>
-      <span class="chip dom" data-dom="cloud">Cloud</span>
-      <span class="chip dom" data-dom="dc">DC</span>
-      <span class="chip dom" data-dom="net">Net</span>
-      <span class="chip dom" data-dom="ai">AI</span>
-      <span class="chip dom" data-dom="gov">Gov</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Workforce</span>
+      <span class="chip dom" data-dom="cloud">Cloud &amp; Infra</span>
+      <span class="chip dom" data-dom="net">Connectivity</span>
+      <span class="chip dom" data-dom="ot">Industrial / OT</span>
+      <span class="chip dom" data-dom="gov">Gov &amp; Cyber</span>
     </div>
     <div class="fgroup">
       <span class="flabel">Severity</span>
@@ -369,26 +370,26 @@
 
 <script>
 const DOMAINS = [
-  {id:"tech", num:"1", title:"Technology & Sector Shifts"},
-  {id:"cloud",num:"2", title:"Cloud"},
-  {id:"dc",   num:"3", title:"Infrastructure & Data Centers"},
-  {id:"net",  num:"4", title:"Connectivity & Networking"},
-  {id:"ai",   num:"5", title:"AI & Agentic Systems"},
-  {id:"gov",  num:"6", title:"Enterprise Architecture & Governance"},
+  {id:"tech",  num:"1", title:"Technology & Sector Shifts"},
+  {id:"ai",    num:"2", title:"AI & Workforce Transformation"},
+  {id:"cloud", num:"3", title:"Cloud & Digital Infrastructure"},
+  {id:"net",   num:"4", title:"Enterprise Connectivity"},
+  {id:"ot",    num:"5", title:"Industrial Technologies & OT/IoT"},
+  {id:"gov",   num:"6", title:"Governance, Cyber & Regulatory Watch"},
 ];
 
 const ITEMS = [
   // TECH
-  {dom:"tech",sev:"watch",title:"Population-scale agentic deployment becomes a pattern: KPMG + Microsoft roll out Agent 365 + M365 Copilot to 276,000+ staff across 138 countries (9 Jun)",src:"Digital Applied",url:"https://www.digitalapplied.com/blog/kpmg-microsoft-agent-365-deployment-2026-enterprise-governance-analysis",why:"Second named 250k+ agent deployment in a week (after NHS's ~505k). The buying decision has shifted from the agent to the control plane that registers, identifies and audits it — Group should decide its agent-governance posture before the rollout, not after."},
+  {dom:"ai",sev:"watch",title:"Population-scale agentic deployment becomes a pattern: KPMG + Microsoft roll out Agent 365 + M365 Copilot to 276,000+ staff across 138 countries (9 Jun)",src:"Digital Applied",url:"https://www.digitalapplied.com/blog/kpmg-microsoft-agent-365-deployment-2026-enterprise-governance-analysis",why:"Second named 250k+ agent deployment in a week (after NHS's ~505k). The buying decision has shifted from the agent to the control plane that registers, identifies and audits it — Group should decide its agent-governance posture before the rollout, not after."},
   {dom:"tech",sev:"watch",title:"Europe's cloud-sovereignty exodus moves from sentiment to migration; Kyndryl survey: 83% say sovereignty rules grew more important, 65% already changed cloud strategy",src:"Windows News · SiliconANGLE",url:"https://windowsnews.ai/article/europes-tech-sovereignty-shift-from-us-big-tech-dependence-to-cloud-breakups.423946",why:"<span class='tag-fact'>Fact</span> A clear majority of enterprises have already acted on sovereignty. <span class='tag-assum'>Assumption</span> Group's sovereign/on-prem optionality is now the mainstream hedge, not a contrarian one — keep EU-resident landing-zone and open-source exit paths live and budgeted."},
 
   // CLOUD
   {dom:"cloud",sev:"watch",title:"Microsoft's enterprise “context layer” hardens into product: Work IQ developer APIs reach GA on 16 June 2026; Fabric IQ now GA",src:"Windows Forum · Build 2026",url:"https://windowsforum.com/threads/build-2026-microsofts-agent-control-plane-context-governance-and-windows-runtime.425206/",why:"Cloud platforms are racing to own the context + governance layer beneath agents, not just the model. Whichever context plane Group standardises on quietly sets its agent identity, memory and audit model — decide deliberately."},
-  {dom:"cloud",sev:"fyi",title:"Sovereign-cloud economics get sharper numbers: Gartner sees $80B sovereign-IaaS spend in 2026 (+35.6%); private cloud 40–50% lower TCO, sovereign premium 10–30%",src:"Gartner · Broadcom",url:"https://www.gartner.com/en/newsroom/press-releases/2026-02-09-gartner-says-worldwide-sovereign-cloud-iaas-spending-will-total-us-dollars-80-billion-in-2026",why:"Sovereignty buys control at a quantified premium, while steady-state private cloud can be cheaper than public. Group's workload-placement decision is now a defensible TCO calculation, not a belief."},
+  {dom:"tech",sev:"fyi",title:"Sovereign-cloud economics get sharper numbers: Gartner sees $80B sovereign-IaaS spend in 2026 (+35.6%); private cloud 40–50% lower TCO, sovereign premium 10–30%",src:"Gartner · Broadcom",url:"https://www.gartner.com/en/newsroom/press-releases/2026-02-09-gartner-says-worldwide-sovereign-cloud-iaas-spending-will-total-us-dollars-80-billion-in-2026",why:"Sovereignty buys control at a quantified premium, while steady-state private cloud can be cheaper than public. Group's workload-placement decision is now a defensible TCO calculation, not a belief."},
 
   // DC
-  {dom:"dc",sev:"watch",title:"The AI build-out goes global: Meta's first India campus — a 168 MW seawater-cooled, renewable-powered DC with Reliance at Jamnagar (11 Jun) + ~1 GW contracted renewables",src:"The AI Insider · 11 Jun 2026",url:"https://theaiinsider.tech/2026/06/11/meta-partners-with-reliance-industries-on-ai-data-center-in-india-in-first-local-infrastructure-bet/",why:"<span class='tag-fact'>Fact</span> India DC capacity is projected to grow from ~1.5 GW to 8+ GW by 2030, drawing every hyperscaler. <span class='tag-assum'>Assumption</span> The sovereign/regional-capacity story Group tracks in Europe is replicating across Asia — capacity is being sited to local power and data-residency, not just cost."},
-  {dom:"dc",sev:"fyi",title:"Data-center social licence tightens: a North Carolina House committee advances a bill to stop utilities/ratepayers absorbing AI-infra risk; Northern Virginia resistance grows",src:"Data Center Knowledge · Jun 2026",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-june-2026",why:"Permitting, grid-cost allocation and local opposition are becoming a scheduling and siting risk, not just a PR one. Context for any Group capacity plan that assumes smooth interconnect and community acceptance."},
+  {dom:"cloud",sev:"watch",title:"The AI build-out goes global: Meta's first India campus — a 168 MW seawater-cooled, renewable-powered DC with Reliance at Jamnagar (11 Jun) + ~1 GW contracted renewables",src:"The AI Insider · 11 Jun 2026",url:"https://theaiinsider.tech/2026/06/11/meta-partners-with-reliance-industries-on-ai-data-center-in-india-in-first-local-infrastructure-bet/",why:"<span class='tag-fact'>Fact</span> India DC capacity is projected to grow from ~1.5 GW to 8+ GW by 2030, drawing every hyperscaler. <span class='tag-assum'>Assumption</span> The sovereign/regional-capacity story Group tracks in Europe is replicating across Asia — capacity is being sited to local power and data-residency, not just cost."},
+  {dom:"cloud",sev:"fyi",title:"Data-center social licence tightens: a North Carolina House committee advances a bill to stop utilities/ratepayers absorbing AI-infra risk; Northern Virginia resistance grows",src:"Data Center Knowledge · Jun 2026",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-june-2026",why:"Permitting, grid-cost allocation and local opposition are becoming a scheduling and siting risk, not just a PR one. Context for any Group capacity plan that assumes smooth interconnect and community acceptance."},
 
   // NET
   {dom:"net",sev:"watch",title:"“Ethernet wins AI” turns into shipping scale-up silicon: Arista 7060XE7 1.6T portfolio (9 Jun) — ~100 Tbps, 224G SerDes, liquid-cooled bus-bar-DC system, LPO cutting interconnect power ~60%",src:"SiliconANGLE · 9 Jun 2026",url:"https://siliconangle.com/2026/06/09/ai-supersystem-shift-aristas-1-6t-announcement-ethernet-inflection-point/",why:"Yesterday's “eventual winner” was a market-share argument; today it has a 1.6T product and reaches inside the rack (scale-up). Reinforces biasing Group AI-cluster reference designs toward open Ethernet — and the LPO/bus-bar-DC points line up with the 800V, liquid-cooled rack direction."},
@@ -439,7 +440,7 @@ function render(){
   DOMAINS.forEach(d=>{
     const items = ITEMS.filter(i=>i.dom===d.id);
     const sec = document.createElement('section');
-    sec.id = d.id; sec.dataset.section = d.id;
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = items.length ? "0" : "1";
     sec.innerHTML = `
       <div class="dom-head">
         <div class="dom-num">${d.num}</div>
@@ -448,7 +449,7 @@ function render(){
           <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
         </div>
       </div>
-      <div class="cards">${items.map(cardHTML).join('')}</div>`;
+      <div class="cards">${items.length ? items.map(cardHTML).join('') : '<div class="empty-dom">No qualifying items in the last 24–48h — this domain joins the rotation as stories land.</div>'}</div>`;
     grid.appendChild(sec);
   });
   applyFilters();
@@ -468,7 +469,9 @@ function applyFilters(){
       c.style.display = vis?'':'none';
       if(vis){shown++;anyVisible=true;}
     });
-    sec.style.display = shown? '' : 'none';
+    const isEmpty = sec.dataset.empty === "1";
+    const okEmpty = isEmpty && (state.dom==="all" || state.dom===sec.dataset.section) && !state.actionOnly && state.sev.size>0;
+    sec.style.display = (shown || okEmpty) ? '' : 'none';
     const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
   });
   document.getElementById('empty').style.display = anyVisible?'none':'block';
