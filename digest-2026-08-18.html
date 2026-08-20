@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 18 August 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
+    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  /* ---------- HERO (pattern + diff) ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- ACTION REQUIRED ---------- */
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  /* ---------- FILTER BAR ---------- */
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
+    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
+    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  /* compliance table inside gov card */
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
+    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+  .b-ok{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  /* ---------- LEGEND + FOOTER ---------- */
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
+      <div class="issue">ISSUE #45 · 6 DOMAINS · 11 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Tuesday, 18 August 2026</b></span>
+      <span>2 critical · 5 watch · 4 fyi</span>
+      <span>~7 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#tech">Tech &amp; Sector <span class="ct">2</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">2</span></a>
+    <a href="#cloud">Cloud &amp; Infra <span class="ct">4</span></a>
+    <a href="#net">Connectivity <span class="ct">1</span></a>
+    <a href="#ot">Industrial / OT <span class="ct">0</span></a>
+    <a href="#gov">Gov &amp; Reg <span class="ct">2</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions ↗</a>
+    <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO: PATTERN + DIFF -->
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">⚡ Pattern of the Day</div>
+      <div class="ph">Agent governance stops being a bolt-on and gets absorbed into the <span class="teeth">platform layer.</span></div>
+      <p>Last cycle the agent stack's three missing pieces arrived as separate products — identity from a security vendor (Cequence), a settlement rail from a network (Cloudflare), a power mandate from a regulator (FERC). This cycle the identity piece moves <em>inside</em> the platform: Google's <strong>Gemini Enterprise Agent Platform</strong> reaches GA with dedicated <strong>Agent Identity</strong> credentials, least-privilege scoping, multi-day state and full operation logging — and <strong>Gemini Spark</strong> begins operating the desktop version of Chrome under logged-in sessions.</p>
+      <p>So the identity/audit primitive AG has been weighing as a <em>buy</em> or a <em>build</em> is now also a <em>default of the cloud AG already runs on</em> — convenient and dangerous in the same breath, because platform-native identity lowers the effort to govern agents but raises the cost of leaving. Around it, <strong>regulation</strong> is operational (EU AI Act enforcement confirmed ~16 days in; the Code-of-Practice presumption turns signatory status into a checkable conformity signal), and <strong>power</strong> stayed the binding constraint as the gap widened — US data-center demand ran 23→42 GW, pushing regional mega-builds (AWS's $48B India bet) and novel siting (floating data centers, Batam, NEC-asset roll-ups).</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        Two moves this cycle: (1) re-scope the agent control-plane decision to include <em>platform-native</em> identity (Google Agent Identity) as a third option alongside Cequence (buy) and build — and weigh the lock-in explicitly — before the next production rollout; and (2) confirm which of AG's GPAI suppliers are Code-of-Practice signatories and record it as a conformity factor in vendor governance while operating GPAI + Article 50 in production.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>🔄 What's changed since yesterday</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Cequence Personas (a buy option)</span><span class="arrow">→</span><span class="st new">agent identity ships in a GA hyperscaler</span></div>
+          <div class="diff-topic">Agent control plane</div>
+          <div class="diff-detail">Google's GA Gemini Enterprise Agent Platform bakes in dedicated Agent Identity credentials, least-privilege scoping, multi-day state and full operation logging. The identity primitive is now also a platform default — adding a third, platform-native option to AG's buy-vs-build call, with a lock-in question attached.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Gemini Automation announced (12 Aug preview)</span><span class="arrow">→</span><span class="st new">Gemini Enterprise GA + Spark drives Chrome</span></div>
+          <div class="diff-topic">Interaction layer</div>
+          <div class="diff-detail">The agent-driven navigation previewed on 12 Aug is now shipping: the platform is GA and Gemini Spark operates the desktop version of Chrome with logged-in accounts and saved passwords. A browser-operating, credential-bearing agent is real.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">AI Office supervising, ~11 days</span><span class="arrow">→</span><span class="st new">enforcement confirmed, ~16 days; CoP presumption clarified</span></div>
+          <div class="diff-topic">Regulation — EU AI Act</div>
+          <div class="diff-detail">Law firms confirm the Chapter V enforcement phase has begun; the GPAI Code of Practice (26 signatories) gives a presumption of conformity that softens fine calculations but does not block enforcement. Vendor conformity posture becomes a diligenceable fact.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Adtran ships an operator agent fabric (MCP)</span><span class="arrow">→</span><span class="st new">Rakuten: full AI-native fabric, ~40% OpEx cut</span></div>
+          <div class="diff-topic">Networking</div>
+          <div class="diff-detail">Rakuten Symphony reports its entire network fabric now runs on a fully AI-native framework, cutting network OpEx ~40% via automated resource allocation, energy management and root-cause analysis. Vendor pattern → operator proof point with a hard number.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">FERC 60-day mandate + Energy Vault off-grid</span><span class="arrow">→</span><span class="st new">AWS $48B India + floating/off-site capacity</span></div>
+          <div class="diff-topic">Data centres / power</div>
+          <div class="diff-detail">The speed-to-power gap widened (US DC demand 23→42 GW); the workaround market broadened from off-grid generation to regional mega-builds (AWS $48B India, $21B AI infra) and novel siting (Samsung floating DCs, DayOne's 360 MW Batam, DigitalBridge's NEC-asset roll-up).</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">single-assistant workflows</span><span class="arrow">→</span><span class="st new">multi-agent architectures the default</span></div>
+          <div class="diff-topic">Enterprise design (new)</div>
+          <div class="diff-detail">The dominant August shift is enterprises deploying orchestrated networks of specialised agents rather than one assistant — governance, identity and audit now have to cover fleets of interacting agents, not one model per task.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION REQUIRED -->
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required Today</div>
+      <div class="action-head">
+        <h2>Two items crossed from awareness into decision</h2>
+        <span class="action-sub">suggested actions — assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">AI &amp; Agentic Systems</span>
+            <h4>Agent identity ships natively inside a hyperscaler — Google's GA Gemini Enterprise Agent Platform gives every agent a dedicated Agent Identity credential, least-privilege scoping, multi-day state and full operation logging, adding a platform-native option to AG's buy (Cequence) vs build control-plane decision</h4>
+            <div class="sug"><b>Suggested action · </b> Re-scope AG's agent control-plane decision to weigh three options — platform-native identity (Google Agent Identity), buy (Cequence personas), and build — and price the lock-in of platform-native identity explicitly; lock AG's portable agent identity/audit standard before the next production agent rollout, and extend it to browser-operating and NetOps agents.</div>
+            <div class="meta-row"><span>Owner: <b>Sovereign AI / Enterprise Architecture</b></span><span>By when: <b>before next agent rollout (≤4 weeks)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Governance &amp; Regulation Watch</span>
+            <h4>EU AI Act — the enforcement phase is confirmed and running (~16 days in): the AI Office is exercising Chapter V powers over GPAI (fines up to €15M / 3% turnover); the GPAI Code of Practice (26 signatories) gives a presumption of conformity that softens but does not block fines; Annex III deferred to 2 Dec 2027, Annex I to 2 Aug 2028 under Reg. (EU) 2026/1744</h4>
+            <div class="sug"><b>Suggested action · </b> Operate, don't prepare: confirm which of AG's GPAI suppliers are Code-of-Practice signatories and record it as a conformity factor in vendor governance; keep GPAI + Article 50 obligations running in production under active supervision; screen every AG system against the Art. 5 prohibitions; and cite Reg. (EU) 2026/1744 and the Chapter V enforcement powers in governance papers.</div>
+            <div class="meta-row"><span>Owner: <b>AI Governance / Enterprise Architecture (DPO)</b></span><span>By when: <b>next EA governance review (≤2 weeks)</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="tech">Tech</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
+      <span class="chip dom" data-dom="cloud">Cloud &amp; Infra</span>
+      <span class="chip dom" data-dom="net">Connectivity</span>
+      <span class="chip dom" data-dom="ot">Industrial / OT</span>
+      <span class="chip dom" data-dom="gov">Gov &amp; Reg</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+  <!-- LEGEND -->
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources ·</strong> Agentic.ai · AI Agents Store · Skycrumbs · Data Center Knowledge · iRecruit · Oracle AI &amp; Data Science Blog · AI Conference London · Marketing Tech News · Wilson Sonsini · artificialintelligenceact.eu · Gartner · SureCloud
+    </div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #45</div>
+  </footer>
+
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"tech",  num:"1", title:"Technology & Sector Shifts"},
+  {id:"ai",    num:"2", title:"AI & Agentic Systems"},
+  {id:"cloud", num:"3", title:"Cloud & Digital Infrastructure"},
+  {id:"net",   num:"4", title:"Connectivity & Networking"},
+  {id:"ot",    num:"5", title:"Industrial Technologies & OT/IoT"},
+  {id:"gov",   num:"6", title:"Governance, Cyber & Regulatory Watch"},
+];
+
+const ITEMS = [
+  // TECH
+  {dom:"tech",sev:"watch",title:"The agent interaction layer moves from announcement to GA — Google's Gemini Enterprise Agent Platform is now generally available, and Gemini Spark can drive the desktop version of Chrome using logged-in accounts and saved passwords to complete real tasks (booking property viewings, preparing flight searches)",src:"Agentic.ai · AI Agents Store",url:"https://agentic.ai/news",why:"<span class='tag-fact'>Fact</span> The interaction layer Google previewed on 12 Aug is now GA, and an agent can operate a logged-in browser session on the user's behalf. <span class='tag-assum'>Assumption</span> Treat the browser-operating agent as a new privileged actor on AG's estate — the same identity, session-scoping and audit controls AG requires of back-end agents now have to cover front-end, credential-bearing ones (see §2)."},
+  {dom:"tech",sev:"fyi",title:"Enterprises re-platform on multi-agent architectures — the dominant August shift is organisations deploying orchestrated networks of specialised agents rather than a single AI assistant, moving multi-agent orchestration from research pattern to default enterprise design",src:"Skycrumbs · Agentic.ai",url:"https://skycrumbs.com/blog/ai-agents-news-august-2026",why:"<span class='tag-assum'>Assumption</span> If AG's reference architecture assumes a single assistant per workflow, it is already a generation behind — plan governance, identity and audit for fleets of interacting agents (inter-agent authorisation, blast-radius limits) rather than for one model per task."},
+
+  // AI
+  {dom:"ai",sev:"crit",action:true,title:"Agent identity ships natively inside a hyperscaler — the GA Gemini Enterprise Agent Platform gives every agent a dedicated Agent Identity credential, least-privilege scoping, multi-day persistent state, and logs every operation; the identity/audit primitive AG has been evaluating as a control-plane buy (Cequence) or a build is now also a platform default",src:"Agentic.ai",url:"https://agentic.ai/news",why:"<span class='tag-fact'>Fact</span> Google now bakes agent identity, least-privilege scoping and full operation logging into a GA enterprise platform. <span class='tag-assum'>Assumption</span> This adds a third option — platform-native identity — to AG's buy-vs-build control-plane decision, and sharpens rather than settles it: platform-native identity is convenient but is also a lock-in vector, so decide AG's agent identity/audit standard deliberately and keep it portable across clouds."},
+  {dom:"ai",sev:"watch",title:"The governance gap widens as autonomy scales — reporting this cycle finds agents entering enterprise workflows faster than governance can keep up: ~30% of organisations have never tested for agentic-AI failure even as roughly one in three already use AI in critical resilience workflows, and “agent audit logs” (every action, tool call and decision path) are becoming a compliance requirement in regulated industries",src:"Marketing Tech News",url:"https://www.marketingtechnews.net/news/ai-agents-are-entering-enterprise-workflows-faster-than-governance-can-keep-up/",why:"<span class='tag-assum'>Assumption</span> Make an agent inventory, immutable audit trail and a tested agentic-failure runbook standing design-review gates now — the emerging “agent audit log as compliance artifact” pattern is exactly what AG will need to evidence under the AI Act's live regime (see §6)."},
+
+  // CLOUD / DC
+  {dom:"cloud",sev:"watch",title:"AWS commits $48B to India, with $21B earmarked for cloud and AI infrastructure across 2026–2030 and a Hyderabad expansion — the regional/sovereign-capacity build-out AG has tracked in Europe now extends at scale into South Asia, siting capacity to local power, demand and data-residency, not just cost",src:"Data Center Knowledge",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",why:"<span class='tag-fact'>Fact</span> AWS is placing $21B of cloud/AI capacity in-region in India through 2030. <span class='tag-assum'>Assumption</span> Regionalised hyperscale capacity strengthens AG's leverage to demand in-region landing zones and residency guarantees as table stakes — read every hyperscaler's regional build as a negotiating lever, not just a footprint update."},
+  {dom:"cloud",sev:"watch",title:"The speed-to-power gap keeps widening — US data-center electricity demand has climbed from ~23 GW (2023) to ~42 GW (2026), while facilities can be built in under three years but the power to run them takes 5–10+ years to deploy",src:"Data Center Knowledge · iRecruit",url:"https://www.irecruit.co/insights/data-center-power-and-energy-news-2026",why:"<span class='tag-assum'>Assumption</span> Power, not silicon or capital, remains the binding constraint on any AG capacity commitment — favour sites and providers that can evidence secured power and a clean interconnection queue, and price a multi-year power-lead-time into build/colo diligence."},
+  {dom:"cloud",sev:"fyi",title:"Off-site and off-grid capacity models multiply — Samsung Heavy Industries and Mousterian are advancing factory-built, moored floating data centers (50 MW/unit) for AI; DayOne and Australia's Firmus are developing a 360 MW campus on Indonesia's Batam Island near Singapore; and DigitalBridge formed Nippon Gateway Infrastructure from NEC colocation assets",src:"Data Center Knowledge",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",why:"<span class='tag-assum'>Assumption</span> Novel siting (floating, off-shore-adjacent, behind-the-meter) expands AG's longer-horizon capacity options but carries residency, resilience and regulatory-durability questions — treat these as watch-list optionality, not near-term commitments, for residency-sensitive workloads."},
+  {dom:"cloud",sev:"fyi",title:"Oracle deepens the model-serving layer — OCI Enterprise AI now supports H100 multi-node serving for imported models, letting customers deploy large models across multiple GPU nodes, and from 11 August became one of the first clouds to support NVIDIA Nemotron 3.5 Lightning",src:"Oracle — What's New in AI",url:"https://blogs.oracle.com/ai-and-datascience/whats-new-in-ai-august-2026",why:"<span class='tag-assum'>Assumption</span> Multi-node serving for imported models keeps AG's open-source / bring-your-own-model exit path viable at production scale — a useful counterweight to closed-platform lock-in, worth confirming against AG's sovereign-model roadmap."},
+
+  // NET
+  {dom:"net",sev:"watch",title:"AI-native network fabric ships at operator scale — Rakuten Symphony reports its entire network fabric now runs on a fully AI-native framework, cutting network OpEx by ~40% by automating resource allocation, energy management and root-cause analysis; the “agentic NetOps” Adtran productised last cycle now has an operator claiming a full-estate, in-production deployment",src:"AI Conference London",url:"https://aiconference.london/news/ai-in-telecom-from-5g-to-ai-native-networks-august-2026-20260801-12",why:"<span class='tag-fact'>Fact</span> Rakuten claims a fully AI-native network fabric in production with ~40% OpEx reduction. <span class='tag-assum'>Assumption</span> The proof point moves AI-native NetOps from “vendor pattern” to “operating benchmark” — hold AG's network-automation vendors and internal teams to the same identity/audit/FinOps standard as any other agent estate, and use the OpEx claim as the yardstick when scoping AG's own network-automation business case."},
+
+  // GOV
+  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — the enforcement phase is confirmed and running, now ~16 days in: since 2 Aug 2026 the Commission, through the AI Office, is exercising its Chapter V powers over GPAI providers (request documentation, run technical evaluations, demand risk-mitigation, restrict or withdraw a model, fines up to €15M / 3% turnover under Art. 101). Law firms confirm the enforcement phase has begun; the GPAI Code of Practice (26 signatories incl. Amazon, Anthropic, Google, IBM, Microsoft, OpenAI) gives a presumption of conformity that softens fine calculations but does not block enforcement. Under Reg. (EU) 2026/1744 Annex III is deferred to 2 Dec 2027 (Annex I to 2 Aug 2028); GPAI models placed before 2 Aug 2025 must comply by 2 Aug 2027; prohibited practices and the Art. 5 ban on AI “nudifiers”/NCII/CSAM remain in force",src:"Wilson Sonsini · artificialintelligenceact.eu",url:"https://www.wsgr.com/en/insights/eu-ai-act-enforcement-phase-begins.html"},
+  {dom:"gov",sev:"fyi",title:"Digital provenance + ISO/IEC 42001 stay the operating scaffold — digital provenance (SBOMs, watermarking) remains a first-order trust mechanism dovetailing with Article 50 marking, while ISO/IEC 42001 (model inventory, risk assessment, monitoring, governance committee) remains the management-system standard enterprises map both the live and deferred AI Act obligations onto",src:"Gartner · SureCloud",url:"https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide",why:"<span class='tag-assum'>Assumption</span> Benchmark AG's EA governance against ISO 42001 and adopt digital-provenance controls (SBOMs, content marking) so the now-live GPAI/Article 50 obligations, the emerging agent-audit-log requirement (§2), and the Annex III deferral all map onto one existing control framework rather than a bespoke one."},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    The enforcement phase is confirmed and running, ~16 days in. Since 2 August 2026 the Commission, through the AI Office, is exercising its Chapter V powers over GPAI providers — requesting documentation, running technical evaluations, demanding risk-mitigation, restricting or withdrawing models and issuing fines up to €15M / 3% turnover under Art. 101. Law firms confirm the enforcement phase has begun; the GPAI Code of Practice (published 10 Jul 2025, 26 signatories including Amazon, Anthropic, Google, IBM, Microsoft and OpenAI) gives signatories a presumption of conformity that softens fine calculations but does not block enforcement. Under Regulation (EU) 2026/1744 the high-risk Annex III deferral to 2 Dec 2027 (Annex I to 2 Aug 2028) is banked; GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope on an extraterritorial basis.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
+      <tr><td>Art. 5 ban (AI nudifiers / NCII / CSAM)</td><td>&mdash;</td><td>Added by Omnibus</td><td><span class="badge b-new">In force · new</span></td></tr>
+      <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Live · AI Office enforcing</td><td><span class="badge b-live">Live · ~16 days</span></td></tr>
+      <tr><td>GPAI Code of Practice (presumption of conformity)</td><td>10 Jul 2025</td><td>26 signatories · softens, not immune</td><td><span class="badge b-ok">Live</span></td></tr>
+      <tr><td>GPAI models placed before 2 Aug 2025</td><td>&mdash;</td><td>Compliant by 2 Aug 2027</td><td><span class="badge b-def">Grace period</span></td></tr>
+      <tr><td>Art. 50 &mdash; transparency / disclosure &amp; marking</td><td>2 Aug 2026</td><td>Live · phased for pre-existing</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred · law</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred · law</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> The AI Office is actively enforcing; Code-of-Practice signatory status is a real, checkable conformity signal; Annex III is deferred to 2 Dec 2027 and Annex I to 2 Aug 2028 under Reg. (EU) 2026/1744. &nbsp;<span class="tag-assum">Assumption</span> Operate, don't prepare: confirm which of AG's GPAI suppliers are Code-of-Practice signatories and record it in vendor governance as a conformity factor, keep GPAI + Article 50 obligations running in production under active supervision, screen every AG system against the Art. 5 prohibitions, and cite Reg. (EU) 2026/1744 and the Chapter V enforcement powers in governance-committee papers.
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = items.length ? "0" : "1";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.length ? items.map(cardHTML).join('') : '<div class="empty-dom">No qualifying items in the last 24–48h — this domain joins the rotation as stories land.</div>'}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    const isEmpty = sec.dataset.empty === "1";
+    const okEmpty = isEmpty && (state.dom==="all" || state.dom===sec.dataset.section) && !state.actionOnly && state.sev.size>0;
+    sec.style.display = (shown || okEmpty) ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+// domain chips
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+// severity chips (multi-toggle)
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+// stagger reveal for cards on load
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>

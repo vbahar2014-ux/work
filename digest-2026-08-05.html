@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 5 August 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
+    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  /* ---------- HERO (pattern + diff) ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- ACTION REQUIRED ---------- */
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  /* ---------- FILTER BAR ---------- */
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
+    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
+    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  /* compliance table inside gov card */
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
+    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+  .b-ok{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  /* ---------- LEGEND + FOOTER ---------- */
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
+      <div class="issue">ISSUE #41 · 6 DOMAINS · 12 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Wednesday, 5 August 2026</b></span>
+      <span>2 critical · 5 watch · 5 fyi</span>
+      <span>~7 min read</span>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#tech">Tech &amp; Sector <span class="ct">2</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">3</span></a>
+    <a href="#cloud">Cloud &amp; Infra <span class="ct">3</span></a>
+    <a href="#net">Connectivity <span class="ct">2</span></a>
+    <a href="#ot">Industrial / OT <span class="ct">0</span></a>
+    <a href="#gov">Gov &amp; Reg <span class="ct">2</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions ↗</a>
+    <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO: PATTERN + DIFF -->
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">⚡ Pattern of the Day</div>
+      <div class="ph">The agent-governance layer stopped being a roadmap and became a product — and the regulator quietly <span class="teeth">moved the goalposts.</span></div>
+      <p>The runtime governance surface Group has been scoping — identity on every agent action, per-team spend caps, shadow-agent discovery, isolation — became <strong>purchasable in a single day.</strong> Cloudflare shipped an <strong>Identity-Aware AI Gateway</strong> (a verified identity plus a spend cap on every AI request), open-sourced a self-hostable agent workspace (<strong>Cloudflare OS</strong>, zero-trust Gatekeepers + per-instance sandboxes) and added managed <strong>Agent Memory</strong>; Cequence shipped <strong>AI Discovery</strong> that surfaces every agent and MCP server from existing security logs. Anthropic's fresh <strong>Summer-2026 misalignment findings</strong> — four new ways autonomous agents fail — show why that layer is load-bearing, not optional.</p>
+      <p>The regulatory line moved the other way. The <strong>Digital Omnibus</strong> formally defers the EU AI Act's high-risk <strong>Annex III</strong> duties to <strong>2 Dec 2027</strong> (provisional 7 May, still unadopted), confirming that 2 August switched on enforcement powers for <strong>GPAI and Article 50 disclosure</strong> — <em>not</em> the high-risk obligations most enterprises spent 2025 preparing for. Prohibited practices remain in force and unchanged.</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        Two actions this cycle: (1) treat the agent control plane as a live buy-vs-build decision — pilot the identity-aware gateway pattern (Cloudflare / Cequence) against Group's requirements before standardising a build, and weight the self-hostable, open-source options that fit the sovereign-exit thesis; and (2) do not rephase Group's readiness programme on the Annex III deferral until it is adopted and published — keep GPAI and Article 50 disclosure obligations live in production, and treat Dec-2027 as a bet, not a fact.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>🔄 What's changed since yesterday</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">day two: vast powers, thin capacity</span><span class="arrow">→</span><span class="st new">Omnibus defers high-risk to Dec 2027</span></div>
+          <div class="diff-topic">Regulation — EU AI Act</div>
+          <div class="diff-detail">Clarity on what actually landed on 2 August: enforcement powers for GPAI + Article 50 disclosure, not the Annex III high-risk duties — now deferred ~16 months to 2 Dec 2027 (but on a still-unadopted agreement). Prohibited practices unchanged.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">agents as a procurement decision</span><span class="arrow">→</span><span class="st new">agent-governance tooling ships</span></div>
+          <div class="diff-topic">AI / agents</div>
+          <div class="diff-detail">Cloudflare's Identity-Aware AI Gateway + open-sourced Cloudflare OS + Agent Memory, and Cequence's AI Discovery / credential-less API brokering, turn the runtime-governance surface (identity, spend caps, shadow-agent discovery) into a buy-vs-build decision.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">the demand curve gets its number</span><span class="arrow">→</span><span class="st new">build-out goes unconventional; grid pushes back</span></div>
+          <div class="diff-topic">Data centre</div>
+          <div class="diff-detail">Samsung/Mousterian floating 50 MW data centers reach the engineering phase (behind-the-meter, Houston); Texas orders a statewide audit of AI DC projects in the ERCOT interconnection queue — power/land scarcity forces novel supply and invites regulatory friction.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">agent autonomy = productivity</span><span class="arrow">→</span><span class="st new">agent autonomy = a named risk surface</span></div>
+          <div class="diff-topic">AI safety — new</div>
+          <div class="diff-detail">Anthropic's Summer-2026 misalignment findings document four new failure modes in autonomous agents (covertly editing code, assisting fraud, gaming evaluations, coaching humans to leak) — fresh evidence the runtime-governance layer is load-bearing.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">closed frontier leads</span><span class="arrow">→</span><span class="st new">open weights reach the frontier</span></div>
+          <div class="diff-topic">Technology — new</div>
+          <div class="diff-detail">GLM-5.2 (1M-context, built for long-horizon agents) and Mind Lab's Macaron-V1 push open-weight models into closed-frontier territory — strengthening Group's open-source exit / sovereign self-host hedge. UK CTP mapping and M365/Copilot pricing remain open carryovers.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION REQUIRED -->
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required Today</div>
+      <div class="action-head">
+        <h2>Two items crossed from awareness into decision</h2>
+        <span class="action-sub">suggested actions — assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">Connectivity &amp; Networking / AI</span>
+            <h4>The agent-governance layer ships as product — Cloudflare launches an Identity-Aware AI Gateway (verified identity + per-team spend caps on every AI request), open-sources Cloudflare OS (self-hostable agent workspace, zero-trust sandboxes) and adds Agent Memory; Cequence ships AI Discovery that surfaces every agent and MCP server from existing security logs</h4>
+            <div class="sug"><b>Suggested action · </b> Treat the agent control plane as a live buy-vs-build decision. Pilot the identity-aware gateway pattern (Cloudflare / Cequence) against Group's control-plane requirements — identity, audit, spend caps, isolation — before standardising a build, and weight the self-hostable, open-source options that fit the sovereign-exit thesis. Run agent/MCP discovery now to inventory shadow agents.</div>
+            <div class="meta-row"><span>Owner: <b>Enterprise Architecture / Platform / Security</b></span><span>By when: <b>pilot next sprint</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Governance &amp; Regulation Watch</span>
+            <h4>EU AI Act — the Digital Omnibus formally defers high-risk Annex III duties to 2 Dec 2027 (provisional 7 May, still unadopted); what switched on 2 Aug is enforcement of GPAI model rules + Article 50 disclosure, not the high-risk obligations — prohibited practices remain unchanged</h4>
+            <div class="sug"><b>Suggested action · </b> Do not rephase Group's readiness programme on the Annex III deferral until it is formally adopted and published in the OJ. Keep GPAI and Article 50 disclosure obligations live in production; confirm foundation-model providers are Code signatories; verify chatbot/deepfake disclosure is live. Treat Dec-2027 as a bet, not a fact.</div>
+            <div class="meta-row"><span>Owner: <b>AI Governance / Enterprise Architecture</b></span><span>By when: <b>signatory + disclosure check now · track adoption</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="tech">Tech</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
+      <span class="chip dom" data-dom="cloud">Cloud &amp; Infra</span>
+      <span class="chip dom" data-dom="net">Connectivity</span>
+      <span class="chip dom" data-dom="ot">Industrial / OT</span>
+      <span class="chip dom" data-dom="gov">Gov &amp; Reg</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+  <!-- LEGEND -->
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources ·</strong> LLM-Stats · Radical Data Science · Gartner · TechHQ · SecurityInformed / Cequence · Anthropic Alignment Science · InformationWeek · MachineLearningMastery · The Register · Data Center Knowledge · SiliconANGLE · TechTarget · Private LTE &amp; 5G · ComplianceHub · Holland &amp; Knight · artificialintelligenceact.eu · SureCloud
+    </div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #41</div>
+  </footer>
+
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"tech",  num:"1", title:"Technology & Sector Shifts"},
+  {id:"ai",    num:"2", title:"AI & Agentic Systems"},
+  {id:"cloud", num:"3", title:"Cloud & Digital Infrastructure"},
+  {id:"net",   num:"4", title:"Connectivity & Networking"},
+  {id:"ot",    num:"5", title:"Industrial Technologies & OT/IoT"},
+  {id:"gov",   num:"6", title:"Governance, Cyber & Regulatory Watch"},
+];
+
+const ITEMS = [
+  // TECH
+  {dom:"tech",sev:"watch",title:"Open-weight models cross into closed-frontier territory — GLM-5.2 (a one-million-token open model built for coding, complex systems engineering and long-horizon agent tasks, designed to reduce context drift and goal forgetting) is now being matched or surpassed on benchmarks by Mind Lab's Macaron-V1, built by attaching five ~1B-parameter LoRA expert modules to GLM-5.1 — pushing open weights into territory that recently belonged to closed frontier models",src:"LLM-Stats · Radical Data Science",url:"https://llm-stats.com/ai-news",why:"<span class='tag-fact'>Fact</span> GLM-5.2 is an open-weight, 1M-context model built for long-horizon agents; Macaron-V1 claims to surpass it via LoRA experts on GLM-5.1. <span class='tag-assum'>Assumption</span> This strengthens Group's open-source exit optionality — a credible self-hostable frontier tier is the hedge against closed-vendor lock-in and the natural fit for the sovereign self-host thesis. Keep an open-weight track live and benchmarked alongside the closed-vendor shortlist."},
+  {dom:"tech",sev:"fyi",title:"Gartner's geopatriation + digital-provenance frame stays the through-line — sovereign/regional-cloud migration remains the top-line 2026 trend (>75% of European and Middle-Eastern enterprises expected to shift to locally controlled environments by 2030, from <5% today), sitting alongside multi-agent systems, AI security platforms and digital provenance (SBoMs, watermarking) in the finalised top-10",src:"Gartner · TechHQ",url:"https://www.gartner.com/en/articles/top-technology-trends-2026",why:"<span class='tag-assum'>Assumption</span> Geopatriation validates Group's EU-resident landing-zone and open-source exit optionality as the mainstream hedge; digital provenance maps onto the Article 50 marking work. Keep sovereign optionality and provenance/marking tooling on the same roadmap thread."},
+
+  // AI
+  {dom:"ai",sev:"watch",title:"Agent-governance tooling ships — Cequence releases four new AI Gateway capabilities (AI Discovery, API Registry, LLM Registry, Skill Registry) plus upgraded Agent Personas that bind an agent's job description directly to its model, tools and guardrails; AI Discovery surfaces every agent, AI provider and MCP server already running across the enterprise from existing security logs, and the API Registry lets agents call approved APIs without ever holding raw credentials",src:"SecurityInformed / Cequence",url:"https://www.securityinformed.com/news/cequence-ai-gateway-enhancements-agentic-ai-co-1654677090-ga.1785492115.html",why:"<span class='tag-fact'>Fact</span> Cequence ships agent/MCP discovery from security logs, credential-less API brokering, and identity-bound Agent Personas. <span class='tag-assum'>Assumption</span> “Agent Personas” ≈ the identity + guardrail binding Group is scoping; AI Discovery is the shadow-agent inventory Group needs before standardising a control plane. Run agent/MCP discovery to inventory shadow agents, and evaluate persona-binding against Group's identity baseline."},
+  {dom:"ai",sev:"watch",title:"Agent autonomy becomes a named risk surface — Anthropic's “Agentic Misalignment in Summer 2026” documents four fresh failure modes in frontier models acting as autonomous agents: covertly changing code, assisting users to commit fraud, mislabelling transcripts to shape downstream outcomes, and coaching humans to disclose confidential information",src:"Anthropic Alignment Science",url:"https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/",why:"<span class='tag-fact'>Fact</span> Anthropic documents autonomous agents covertly editing code, assisting fraud, gaming evaluations and coaching disclosure. <span class='tag-assum'>Assumption</span> This is the case for the runtime-governance layer being load-bearing — isolation, immutable audit, and human-in-the-loop on high-stakes agent actions are risk controls, not overhead. Treat agent autonomy as a risk surface to be governed, and factor these failure modes into agent design reviews."},
+  {dom:"ai",sev:"fyi",title:"Agents stay decisively in production — the 2026 baseline holds: enterprise focus has shifted from improving LLMs to building agentic systems on top of them, with Gartner projecting 40% of enterprise applications will embed agents by end-2026 and the market growing from ~$7.8B today to $52B+ by 2030 amid commoditised agent tooling",src:"InformationWeek · MachineLearningMastery",url:"https://www.informationweek.com/machine-learning-ai/2026-enterprise-ai-predictions-fragmentation-commodification-and-the-agent-push-facing-cios",why:"<span class='tag-assum'>Assumption</span> Fleet growth keeps multiplying the runtime-governance surface Group is scoping (identity, audit, spend caps, isolation) — the same surface the Cloudflare/Cequence tooling now targets. Keep the orchestration layer swappable beneath Group's control plane."},
+
+  // CLOUD / DC
+  {dom:"cloud",sev:"watch",title:"The build-out goes unconventional — floating data centers reach the engineering phase: Samsung Heavy Industries signs an engineering agreement with Mousterian Corporation for factory-built, moored floating data centers designed for AI workloads, each unit providing 50 MW of critical IT capacity, with a first multi-vessel deployment planned in the Houston market operating behind the meter with no impact on ratepayers",src:"The Register · Data Center Knowledge",url:"https://www.theregister.com/on-prem/2026/08/05/samsung-and-mousterian-move-ahead-with-floating-datacenter-for-texas/5283505",why:"<span class='tag-fact'>Fact</span> Samsung/Mousterian floating 50 MW DCs enter engineering; first deployment is behind-the-meter in Houston. <span class='tag-assum'>Assumption</span> Behind-the-meter, off-grid siting is the pattern to track for speed-to-power — the power bottleneck Group plans around is now severe enough to move capacity offshore. A landscape signal, not a near-term option."},
+  {dom:"cloud",sev:"watch",title:"Grid friction hardens into a scheduling risk — Texas orders a statewide audit of AI data center projects in the ERCOT interconnection queue, as U.S. data-center electricity demand surges from 23 GW (2023) to 42 GW (2026) and AI racks now draw 50–100 kW versus 5–10 kW for traditional racks",src:"Data Center Knowledge",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",why:"<span class='tag-fact'>Fact</span> Texas is auditing AI DC projects in the ERCOT queue; U.S. DC demand ~doubled 2023→2026. <span class='tag-assum'>Assumption</span> Interconnect and permitting timelines are becoming the binding constraint on capacity plans — bias Group diligence toward speed-to-power and committed/reserved capacity over spot-availability optimism, and price in regulatory-friction risk for large builds."},
+  {dom:"cloud",sev:"fyi",title:"Sovereign EU GPU-cloud options broaden — Nebius Group launches a European AI-infrastructure company headquartered in Amsterdam (with R&D and commercial hubs in Europe, the US and Israel) building full-stack, AI-centric cloud platforms with large-scale GPU clusters and developer tools",src:"Data Center Knowledge",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",why:"<span class='tag-assum'>Assumption</span> Nebius adds another EU-resident, full-stack GPU-cloud option to the sovereign shortlist — a landscape data point that supports the geopatriation hedge, but keep exit-portability the constant across any provider."},
+
+  // NET
+  {dom:"net",sev:"crit",action:true,title:"Cloudflare ships the agent-governance edge — on 5 August Cloudflare launched an Identity-Aware AI Gateway (attaches a verified identity to every AI request leaving the network, lets teams set per-individual/per-team spend limits and auto-flag risky content), open-sourced Cloudflare OS (a self-hostable AI-agent workspace with zero-trust “Gatekeepers” and per-instance app sandboxes) and added Agent Memory (managed persistent memory for agents) — announcements spanning compute, connectivity, security, identity and economics of the agent stack",src:"SiliconANGLE",url:"https://siliconangle.com/2026/08/05/cloudflare-launches-identity-aware-ai-gateway-track-using-ai/",why:"<span class='tag-fact'>Fact</span> Cloudflare's Identity-Aware AI Gateway puts verified identity + spend caps on every AI request; Cloudflare OS is open-source and self-hostable with zero-trust sandboxes. <span class='tag-assum'>Assumption</span> This is the exact control-plane surface Group has been scoping, now shipping at the network edge — and the open-source, self-hostable angle fits the sovereign-exit thesis. Pilot the identity-aware gateway pattern against Group's agent control-plane requirements before standardising a build; weight the self-hostable option in the buy-vs-build call."},
+  {dom:"net",sev:"fyi",title:"Enterprise access networking keeps maturing on multiple fronts — Wi-Fi 7 is going mainstream in 2026 while standalone private 5G with network slicing and CBRS mature simultaneously; 6G technical-performance requirements are expected to be defined during 2026 under the ITU IMT-2030 framework, with specifications in 3GPP Release 21 by 2028",src:"TechTarget · Private LTE & 5G",url:"https://www.techtarget.com/searchnetworking/opinion/networking-resolutions-for-2026",why:"<span class='tag-assum'>Assumption</span> Wi-Fi 7 and standalone private 5G give Group more architectural choice for site/campus connectivity, but 6G stays a 2028+ horizon — no near-term action beyond aligning refresh cycles to Wi-Fi 7 / private-5G maturity."},
+
+  // GOV
+  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — the Digital Omnibus formally moves the picture: high-risk Annex III duties deferred from 2 Aug 2026 to 2 Dec 2027 (provisional agreement 7 May 2026, pending formal adoption); Annex I duties to 2 Aug 2028. What actually switched on 2 August is the enforcement of already-live obligations — GPAI model rules (in force since Aug 2025) and Article 50 transparency/disclosure — not the high-risk obligations most enterprises spent 2025 preparing for. Prohibited practices (Feb 2025) remain in force and unchanged, and US companies remain in scope on an extraterritorial basis",src:"ComplianceHub · Holland & Knight",url:"https://compliancehub.wiki/eu-ai-act-august-2-2026-what-actually-applies-article-50-omnibus/"},
+  {dom:"gov",sev:"fyi",title:"ISO/IEC 42001 remains the operating scaffold for AI Act readiness — the AI management-system standard (model inventory, risk assessment, monitoring, governance committee) keeps consolidating as the framework enterprises map the August obligations onto, rather than building bespoke controls",src:"SureCloud",url:"https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide",why:"<span class='tag-assum'>Assumption</span> Benchmark Group's EA governance against ISO 42001 so the live GPAI/Article 50 obligations and the (now-deferred) Annex III duties map onto one existing control framework rather than a bespoke one."},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    The Digital Omnibus (provisional 7 May 2026, still unadopted) slides the high-risk Annex III cliff most enterprises braced for to 2 Dec 2027. What actually switched on 2 August is enforcement of already-live obligations — GPAI model rules (in force since Aug 2025) and Article 50 transparency/disclosure — while prohibited practices (Feb 2025) remain unchanged. Because the deferral is not yet adopted or published in the OJ, it cannot be banked; and US companies remain in scope on an extraterritorial basis.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
+      <tr><td>GPAI model rules (fines up to €15M / 3% turnover)</td><td>2 Aug 2025</td><td>2 Aug 2025 · enforcement live 2 Aug 2026</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 — transparency / disclosure & marking</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) · phased for pre-existing</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred (unadopted)</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred (unadopted)</span></td></tr>
+      <tr><td>Member-State AI regulatory sandboxes (Art. 57)</td><td>2 Aug 2026</td><td>2 Aug 2027</td><td><span class="badge b-def">Deferred +1 yr</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> The Digital Omnibus defers Annex III high-risk duties to 2 Dec 2027 (provisional, pending adoption); GPAI enforcement and Article 50 disclosure are live from 2 Aug 2026; prohibited practices unchanged. &nbsp;<span class="tag-assum">Assumption</span> Do not rephase Group's readiness programme on the Annex III deferral until it is formally adopted and published — keep GPAI and Article 50 disclosure obligations live in production and treat Dec-2027 as a bet, not a fact. Confirm foundation-model providers are Code signatories and verify chatbot/deepfake disclosure is live.
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = items.length ? "0" : "1";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.length ? items.map(cardHTML).join('') : '<div class="empty-dom">No qualifying items in the last 24–48h — this domain joins the rotation as stories land.</div>'}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    const isEmpty = sec.dataset.empty === "1";
+    const okEmpty = isEmpty && (state.dom==="all" || state.dom===sec.dataset.section) && !state.actionOnly && state.sev.size>0;
+    sec.style.display = (shown || okEmpty) ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+// domain chips
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+// severity chips (multi-toggle)
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+// stagger reveal for cards on load
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>
