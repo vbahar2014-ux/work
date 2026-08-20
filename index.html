@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Sector Intelligence Digest — 12 June 2026 · Group Technology Architecture</title>
+<title>Daily Sector Intelligence Digest — 20 August 2026 · Group Technology Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -174,6 +174,7 @@
   .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
   .b-def{background:var(--paper-2);color:var(--slate)}
   .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+  .b-ok{background:rgba(27,58,92,.12);color:var(--navy)}
 
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
   .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
@@ -213,13 +214,13 @@
   <div class="wrap">
     <div class="brandline">
       <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
-      <div class="issue">ISSUE #6 · 6 DOMAINS · 14 ITEMS</div>
+      <div class="issue">ISSUE #47 · 6 DOMAINS · 11 ITEMS</div>
     </div>
     <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
     <div class="dateline">
-      <span><b>Friday, 12 June 2026</b></span>
-      <span>2 critical · 8 watch · 4 fyi</span>
-      <span>~5 min read</span>
+      <span><b>Thursday, 20 August 2026</b></span>
+      <span>3 critical · 5 watch · 3 fyi</span>
+      <span>~7 min read</span>
     </div>
   </div>
 </header>
@@ -228,14 +229,14 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#tech">Tech &amp; Sector <span class="ct">2</span></a>
-    <a href="#ai">AI &amp; Workforce <span class="ct">4</span></a>
-    <a href="#cloud">Cloud &amp; Infra <span class="ct">3</span></a>
-    <a href="#net">Connectivity <span class="ct">2</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">2</span></a>
+    <a href="#cloud">Cloud &amp; Infra <span class="ct">4</span></a>
+    <a href="#net">Connectivity <span class="ct">1</span></a>
     <a href="#ot">Industrial / OT <span class="ct">0</span></a>
-    <a href="#gov">Gov &amp; Cyber <span class="ct">3</span></a>
+    <a href="#gov">Gov &amp; Reg <span class="ct">2</span></a>
     <span class="nav-sep"></span>
     <a href="archive.html">Past editions ↗</a>
-    <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
+    <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
   </div>
 </nav>
 
@@ -245,12 +246,12 @@
   <section class="hero reveal" style="border-bottom:1px solid var(--line)">
     <div class="pattern">
       <div class="kicker">⚡ Pattern of the Day</div>
-      <div class="ph">Yesterday the build-out went physical in Europe. Today it goes global — and every agent rollout ships with the governance plane <span class="teeth">bolted on.</span></div>
-      <p>The two threads of the week tightened in parallel. <strong>Capacity</strong> crossed into Asia — Meta's first India campus (168 MW at Jamnagar) — making sovereignty-and-power-driven siting a worldwide pattern, not a European one. <strong>Agents</strong> went population-scale again: KPMG's 276k Agent 365 landed within a week of the NHS's half-million seats, with Microsoft's Work IQ context APIs dated to GA on 16 June.</p>
-      <p>The sharper signal is <em>what</em> the vendors now sell: governance. Microsoft Agent 365, ServiceNow's govern-every-agent move and Okta's accountability-first framing all sell registration / identity / audit as the product — exactly as the EU converts the same idea into a hard <strong>2-August obligation that has not moved</strong> (now ~51 days, Annex III deferral still a bet).</p>
+      <div class="ph">The soft constraints <span class="teeth">harden</span> — power scarcity climbs from the statehouse to the grid operator, agent risk from the security team to the boardroom.</div>
+      <p>Two threads AG has tracked as emerging pressures both graduated into structural rules this cycle. On <strong>power</strong>, yesterday's story was two states pausing hyperscale approvals; today <strong>PJM</strong> — the largest US grid operator (13 states, ~67M people) — filed two plans with FERC (13 Aug) that would let big new loads energise ahead of capacity but hand states the authority to <strong>cut data centers off during grid stress</strong> unless they bring their own generation, backstopped by ~$20B in procured capacity, with a 12 Oct effective date. In parallel the <strong>PUCT's 20 Aug open meeting</strong> takes up ERCOT's good-cause exception after Batch Zero classifications were suspended — the decision point AG flagged yesterday, now live.</p>
+      <p>On <strong>agents</strong>, the <strong>SAP LeanIX Agentic AI Survey</strong> reframed sprawl as a <em>board-level governance failure mode</em>: adoption high, oversight thin, shadow agents outrunning controls, and the window to install governance before a serious incident closing — escalating yesterday's "the inventory gate is buyable" (Cequence) into "the board should be asking for it." Around these, <strong>portability</strong> moved down a layer — from the network (Tuesday's Apache-2.0 multicloud Interconnect) to the data tier, as Google Cloud DMS added Gemini-powered conversion of legacy database code into open PostgreSQL/AlloyDB. The <strong>sector narrative</strong> caught up: ~57% of organisations now run agents in production and Gartner projects &gt;75% of EMEA enterprises sovereign by 2030. <strong>Regulation</strong> stayed the through-line — the EU AI Act is ~18 days into enforcement, with <strong>Article 50</strong> emerging as the forcing function to audit every agent-generated output.</p>
       <div class="ag-take">
         <b>For Group</b>
-        Sovereign-first is now mainstream, not contrarian — a majority of enterprises have already acted. The single most consequential near-term call is <em>which</em> agent control plane to standardise on, because at population scale that choice sets Group's identity, audit and lock-in model.
+        Three moves: (1) extend US-capacity diligence to a <em>curtailment-risk test</em> — does the site have contracted/on-site power, and which state can order it cut? — treating PJM's 12 Oct effective date as the point this becomes a commercial term; (2) stand up AG's agent + MCP inventory and least-privilege baseline now, as a board-reportable control; and (3) operationalise Article 50 — mark every place AG's agents generate customer-facing output — while confirming which GPAI suppliers are Code-of-Practice signatories.
       </div>
     </div>
 
@@ -258,34 +259,34 @@
       <h3>🔄 What's changed since yesterday</h3>
       <div class="diff-list">
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">one flagship</span><span class="arrow">→</span><span class="st new">a pattern</span></div>
-          <div class="diff-topic">Population-scale agents</div>
-          <div class="diff-detail">After NHS England's ~505k Copilot seats, a second named 250k+ deployment lands (KPMG's 276k Agent 365); Microsoft's Work IQ context APIs are dated to GA 16 Jun.</div>
+          <div class="diff-states"><span class="st old">Texas pauses ERCOT; NY EO 62; PUCT votes 20 Aug</span><span class="arrow">→</span><span class="st new">PJM files two FERC plans — cut-off power for data centers</span></div>
+          <div class="diff-topic">Power — scale of the backlash</div>
+          <div class="diff-detail">PJM (largest US grid, 13 states, ~67M people) filed a $20B reliability backstop plus a "bring-your-own-power or face state-approved curtailment" framework (12 Oct effective; plant proposals 30 Sep). The PUCT's 20 Aug meeting takes up ERCOT's good-cause exception. The constraint jumps from two statehouses to a grid-operator-wide rule.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">Europe's gigawatts</span><span class="arrow">→</span><span class="st new">global build-out</span></div>
-          <div class="diff-topic">Sovereign capacity</div>
-          <div class="diff-detail">Yesterday Bosquel + Île-de-France; today the same logic in Asia — Meta's first India campus (168 MW, Jamnagar) + ~1 GW contracted renewables.</div>
+          <div class="diff-states"><span class="st old">Cequence AI Discovery ships (inventory becomes buyable)</span><span class="arrow">→</span><span class="st new">SAP LeanIX: agent sprawl is a board-level failure mode</span></div>
+          <div class="diff-topic">Agent control plane</div>
+          <div class="diff-detail">The SAP LeanIX Agentic AI Survey finds high adoption paired with thin oversight and a closing window to install governance before a serious incident; shadow agents outrun controls. Product availability → board-level urgency.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">market-share claim</span><span class="arrow">→</span><span class="st new">1.6T silicon</span></div>
-          <div class="diff-topic">Ethernet for AI</div>
-          <div class="diff-detail">Arista's "Ethernet is the eventual winner" now has a 1.6T product (7060XE7, LPO −60% power) and a formal entry into the scale-up / intra-rack domain.</div>
+          <div class="diff-states"><span class="st old">AWS + Google multicloud Interconnect (Apache 2.0)</span><span class="arrow">→</span><span class="st new">portability reaches the data tier (DMS + Gemini)</span></div>
+          <div class="diff-topic">Cloud portability</div>
+          <div class="diff-detail">Google Cloud's Database Migration Service adds Gemini-powered, AI-assisted conversion of legacy database code into native PostgreSQL and AlloyDB with schema-aware, side-by-side validation. Network-layer portability → code/database-layer portability.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">control-plane race</span><span class="arrow">→</span><span class="st new">productised market</span></div>
-          <div class="diff-topic">Agent governance</div>
-          <div class="diff-detail">Governance is now the product, not a feature — Microsoft Agent 365 (register/map/secure), ServiceNow govern-every-agent, Okta accountability-first.</div>
+          <div class="diff-states"><span class="st old">~17 days; Digital Omnibus interplay settled</span><span class="arrow">→</span><span class="st new">~18 days; Article 50 becomes the forcing function</span></div>
+          <div class="diff-topic">Regulation — EU AI Act</div>
+          <div class="diff-detail">Practitioners now treat Article 50 as the trigger to audit every place agents generate content or interact with users — machine-readable watermarking + explicit "AI in use" banners. Timeline clarity → concrete operational trigger. Omnibus still defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028).</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">~52 days</span><span class="arrow">→</span><span class="st new">~51 days, still unadopted</span></div>
-          <div class="diff-topic">EU AI Act clock</div>
-          <div class="diff-detail">GPAI date holds at 2 Aug; the Digital Omnibus deferring Annex III remains an unadopted political agreement (Parliament plenary + Council + OJ all pending).</div>
+          <div class="diff-states"><span class="st old">point launches (phone agents, Slackbot)</span><span class="arrow">→</span><span class="st new">the sector-wide inflection</span></div>
+          <div class="diff-topic">Sector framing</div>
+          <div class="diff-detail">~57% of organisations now run agents in production, and governance has moved from a compliance concern to a front-line operational requirement. Gartner projects &gt;75% of EMEA enterprises sovereign by 2030 (from &lt;5% today) — matching AG's sovereign-first mandate.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">published Code</span><span class="arrow">→</span><span class="st new">phased timeline</span></div>
-          <div class="diff-topic">Article 50 marking</div>
-          <div class="diff-detail">Pre-existing generative systems get until 2 Dec 2026 for machine-readable marking; new systems still 2 Aug 2026.</div>
+          <div class="diff-states"><span class="st old">agent surface widens (browser → phone)</span><span class="arrow">→</span><span class="st new">access network fragments (5G / CBRS / Wi-Fi 7)</span></div>
+          <div class="diff-topic">Connectivity</div>
+          <div class="diff-detail">Private 5G, CBRS and Wi-Fi 7 are maturing simultaneously (&gt;50 devices/employee) as Cloudflare pushes Magic Transit / WAN-as-a-Service to replace legacy edge hardware on the machine-majority "Agentic Internet." Access networking becomes a portfolio decision, not a single choice.</div>
         </div>
       </div>
     </div>
@@ -296,26 +297,35 @@
     <div class="action-band reveal">
       <div class="kicker">Action Required Today</div>
       <div class="action-head">
-        <h2>Two items crossed from awareness into decision</h2>
+        <h2>Three items crossed from awareness into decision</h2>
         <span class="action-sub">suggested actions — assign owner &amp; date</span>
       </div>
       <div class="actions">
         <div class="act">
           <div class="num">01</div>
           <div>
-            <span class="domain-tag">AI &amp; Workforce Transformation</span>
-            <h4>Agentic deployment goes population-scale (KPMG 276k Agent 365) with governance as the product — and Work IQ APIs GA 16 Jun</h4>
-            <div class="sug"><b>Suggested action · </b> Pick Group's agent control-plane + identity standard deliberately before the next production rollout — that choice sets Group's identity, audit and lock-in model.</div>
-            <div class="meta-row"><span>Owner: <b>Sovereign AI / Enterprise Architecture</b></span><span>By when: <b>before next agent rollout</b></span></div>
+            <span class="domain-tag">Cloud &amp; Digital Infrastructure</span>
+            <h4>The data-center power constraint scales to the largest US grid — PJM (13 states, ~67M people) filed two FERC plans (13 Aug): a ~$20B reliability backstop and a "bring-your-own-power or face state-approved curtailment" framework that lets states cut data centers off during grid stress; 12 Oct 2026 effective date, plant proposals sought 30 Sep</h4>
+            <div class="sug"><b>Suggested action · </b> Extend AG's US-capacity diligence to a curtailment-risk test — does the site have contracted/on-site generation, and which state can order it cut during grid stress? — and treat PJM's 12 Oct effective date as the point curtailment becomes a live commercial term in any colo or capacity commitment.</div>
+            <div class="meta-row"><span>Owner: <b>Infrastructure Strategy / Capacity Planning</b></span><span>By when: <b>before next US capacity commitment</b></span></div>
           </div>
         </div>
         <div class="act">
           <div class="num">02</div>
           <div>
-            <span class="domain-tag">Governance, Cyber &amp; Regulatory</span>
-            <h4>EU AI Act GPAI + Article 50 marking live 2 Aug 2026 (~51 days); Digital Omnibus deferral still not adopted</h4>
-            <div class="sug"><b>Suggested action · </b> Keep the August readiness programme fully funded; inventory AI-generated customer content for machine-readable marking; do not rephase Annex III work on the unlegislated Dec-2027 deferral.</div>
-            <div class="meta-row"><span>Owner: <b>AI Governance</b></span><span>By when: <b>2 Aug 2026</b></span></div>
+            <span class="domain-tag">AI &amp; Agentic Systems</span>
+            <h4>Agent sprawl becomes a board-level governance failure mode — the SAP LeanIX Agentic AI Survey 2026 finds high agent adoption paired with wide oversight gaps and a closing window to install governance before a serious incident; shadow agents are outrunning formal controls</h4>
+            <div class="sug"><b>Suggested action · </b> Stand up AG's agent + MCP-server inventory and least-privilege baseline now — pilot a discovery tool against existing security logs — and make it a board-reportable control rather than an architecture nicety, escalating yesterday's Cequence AI Discovery item from "a product exists" to "the board is asking for it."</div>
+            <div class="meta-row"><span>Owner: <b>Platform Security / Enterprise Architecture</b></span><span>By when: <b>next architecture review (≤2 weeks)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Governance &amp; Regulation Watch</span>
+            <h4>EU AI Act — enforcement is ~18 days in and NOT paused; Article 50 is now the forcing function to audit every place agents generate content or interact with users (machine-readable marking + "AI in use" banners), while GPAI fines up to €15M / 3% turnover stand and the Omnibus defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028)</h4>
+            <div class="sug"><b>Suggested action · </b> Operationalise Article 50: inventory every place AG's agents (browser, voice, collaboration, back-end) generate customer-facing output and apply machine-readable marking + "AI in use" disclosure; keep GPAI running; confirm which GPAI suppliers are Code-of-Practice signatories; do not read the Omnibus as relief on the GPAI date.</div>
+            <div class="meta-row"><span>Owner: <b>AI Governance / Enterprise Architecture (DPO)</b></span><span>By when: <b>this week</b></span></div>
           </div>
         </div>
       </div>
@@ -328,11 +338,11 @@
       <span class="flabel">Domain</span>
       <span class="chip dom on" data-dom="all">All</span>
       <span class="chip dom" data-dom="tech">Tech</span>
-      <span class="chip dom" data-dom="ai">AI &amp; Workforce</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
       <span class="chip dom" data-dom="cloud">Cloud &amp; Infra</span>
       <span class="chip dom" data-dom="net">Connectivity</span>
       <span class="chip dom" data-dom="ot">Industrial / OT</span>
-      <span class="chip dom" data-dom="gov">Gov &amp; Cyber</span>
+      <span class="chip dom" data-dom="gov">Gov &amp; Reg</span>
     </div>
     <div class="fgroup">
       <span class="flabel">Severity</span>
@@ -361,9 +371,9 @@
   <!-- FOOTER -->
   <footer>
     <div class="src-line">
-      <strong style="color:var(--navy)">Sources ·</strong> Digital Applied · Windows News · SiliconANGLE · Windows Forum · Gartner · Broadcom · The AI Insider · Data Center Knowledge · Light Reading · AI Tool Briefing · Okta · CX Today · artificialintelligenceact.eu · Consilium · European Commission · SureCloud
+      <strong style="color:var(--navy)">Sources ·</strong> MarketScale · AI Agents Store · Agentic.ai · TechHQ · Gartner · Data Center Knowledge · Data Center Dynamics · Spectrum News · Gibson Dunn · Google Cloud Blog · Cloud Computing News · PrivateLTEand5G · Converge Digest · SAP News Center · Olmec Dynamics · artificialintelligenceact.eu · Software Improvement Group · European Commission · SureCloud
     </div>
-    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #6</div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #47</div>
   </footer>
 
 </div>
@@ -371,39 +381,34 @@
 <script>
 const DOMAINS = [
   {id:"tech",  num:"1", title:"Technology & Sector Shifts"},
-  {id:"ai",    num:"2", title:"AI & Workforce Transformation"},
+  {id:"ai",    num:"2", title:"AI & Agentic Systems"},
   {id:"cloud", num:"3", title:"Cloud & Digital Infrastructure"},
-  {id:"net",   num:"4", title:"Enterprise Connectivity"},
+  {id:"net",   num:"4", title:"Connectivity & Networking"},
   {id:"ot",    num:"5", title:"Industrial Technologies & OT/IoT"},
   {id:"gov",   num:"6", title:"Governance, Cyber & Regulatory Watch"},
 ];
 
 const ITEMS = [
   // TECH
-  {dom:"ai",sev:"watch",title:"Population-scale agentic deployment becomes a pattern: KPMG + Microsoft roll out Agent 365 + M365 Copilot to 276,000+ staff across 138 countries (9 Jun)",src:"Digital Applied",url:"https://www.digitalapplied.com/blog/kpmg-microsoft-agent-365-deployment-2026-enterprise-governance-analysis",why:"Second named 250k+ agent deployment in a week (after NHS's ~505k). The buying decision has shifted from the agent to the control plane that registers, identifies and audits it — Group should decide its agent-governance posture before the rollout, not after."},
-  {dom:"tech",sev:"watch",title:"Europe's cloud-sovereignty exodus moves from sentiment to migration; Kyndryl survey: 83% say sovereignty rules grew more important, 65% already changed cloud strategy",src:"Windows News · SiliconANGLE",url:"https://windowsnews.ai/article/europes-tech-sovereignty-shift-from-us-big-tech-dependence-to-cloud-breakups.423946",why:"<span class='tag-fact'>Fact</span> A clear majority of enterprises have already acted on sovereignty. <span class='tag-assum'>Assumption</span> Group's sovereign/on-prem optionality is now the mainstream hedge, not a contrarian one — keep EU-resident landing-zone and open-source exit paths live and budgeted."},
-
-  // CLOUD
-  {dom:"cloud",sev:"watch",title:"Microsoft's enterprise “context layer” hardens into product: Work IQ developer APIs reach GA on 16 June 2026; Fabric IQ now GA",src:"Windows Forum · Build 2026",url:"https://windowsforum.com/threads/build-2026-microsofts-agent-control-plane-context-governance-and-windows-runtime.425206/",why:"Cloud platforms are racing to own the context + governance layer beneath agents, not just the model. Whichever context plane Group standardises on quietly sets its agent identity, memory and audit model — decide deliberately."},
-  {dom:"tech",sev:"fyi",title:"Sovereign-cloud economics get sharper numbers: Gartner sees $80B sovereign-IaaS spend in 2026 (+35.6%); private cloud 40–50% lower TCO, sovereign premium 10–30%",src:"Gartner · Broadcom",url:"https://www.gartner.com/en/newsroom/press-releases/2026-02-09-gartner-says-worldwide-sovereign-cloud-iaas-spending-will-total-us-dollars-80-billion-in-2026",why:"Sovereignty buys control at a quantified premium, while steady-state private cloud can be cheaper than public. Group's workload-placement decision is now a defensible TCO calculation, not a belief."},
-
-  // DC
-  {dom:"cloud",sev:"watch",title:"The AI build-out goes global: Meta's first India campus — a 168 MW seawater-cooled, renewable-powered DC with Reliance at Jamnagar (11 Jun) + ~1 GW contracted renewables",src:"The AI Insider · 11 Jun 2026",url:"https://theaiinsider.tech/2026/06/11/meta-partners-with-reliance-industries-on-ai-data-center-in-india-in-first-local-infrastructure-bet/",why:"<span class='tag-fact'>Fact</span> India DC capacity is projected to grow from ~1.5 GW to 8+ GW by 2030, drawing every hyperscaler. <span class='tag-assum'>Assumption</span> The sovereign/regional-capacity story Group tracks in Europe is replicating across Asia — capacity is being sited to local power and data-residency, not just cost."},
-  {dom:"cloud",sev:"fyi",title:"Data-center social licence tightens: a North Carolina House committee advances a bill to stop utilities/ratepayers absorbing AI-infra risk; Northern Virginia resistance grows",src:"Data Center Knowledge · Jun 2026",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-june-2026",why:"Permitting, grid-cost allocation and local opposition are becoming a scheduling and siting risk, not just a PR one. Context for any Group capacity plan that assumes smooth interconnect and community acceptance."},
-
-  // NET
-  {dom:"net",sev:"watch",title:"“Ethernet wins AI” turns into shipping scale-up silicon: Arista 7060XE7 1.6T portfolio (9 Jun) — ~100 Tbps, 224G SerDes, liquid-cooled bus-bar-DC system, LPO cutting interconnect power ~60%",src:"SiliconANGLE · 9 Jun 2026",url:"https://siliconangle.com/2026/06/09/ai-supersystem-shift-aristas-1-6t-announcement-ethernet-inflection-point/",why:"Yesterday's “eventual winner” was a market-share argument; today it has a 1.6T product and reaches inside the rack (scale-up). Reinforces biasing Group AI-cluster reference designs toward open Ethernet — and the LPO/bus-bar-DC points line up with the 800V, liquid-cooled rack direction."},
-  {dom:"net",sev:"fyi",title:"6G vendor lines harden: Nvidia–Nokia AI-RAN trials slated for 2026 (Nvidia $1B stake, Arc Aerial RAN Computer), while Ericsson diverges with own-silicon AI-RAN, no Nvidia GPUs",src:"Light Reading",url:"https://www.lightreading.com/5g/ericsson-and-nokia-are-diverging-like-never-before-on-ai-ran",why:"The AI-RAN supply base is splitting into a GPU-centric (Nvidia/Nokia) camp and an own-silicon (Ericsson) camp — a vendor-lock decision worth tracking for Group's longer-horizon private-5G/6G options."},
+  {dom:"tech",sev:"watch",title:"Enterprise AI crosses its governance/ROI inflection — the story shifts from “can we deploy agents” to “can we govern and pay for them”: ~57% of organisations now have AI agents in production, and August analysis reframes governance from a compliance concern into a front-line operational requirement",src:"MarketScale · AI Agents Store",url:"https://www.marketscale.com/industries/software-and-technology/enterprise-ai-hits-an-inflection-point-governance-agentic-systems-and-the-roi-reckoning",why:"<span class='tag-fact'>Fact</span> A majority of enterprises now run agents in production, and the discourse has moved from capability to governance + ROI. <span class='tag-assum'>Assumption</span> AG's agent-inventory/identity/audit programme (see §5) is no longer early — it is table stakes; the differentiator is running it as a standing gate and measuring agent ROI, not whether to have one."},
+  {dom:"tech",sev:"fyi",title:"Sovereignty hardens from sentiment into a quantified structural shift — Gartner's 2026 trend read projects that by 2030 more than 75% of European and Middle-Eastern enterprises will run locally-controlled (“sovereign”) environments, up from under 5% today, with multiagent systems, digital provenance and AI-security platforms among the top strategic trends",src:"TechHQ · Gartner",url:"https://techhq.com/news/gartners-2026-tech-trends-show-reshaping-of-enterprise-strategy/",why:"<span class='tag-fact'>Fact</span> Gartner projects a >70-point swing to locally-controlled environments across EMEA by 2030. <span class='tag-assum'>Assumption</span> AG's sovereign-AI roadmap is aligned with, not ahead of, the market — keep the EU-resident landing-zone, sovereign-model and open-source exit paths funded, and treat digital provenance (SBOMs, content marking) as the shared control layer for both sovereignty and the EU AI Act (see §6)."},
 
   // AI
-  {dom:"ai",sev:"crit",action:true,title:"The agent control-plane contest is decided by governance — and the moat is being productised: Microsoft Agent 365 anchors the KPMG 276k + NHS deployments; Work IQ APIs GA 16 Jun",src:"AI Tool Briefing · Windows Forum",url:"https://aitoolbriefing.com/industry/microsoft-agent-365-ga-enterprise-buyers-2026/",why:"<span class='tag-fact'>Fact</span> Vendors now sell governance — register/map/secure/audit — as the product, not a feature. <span class='tag-assum'>Assumption</span> If Group lets the agent control plane be chosen by default, it inherits that vendor's identity, audit and lock-in model. Choose the agent control-plane + identity standard deliberately before the next production rollout."},
-  {dom:"ai",sev:"watch",title:"Independent data confirms the agent governance gap: Okta's “AI Agents at Work 2026” finds a stark divide between executive confidence and how employees actually use agents",src:"Okta",url:"https://www.okta.com/newsroom/articles/ai-agents-at-work-2026-agentic-enterprise-security/",why:"Outside validation that the risk is organisational, not just technical — shadow agent usage outruns formal controls. Group should stand up an agent inventory + identity baseline early rather than retrofitting it."},
-  {dom:"ai",sev:"watch",title:"Governance-of-agents becomes its own product category: ServiceNow moves to govern every AI agent in the enterprise (inventory, control, oversight across the estate)",src:"CX Today",url:"https://www.cxtoday.com/security-privacy-compliance/servicenow-ai-agent-governance-knowledge-2026/",why:"Confirms “agent governance” is now a contested platform market — more vendor options for Group, but more fragmentation risk if teams adopt different control planes."},
+  {dom:"ai",sev:"crit",action:true,title:"Agent sprawl becomes a board-level governance failure mode — the SAP LeanIX Agentic AI Survey 2026 finds high agent adoption paired with wide management and oversight gaps, warning the window to install effective governance before a serious incident is narrowing; shadow agents are outrunning formal controls",src:"SAP News Center · Olmec Dynamics",url:"https://news.sap.com/2026/08/agent-sprawl-why-ai-governance-is-now-board-level-issue/",why:"<span class='tag-fact'>Fact</span> A major vendor survey now frames ungoverned agent proliferation as a board-level risk with a closing remediation window. <span class='tag-assum'>Assumption</span> This escalates yesterday's Cequence AI Discovery item from “a product exists” to “the board should ask for it” — stand up AG's agent + MCP inventory and least-privilege baseline now (pilot a discovery tool against existing logs) rather than after the first shadow-agent incident."},
+  {dom:"ai",sev:"watch",title:"The agentic battleground moves to the infrastructure layer — attention shifts from models to the middleware, memory systems and orchestration frameworks that decide whether agents survive real-world deployment, with MCP's hardened release candidate consolidating as the default agent-to-system broker",src:"AI Agents Store · Agentic.ai",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-assum'>Assumption</span> AG's agent strategy should treat orchestration/memory/MCP-broker choices as the architecturally binding decisions (identity, audit and portability flow through them), not the model choice — govern the infrastructure layer with the same rigour as the control plane, and enumerate MCP servers inside the same inventory as agents (see §5)."},
 
-  // GOV (red item rendered specially with table)
-  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — GPAI obligations activate 2 Aug 2026, now ~51 days out; the Digital Omnibus deferring Annex III high-risk duties to 2 Dec 2027 is still NOT adopted (Parliament plenary vote, Council adoption and OJ publication all pending)",src:"artificialintelligenceact.eu · Consilium",url:"https://artificialintelligenceact.eu/implementation-timeline/"},
-  {dom:"gov",sev:"watch",title:"Article 50 transparency gets a phased clock: machine-readable marking applies from 2 Aug 2026, but pre-existing generative systems get until 2 Dec 2026 to meet the Art. 50(2) marking requirement",src:"European Commission — Code of Practice",url:"https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content",why:"<span class='tag-fact'>Fact</span> The marking obligation now has two dates — 2 Aug for new systems, 2 Dec for pre-existing ones. <span class='tag-assum'>Assumption</span> Group should inventory every place it generates customer-facing AI content (text, image, audio) and tier its marking rollout to the right deadline rather than treating it as one cliff."},
-  {dom:"gov",sev:"fyi",title:"ISO/IEC 42001 keeps consolidating as the operating scaffold for AI Act readiness (model inventory, risk assessment, monitoring, governance committee)",src:"SureCloud · Compliance Guide",url:"https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide",why:"Steady-state: benchmark Group's EA governance against ISO 42001 so the August obligations map onto an existing control framework rather than a bespoke one."},
+  // CLOUD / DC
+  {dom:"cloud",sev:"crit",action:true,title:"The power constraint scales from two states to the biggest US grid — PJM (13-state territory, ~67M people) filed two plans with FERC on 13 Aug: a ~$20B reliability backstop procuring new generation for data-center load through 2027, and a “bring-your-own-power or face curtailment” framework letting states cut data centers off during extreme grid stress; PJM requested a 12 Oct 2026 effective date and will seek plant proposals 30 Sep",src:"Data Center Knowledge · Data Center Dynamics",url:"https://www.datacenterknowledge.com/energy-power-supply/pjm-s-new-deal-for-data-centers-bring-power-or-face-cuts",why:"<span class='tag-fact'>Fact</span> The largest US grid has filed rules that condition data-center energisation on self-supplied power and allow state-approved curtailment during grid stress. <span class='tag-assum'>Assumption</span> “Interconnection-queue and permitting durability” is no longer a Texas/NY footnote — extend AG's US-capacity diligence to a curtailment-risk test (on-site/contracted generation, and which state can order it cut), and read the 12 Oct effective date as the point this becomes a live commercial term."},
+  {dom:"cloud",sev:"watch",title:"Today's Texas decision point lands — at the PUCT's 20 Aug open meeting ERCOT is seeking a “good-cause exception” after suspending the Batch Zero Large Load classification notifications due 7 Aug, part of Governor Abbott's directed audit of up to ~300 (mostly data-center) projects in the interconnection queue",src:"Spectrum News · Gibson Dunn",url:"https://spectrumlocalnews.com/tx/south-texas-el-paso/news/2026/08/19/puct--ercot-adapting-to-abbott-s-data-center-directive",why:"<span class='tag-fact'>Fact</span> ERCOT's Batch Zero classifications are paused and a good-cause exception is before the PUCT at today's meeting. <span class='tag-assum'>Assumption</span> The immediate signal is timeline risk, not cancellation — Texas capacity commitments should assume added months in the queue and price the audit as a schedule contingency until the PUCT's disposition is confirmed."},
+  {dom:"cloud",sev:"watch",title:"Cloud portability moves down a layer — from the network to the code: Google Cloud's Database Migration Service now offers Gemini-powered, AI-assisted code conversion that rewrites legacy database code into native PostgreSQL and AlloyDB with full schema awareness and side-by-side validation",src:"Google Cloud Blog",url:"https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud",why:"<span class='tag-fact'>Fact</span> AI-assisted migration now converts proprietary legacy database code to open PostgreSQL/AlloyDB with schema-aware validation. <span class='tag-assum'>Assumption</span> This lowers the switching cost off legacy/proprietary databases — fold it into AG's exit-path and modernisation planning as a way to convert lock-in into an open, portable data tier, while noting the destination is still a Google-managed service."},
+  {dom:"cloud",sev:"fyi",title:"The spend backdrop reframes the leverage — Synergy Research puts annual enterprise cloud spending at ~$500B, driven by AI build-outs",src:"Cloud Computing News",url:"https://www.cloudcomputing-news.net/",why:"<span class='tag-fact'>Fact</span> Enterprise cloud spend is at ~$500B/yr on AI build-outs. <span class='tag-assum'>Assumption</span> At this scale, small portability and power-siting advantages compound — reinforcing the case for AG to hold hyperscalers to open Interconnect specs and curtailment-durable siting as standing commercial terms."},
+
+  // NET
+  {dom:"net",sev:"watch",title:"Enterprise access networking becomes a multi-technology decision, not a single choice — 2026 coverage frames private 5G, CBRS and Wi-Fi 7 as maturing simultaneously (with >50 connected devices per employee), while Cloudflare pushes Magic Transit and WAN-as-a-Service to replace legacy edge hardware on the now machine-majority “Agentic Internet”",src:"PrivateLTEand5G · Converge Digest",url:"https://www.privatelteand5g.com/enterprise-connectivity/",why:"<span class='tag-assum'>Assumption</span> AG's access-network strategy can no longer standardise on one technology — treat private 5G / CBRS / Wi-Fi 7 as a portfolio matched to site profiles, and pair it with agent-grade observability (following yesterday's Cloudflare machine-majority finding) so “which agents are on which access network” is part of the same inventory as the estate (see §5)."},
+
+  // GOV
+  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — enforcement is ~18 days in and NOT paused: since 2 Aug 2026 the AI Office is exercising its Chapter V powers over GPAI providers (documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal, fines up to €15M / 3% turnover under Art. 101). This cycle's operational signal is that practitioners are treating Article 50 as a forcing function to audit every place agents generate content or interact with users — machine-readable watermarking + explicit “AI in use” banners. The Digital Omnibus (Reg (EU) 2026/1744, in force 27 Jul 2026) leaves the 2 Aug GPAI date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028; the GPAI Code of Practice (26 signatories) gives a presumption of conformity that softens but does not block fines; prohibited practices and the Art. 5 ban remain in force",src:"artificialintelligenceact.eu · Software Improvement Group",url:"https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/"},
+  {dom:"gov",sev:"fyi",title:"ISO/IEC 42001 + digital provenance stay the operating scaffold — the management-system standard (model inventory, risk assessment, monitoring, governance committee) and provenance controls (SBOMs, content marking) remain how enterprises map the live GPAI/Article 50 obligations, the agent-inventory gate (§5) and the banked Annex III/I deferrals onto one framework",src:"European Commission · SureCloud",url:"https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide",why:"<span class='tag-assum'>Assumption</span> Benchmark AG's EA governance against ISO 42001 and adopt digital-provenance controls so the now-live GPAI/Article 50 obligations, the agent-inventory/audit gate (see §5), Gartner's sovereignty shift (see §1) and the banked Annex III/I deferrals all map onto one existing control framework rather than a bespoke one."},
 ];
 
 const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
@@ -411,16 +416,19 @@ const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
 function govWhy(){
   return `<div class="why">
     <span class="wl">Why it matters for Group</span>
-    The 2 Aug GPAI date has not moved; the relief package deferring high-risk obligations remains only a political agreement (7 May), so legally unlocked deferrals cannot be banked. National authorities retain competence for law-enforcement, border, judicial and financial use cases; the AI Office takes the rest of GPAI oversight.
+    Enforcement is ~18 days in and is <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, is exercising its Chapter V powers over GPAI providers — requesting documentation, running technical evaluations, demanding risk-mitigation, restricting or withdrawing models and issuing fines up to €15M / 3% turnover under Art. 101. This cycle's freshest operational signal is that practitioners are treating <b>Article 50</b> as a forcing function to audit <em>every</em> place agents generate content or interact with users — implementing machine-readable watermarking and explicit "AI in use" banners across browser, voice, collaboration and back-end agents. The <b>Digital Omnibus</b> (Reg (EU) 2026/1744, in force 27 Jul 2026) reshuffles the high-risk timeline but leaves the 2 Aug 2026 GPAI enforcement date standing: it banks the Annex III deferral to 2 Dec 2027 and Annex I to 2 Aug 2028, and nothing else on the GPAI side moves. The GPAI Code of Practice (published 10 Jul 2025, 26 signatories including Amazon, Anthropic, Google, IBM, Microsoft and OpenAI) gives signatories a presumption of conformity that softens fine calculations but does not block enforcement. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope on an extraterritorial basis.
     <table class="compliance">
       <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
-      <tr><td>GPAI enforcement (fines up to €15M / 3% turnover)</td><td>2 Aug 2026</td><td>2 Aug 2026 <em>unchanged</em></td><td><span class="badge b-live">Live · ~51 days</span></td></tr>
-      <tr><td>Art. 50 machine-readable marking (generative AI)</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) · 2 Dec 2026 (pre-existing)</td><td><span class="badge b-live">Live · ~51 days</span></td></tr>
-      <tr><td>Annex III HRAIS (recruitment, credit scoring, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred</span></td></tr>
-      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred</span></td></tr>
-      <tr><td>Member-State AI regulatory sandboxes (Art. 57)</td><td>—</td><td>2 Aug 2026</td><td><span class="badge b-live">Live · ~51 days</span></td></tr>
+      <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
+      <tr><td>Art. 5 ban (AI nudifiers / NCII / CSAM)</td><td>&mdash;</td><td>Added by Omnibus</td><td><span class="badge b-new">In force · new</span></td></tr>
+      <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Standing · Omnibus did not move it</td><td><span class="badge b-live">Live · ~18 days</span></td></tr>
+      <tr><td>Art. 50 &mdash; marking of agent-generated content</td><td>2 Aug 2026</td><td>Live · forcing an estate-wide agent-output audit</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>GPAI Code of Practice (presumption of conformity)</td><td>10 Jul 2025</td><td>26 signatories · softens, not immune</td><td><span class="badge b-ok">Live</span></td></tr>
+      <tr><td>GPAI models placed before 2 Aug 2025</td><td>&mdash;</td><td>Compliant by 2 Aug 2027</td><td><span class="badge b-def">Grace period</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
     </table>
-    <span class="tag-fact">Fact</span> GPAI, Article 50 marking and the Member-State sandbox requirement all activate 2 Aug 2026 — unchanged, ~51 days away. &nbsp;<span class="tag-assum">Assumption</span> Because the Digital Omnibus is still unadopted, keep the full August readiness programme funded and do not rephase Annex III work on the assumption the Dec-2027 deferral is locked.
+    <span class="tag-fact">Fact</span> The AI Office is actively enforcing; Article 50 marking is live and is driving an estate-wide audit of agent-generated content; the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); Code-of-Practice signatory status is a real, checkable conformity signal. &nbsp;<span class="tag-assum">Assumption</span> Use Article 50 as the forcing function: inventory every place AG's agents (browser, voice, collaboration, back-end) generate customer-facing output and apply machine-readable marking + "AI in use" disclosure; keep GPAI running; confirm which GPAI suppliers are Code-of-Practice signatories; and do not read the Omnibus as relief on the GPAI date.
   </div>`;
 }
 
