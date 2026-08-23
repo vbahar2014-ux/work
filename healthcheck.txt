@@ -1,1 +1,1 @@
-n8n GitHub Push healthcheck — create path — 2026-08-23T20:05:13Z
+n8n GitHub Push healthcheck — EDIT path (upsert confirmed) — 2026-08-23T20:05:13Z
