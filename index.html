@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Sector Intelligence Digest — 23 August 2026 · Group Technology Architecture</title>
+<title>Daily Sector Intelligence Digest — 24 August 2026 · Group Technology Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,6 +46,7 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
+  /* ---------- MASTHEAD ---------- */
   .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
   .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
   .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
@@ -61,6 +62,7 @@
   .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
   .dateline b{color:var(--navy);font-weight:600}
 
+  /* ---------- STICKY NAV ---------- */
   .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
   .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
@@ -75,6 +77,7 @@
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
 
+  /* ---------- HERO (pattern + diff) ---------- */
   .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
   .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
   .pattern .ph .teeth{color:var(--red);font-style:italic}
@@ -94,6 +97,7 @@
   .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
   .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
 
+  /* ---------- ACTION REQUIRED ---------- */
   .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
   .action-band .kicker{color:#ff8a98}
   .action-band .kicker::after{background:rgba(255,255,255,.18)}
@@ -110,6 +114,7 @@
   .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
   .act .meta-row span b{color:#fff;font-weight:600}
 
+  /* ---------- FILTER BAR ---------- */
   .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
     border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
     display:flex;gap:18px;align-items:center;flex-wrap:wrap}
@@ -130,6 +135,7 @@
   .toggle input:checked{background:var(--red)}
   .toggle input:checked::after{left:17px}
 
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
   .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
   .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
   .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
@@ -158,6 +164,7 @@
   .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .card.full{grid-column:1/-1}
 
+  /* compliance table inside gov card */
   table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
   table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
     color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
@@ -172,6 +179,7 @@
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
   .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
 
+  /* ---------- LEGEND + FOOTER ---------- */
   .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
   .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
   .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
@@ -201,46 +209,49 @@
 </head>
 <body>
 
+<!-- MASTHEAD -->
 <header class="masthead">
   <div class="wrap">
     <div class="brandline">
       <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
-      <div class="issue">ISSUE #50 · 6 DOMAINS · 8 ITEMS</div>
+      <div class="issue">ISSUE #51 · 6 DOMAINS · 12 ITEMS</div>
     </div>
     <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
     <div class="dateline">
-      <span><b>Sunday, 23 August 2026</b></span>
-      <span>2 critical · 4 watch · 2 fyi</span>
-      <span>~6 min read</span>
+      <span><b>Monday, 24 August 2026</b></span>
+      <span>3 critical · 7 watch · 2 fyi</span>
+      <span>~7 min read</span>
     </div>
   </div>
 </header>
 
+<!-- STICKY NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#tech">Tech &amp; Sector <span class="ct">2</span></a>
-    <a href="#ai">AI &amp; Agentic <span class="ct">1</span></a>
-    <a href="#cloud">Cloud &amp; Infra <span class="ct">3</span></a>
-    <a href="#net">Connectivity <span class="ct">0</span></a>
+    <a href="#tech">Tech &amp; Sector <span class="ct">1</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">2</span></a>
+    <a href="#cloud">Cloud &amp; Infra <span class="ct">5</span></a>
+    <a href="#net">Connectivity <span class="ct">1</span></a>
     <a href="#ot">Industrial / OT <span class="ct">0</span></a>
-    <a href="#gov">Gov &amp; Reg <span class="ct">2</span></a>
+    <a href="#gov">Gov, Cyber &amp; Reg <span class="ct">3</span></a>
     <span class="nav-sep"></span>
     <a href="archive.html">Past editions ↗</a>
-    <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
+    <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
   </div>
 </nav>
 
 <div class="wrap">
 
+  <!-- HERO: PATTERN + DIFF -->
   <section class="hero reveal" style="border-bottom:1px solid var(--line)">
     <div class="pattern">
       <div class="kicker">⚡ Pattern of the Day</div>
-      <div class="ph">The constraints start generating their <span class="teeth">own market</span> — power scarcity funds an off-grid build-out, multicloud gets a managed link, and the AI-Act Code gets a roster.</div>
-      <p>Yesterday the hardened constraints acquired hard <em>dates</em>. Today each one is spawning a <strong>productised response</strong> an architect can buy or decide on — the point at which a watch-list item becomes a procurement question. On <strong>power</strong>, the scarcity PJM and ERCOT ration is pulling capital off-grid: Enverus sees hyperscalers spending <strong>~$5T through 2030 to build ~62 GW of behind-the-meter, gas-fired power</strong>, and EU projects (EdgeMode's <strong>€3B, 300 MW</strong> Spain campus) are now designed around on-site generation — even as PJM's comment window closes in <strong>~11 days (3 September)</strong> ahead of the <strong>12 October</strong> effective date.</p>
-      <p>On <strong>cloud portability</strong>, the 89%-multicloud reality gets a managed primitive: <strong>AWS and Google Cloud launched cross-cloud interconnect (GA)</strong> with an <strong>open interoperability specification</strong> and on-demand VPC links "in minutes," with Azure and OCI to follow. On <strong>agents</strong>, the identity plane that standardised yesterday gets its <strong>knowledge layer</strong> — <strong>Pinecone Nexus reached GA</strong>, exposing enterprise data as governed, agent-ready knowledge via one call, while Salesforce's Agentic Enterprise Index shows the fleet deepening (agents-per-org <strong>5 → 13</strong>, ~7 in 10 service sessions autonomous). <strong>Regulation</strong> turned method into a <em>roster</em>: the Commission published a first list of <strong>180+ signatories</strong> to the Transparency Code.</p>
+      <div class="ph">The backbone cuts <span class="teeth">both ways</span> — the identity-and-agent stack AG is standardising on is now both a maximum-severity single point of failure and an attacker's tool.</div>
+      <p>Earlier this week the agent story was constructive: MCP (identity) and A2A (coordination) standardising into one backbone, an IdP brokering auth across it, a governed knowledge layer underneath. Today the same backbone shows its other face. <strong>Defensively</strong>, the IdP itself took a top-of-scale hit: <strong>Entra ID's CVSS 10.0 unauthenticated RCE (CVE-2026-69836)</strong> was disclosed and confirmed exploited — Microsoft mitigated it on its managed infrastructure, so no patching, but it has not said who was hit or when, and concentrating identity (and agent auth) on one plane concentrates the blast radius. <strong>Offensively</strong>, the agent stack becomes the weapon: Gambit Security documents a suspected <strong>"The Gentlemen" RaaS affiliate driving nearly a full intrusion through Claude Code</strong> — breaching internet-exposed <strong>FortiGate SSL-VPN</strong>, repointing its <strong>LDAP</strong> auth to a rogue listener to harvest AD credentials, backdooring VPNs and exfiltrating SQL databases across ≥8 organisations, using the older <strong>Claude Sonnet 4.6</strong> to dodge frontier guardrails. Both land on the same Entra/AD/LDAP fabric everything else authenticates against.</p>
+      <p>Behind the security thread the physical and standards stories continue on schedule. On <strong>power</strong>, the off-grid <em>thesis</em> stays named megaprojects: <strong>Portsmouth 10 GW</strong> (NVIDIA + OpenAI + SoftBank + SB Energy, ~$105B NVIDIA credit, 20-year OpenAI lease) and <strong>Brookfield's ~1.2 GW</strong> at Paducah — priced by BloombergNEF at <strong>99 gas plants / ~318 Mt CO₂ a year</strong>, with PJM's window closing in <strong>~10 days (3 September)</strong>. On <strong>agents</strong>, <strong>A2A found a permanent home</strong> beside MCP and <strong>Cloudflare shipped Kitesurf</strong>. And <strong>sovereign compute</strong> stays a hard <strong>Huawei ~50% / NVIDIA ~8%</strong> fork under China's <strong>$295B, ≥80%-domestic</strong> mandate. <strong>Regulation</strong> holds: the AI-Act roster stands and the Article 50 marking clock is now <strong>~100 days</strong> out.</p>
       <div class="ag-take">
         <b>For Group</b>
-        Three moves: (1) with PJM inside two weeks, <em>decide and insert self-supply/curtailment clauses</em> in any PJM-footprint commitment now, and add a behind-the-meter-capability test to capacity diligence (weighed against AG's carbon commitments); (2) treat <em>AWS–Google cross-cloud interconnect as a portability lever</em> — validate latency, egress pricing and residency before routing anything sovereign across it; and (3) <em>cross-reference AG's GPAI and generative-AI suppliers against the published 180+ signatory list</em>, flag non-signatories for heightened diligence, sign the Code for AG's own in-scope systems, and pair "governed knowledge access + IdP-brokered MCP auth" as one agent-procurement requirement.
+        Four moves: (1) <em>audit internet-exposed FortiGate SSL-VPN + LDAP-to-AD config now</em>, enforce VPN MFA and hunt for rogue LDAP listeners and anomalous VPN auth-config changes; (2) <em>review Entra sign-in/audit logs</em> for the exposure window, confirm break-glass and secondary-IdP paths, treat identity-plane concentration as an explicit resilience risk, and request Microsoft's fuller disclosure; (3) hold the two live deadlines — <em>PJM self-supply/curtailment clauses before 3 Sept</em> and the <em>EU AI Act marking schedule to 2 Dec 2026</em>; and (4) keep the sovereign-compute exit path explicit — test any EU-resident model/hardware commitment against which stack (NVIDIA/Palantir vs Huawei) it locks AG into.
       </div>
     </div>
 
@@ -248,62 +259,82 @@
       <h3>🔄 What's changed since yesterday</h3>
       <div class="diff-list">
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">PJM window ~12 days out</span><span class="arrow">→</span><span class="st new">~11 days out; curtailment-clause decisions due</span></div>
-          <div class="diff-topic">Power — PJM's final fortnight</div>
-          <div class="diff-detail">FERC's comment/intervention window on PJM's $20B backstop + state-approved curtailment framework now closes 3 September, ahead of the 12 Oct effective date. The ~70 GW-by-2038 vs ~15 GW-retired gap is unchanged. Commenting and contracting decisions can no longer wait.</div>
+          <div class="diff-states"><span class="st old">IdP-brokered auth is AG's agent baseline</span><span class="arrow">→</span><span class="st new">Entra ID CVSS 10.0 RCE, confirmed exploited</span></div>
+          <div class="diff-topic">Security — the identity plane takes a maximum-severity hit</div>
+          <div class="diff-detail">Microsoft disclosed CVE-2026-69836, a CVSS 10.0 unauthenticated RCE in Entra ID (deserialization), confirmed exploited in attacks. Because Entra is fully managed, Microsoft mitigated it before disclosure — no customer patching — but has not disclosed scope, timeline or whether tenants were accessed. The plane AG standardises agent auth on is now a demonstrated single point of failure and a live disclosure watchpoint.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">constraint = power-ready capacity / copper</span><span class="arrow">→</span><span class="st new">behind-the-meter build-out ~$5T / ~62 GW</span></div>
-          <div class="diff-topic">Power — the response gets capitalised</div>
-          <div class="diff-detail">Behind-the-meter generation goes mainstream: Enverus sees hyperscalers spending ~$5T through 2030 to build ~62 GW of off-grid, gas-fired power, and EdgeMode's €3B, 300 MW Spain campus is designed around on-site power. "Power-ready" is shifting from grid-connected to self-generating.</div>
+          <div class="diff-states"><span class="st old">agents as a governed capability to buy</span><span class="arrow">→</span><span class="st new">Claude Code drives a live ransomware intrusion</span></div>
+          <div class="diff-topic">Security — the agent stack becomes the weapon</div>
+          <div class="diff-detail">Gambit Security reports a suspected "The Gentlemen" RaaS affiliate using Claude Code (older Sonnet 4.6) to run nearly a full intrusion — breaching internet-exposed FortiGate SSL-VPN, repointing LDAP auth to a rogue listener to harvest AD credentials, backdooring VPNs and exfiltrating SQL databases across ≥8 orgs. Agentic AI crosses cleanly from defensive tool to offensive operator against the AD/LDAP fabric.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">multicloud ~89% adopted, manually wired</span><span class="arrow">→</span><span class="st new">managed cross-cloud interconnect (GA) + open spec</span></div>
-          <div class="diff-topic">Cloud — portability gets a primitive</div>
-          <div class="diff-detail">AWS and Google Cloud launched a joint cross-cloud interconnect (GA) — on-demand VPC-to-VPC links "in minutes" — plus an open specification for network interoperability, with Microsoft Azure and Oracle Cloud to follow later in 2026. The switching cost underpinning AG's exit strategy drops.</div>
+          <div class="diff-states"><span class="st old">~$5T / ~62 GW off-grid thesis</span><span class="arrow">→</span><span class="st new">named multi-GW deals land</span></div>
+          <div class="diff-topic">Power — thesis becomes signed megaprojects</div>
+          <div class="diff-detail">The Enverus off-grid estimate lands as specific deals: Portsmouth 10 GW (NVIDIA + OpenAI + SoftBank + SB Energy — ~$105B NVIDIA credit, ~$1.5B into SB Energy, 20-year OpenAI lease), Brookfield ~1.2 GW at the DOE's Paducah, KY site, plus Meta 1 GW Indiana and OpenAI's Georgia "Camellia." Behind-the-meter goes from estimate to counterparties.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">identity plane standardises (MCP / Cequence)</span><span class="arrow">→</span><span class="st new">knowledge layer productises (Pinecone Nexus GA)</span></div>
-          <div class="diff-topic">Agents — the knowledge layer</div>
-          <div class="diff-detail">Pinecone Nexus reached GA — a "knowledge engine" turning proprietary data and workflows into governed, agent-ready knowledge exposed through a single call. The grounding half of the agent baseline now has a buyable primitive to pair with the identity half.</div>
+          <div class="diff-states"><span class="st old">self-generation solves the constraint</span><span class="arrow">→</span><span class="st new">99 gas plants · ~318 Mt CO₂/yr</span></div>
+          <div class="diff-topic">Power — the build-out gets a carbon price</div>
+          <div class="diff-detail">BloombergNEF now tracks 99 proposed bespoke gas plants for US data centers (~318 Mt CO₂/yr), a build-out Fortune reports could raise US power-sector emissions ~20%. The off-grid hedge reopens the sustainability question AG has to weigh.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">~57% of orgs run agents in production</span><span class="arrow">→</span><span class="st new">agents-per-org 5 → 13; ~7 in 10 sessions autonomous</span></div>
-          <div class="diff-topic">Adoption — breadth to depth</div>
-          <div class="diff-detail">Salesforce's Agentic Enterprise Index reports the average number of AI agents per organisation nearly tripled from ~5 (early 2025) to ~13 (April 2026), with seven in ten customer-service sessions now handled autonomously. Governance has to scale to fleets, not single deployments.</div>
+          <div class="diff-states"><span class="st old">PJM window ~11 days out</span><span class="arrow">→</span><span class="st new">~10 days; New Large Load fixed post-1 Jun 2027</span></div>
+          <div class="diff-topic">Power — PJM tightens</div>
+          <div class="diff-detail">FERC's comment window on PJM's $20B backstop + state-approved curtailment framework closes 3 September, ahead of the 12 Oct effective date. PJM defines a "New Large Load" as one entering service after 1 June 2027; the ~70/15 GW gap stands. Curtailment-clause decisions can no longer wait.</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">adequacy decision locks the Code as conformity path</span><span class="arrow">→</span><span class="st new">first list of 180+ signatories published</span></div>
-          <div class="diff-topic">Regulation — method becomes roster</div>
-          <div class="diff-detail">The Commission published a first list of more than 180 organisations that have signed the Transparency Code of Practice. Signatories gain a presumption of conformity and a softer enforcement posture; non-signatories face closer scrutiny. Yesterday's "adopt the Code" becomes a supplier check AG can run this week.</div>
+          <div class="diff-states"><span class="st old">identity plane standardises (MCP)</span><span class="arrow">→</span><span class="st new">A2A gains a home; Cloudflare ships Kitesurf</span></div>
+          <div class="diff-topic">Agents — the coordination layer</div>
+          <div class="diff-detail">A2A moved to a permanent, neutral home as the agent-discovery/delegation standard, now framed as one backbone with MCP; Cloudflare launched Kitesurf, an agent-native browser runtime (~3–7× lighter than Chromium). The interoperability base is now three-part — identity + grounding + coordination — with an edge runtime.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">geopatriation frame (>75% EMEA by 2030)</span><span class="arrow">→</span><span class="st new">Huawei ~50% vs NVIDIA ~8% China share</span></div>
+          <div class="diff-topic">Sovereign compute — trend becomes a supply fork</div>
+          <div class="diff-detail">Bernstein puts Huawei at ~50% of China's AI-chip share vs NVIDIA ~8%, under China's $295B, ≥80%-domestic mandate, while NVIDIA + Palantir sell the Western sovereign stack (NVIDIA sovereign revenue now >$30B). Geopatriation acquires two named, non-interoperable stacks.</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">first list of 180+ signatories published</span><span class="arrow">→</span><span class="st new">roster stands; marking clock ~100 days</span></div>
+          <div class="diff-topic">Regulation — roster becomes countdown</div>
+          <div class="diff-detail">No new instrument, but the calendar advances: GPAI enforcement is ~22 days in; Article 50 marking of pre-existing generative AI is now ~100 days out (2 Dec 2026); Secureframe shipped a compliance-data MCP server. Yesterday's supplier-check plan is now a ticking schedule plus a new agent-access surface.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ACTION REQUIRED -->
   <section id="action" style="border:none;padding-top:34px">
     <div class="action-band reveal">
       <div class="kicker">Action Required Today</div>
       <div class="action-head">
-        <h2>Two items crossed from awareness into decision</h2>
+        <h2>Three items crossed from awareness into decision</h2>
         <span class="action-sub">suggested actions — assign owner &amp; date</span>
       </div>
       <div class="actions">
         <div class="act">
           <div class="num">01</div>
           <div>
-            <span class="domain-tag">Cloud &amp; Digital Infrastructure</span>
-            <h4>PJM's power rule enters its final fortnight — FERC's comment/intervention window on PJM's two plans ($20B reliability backstop + "bring-your-own-power or face state-approved curtailment") now closes 3 September 2026, ~11 days out, ahead of the requested 12 October effective date; the ~70 GW-by-2038 vs ~15 GW-retired gap is unchanged, and behind-the-meter generation is emerging as the capitalised response (~$5T / ~62 GW off-grid gas by 2030)</h4>
-            <div class="sug"><b>Suggested action · </b> With ~11 days left to comment, treat the 3 Sept–12 Oct window as the period curtailment becomes a commercial term — decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment now, confirm which state can order a load cut, and add a behind-the-meter-capability test to capacity diligence (weighed against AG's carbon commitments).</div>
-            <div class="meta-row"><span>Owner: <b>Infrastructure Strategy / Capacity Planning</b></span><span>By when: <b>before 3 Sept comment close</b></span></div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch</span>
+            <h4>An AI coding agent drove a near-complete ransomware intrusion — Gambit Security reports a suspected "The Gentlemen" RaaS affiliate using Anthropic's Claude Code (older Sonnet 4.6) to breach internet-exposed FortiGate SSL-VPN appliances, repoint their LDAP authentication to a rogue listener to harvest Active Directory credentials, backdoor VPNs and exfiltrate live SQL databases across at least eight organisations from late June 2026 — the same AD/LDAP identity fabric AG's estate authenticates on</h4>
+            <div class="sug"><b>Suggested action · </b> Audit every internet-exposed FortiGate SSL-VPN appliance now — verify the LDAP auth config cannot be silently redirected, enforce MFA on VPN, restrict admin exposure, patch FortiOS, and hunt for rogue LDAP listeners and anomalous VPN LDAP-config changes. Consequence of inaction: domain-credential theft, VPN backdoor and ransomware using a technique already in active use.</div>
+            <div class="meta-row"><span>Owner: <b>Security Operations / Network Security</b></span><span>By when: <b>within 7 days (active campaign)</b></span></div>
           </div>
         </div>
         <div class="act">
           <div class="num">02</div>
           <div>
-            <span class="domain-tag">Governance &amp; Regulation Watch</span>
-            <h4>EU AI Act — the Transparency Code moves from method to roster: the Commission published a first list of 180+ signatories to the Transparency Code of Practice; signatories gain a presumption of conformity and a softer enforcement posture, while non-signatories face closer scrutiny. Transparency is live now for all in-scope systems; pre-existing generative AI has a transitional deadline of 2 December 2026 (~101 days); GPAI enforcement is ~21 days in</h4>
-            <div class="sug"><b>Suggested action · </b> Run the supplier check this week — cross-reference AG's GPAI and generative-AI suppliers against the published 180+ signatory list, flag any non-signatory as heightened-diligence, sign the Code for AG's own in-scope systems, mark new customer-facing agent output now, and schedule the pre-existing generative estate against 2 Dec 2026.</div>
+            <span class="domain-tag">Cloud &amp; Digital Infrastructure</span>
+            <h4>PJM's power rule enters its final ~10 days — FERC's comment/intervention window on PJM's two plans ($20B reliability backstop + "bring-your-own-power or face state-approved curtailment," filed 13 Aug) closes 3 September 2026, ahead of the 12 October effective date; PJM fixes a "New Large Load" as one entering service after 1 June 2027, and the ~70/15 GW gap stands — while the off-grid response is now named megaprojects (Portsmouth 10 GW, Paducah 1.2 GW) priced at ~318 Mt CO₂/yr across 99 proposed gas plants</h4>
+            <div class="sug"><b>Suggested action · </b> With ~10 days left to comment, treat the 3 Sept–12 Oct window as the period curtailment becomes a commercial term — decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment now, confirm which state can order a load cut, add a behind-the-meter-capability test to capacity diligence, and price the gas-fired carbon exposure against AG's sustainability commitments.</div>
+            <div class="meta-row"><span>Owner: <b>Infrastructure Strategy / Capacity Planning</b></span><span>By when: <b>before 3 Sept comment close</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch</span>
+            <h4>EU AI Act — the roster becomes a countdown: the Commission's first list of 180+ Transparency Code signatories now stands as the live supplier-check reference; GPAI enforcement is ~22 days in (fines up to €15M / 3% under Art. 101); Article 50 transparency is live for all in-scope systems, and the marking obligation for pre-existing generative AI carries a hard deadline of 2 December 2026 (~100 days)</h4>
+            <div class="sug"><b>Suggested action · </b> Finish the supplier cross-check this week — flag any non-signatory as heightened-diligence, sign the Code for AG's own in-scope systems, mark new customer-facing agent output now, put the pre-existing generative estate on a schedule that clears 2 Dec 2026, and govern any compliance-data MCP server with IdP-brokered auth before connecting an assistant to it.</div>
             <div class="meta-row"><span>Owner: <b>AI Governance / Enterprise Architecture (DPO)</b></span><span>By when: <b>this week (then 2 Dec 2026)</b></span></div>
           </div>
         </div>
@@ -311,6 +342,7 @@
     </div>
   </section>
 
+  <!-- FILTER BAR -->
   <div class="filterbar" id="filterbar">
     <div class="fgroup">
       <span class="flabel">Domain</span>
@@ -334,6 +366,7 @@
   <div id="grid"></div>
   <div class="empty" id="empty">No items match the current filter.</div>
 
+  <!-- LEGEND -->
   <section style="border-bottom:none">
     <div class="kicker">Severity Key</div>
     <div class="legend">
@@ -345,11 +378,12 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="src-line">
-      <strong style="color:var(--navy)">Sources ·</strong> AI Agent Store · Salesforce (Agentic Enterprise Index) · Pinecone · TechHQ · Gartner · Network World · CIO Dive · Google Cloud · Utility Dive · Data Center Knowledge · GlobeNewswire / Enverus · European Commission · Faegre Drinker · SureCloud
+      <strong style="color:var(--navy)">Sources ·</strong> Help Net Security · The Hacker News · BleepingComputer · SecurityWeek · Cyber Security News · Cypro · Anthropic (threat report) · Tom's Hardware · Yahoo Finance (NVIDIA–Palantir) · Utility Dive · Data Center Knowledge · Data Centre Magazine · DatacenterDynamics · Fortune · Bridge Michigan · AI Agent Store · Sourcetrail · Agentic.ai · Cloudflare · European Commission · Latham &amp; Watkins
     </div>
-    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #50</div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #51</div>
   </footer>
 
 </div>
@@ -365,17 +399,22 @@ const DOMAINS = [
 ];
 
 const ITEMS = [
-  {dom:"tech",sev:"watch",title:"Agent adoption deepens from “present” to “load-bearing” — Salesforce's Agentic Enterprise Index reports the average number of AI agents deployed per organisation nearly tripled from ~5 in early 2025 to ~13 by April 2026, and that seven in ten customer-service sessions are now handled autonomously among organisations in its dataset",src:"AI Agent Store · Salesforce",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> Agents-per-org roughly tripled to ~13; ~70% of service sessions are autonomous in Salesforce's dataset. <span class='tag-assum'>Assumption</span> The governance unit is no longer “the agent” but “the fleet” — AG needs a portfolio view (inventory, identity, spend, audit) across a growing double-digit population per business unit, and should assume the count keeps climbing, so the identity/discovery baseline (see §5) has to scale to fleets, not single deployments."},
-  {dom:"tech",sev:"fyi",title:"Sovereign-first / “geopatriation” stays the operating frame — Gartner's 2026 top-10 (geopatriation + digital provenance) continues to anchor the sector narrative as EMEA workloads move toward locally-controlled environments (>75% projected by 2030)",src:"TechHQ · Gartner",url:"https://techhq.com/news/gartners-2026-tech-trends-show-reshaping-of-enterprise-strategy/",why:"<span class='tag-assum'>Assumption</span> No new movement today, but the frame holds — keep funding the EU-resident landing-zone, sovereign-model and open-source exit paths, and treat digital provenance (SBOMs, content marking) as the one control layer serving both geopatriation and the EU AI Act (see §6)."},
+  {dom:"tech",sev:"watch",title:"Sovereign compute bifurcates from trend into a hard supply fork — Bernstein estimates NVIDIA's China AI-chip share has fallen to ~8% while Huawei has risen to ~50%, as Beijing's June-2026 five-year plan (~$295B, ≥80% domestic hardware) pushes buyers onto homegrown silicon; on the Western side NVIDIA + Palantir introduced a turnkey sovereign-AI data-center architecture and NVIDIA's sovereign-AI revenue has passed ~$30B (~14% of total)",src:"Tom's Hardware · Yahoo Finance",url:"https://www.tomshardware.com/tech-industry/artificial-intelligence/huawei-could-seize-chinas-ai-chip-crown-in-2026",why:"<span class='tag-fact'>Fact</span> Bernstein sees Huawei ~50% / NVIDIA ~8% of China AI-chip share; China mandates ≥80% domestic hardware across a $295B build; NVIDIA sovereign revenue >$30B. <span class='tag-assum'>Assumption</span> Geopatriation is now a procurement fork, not a slide — AG's sovereign-AI roadmap should assume the Western (NVIDIA/Palantir) and Chinese (Huawei) stacks won't interoperate cleanly, so any model/hardware commitment for EU-resident or regional workloads should be tested against which stack it locks AG into and what the exit path is."},
 
-  {dom:"ai",sev:"watch",title:"The agent stack gets its knowledge layer — Pinecone announced the general availability of Pinecone Nexus, a “knowledge engine” that turns an enterprise's proprietary data and workflows into governed, agent-ready knowledge exposed through a single call",src:"AI Agent Store · Pinecone",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> Pinecone Nexus is GA and exposes proprietary data/workflows as governed, agent-ready knowledge via one call. <span class='tag-assum'>Assumption</span> This is the retrieval/grounding half of the agent baseline that pairs with the identity half (see §6) — AG can now specify “governed knowledge access + IdP-brokered MCP auth” as a two-part procurement requirement, keeping data residency and access control on the knowledge layer so sovereign data isn't silently copied into a vendor index; pilot against one grounded use case before standardising."},
+  {dom:"ai",sev:"watch",title:"The agent backbone gains its coordination layer — the Agent-to-Agent (A2A) protocol has moved to a permanent, vendor-neutral home, giving vendors and open-source projects a shared standard for how agents discover each other, delegate tasks and coordinate across frameworks; A2A plus MCP are now framed as one backbone for multi-agent ecosystems, while the 2026 MCP spec drops protocol-level sessions and enterprise MCP servers proliferate",src:"AI Agent Store · Sourcetrail",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> A2A has a permanent neutral home as the agent-discovery/delegation standard; A2A + MCP are positioned as a shared multi-agent backbone; MCP 2026 dropped protocol-level sessions. <span class='tag-assum'>Assumption</span> AG's agent-procurement baseline should now be three-part — IdP-brokered MCP auth (identity), governed knowledge access (grounding), and A2A-compatible discovery/delegation (coordination) — so a multi-vendor agent estate can interoperate and be audited without bespoke glue; require A2A + MCP support in agent-platform RFPs. Read alongside the security thread below — the same backbone is now a demonstrated attack surface."},
+  {dom:"ai",sev:"fyi",title:"Enterprise agent-ops tooling keeps maturing — Resolve unveiled the next generation of AgentLab (natural-language agent creation, reusable skills, AI-assisted workflow building and governance-aware deployment), alongside a wave of hosted MCP servers letting external agents plug into production systems",src:"AI Agent Store · Agentic.ai",url:"https://agentic.ai/news",why:"<span class='tag-assum'>Assumption</span> Build/test/govern/deploy agent platforms are consolidating into a buyable category — AG can shortlist an agent-ops platform that bakes in inventory, governance-aware deployment and A2A/MCP compatibility rather than assembling one, but should pilot governance and audit depth before standardising, since these platforms now sit on the critical path for the fleet-scale agent population."},
 
-  {dom:"cloud",sev:"crit",action:true,title:"PJM's power rule enters its final fortnight — FERC's comment/intervention window on PJM's two plans ($20B reliability backstop + “bring-your-own-power or face state-approved curtailment”) now closes 3 September 2026, ~11 days out, ahead of the requested 12 October effective date; the ~70 GW new-large-load-by-2038 vs ~15 GW-retired gap is unchanged",src:"Utility Dive · Data Center Knowledge",url:"https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",why:"<span class='tag-fact'>Fact</span> The comment window closes 3 Sept; the 12 Oct effective date and 70 GW/15 GW gap stand. <span class='tag-assum'>Assumption</span> With ~11 days left to comment, treat the 3 Sept–12 Oct window as the period curtailment becomes a commercial term — decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment now, and confirm which state can order a load cut before signing."},
-  {dom:"cloud",sev:"watch",title:"Multicloud gets a managed portability primitive — AWS and Google Cloud have launched a joint cross-cloud interconnect (AWS Interconnect–multicloud ↔ Google Cross-Cloud Interconnect) that turns manual, ticket-driven cloud-to-cloud links into on-demand VPC-to-VPC connections “in minutes,” and ships an open specification for network interoperability; Google Cloud is the first launch partner, with Microsoft Azure and Oracle Cloud Infrastructure to follow later in 2026",src:"Network World · CIO Dive · Google Cloud",url:"https://www.networkworld.com/article/4098773/aws-finally-moves-to-simplify-multicloud-operations-with-google.html",why:"<span class='tag-fact'>Fact</span> AWS–Google cross-cloud interconnect is GA with an open interop spec; Azure and OCI join later in 2026. <span class='tag-assum'>Assumption</span> This lowers the switching and split-workload cost underpinning AG's portability/exit strategy — treat managed cross-cloud interconnect as a portability lever (data-egress and DR paths that don't lock to one provider), but keep the open-spec claim honest: verify latency, egress pricing and data-residency before routing sovereign workloads across it."},
-  {dom:"cloud",sev:"watch",title:"The power constraint pulls capital off-grid — behind-the-meter generation goes mainstream: Enverus Intelligence Research estimates hyperscalers could spend ~$5 trillion through 2030 to build ~62 GW of off-grid, natural-gas-fired power for data centers, and EU projects are following suit — EdgeMode's proposed €3B, 300 MW AI campus in Mora, Spain is being designed around on-site power rather than waiting for grid upgrades",src:"GlobeNewswire / Enverus · Data Center Knowledge",url:"https://www.globenewswire.com/news-release/2026/08/11/3342843/0/en/data-centers-are-running-out-of-power-and-behind-the-meter-generation-could-be-the-answer.html",why:"<span class='tag-fact'>Fact</span> Enverus sees ~$5T / ~62 GW of behind-the-meter gas by 2030; EdgeMode's Spain campus is built around on-site generation. <span class='tag-assum'>Assumption</span> “Power-ready” is shifting from grid-connected to self-generating — AG capacity diligence should now ask whether a candidate site has (or can add) behind-the-meter generation, weigh the carbon/permitting trade-off against AG's sustainability commitments, and treat on-site power as a hedge against the PJM/ERCOT interconnection queues rather than a fringe option."},
+  {dom:"cloud",sev:"crit",action:true,title:"PJM's power rule enters its final ~10 days — FERC's comment/intervention window on PJM's two plans ($20B reliability backstop + bring-your-own-power or face state-approved curtailment, filed 13 Aug) closes 3 September 2026, ahead of the requested 12 October effective date; PJM defines a New Large Load as one entering service or adding demand after 1 June 2027, and the ~70 GW-by-2038 vs ~15 GW-retired gap is unchanged",src:"Utility Dive · Data Center Knowledge",url:"https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",why:"<span class='tag-fact'>Fact</span> Comments close 3 Sept; 12 Oct effective date, the post-1 June 2027 New-Large-Load definition and the 70/15 GW gap stand. <span class='tag-assum'>Assumption</span> With ~10 days left, treat the 3 Sept–12 Oct window as the period curtailment becomes a commercial term — decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment now, and confirm which state can order a load cut before signing."},
+  {dom:"cloud",sev:"watch",title:"Behind-the-meter goes from thesis to signed megaproject — a former uranium-enrichment site in Portsmouth, Ohio is being turned into a 10 GW AI campus by NVIDIA, OpenAI, SoftBank and SB Energy: SB Energy builds, owns and operates under a 20-year lease with OpenAI (~8 GW-IT secured), NVIDIA supplies the compute and provides up to ~$105B of credit support for the initial 4.25 IT-GW plus a ~$1.5B investment in SB Energy",src:"Data Centre Magazine · Data Center Knowledge",url:"https://datacentremagazine.com/news/this-weeks-top-five-stories-in-the-data-centre-industry-22-august-2026",why:"<span class='tag-fact'>Fact</span> A 10 GW single-campus deal with ~$105B of vendor credit support and a 20-year power-anchored lease is now public. <span class='tag-assum'>Assumption</span> Power-ready is being redefined at multi-gigawatt, self-generated scale by parties AG cannot match — so AG's realistic play is co-location/offtake at the edge of these campuses or their supply chains, and capacity diligence should now ask whether a candidate site sits within reach of one of these anchored power build-outs."},
+  {dom:"cloud",sev:"watch",title:"Brookfield takes a second brownfield-nuclear route to on-site power — Brookfield will develop a gigawatt-scale (~1.2 GW) AI data-center campus at the US DOE's former Paducah, Kentucky gaseous-diffusion (uranium-enrichment) plant, with dedicated on-site generation rather than a grid-queue dependency",src:"DatacenterDynamics",url:"https://www.datacenterdynamics.com/en/news/brookfield-to-develop-gigawatt-scale-data-center-campus-at-does-kentucky-nuclear-enrichment-plant/",why:"<span class='tag-fact'>Fact</span> Brookfield's ~1.2 GW Paducah campus is designed around dedicated on-site power on a federal brownfield site. <span class='tag-assum'>Assumption</span> Federal/brownfield sites with existing heavy electrical infrastructure are becoming the scarce input — AG should treat site with inherited power interconnect as a capacity-diligence advantage and watch whether EU equivalents (former industrial/energy sites) attract the same play."},
+  {dom:"cloud",sev:"watch",title:"The gas-plant build-out gets a carbon price tag — BloombergNEF now tracks 99 proposed bespoke natural-gas plants for US data centers that would emit ~318 million metric tons of CO₂ per year at industry-standard run rates, a build-out Fortune reports could raise US power-sector emissions by ~20%",src:"Fortune · Data Center Knowledge",url:"https://fortune.com/2026/08/18/data-center-gas-plants-to-boost-u-s-power-emissions-by-20/",why:"<span class='tag-fact'>Fact</span> BloombergNEF counts 99 proposed gas plants (~318 Mt CO₂/yr); the build-out could lift US power emissions ~20%. <span class='tag-assum'>Assumption</span> The behind-the-meter hedge carries a hard carbon and permitting cost — AG's capacity diligence should weigh on-site-gas offtake against AG's own sustainability commitments and tightening EU emissions/permitting rules, and price the reputational/regulatory exposure of anchoring to a gas-fired campus."},
+  {dom:"cloud",sev:"fyi",title:"The hyperscaler capacity cluster keeps landing — Meta announced a ~1 GW data center in Indiana, OpenAI disclosed Project Camellia in Effingham County, Georgia, and land-clearing has begun for Amazon's planned gas plant at GW Ranch in Pecos County, Texas",src:"Data Center Knowledge · Bridge Michigan",url:"https://www.datacenterknowledge.com/data-center-construction/new-data-center-developments-august-2026",why:"<span class='tag-assum'>Assumption</span> The volume of concurrent gigawatt-scale, self-powered announcements means grid-power, transformers, turbines and skilled EPC capacity will stay supply-constrained — context for any AG capacity plan that assumes smooth interconnect, equipment lead-times or contractor availability."},
 
-  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — the Transparency Code moves from method to roster: the Commission has published a first list of more than 180 organisations that have signed the Transparency Code of Practice. Signatories gain a presumption of conformity and a more favourable enforcement posture; non-signatories face closer scrutiny and must demonstrate compliance through other means. Enforcement is ~21 days in; Article 50 transparency is live for all in-scope systems, while the machine-readable marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026 (~101 days). The Digital Omnibus (Reg (EU) 2026/1744, in force 27 Jul 2026) defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); prohibited practices and the Art. 5 ban remain in force",src:"European Commission · Faegre Drinker",url:"https://digital-strategy.ec.europa.eu/en/news/commission-publishes-code-practice-marking-and-labelling-ai-generated-content"},
-  {dom:"gov",sev:"fyi",title:"ISO/IEC 42001 + digital provenance stay the operating scaffold — the management-system standard (model inventory, risk assessment, monitoring, governance committee) and provenance controls (SBOMs, content marking) remain how enterprises map the live GPAI/Article 50 obligations, the agent-inventory/knowledge gate (§5) and the banked Annex III/I deferrals onto one framework",src:"SureCloud · European Commission",url:"https://www.surecloud.com/resource-hub/eu-ai-act-complete-compliance-guide",why:"<span class='tag-assum'>Assumption</span> Benchmark AG's EA governance against ISO 42001 so the now-live GPAI/Article 50 obligations, the agent-inventory + knowledge gate (see §5), Gartner's geopatriation + provenance trends (see §1) and the banked Annex III/I deferrals all map onto one control framework — and so Article 50 marking and SBOM-based provenance share a single implementation."},
+  {dom:"net",sev:"watch",title:"The edge fabric gets an agent-native runtime — Cloudflare launched Kitesurf, a browser runtime built specifically for AI agents that runs on Workers in V8 isolates, uses roughly 3–7× less CPU and memory than Chromium, and integrates with Puppeteer and Playwright",src:"AI Agent Store · Cloudflare",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> Kitesurf is an agent-purpose browser runtime on Cloudflare Workers, ~3–7× lighter than Chromium, with Puppeteer/Playwright compatibility. <span class='tag-assum'>Assumption</span> This is the network/edge complement to the MCP + A2A agent backbone — it lowers the cost of running browsing/tool-using agents at the edge, but concentrates yet another agent primitive on Cloudflare, so weigh it as a portability/lock-in decision alongside the mid-August Cloudflare incident cluster and keep an abstraction over the agent runtime."},
+
+  {dom:"gov",sev:"crit",action:true,full:true,gov:true,title:"EU AI Act — the roster stands and the marking clock ticks toward ~100 days: no new instrument this cycle, but the Commission's first list of 180+ Transparency Code signatories is now the live supplier-check reference; GPAI enforcement is ~22 days in (documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal, fines up to €15M / 3% of turnover under Art. 101); Article 50 transparency is live for all in-scope systems, while the marking obligation for pre-existing generative AI carries a transitional deadline of 2 December 2026 (~100 days). The Digital Omnibus (Reg (EU) 2026/1744, in force 27 Jul 2026) defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); prohibited practices and the Art. 5 ban remain in force",src:"European Commission · Latham & Watkins",url:"https://digital-strategy.ec.europa.eu/en/news/commission-publishes-code-practice-marking-and-labelling-ai-generated-content"},
+  {dom:"gov",sev:"crit",action:true,title:"First well-documented case of an AI coding agent driving a near-complete ransomware intrusion — Gambit Security reports a suspected affiliate of the The Gentlemen ransomware-as-a-service operation used Anthropic's Claude Code (on the older, less-restricted Claude Sonnet 4.6) to run nearly every stage of an attack: breaching internet-exposed FortiGate SSL-VPN appliances, repointing their LDAP authentication to a rogue listener to harvest Active Directory credentials, backdooring VPNs and exfiltrating live SQL databases; at least eight organisations across energy, financial services, manufacturing and IT/distribution were compromised from late June 2026",src:"Cyber Security News · Cypro · Anthropic",url:"https://cybersecuritynews.com/claude-code-helps-ransomware-operator/",why:"<span class='tag-fact'>Fact</span> A live RaaS campaign used Claude Code to breach FortiGate SSL-VPN, repoint LDAP auth to a rogue listener and harvest AD credentials across ≥8 orgs; attribution to The Gentlemen is medium-confidence <span class='tag-assum'>Inference</span>. <span class='tag-assum'>Assumption</span> Internet-exposed FortiGate SSL-VPN with LDAP-to-AD is a common enterprise pattern AG likely runs somewhere — <b>Act:</b> audit all such appliances now, verify LDAP auth config cannot be silently redirected, enforce MFA on VPN, restrict admin exposure, patch FortiOS, and hunt for rogue LDAP listeners and anomalous VPN LDAP-config changes; consequence of inaction is domain-credential theft, VPN backdoor and ransomware using a technique already in active use. <b>Owner:</b> Security Operations / Network Security · <b>By:</b> within 7 days."},
+  {dom:"gov",sev:"watch",title:"A maximum-severity RCE lands in the identity plane AG is standardising on — Microsoft disclosed CVE-2026-69836, a CVSS 10.0 unauthenticated remote-code-execution flaw in Entra ID (deserialization of untrusted data), confirmed exploited in attacks; because Entra ID is a fully managed cloud service, Microsoft mitigated it on its own infrastructure before public disclosure and states no customer patching or configuration change is required, but has not disclosed when exploitation began, the actors, the targets, or whether any customer tenants were accessed",src:"Help Net Security · The Hacker News · BleepingComputer",url:"https://www.helpnetsecurity.com/2026/08/21/microsoft-entra-id-vulnerability-cve-2026-69836/",why:"<span class='tag-fact'>Fact</span> CVE-2026-69836 is a CVSS 10.0 unauthenticated RCE in Entra ID, deserialization-based, confirmed exploited; Microsoft mitigated it on its managed infrastructure with no customer action required, but has not disclosed scope, timeline or tenant impact. <span class='tag-assum'>Assumption</span> If Entra/M365 is AG's primary IdP and the broker AG is standardising MCP/agent auth on, a max-severity RCE there is a single-point-of-failure signal even without a patch — review Entra sign-in/audit logs for the disclosure window, confirm break-glass and secondary-IdP paths, treat identity-plane concentration as an explicit resilience risk, and request Microsoft's fuller post-incident disclosure before treating the plane as fully clean."},
 ];
 
 const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
@@ -383,20 +422,20 @@ const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
 function govWhy(){
   return `<div class="why">
     <span class="wl">Why it matters for Group</span>
-    Enforcement is ~21 days in and is <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — requesting documentation, running technical evaluations, demanding risk-mitigation, restricting or withdrawing models and issuing fines up to €15M / 3% turnover under Art. 101. This cycle the sharper signal is that the Transparency Code moves from <b>method</b> to <b>roster</b>: the Commission has published a <b>first list of more than 180 organisations</b> that have signed the Transparency Code of Practice, building on last cycle's adequacy decision and the final Article 50 guidelines. <b>Signatories gain a presumption of conformity and a more favourable enforcement posture; non-signatories face closer scrutiny</b> and must demonstrate compliance through other means. Article 50's transparency duties apply immediately from 2 Aug 2026 to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~101 days). The <b>Digital Omnibus</b> (Reg (EU) 2026/1744, in force 27 Jul 2026) left the 2 Aug GPAI enforcement date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope on an extraterritorial basis.
+    Enforcement is ~22 days in and is <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — requesting documentation, running technical evaluations, demanding risk-mitigation, restricting or withdrawing models and issuing fines up to €15M / 3% turnover under Art. 101. No new instrument landed this cycle, so the sharper signal is the <b>calendar advancing</b>: the Commission's <b>first list of more than 180 Transparency Code signatories</b> (Issue #50) is now the live supplier-check reference. <b>Signatories gain a presumption of conformity and a more favourable enforcement posture; non-signatories face closer scrutiny</b> and must demonstrate compliance through other means. Article 50's transparency duties apply immediately from 2 Aug 2026 to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~100 days). The <b>Digital Omnibus</b> (Reg (EU) 2026/1744, in force 27 Jul 2026) left the 2 Aug GPAI enforcement date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope on an extraterritorial basis. Separately, Secureframe shipped a hosted MCP server exposing live compliance data to assistants — treat any such compliance-data MCP server as a governed integration with IdP-brokered auth, not a convenience.
     <table class="compliance">
       <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
       <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
       <tr><td>Art. 5 ban (AI nudifiers / NCII / CSAM)</td><td>&mdash;</td><td>Added by Omnibus</td><td><span class="badge b-new">In force · new</span></td></tr>
-      <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Standing · Omnibus did not move it</td><td><span class="badge b-live">Live · ~21 days</span></td></tr>
+      <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Standing · Omnibus did not move it</td><td><span class="badge b-live">Live · ~22 days</span></td></tr>
       <tr><td>Art. 50 &mdash; transparency / marking (new systems)</td><td>2 Aug 2026</td><td>Live · all in-scope systems</td><td><span class="badge b-live">Live</span></td></tr>
-      <tr><td>Art. 50 &mdash; marking of pre-existing generative AI</td><td>2 Aug 2026</td><td>Transitional deadline 2 Dec 2026</td><td><span class="badge b-new">~101 days</span></td></tr>
-      <tr><td>Transparency Code of Practice &mdash; signatory list</td><td>Adequacy decision 21 Aug</td><td><b>180+ signatories published</b></td><td><span class="badge b-ok">Presumption of conformity</span></td></tr>
+      <tr><td>Art. 50 &mdash; marking of pre-existing generative AI</td><td>2 Aug 2026</td><td>Transitional deadline 2 Dec 2026</td><td><span class="badge b-new">~100 days</span></td></tr>
+      <tr><td>Transparency Code of Practice &mdash; signatory list</td><td>Adequacy decision 21 Aug</td><td><b>180+ signatories published</b></td><td><span class="badge b-new">Presumption of conformity</span></td></tr>
       <tr><td>GPAI models placed before 2 Aug 2025</td><td>&mdash;</td><td>Compliant by 2 Aug 2027</td><td><span class="badge b-def">Grace period</span></td></tr>
       <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
       <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
     </table>
-    <span class="tag-fact">Fact</span> The Commission has published a first list of 180+ Code signatories, who gain a presumption of conformity while non-signatories face closer scrutiny; Article 50 is live for new systems, pre-existing generative systems have a hard 2 Dec 2026 marking deadline, and the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028). &nbsp;<span class="tag-assum">Assumption</span> Cross-reference AG's GPAI and generative-AI suppliers against the published signatory list this week, flag any non-signatory as heightened-diligence, sign the Code for AG's own in-scope systems, mark new customer-facing agent output now, and schedule the pre-existing generative estate against 2 Dec 2026.
+    <span class="tag-fact">Fact</span> The 180+ Code signatory roster stands (signatories gain a presumption of conformity while non-signatories face closer scrutiny); GPAI enforcement is live and ~22 days in; Article 50 is live for new systems; pre-existing generative systems have a hard 2 Dec 2026 (~100-day) marking deadline; the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028). &nbsp;<span class="tag-assum">Assumption</span> Finish the supplier cross-check against the published signatory list this week, flag any non-signatory as heightened-diligence, sign the Code for AG's own in-scope systems, mark new customer-facing agent output now, and put the pre-existing generative estate on a schedule that clears 2 Dec 2026.
   </div>`;
 }
 
