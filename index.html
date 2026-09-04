@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Sector Intelligence Digest — 2 September 2026 · Group Technology Architecture</title>
+<title>Daily Sector Intelligence Digest — 4 September 2026 · Group Technology Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +46,6 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
-  /* ---------- MASTHEAD ---------- */
   .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
   .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
   .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
@@ -62,11 +61,9 @@
   .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
   .dateline b{color:var(--navy);font-weight:600}
 
-  /* ---------- STICKY NAV ---------- */
   .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
   .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
-    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
   .nav a:hover{background:var(--paper-2);color:var(--navy)}
   .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
   .nav a.reds{color:var(--red);font-weight:600}
@@ -77,7 +74,6 @@
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
 
-  /* ---------- HERO (pattern + diff) ---------- */
   .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
   .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
   .pattern .ph .teeth{color:var(--red);font-style:italic}
@@ -97,7 +93,6 @@
   .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
   .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
 
-  /* ---------- ACTION REQUIRED ---------- */
   .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
   .action-band .kicker{color:#ff8a98}
   .action-band .kicker::after{background:rgba(255,255,255,.18)}
@@ -114,14 +109,10 @@
   .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
   .act .meta-row span b{color:#fff;font-weight:600}
 
-  /* ---------- FILTER BAR ---------- */
-  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
-    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
-    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
   .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
-  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
-    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
   .chip:hover{border-color:var(--navy);color:var(--navy)}
   .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
   .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
@@ -135,21 +126,18 @@
   .toggle input:checked{background:var(--red)}
   .toggle input:checked::after{left:17px}
 
-  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
   .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
   .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
   .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
   .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
 
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
-    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
   .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
   .card.crit{border-left-color:var(--red)}
   .card.watch{border-left-color:var(--amber)}
   .card.fyi{border-left-color:var(--slate)}
-  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
-    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
   .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
   .sevtag .pip{width:9px;height:9px;border-radius:50%}
   .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
@@ -164,10 +152,8 @@
   .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .card.full{grid-column:1/-1}
 
-  /* compliance table inside gov card */
   table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
-  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
-    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
   table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
   table.compliance tr:last-child td{border-bottom:none}
   .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
@@ -179,14 +165,12 @@
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
   .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
 
-  /* ---------- RADAR ---------- */
   .radar-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
   .radar-item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:9px;padding:13px 15px;box-shadow:var(--shadow)}
   .radar-item .rt{font-size:14px;font-weight:700;color:var(--navy-deep);margin-bottom:4px;line-height:1.3}
   .radar-item .rd{font-size:12.5px;color:var(--ink-soft)}
   .radar-item .rd em{color:var(--navy);font-style:italic}
 
-  /* ---------- LEGEND + FOOTER ---------- */
   .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
   .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
   .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
@@ -217,47 +201,44 @@
 </head>
 <body>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <div class="wrap">
     <div class="brandline">
       <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
-      <div class="issue">ISSUE #59 · 4 DOMAINS · 8 ITEMS</div>
+      <div class="issue">ISSUE #61 · 4 DOMAINS · 9 ITEMS</div>
     </div>
     <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
     <div class="dateline">
-      <span><b>Wednesday, 2 September 2026</b></span>
-      <span>4 critical · 3 watch · 1 fyi</span>
+      <span><b>Friday, 4 September 2026</b></span>
+      <span>2 critical · 6 watch · 1 fyi</span>
       <span>~5 min read</span>
     </div>
   </div>
 </header>
 
-<!-- STICKY NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#dc">Infra / Data Centers <span class="ct">2</span></a>
     <a href="#gov">Gov, Cyber &amp; Reg <span class="ct">3</span></a>
-    <a href="#cloud">Cloud <span class="ct">2</span></a>
-    <a href="#ai">AI &amp; Agentic <span class="ct">1</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">2</span></a>
+    <a href="#dc">Infra / Data Centers <span class="ct">3</span></a>
+    <a href="#cloud">Cloud <span class="ct">1</span></a>
     <span class="nav-sep"></span>
     <a href="archive.html">Past editions ↗</a>
-    <a href="#action" class="reds"><span class="dot"></span> 4 need action</a>
+    <a href="#action" class="reds"><span class="dot"></span> 2 need action</a>
   </div>
 </nav>
 
 <div class="wrap">
 
-  <!-- HERO: PATTERN + DIFF -->
   <section class="hero reveal" style="border-bottom:1px solid var(--line)">
     <div class="pattern">
       <div class="kicker">⚡ Pattern of the Day</div>
-      <div class="ph">The bottleneck keeps moving <span class="teeth">down the stack</span>.</div>
-      <p>For weeks this brief has tracked AG's build-out constraint migrating from the thing everyone watches — <strong>GPU allocation</strong> — to the things nobody puts on a board agenda. First it was <strong>power</strong>: interconnection queues, transformer lead times, and PJM's curtailment rule, whose FERC comment window closes <em>tomorrow</em>. This cycle the constraint moved one layer further, into <strong>memory</strong>: with ~70% of 2026 DRAM output diverted to AI data centres, Samsung has raised memory prices <strong>up to 60% since September</strong>, DDR5 contract pricing has <strong>more than doubled</strong>, and the big three refuse multi-year agreements in favour of quarterly step-ups while 2026 capacity sells out.</p>
-      <p>The pattern is consistent: the scarce, expensive, long-lead inputs are the <em>mundane</em> ones, priced and allocated on clocks that do not wait for an architecture review. Against that backdrop the VMware story gained its missing number — <strong>VCF 9 lists at ~$350/core/year with Private AI bundled at no extra cost</strong> — so the sovereign-AI landing-zone case is finally modellable, but the <strong>vCenter</strong> control plane it runs on stays under a live RCE campaign, so the platform-economics decision and the platform-hardening decision remain the <em>same</em> decision.</p>
+      <div class="ph">The trust-minting fight now has an <span class="teeth">attacker with a machine</span>.</div>
+      <p>For weeks this brief tracked two constraints tightening down the stack — the <em>physical</em> one (GPU → power → memory) and the <em>security</em> one (attackers chasing the infrastructure that <strong>issues trust</strong>, not the applications). Today the two lines met an accelerant. Inside 72 hours the frontier labs shipped models that <strong>autonomously discover and weaponise zero-days</strong> — OpenAI's <strong>GPT-6 Astra</strong> crossed the “critical” cyber threshold with a browser sandbox-escape, Google's <strong>Gemini 3.8 Flash Cyber</strong> went to 650+ defenders under Fairwind, and Anthropic paired <strong>Claude 5.1</strong> with Enterprise Frontier Safeguards.</p>
+      <p>The point for Group isn't any one model — it's the <strong>compression</strong>: the interval between a flaw becoming known and a working exploit existing is collapsing toward machine speed. That is exactly the variable governing whether the trust-fabric survives the next N-day — and this week's live exhibits show the estate is already being tested at human speed: the <strong>2 Sept KEV batch's 5 September deadline is now ~1 day away</strong>, and the <strong>vCenter</strong> ransomware campaign is still live. Meanwhile the physical constraint gained a <strong>legal edge</strong>: EO 14420 turns where Group's transformers and grid gear come from into a compliance question, with data-center equipment potentially next.</p>
       <div class="ag-take">
         <b>For Group</b>
-        Stop treating power and memory as procurement footnotes and start treating them as first-order architecture constraints with their own deadlines. Four moves this cycle: (1) <em>lock a PJM self-supply/curtailment clause before tomorrow's 3 Sept close</em>; (2) <em>re-baseline server-refresh and capacity budgets to the new DRAM reality and secure allocation now</em>; (3) <em>keep hunting and patching the vCenter and NetScaler/PaperCut estates</em> under assume-compromise; (4) <em>model the VCF-9 ~$350/core economics into the Private AI Cloud review</em> — while holding the <em>EU AI Act 2 Dec marking schedule</em>.
+        Treat exploit-window compression as a planning assumption: shorten mean-time-to-patch, tighten prioritisation on the KEV/trust-fabric estate, and evaluate a gated defensive-AI access program (Fairwind / trusted-access) for parity. Close the 5 Sept KEV clock <em>today</em>, keep vCenter patched and hunted, and fold supply-chain provenance (EO 14420) into the power-and-capacity plan — while holding the PJM 30 Sept auction, extended-horizon memory, sovereign-AI, and <em>2 Dec EU AI Act marking</em> (~89 days) watchpoints.
       </div>
     </div>
 
@@ -265,97 +246,72 @@
       <h3>🔄 What's changed since yesterday</h3>
       <div class="diff-list">
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">constraint = power (yesterday)</span><span class="arrow">→</span><span class="st new">now also memory — DRAM +60%, sold out 2026</span></div>
-          <div class="diff-topic">New — the constraint moves to memory</div>
-          <div class="diff-detail">Samsung raised DRAM prices <strong>up to 60% since September</strong>; DDR5 contract pricing up <strong>&gt;100%</strong>; Samsung/SK Hynix/Micron refuse multi-year agreements; 2026 capacity essentially sold out. The genuine state change today — AG's second physical constraint after power is now a live cost/allocation problem re-pricing every capacity and refresh budget. [Assumption→Fact]</div>
+          <div class="diff-states"><span class="st old">trust-fabric threat model (human-speed)</span><span class="arrow">→</span><span class="st new">frontier cyber-AI crosses “critical” threshold</span></div>
+          <div class="diff-topic">New — an attacker with a machine</div>
+          <div class="diff-detail">OpenAI's <strong>GPT-6 Astra</strong> (3 Sept) is the first model to trip the “critical” cyber safeguard — autonomous zero-day discovery + exploit-chaining, incl. a browser sandbox escape; advanced cyber access is gated to critical-infra defenders. <strong>Gemini 3.8 Flash Cyber</strong> and <strong>Anthropic 5.1 + Enterprise Frontier Safeguards</strong> arrived the same window. The genuine state change today. [Fact]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">VCF 9 pricing = open next trigger</span><span class="arrow">→</span><span class="st new">~$350/core/yr · Private AI bundled free</span></div>
-          <div class="diff-topic">VMware — the price becomes public</div>
-          <div class="diff-detail">VCF 9 lists at ~$350 per core per year (subscription-only, 16-core/CPU minimum), with Private AI embedded as a no-additional-cost component. The Private AI Cloud business case is now modellable against a real per-core number.</div>
+          <div class="diff-states"><span class="st old">KEV +7 · 5 Sept deadline</span><span class="arrow">→</span><span class="st new">deadline now ~1 day away</span></div>
+          <div class="diff-topic">KEV clock — from “5 Sept” to “tomorrow”</div>
+          <div class="diff-detail">The three AG-relevant CVEs (Artifactory unauth→admin, LiteLLM MCP bypass, SonicWall SMA1000 pre-auth SSRF CVSS 10.0) still carry the 5 September federal remediation deadline — now within ~24 hours. Status unchanged (Act); urgency heightened. [Act]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">~2 days to 3 Sept</span><span class="arrow">→</span><span class="st new">~1 day — comments close tomorrow</span></div>
-          <div class="diff-topic">Power — the PJM clock reaches its end</div>
-          <div class="diff-detail">No new instrument; FERC's comment window on PJM's $20B backstop + state-approved-curtailment framework closes 3 Sept. The ≥50 MW single-POI large-load definition stands as filed; the Act window is effectively now.</div>
+          <div class="diff-states"><span class="st old">PJM comment window closed</span><span class="arrow">→</span><span class="st new">EO 14420 firms into a data-center exposure</span></div>
+          <div class="diff-topic">Power — a procurement-legality dimension</div>
+          <div class="diff-detail">EO 14420 (foreign bulk-power equipment, transactions after 26 Aug) hardened into a concrete exposure: a CNBC report (3 Sept) detailed US AI-data-center reliance on Chinese grid gear amid a ~15% transformer shortage, and the administration is weighing a parallel <strong>data-center equipment</strong> restriction. [Prepare]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">active KEV-mandated RCE campaign (1 Sept)</span><span class="arrow">→</span><span class="st new">still live · Babuk-on-ESXi confirmed · no all-clear</span></div>
-          <div class="diff-topic">vCenter — still live, no closure</div>
-          <div class="diff-detail">CVE-2026-59310 persists: 361 IPs / 47 countries with Turkey among the hardest hit; malicious cron + reverse_ssh persistence pivoting to Babuk-derived ESXi ransomware. The Act carries over unchanged in status.</div>
+          <div class="diff-states"><span class="st old">vCenter campaign open</span><span class="arrow">→</span><span class="st new">still open · no all-clear</span></div>
+          <div class="diff-topic">Security carryover — no closure</div>
+          <div class="diff-detail">The vCenter CVE-2026-59310 ransomware campaign (reverse_ssh + Babuk-derived ESXi ransomware; 361 IPs / 47 countries) persists unchanged in status under assume-compromise. [Act]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">still open · no all-clear (1 Sept)</span><span class="arrow">→</span><span class="st new">still open · no supplemental-IoC all-clear</span></div>
-          <div class="diff-topic">Security — NetScaler/PaperCut carry over</div>
-          <div class="diff-detail">NetScaler CVE-2026-8452 (federal deadline lapsed 29 Aug) + companion CVE-2026-19490 (9.3) and the PaperCut NG/MF chain (CVEs DB-listed 31 Aug) remain open under assume-compromise — the standing Act carries over.</div>
-        </div>
-        <div class="diff-item">
-          <div class="diff-states"><span class="st old">marking clock ~92 days</span><span class="arrow">→</span><span class="st new">no material state transition (~91 days)</span></div>
-          <div class="diff-topic">Regulation — the AI Act clock ticks</div>
-          <div class="diff-detail">No new instrument this cycle. The marking clock for pre-existing generative AI advances to ~91 days (2 Dec 2026); GPAI enforcement live via technical compliance dialogues. The compliance table stands as a reference.</div>
+          <div class="diff-states"><span class="st old">sovereign AI / memory / PJM auction / AI Act</span><span class="arrow">→</span><span class="st new">no material state transition</span></div>
+          <div class="diff-topic">Carryover watchpoints stand</div>
+          <div class="diff-detail">Microsoft's EU Data Boundary AI-processing option, the memory shortage's past-2030 horizon, the PJM 30 Sept backstop auction, and the EU AI Act 2 Dec marking clock (~89 days) all carry over unchanged today.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ACTION REQUIRED -->
   <section id="action" style="border:none;padding-top:34px">
     <div class="action-band reveal">
       <div class="kicker">Action Required Today</div>
       <div class="action-head">
-        <h2>One power clock closes tomorrow; the memory market re-prices every capacity plan; two edge/virtualization RCE threads stay open</h2>
+        <h2>The 5 Sept KEV deadline is ~1 day away, and the hypervisor control-plane campaign stays live — against attackers newly able to weaponise flaws at machine speed</h2>
         <span class="action-sub">suggested actions — assign owner &amp; date</span>
       </div>
       <div class="actions">
         <div class="act">
           <div class="num">01</div>
           <div>
-            <span class="domain-tag">Infrastructure &amp; Data Centers</span>
-            <h4>Lock a self-supply / curtailment clause into any PJM-footprint capacity commitment and add a behind-the-meter test to capacity diligence — FERC's comment/intervention window on PJM's two filings ($20B reliability backstop + "bring-your-own-power or face state-approved curtailment," filed 13 Aug) closes 3 September — tomorrow — ahead of the 12 October effective date. A "New Large Load" is ≥50 MW at a single Point of Interconnection entering service after 1 June 2027, and any demand not backed by qualifying new capacity may be curtailed before other pre-emergency measures; the Reliability Backstop auction begins September 2026 against a ~60 GW shortfall</h4>
-            <div class="sug"><b>Suggested action · </b> With one day left to comment, treat the intervention window as now — decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment, confirm which state can order a load cut, and add a behind-the-meter-capability test to capacity diligence. Consequence of inaction: curtailment becomes a commercial term AG cannot renegotiate, and a US state could order a load cut on AG-footprint compute with no contractual self-supply hedge.</div>
-            <div class="meta-row"><span>Owner: <b>Infrastructure Strategy / Capacity Planning</b></span><span>By when: <b>before 3 Sept comment close (tomorrow)</b></span></div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch</span>
+            <h4>Close the 2 September KEV clock before the 5 September deadline — now ~1 day away — for the three trust-boundary CVEs: CVE-2026-82329 (JFrog Artifactory, CVSS 9.8, unauth → forged admin tokens; watchTowr saw exploitation by ~1 Sept; patched 28 Aug), CVE-2026-59822 (LiteLLM MCP auth bypass → unauthenticated MCP tooling; fixed 1.84.0), and CVE-2026-83548/-83549 (SonicWall SMA1000 pre-auth SSRF CVSS 10.0 + OS-command injection). NetScaler/PaperCut threads carry over with no all-clear</h4>
+            <div class="sug"><b>Suggested action · </b> Confirm Artifactory, any LiteLLM AI-gateway and SonicWall SMA1000 are patched before 5 Sept; rotate and hunt for forged Artifactory admin tokens and anomalous federated-access reads; hunt for unauthenticated MCP calls at the AI gateway; restrict SMA1000 management-console exposure; keep the standing NetScaler/PaperCut sweeps running. Consequence of inaction: a forged-admin foothold on the build-pipeline root of trust (poisoned builds distributed downstream), an auth-free path to Group's model/MCP tooling, and pre-auth code execution on the remote-access edge — each estate-wide, now against a threat actor increasingly able to weaponise such flaws at machine speed.</div>
+            <div class="meta-row"><span>Owner: <b>SecOps (Threat Hunt) + DevOps/Platform (Artifactory) + AI Platform (LiteLLM) + Network Edge (SonicWall)</b></span><span>By when: <b>before 5 Sept (~24h)</b></span></div>
           </div>
         </div>
         <div class="act">
           <div class="num">02</div>
           <div>
-            <span class="domain-tag">Infrastructure &amp; Data Centers</span>
-            <h4>Re-baseline server-refresh and capacity budgets to the new DRAM reality and secure memory allocation now — Samsung has raised memory prices up to 60% since September (a 32GB DDR5 module $149 → $239), DDR5 contract pricing is up &gt;100%, Samsung/SK Hynix/Micron are refusing 2–3-year agreements in favour of quarterly step-ups, and SK Hynix reports HBM/DRAM/NAND "essentially sold out" for 2026 with ~70% of DRAM output going to AI data centres. A 256GB DDR5 ECC RDIMM refresh that budgeted $800–1,200 in early 2025 now faces $2,000–3,500; elevated pricing is projected to persist through 2027</h4>
-            <div class="sug"><b>Suggested action · </b> Re-baseline refresh/capacity budgets to current memory pricing, secure allocation for near-term builds now, and factor quarterly (not annual) price escalation into TCO for any on-prem AI landing zone. Consequence of inaction: capacity and refresh plans built on 2025 memory prices are materially under-budgeted; deferring orders means a higher price next quarter — or no allocation at all.</div>
-            <div class="meta-row"><span>Owner: <b>Infrastructure Sourcing / Procurement + Capacity Planning</b></span><span>By when: <b>this procurement cycle (before next quarterly step-up)</b></span></div>
-          </div>
-        </div>
-        <div class="act">
-          <div class="num">03</div>
-          <div>
             <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch</span>
-            <h4>Keep the vCenter estate patched and threat-hunted for CVE-2026-59310 — the critical directory-traversal flaw in the vCenter Syslog server (CVSS 9.8) gives unauthenticated attackers RCE. Broadcom fixed it 29 July; mass exploitation began ~3 Aug; researchers track 361 compromised IPs across 47 countries (US, France, Iran, Turkey heaviest). On CISA KEV since 18 Aug (federal remediation due 21 Aug, lapsed). Post-exploitation installs a malicious cron job + the reverse_ssh framework for firewall-evading C2, then pivots to Babuk-derived ransomware on ESXi; patching alone may not remediate an already-compromised host</h4>
-            <div class="sug"><b>Suggested action · </b> Hunt the vCenter estate for reverse_ssh, anomalous cron jobs/root processes and Syslog-path-traversal indicators; confirm every appliance is patched; restrict management-plane exposure; treat any appliance unpatched since July as potentially compromised — and require a vCenter hardening/hunt sign-off as a precondition of any AI landing zone built on VMware. Consequence of inaction: a root foothold on the hypervisor control plane — the highest-value pivot in the estate — enabling estate-wide credential theft, ESXi ransomware, or dormant espionage persistence.</div>
+            <h4>Keep the vCenter estate patched and threat-hunted for CVE-2026-59310 — the unauthenticated-RCE campaign on the VMware vCenter Syslog server (CVSS 9.8) remains live with no all-clear. Mass-exploited since early August; 361 IPs across 47 countries (US, France, Iran, Turkey heaviest); reverse_ssh persistence + malicious cron pivoting to Babuk-derived ESXi ransomware. On CISA KEV since 18 Aug (federal remediation due 21 Aug, lapsed); patching alone may not remediate an already-compromised host, and this is the exact control plane under evaluation for Group's Private AI Cloud</h4>
+            <div class="sug"><b>Suggested action · </b> Hunt for reverse_ssh, anomalous cron jobs/root processes and Syslog-path-traversal indicators; confirm every appliance is patched; restrict management-plane exposure; treat any appliance unpatched since July as potentially compromised, and require a vCenter hardening/hunt sign-off before any VMware-based AI landing-zone build. Consequence of inaction: a root foothold on the hypervisor control plane — the highest-value pivot in the estate — enabling estate-wide credential theft, ESXi ransomware, or dormant persistence.</div>
             <div class="meta-row"><span>Owner: <b>Security Operations (Threat Hunt) + Virtualization / Platform Infrastructure</b></span><span>By when: <b>immediately (KEV deadline lapsed 21 Aug)</b></span></div>
-          </div>
-        </div>
-        <div class="act">
-          <div class="num">04</div>
-          <div>
-            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch</span>
-            <h4>NetScaler + PaperCut N-day sweep stays open — no all-clear on either pre-auth RCE thread. NetScaler CVE-2026-8452 (CVSS 8.8 pre-auth SAML/AAA heap overflow → unauthenticated RCE) passed its CISA federal deadline on 29 Aug with exploitation ongoing; companion auth-bypass CVE-2026-19490 (CVSS 9.3) stays in scope; PaperCut NG/MF CVE-2026-81578 + CVE-2026-82078 chain to pre-auth RCE, exploited since 27 Aug, both CVEs formally added to vulnerability databases 31 Aug, all versions potentially impacted. No mitigation beyond patching and no supplemental-IoC closure</h4>
-            <div class="sug"><b>Suggested action · </b> Confirm all appliances are on current fixed builds (NetScaler 14.1-73.32 / 13.1-63.21 or later; PaperCut NG/MF emergency patches), restrict AAA/Gateway-VPN and web-management-interface exposure, and hunt for web shells / anomalous post-auth activity — treating anything exposed since the mid-Aug PoCs as potentially compromised. Consequence of inaction: unauthenticated RCE and web-shell persistence on the remote-access gateway and on LAN-resident print servers — a CitrixBleed-style credential-theft and lateral-movement foothold on an overdue window.</div>
-            <div class="meta-row"><span>Owner: <b>Security Operations / Network Edge &amp; Perimeter + Endpoint &amp; App Security</b></span><span>By when: <b>immediately (deadline already lapsed)</b></span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- FILTER BAR -->
   <div class="filterbar" id="filterbar">
     <div class="fgroup">
       <span class="flabel">Domain</span>
       <span class="chip dom on" data-dom="all">All</span>
-      <span class="chip dom" data-dom="dc">Infra / Data Centers</span>
       <span class="chip dom" data-dom="gov">Gov &amp; Reg</span>
-      <span class="chip dom" data-dom="cloud">Cloud</span>
       <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
+      <span class="chip dom" data-dom="dc">Infra / Data Centers</span>
+      <span class="chip dom" data-dom="cloud">Cloud</span>
     </div>
     <div class="fgroup">
       <span class="flabel">Severity</span>
@@ -369,34 +325,32 @@
   <div id="grid"></div>
   <div class="empty" id="empty">No items match the current filter.</div>
 
-  <!-- RADAR -->
   <section id="radar">
     <div class="kicker">📡 Radar — early &amp; longer-horizon signals</div>
     <div class="radar-list">
       <div class="radar-item">
-        <div class="rt">CI/CD &amp; dev-toolchain RCE cluster widens</div>
-        <div class="rd">JetBrains TeamCity CVE-2026-63077 (CVSS 9.8 unauth RCE, on CISA KEV since 5 Aug) and Gitea CVE-2026-60004 (CVSS 9.8, KEV since 25 Aug) are both under active exploitation, exposing build artifacts, stored credentials and downstream pipelines — the same soft-underbelly pattern as the LiteLLM PyPI compromise. <em>The build pipeline and self-hosted developer infrastructure are becoming a primary enterprise entry point; AG should inventory internet-facing CI/CD and repo servers. Next trigger: a named CI/CD-origin breach or a fresh dev-tool KEV addition.</em></div>
+        <div class="rt">The rest of the frontier wave — non-cyber releases and a pricing move</div>
+        <div class="rd">Beyond the cyber variants, Anthropic shipped Claude Fable 5.1 / Mythos 5.1 (1 Sept) with a <strong>75% cut to cache-read pricing</strong>, and Google released Gemini 3.8 Flash (2 Sept) at the prior tier's introductory price. <em>A pricing/capability signal for Group's model-sourcing and inference-cost assumptions. Next trigger: a like-for-like enterprise benchmark or an AG-relevant context/price change.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Dreamforce 2026 (15–17 Sept) puts the "agentic enterprise" on trial</div>
-        <div class="rd">Agentforce across CRM/ERP/Data Cloud/Slack, 1,600+ sessions, with governance and integration architecture the urgent theme for leaders past the pilot stage. <em>A near-term reference point for governed multi-agent orchestration patterns AG can study. Next trigger: Agentforce 360 governance/architecture detail at the keynote.</em></div>
+        <div class="rt">Defensive tooling productises around agentic AI</div>
+        <div class="rd">Help Net's 4 Sept product roundup features F5's AI-powered WAF with anomaly detection and “agentic threat intelligence” for real-time protection, alongside Ping Identity and Superna releases. <em>The defensive counterpart to the frontier cyber-AI item — AI-native controls Group could fold into the trust-fabric estate. Next trigger: an independent efficacy review or an AG-stack integration path.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Grid interconnection queue tops 2,100 GW; transformers must scale ~6× by 2030</div>
-        <div class="rd">US interconnection requests now exceed total grid capacity, and transformer demand is projected to rise from ~1,500 to &gt;9,000 units/year by decade's end, with the US data-center electrical-equipment market growing from ~$20B (2026) toward $65B (2030). <em>The physical constraint behind PJM's curtailment rule — long-lead electrical gear gates delivery regardless of GPU or budget. Next trigger: a named AG-region interconnection delay or a further transformer lead-time extension.</em></div>
+        <div class="rt">Data-center networking — UALink 2.0 and AI-network spend</div>
+        <div class="rd">The UALink Consortium's 2.0 specs add in-network compute, protocol/PHY separation and a first UCIe chiplet spec (customer solutions expected 2027), while Nokia reported AI/cloud segment sales up 105% YoY. <em>Reference points for Group's AI-cluster fabric and DCI reference designs. Next trigger: silicon/switch availability or a hyperscaler adoption signal.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Cloud outages settle into "the new normal"</div>
-        <div class="rd">Recent 2026 incidents include an Azure portal issue (14 Aug), an AWS partial outage (20 Aug) and a GCP us-west1 incident (20 Aug, ~3h40m), reinforcing Forrester's projection of multiple multi-day hyperscaler outages this year. <em>Reinforces AG's multi-region / graceful-degradation posture for cloud-hosted critical workloads. Next trigger: a us-east-1-scale event in a region AG depends on.</em></div>
+        <div class="rt">Cloud outages settle into “the new normal”</div>
+        <div class="rd">2026 has seen repeated hyperscaler incidents (the 28-hour AWS us-east-1 cooling failure; a 2h22m Google us-west1 disruption on 20 Aug; a cluster of Azure identity/maintenance incidents), reinforcing Forrester's projection of multiple multi-day outages this year. <em>Reinforces Group's multi-region / graceful-degradation posture for critical workloads. Next trigger: a us-east-1-scale event in an AG-dependent region.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Switchvox CVE-2026-9586 (CVSS 9.3) — unauth SQLi→RCE on enterprise VoIP</div>
-        <div class="rd">An unauthenticated SQL-injection-to-RCE flaw in Sangoma Switchvox is being exploited in the wild. <em>A reminder that unified-communications/telephony appliances are part of the exposed edge; AG should confirm any Switchvox/UC platform is patched. Next trigger: a mass-scan campaign or a CISA KEV addition.</em></div>
+        <div class="rt">Gartner: 40% of enterprise apps to embed task-specific agents by 2026</div>
+        <div class="rd">Gartner projects task-specific AI agents in 40% of enterprise apps by end-2026 (up from &lt;5% in 2025), consistent with the McKinsey scaling data. <em>Frames Group's agent-governance work as a mainstream EA requirement, not an early bet. Next trigger: a Gartner EA deep-dive or an AG-relevant vendor embedding agents by default.</em></div>
       </div>
     </div>
   </section>
 
-  <!-- LEGEND -->
   <section style="border-bottom:none">
     <div class="kicker">Severity Key</div>
     <div class="legend">
@@ -408,40 +362,32 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="src-line">
-      <strong style="color:var(--navy)">Sources ·</strong> Utility Dive · Data Center Knowledge · Tom's Hardware · Network World · Deloitte · Dark Reading · The Hacker News · SecurityWeek · Rapid7 · Redress Compliance · Broadcom TechDocs · Cloud Security Alliance · Spheron · Vstorm · ERP Today · AI Agent Store · MarketScale · European Commission · artificialintelligenceact.eu · SecurityOnline
+      <strong style="color:var(--navy)">Sources ·</strong> CISA · The Hacker News · Rapid7 · Dark Reading · OpenAI · The Hill · Fortune · Holland &amp; Knight · CNBC · Utility Dive · Data Center Knowledge · Tech Insider · SK hynix Newsroom · Microsoft Azure Blog · SDxCentral · AI Agent Store (McKinsey) · MarketScale · LLM Gateway · Help Net Security · NextGenInfra · TechTarget · Gartner · European Commission · artificialintelligenceact.eu
     </div>
-    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #59</div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #61</div>
   </footer>
-
 </div>
 
 <script>
 const DOMAINS = [
-  {id:"dc",    num:"1", title:"Infrastructure & Data Centers"},
-  {id:"gov",   num:"2", title:"Governance, Cyber & Regulatory Watch"},
-  {id:"cloud", num:"3", title:"Cloud"},
-  {id:"ai",    num:"4", title:"AI & Agentic Systems"},
+  {id:"gov",   num:"1", title:"Governance, Cyber & Regulatory Watch"},
+  {id:"ai",    num:"2", title:"AI & Agentic Systems"},
+  {id:"dc",    num:"3", title:"Infrastructure & Data Centers"},
+  {id:"cloud", num:"4", title:"Cloud"},
 ];
 
 const ITEMS = [
-  // DC
-  {dom:"dc",sev:"crit",action:true,status:"act",evidence:"fact",title:"PJM's curtailment rule reaches its final day — FERC's comment/intervention window on PJM's two filings ($20B reliability backstop + \"bring-your-own-power or face state-approved curtailment,\" filed 13 Aug 2026) closes 3 September — tomorrow — ahead of the requested 12 October effective date. A \"New Large Load\" is ≥50 MW at a single Point of Interconnection entering service after 1 June 2027; any demand not backed by qualifying new capacity could be curtailed before other pre-emergency measures, and the Reliability Backstop auction begins September 2026 against a ~60 GW shortfall; PJM has indicated it would compensate curtailed loads",src:"Utility Dive · Data Center Knowledge",url:"https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",why:"<span class='tag-fact'>Fact</span> Comments close 3 Sept (tomorrow); 12 Oct effective date; ≥50 MW single-POI, post-1 June 2027 large-load definition; backstop auction starts Sept 2026; compensation indicated for curtailed loads. <span class='tag-assum'>Assumption</span> With one day left, the intervention window is effectively now. <b>Act:</b> decide and require a self-supply/curtailment clause in any PJM-footprint colo or capacity commitment, confirm which state can order a load cut, and add a behind-the-meter-capability test to capacity diligence. <b>Owner:</b> Infrastructure Strategy / Capacity Planning · <b>By:</b> before 3 Sept. <b>Next trigger:</b> FERC's action on the filings after the 3 Sept close."},
-  {dom:"dc",sev:"crit",action:true,status:"act",evidence:"fact",title:"The build-out constraint moves to memory — DRAM prices up to 60% higher since September, 2026 supply sold out: with ~70% of 2026 DRAM output diverted to AI data centres, Samsung has raised memory prices by up to 60% since September (a 32GB DDR5 module $149 → $239), while DDR5 contract pricing has surged >100%. Samsung, SK Hynix and Micron have moved to a sellers' market — refusing 2–3-year long-term agreements in favour of quarterly step-ups — and SK Hynix reports HBM, DRAM and NAND \"essentially sold out\" for 2026, with Micron having exited the consumer memory market. A 256GB DDR5 ECC RDIMM server refresh that budgeted $800–1,200 in early 2025 now faces $2,000–3,500; elevated pricing is projected to persist through 2027",src:"Tom's Hardware · Network World · Deloitte",url:"https://www.tomshardware.com/tech-industry/samsung-raises-memory-chip-prices-by-up-to-60-percent-since-september-according-to-reports-ai-data-center-build-out-strangles-supply",why:"<span class='tag-fact'>Fact</span> DRAM up to 60% higher since September; DDR5 contract pricing up >100%; multi-year agreements refused; 2026 capacity essentially sold out; enterprise server-RAM cost roughly doubled vs early 2025; elevated pricing projected through 2027. <span class='tag-assum'>Assumption</span> Any AG server-refresh, private-cloud or on-prem AI capacity plan budgeted on 2025 memory prices is now materially under-costed, and deferring orders means a higher price next quarter — or no allocation. <b>Act:</b> re-baseline refresh/capacity budgets to current memory pricing, secure allocation for near-term builds now, and factor quarterly (not annual) price escalation into TCO for any on-prem AI landing zone. <b>Owner:</b> Infrastructure Sourcing / Procurement + Capacity Planning · <b>By:</b> this procurement cycle. <b>Next trigger:</b> a further Q4 contract step-up, a named enterprise deferring a refresh on memory cost, or a capacity-easing signal from a memory maker."},
-
-  // GOV
-  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"vCenter CVE-2026-59310 campaign stays live — Babuk-on-ESXi ransomware pivot confirmed, no all-clear: the critical directory-traversal flaw in the VMware vCenter Syslog server (CVSS 9.8) remains under active exploitation. It lets an unauthenticated attacker with network access to vCenter execute arbitrary code; Broadcom fixed it 29 July, mass exploitation began ~3 Aug, and researchers have tracked 361 unique IPs across 47 countries (US, France, Iran and Turkey most heavily targeted). The chain shows path-traversal activity, then a malicious cron job establishing reverse_ssh persistence, then a pivot to Babuk-derived ransomware on ESXi. CISA added it to KEV on 18 Aug (federal remediation due 21 Aug, lapsed); patching alone may not fully remediate an already-compromised host",src:"Dark Reading · The Hacker News · SecurityWeek",url:"https://www.darkreading.com/vulnerabilities-threats/global-threat-campaign-critical-vmware-vcenter-flaw",why:"<span class='tag-fact'>Fact</span> CVE-2026-59310 (CVSS 9.8, unauth RCE on vCenter Syslog) still mass-exploited; 361 IPs / 47 countries with Turkey among the hardest hit; reverse_ssh persistence + Babuk-derived ESXi ransomware; on CISA KEV since 18 Aug; fixed since 29 July; no all-clear. <span class='tag-assum'>Assumption</span> AG almost certainly runs VMware vCenter — and the Private AI Cloud option under evaluation sits on this exact control plane; Turkey being a top-hit geography raises the odds of AG-footprint targeting. <b>Act:</b> hunt the vCenter estate for reverse_ssh, anomalous cron jobs/root processes and Syslog-path-traversal indicators; confirm every appliance is patched; restrict management-plane exposure; treat unpatched-since-July appliances as potentially compromised and require a hardening/hunt sign-off before any AI landing-zone build. <b>Owner:</b> SecOps (Threat Hunt) + Virtualization / Platform Infrastructure · <b>By:</b> immediately (KEV deadline lapsed 21 Aug). <b>Next trigger:</b> a named enterprise victim in AG's regions, fresh IoCs, or a second exploitation wave."},
-  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"NetScaler + PaperCut N-day sweep stays open — no all-clear on either pre-auth RCE thread: both enterprise-edge threads carry over with no confirmed closure. Citrix NetScaler CVE-2026-8452 (CVSS 8.8 pre-auth SAML/AAA heap overflow → unauthenticated RCE) passed its CISA federal remediation deadline on 29 Aug with exploitation ongoing; companion auth-bypass CVE-2026-19490 (CVSS 9.3, disclosed 19 Aug) stays in scope; fixed builds are 14.1-73.32 / 13.1-63.21 or later. PaperCut NG/MF CVE-2026-81578 + CVE-2026-82078 chain to pre-auth RCE, exploited since 27 Aug, with emergency patches from 28 Aug, both CVEs formally added to vulnerability databases on 31 Aug and all versions potentially impacted. There is still no mitigation beyond patching and no supplemental-IoC all-clear",src:"SecurityWeek · Rapid7",url:"https://www.securityweek.com/recent-citrix-netscaler-vulnerability-exploited-in-the-wild/",why:"<span class='tag-fact'>Fact</span> NetScaler CVE-2026-8452 federal deadline lapsed 29 Aug; companion CVE-2026-19490 (9.3) open; PaperCut chain exploited since 27 Aug, CVEs DB-listed 31 Aug, all versions potentially impacted; no all-clear on either. <span class='tag-assum'>Assumption</span> NetScaler (remote-access/load-balancing perimeter) and PaperCut (LAN-resident print management) are both common in large enterprises AG likely runs. <b>Act:</b> confirm all appliances are on fixed builds, restrict AAA/Gateway-VPN and web-management-interface exposure, and hunt for web shells / anomalous post-auth activity, treating anything exposed since the mid-Aug PoCs as potentially compromised. <b>Owner:</b> Security Operations / Network Edge &amp; Perimeter + Endpoint &amp; App Security · <b>By:</b> immediately (deadline lapsed). <b>Next trigger:</b> a named ransomware affiliate or mass-scan campaign, first exploitation of CVE-2026-19490, or vendor all-clear/IoCs."},
-  {dom:"gov",sev:"fyi",status:"monitor",full:true,gov:true,title:"EU AI Act — the compliance dashboard stands and the marking clock ticks to ~91 days: no new instrument this cycle. GPAI enforcement is live, with the AI Office using \"technical compliance dialogues\" as its preferred first tool (documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal, fines up to €15M / 3% of turnover under Art. 101). Article 50 transparency is live for all in-scope systems, while the marking obligation for pre-existing generative AI carries a hard 2 December 2026 deadline (~91 days). The Digital Omnibus defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); prohibited practices and the Art. 5 ban remain in force; US firms remain in scope extraterritorially",src:"European Commission · artificialintelligenceact.eu",url:"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"},
-
-  // CLOUD
-  {dom:"cloud",sev:"watch",status:"prepare",evidence:"fact",title:"VMware Cloud Foundation 9 pricing is now public — ~$350/core/year with Private AI bundled at no extra cost: the number that was yesterday's open \"next trigger\" has landed. VCF 9 lists at ~$350 per core per year (down from ~$700/core post-acquisition list), on a subscription-only model anchored on VCF per core with a 16-core-per-CPU minimum; VCF 9.1 keeps the reduced footprint (3 hosts with vSAN, or 2 with external storage). Critically, Broadcom embeds Private AI as a standard, no-additional-cost component of the VCF subscription — supporting next-generation NVIDIA and AMD GPUs with improved utilisation — so the 150+-model validated catalogue announced at Explore sits inside the base licence rather than as a paid add-on",src:"Redress Compliance · Broadcom TechDocs",url:"https://redresscompliance.com/broadcom-vmware-licensing-changes-explained",why:"<span class='tag-fact'>Fact</span> VCF 9 ~$350/core/year, subscription-only, 16-core/CPU minimum; Private AI bundled at no extra cost with the validated model catalogue. <span class='tag-assum'>Assumption</span> With a real per-core figure, AG can finally model the Private AI Cloud business case — TCO vs hyperscaler managed AI and vs EU-sovereign providers — but the ~$350/core minimum-core math can be material at estate scale, and (see the vCenter item) the platform economics and platform hardening are one evaluation. <b>Prepare:</b> run the VCF-9 per-core economics through the Private AI Cloud architecture review (core counts, GPU-tiering, lock-in vs sovereign alternatives), and require a vCenter hardening/hunt sign-off as a precondition of any landing-zone build. <b>Next trigger:</b> a named enterprise VCF-9 reference deployment, an AG-specific core-count/TCO model, or catalogue expansion."},
-  {dom:"cloud",sev:"watch",status:"prepare",evidence:"fact",title:"Sovereign-cloud market hits ~$80B as the EU compliance cascade tightens: the sovereign-cloud market reached roughly $80 billion in 2026 (≈35.6% YoY growth), driven by enterprises moving regulated AI workloads off US hyperscalers, and 72% of leaders now rank data sovereignty/regulatory compliance as their top AI-related challenge (up from 49% a year earlier) — yet only ~29% prioritise it concretely. The pull is a stacking compliance cascade: NIS2's first-audit deadline (30 June 2026), the Data Act's switching requirements (in force since Sept 2025), and the AI Act's GPAI obligations now enforceable. EU-resident options (Mistral, Aleph Alpha, Scaleway, plus national models) offer on-prem/EU-only deployment outside US CLOUD Act reach",src:"Cloud Security Alliance · Spheron · Vstorm",url:"https://labs.cloudsecurityalliance.org/research/eu-tech-sovereignty-cloud-ai-enterprise-risk-v1-0-csa-styled/",why:"<span class='tag-fact'>Fact</span> Sovereign-cloud market ~$80B / ~35.6% growth in 2026; 72% rank sovereignty their top AI challenge but only ~29% prioritise it; NIS2 (30 June), Data Act switching (Sept 2025) and AI Act GPAI obligations stack; EU-resident providers offer CLOUD-Act-free deployment. <span class='tag-assum'>Assumption</span> As an EU-operating group, AG faces the same cascade — VMware Private AI Cloud (on-prem, no data egress) and EU-resident IaaS are two routes to the same sovereignty requirement, weighed on cost (see the VCF-9 item), control and portability. <b>Prepare:</b> map AG's regulated AI workloads against a sovereignty decision matrix (on-prem VMware vs EU-resident IaaS vs status quo), and confirm NIS2/Data-Act posture is not silently non-compliant. <b>Next trigger:</b> a named EU-sovereign capacity commitment AG could adopt, or a first sovereignty-driven enforcement action."},
-
-  // AI
-  {dom:"ai",sev:"watch",status:"prepare",evidence:"fact",title:"Enterprise agent-governance is productising fast — a wave of platforms, with Dreamforce next: the market is racing to standardise the agent-control primitives this brief has urged AG to hard-wire. This week alone Aziro launched Aziron (an enterprise agent-execution platform unifying agents, workflows, documents, models and tools in a single governed environment); AccuKnox released AgentZ (model-agnostic, bundling sandboxes, role-based access, runtime credential injection and audit traces); and Boomi World 2026 centred on agentic-AI governance on the enterprise integration platform. Coverage notes vendors selling to financial institutions now need explicit governance narratives — audit trails, approval flows, model risk — to win early agentic budgets. Dreamforce 2026 (15–17 Sept, San Francisco) will centre the \"agentic enterprise\" with Agentforce across CRM, ERP, Data Cloud and Slack",src:"ERP Today · AI Agent Store · MarketScale",url:"https://erp.today/boomi-world-2026-agentic-ai-governance-enterprise-platform/",why:"<span class='tag-fact'>Fact</span> Multiple enterprise agent-governance platforms launched/advanced this week (Aziro Aziron, AccuKnox AgentZ, Boomi World agentic governance); Dreamforce (15–17 Sept) will foreground governed multi-agent orchestration. <span class='tag-assum'>Inference</span> Agent identity, deny-by-default runtime, credential isolation and audit trails are converging into standard product features across integration, security and CRM stacks — the same primitives in Broadcom's AgentMinder/Tanzu — which both validates AG's draft agent-control model and widens the vendor field beyond VMware. <b>Prepare:</b> use this proliferation to pressure-test AG's agent-control standard against a broader RFP field (integration-platform, security-native and CRM-native governance), and slot Dreamforce as a checkpoint for governance/architecture reference patterns. <b>Next trigger:</b> Agentforce 360 governance detail at Dreamforce, MCP/A2A conformance claims, or an independent review of a deny-by-default containment claim."},
+  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"CISA KEV +7 (2 Sept) — the 5 September deadline is now ~1 day away for Artifactory, LiteLLM and SonicWall: the three AG-relevant CVEs from CISA's 2 September KEV batch carry a 5 September federal remediation deadline, now roughly 24 hours out. CVE-2026-82329 (JFrog Artifactory, CVSS 9.8) lets an unauthenticated attacker obtain administrator privileges (patched 28 Aug; by ~1 Sept watchTowr saw exploitation minting admin tokens and enumerating credentials/federated access); CVE-2026-59822 (LiteLLM AI gateway) is an MCP authentication bypass via an OAuth2 passthrough fallback (fixed 1.84.0); CVE-2026-83548 (SonicWall SMA1000, CVSS 10.0) is a pre-auth SSRF chainable with CVE-2026-83549 (OS-command injection) to unauthenticated RCE. The batch also includes Switchvox, Kestra OSS and Starlette",src:"CISA KEV · The Hacker News · Rapid7",url:"https://www.cisa.gov/news-events/alerts/2026/09/02/cisa-adds-seven-known-exploited-vulnerabilities-catalog",why:"<span class='tag-fact'>Fact</span> 5 Sept remediation deadline now ~1 day away; Artifactory unauth→admin exploited by ~1 Sept; LiteLLM MCP bypass; SonicWall SMA1000 pre-auth SSRF (CVSS 10.0) + OS-command injection. <span class='tag-assum'>Assumption</span> Artifactory (or an equivalent artifact repo) is likely Group's build-pipeline root of trust; a LiteLLM-class gateway is a common model front-end; SonicWall SMA is a common remote-access edge — all three touch AG trust boundaries. <b>Act:</b> confirm every instance is patched before 5 Sept, rotate/hunt for forged Artifactory admin tokens and anomalous federated-access reads, hunt for unauthenticated MCP calls, restrict SMA1000 management-console exposure. <b>Owner:</b> SecOps + DevOps/Platform + AI Platform + Network Edge · <b>By:</b> before 5 Sept. <b>Next trigger:</b> a named supply-chain breach from an artifact repo, or mass-scan campaigns after the deadline lapses."},
+  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"vCenter CVE-2026-59310 campaign stays live — no all-clear on the virtualization control plane: the critical directory-traversal flaw in the VMware vCenter Syslog server (CVSS 9.8) remains under active exploitation. It lets an unauthenticated attacker with network access to vCenter execute arbitrary code; Broadcom fixed it 29 July, mass exploitation began early August, and researchers track 361 unique IPs across 47 countries (US, France, Iran, Turkey heaviest). The chain shows path-traversal, then a malicious cron job establishing reverse_ssh persistence, then a pivot to Babuk-derived ransomware on ESXi. On CISA KEV since 18 Aug (federal remediation due 21 Aug, lapsed); patching alone may not remediate an already-compromised host",src:"Dark Reading · The Hacker News",url:"https://www.darkreading.com/vulnerabilities-threats/global-threat-campaign-critical-vmware-vcenter-flaw",why:"<span class='tag-fact'>Fact</span> CVE-2026-59310 (unauth RCE on vCenter Syslog) still mass-exploited; 361 IPs / 47 countries with Turkey among the hardest hit; reverse_ssh + Babuk-derived ESXi ransomware; KEV since 18 Aug; no all-clear. <span class='tag-assum'>Assumption</span> Group almost certainly runs vCenter, and the Private AI Cloud option sits on this exact control plane; Turkey being a top-hit geography raises AG-footprint odds. <b>Act:</b> hunt for reverse_ssh / anomalous cron / Syslog path-traversal indicators, confirm every appliance is patched, restrict management-plane exposure, and require a vCenter hardening/hunt sign-off before any VMware-based AI landing-zone build. <b>Owner:</b> SecOps (Threat Hunt) + Virtualization / Platform Infrastructure · <b>By:</b> immediately. <b>Next trigger:</b> a named enterprise victim in AG's regions, fresh IoCs, or a second wave."},
+  {dom:"ai",sev:"watch",status:"prepare",evidence:"fact",title:"Frontier cyber-AI crosses a threshold — GPT-6 Astra trips OpenAI's ‘critical’ safeguard; Google and Anthropic ship gated cyber models: in a 72-hour window the frontier labs shipped models with autonomous offensive-security capability. OpenAI's GPT-6 Astra (3 Sept) is the first model to cross OpenAI's ‘critical’ cybersecurity threshold under its Preparedness Framework — able to identify and develop functional zero-day exploits and execute end-to-end attacks against hardened targets without human intervention; in evaluation it discovered and chained two zero-days and performed a full browser compromise escaping the sandbox to run host commands. OpenAI limited advanced cyber access to critical-infrastructure defenders, the US government and a trusted-access program. Google shipped Gemini 3.8 Flash Cyber (2 Sept) to 650+ defenders (CrowdStrike, Palo Alto Networks, Datadog, Snowflake, Menlo Security) via Fairwind, and Anthropic paired Claude Fable/Mythos 5.1 with Enterprise Frontier Safeguards",src:"The Hacker News · OpenAI · The Hill",url:"https://thehackernews.com/2026/09/google-anthropic-and-openai-unveil.html",why:"<span class='tag-fact'>Fact</span> GPT-6 Astra crossed the ‘critical’ cyber threshold (autonomous zero-day discovery + exploit-chaining, browser sandbox escape), access-gated; Gemini 3.8 Flash Cyber shipped to 650+ defenders under Fairwind; Anthropic 5.1 + Enterprise Frontier Safeguards. <span class='tag-assum'>Inference</span> The interval between vulnerability disclosure and working exploit is compressing toward machine speed, shortening Group's effective patch windows for exactly the trust-fabric estate already under exploitation; defensively the same models are an uplift, but access is gated and favours early adopters. <b>Prepare:</b> treat exploit-window compression as a planning assumption — compress Group's mean-time-to-patch target, tighten prioritisation on the KEV/trust-fabric estate, and evaluate enrolling AG's defenders in a gated access program (Fairwind / trusted-access) for defensive parity. <b>Next trigger:</b> a named in-the-wild exploit attributed to an AI system, or GA of a defensive cyber model Group can operationalise."},
+  {dom:"ai",sev:"watch",status:"prepare",evidence:"fact",title:"Enterprise agent adoption scales as governance productises — McKinsey shows large-enterprise agent scaling at 40%: McKinsey's ‘State of AI in 2026’ reports large enterprises scaling AI agents in one or more functions rose from 27% to 40% (smaller firms flat at ~22%), and 32% of organisations skipped buying at least one software product because they could build it internally with agentic coding tools. This lands as agent-governance tooling productises (AccuKnox AgentZ — model-agnostic agents with sandboxes, RBAC, runtime credential injection and audit traces, deployable SaaS/on-prem/air-gapped) and ahead of Dreamforce 2026 (15–17 Sept), where Agentforce across CRM/ERP/Data Cloud/Slack will foreground governed multi-agent orchestration",src:"AI Agent Store (McKinsey) · MarketScale",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> Large-enterprise agent scaling 27%→40%; 32% substituted internal agentic builds for purchased software; agent-governance platforms proliferating; Dreamforce 15–17 Sept. <span class='tag-assum'>Inference</span> Agent scaling at large enterprises is now majority-track, and the build-vs-buy line is shifting toward internal agentic builds — raising the stakes on Group standardising agent identity, deny-by-default runtime, credential isolation and audit before proliferation outruns controls (a concern sharpened by the machine-speed offensive capability in the frontier cyber-AI item). <b>Prepare:</b> pressure-test Group's agent-control standard against the broader RFP field, decide the build-vs-buy posture explicitly, and slot Dreamforce as a governance/architecture reference checkpoint. <b>Next trigger:</b> Agentforce 360 governance detail at Dreamforce, or an independent review of a deny-by-default containment claim."},
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"Trump EO 14420 firms into a data-center power supply-chain exposure — foreign grid gear under DOE review, data-center equipment potentially next: Executive Order 14420 declared a national emergency over foreign-produced bulk-power system equipment (substation transformers, grid-connected inverters, battery storage, generation turbines), applying to transactions initiated after 26 August 2026 and authorising the DOE to prohibit, condition or unwind transactions and set vendor-qualification requirements. A CNBC report (3 Sept) detailed how the US AI-data-center boom has deepened reliance on Chinese grid equipment amid an estimated ~15% transformer / ~8% substation shortage in 2026 — most acute in the 100 MVA+ segment where data centers concentrate — and noted the administration is considering a parallel restriction on Chinese equipment used in data centers",src:"Holland & Knight · CNBC · Data Center Knowledge",url:"https://www.cnbc.com/2026/09/03/us-ai-data-centers-china-supply-chain.html",why:"<span class='tag-fact'>Fact</span> EO 14420 (transactions after 26 Aug) lets DOE block/condition/unwind foreign bulk-power equipment transactions; ~15% transformer shortage, worst in 100 MVA+; administration weighing a parallel data-center equipment restriction. <span class='tag-assum'>Assumption</span> Group's US-footprint (or US-hosted) capacity plans could face longer lead times, vendor-requalification or forced replacement if grid/data-center gear is sourced from restricted vendors; a parallel data-center ban would widen scope to IT-adjacent power gear. <b>Prepare:</b> map Group's grid-interconnect and data-center power equipment against the EO's restricted-vendor scope, add a supply-chain-provenance/legality test to capacity procurement, and price the transformer-shortage lead-time risk into the medium-term capacity plan. <b>Next trigger:</b> DOE implementing rules, a named restricted-vendor list, or a formal data-center equipment order."},
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"PJM's curtailment fight moves to the 6.8 GW backstop auction (30 Sept–21 Oct): with FERC's comment window on PJM's two filings ($20B reliability backstop + ‘bring-your-own-power or face state-approved curtailment’) closed on 3 September, the next milestone is concrete — PJM will run a Reliability Backstop capacity auction from 30 September through 21 October 2026 to procure up to 6.8 GW of supply (minus any bilateral contracts). A ‘New Large Load’ remains ≥50 MW at a single Point of Interconnection entering service after 1 June 2027, and demand not backed by qualifying new capacity could be curtailed before other pre-emergency measures; the requested effective date is 12 October",src:"Utility Dive · Data Center Knowledge",url:"https://www.utilitydive.com/news/pjm-board-backstop-capacity-auction-data-center-curtailment/826347/",why:"<span class='tag-fact'>Fact</span> Comment window closed 3 Sept; backstop auction runs 30 Sept–21 Oct for up to 6.8 GW; ≥50 MW single-POI, post-1 June 2027 large-load definition; 12 Oct requested effective date. <span class='tag-assum'>Assumption</span> The commenting lever is spent; Group's remaining influence is contractual and procedural. <b>Prepare:</b> ensure any PJM-footprint capacity commitment carries a self-supply/curtailment clause and a behind-the-meter test, and track the 30 Sept auction and FERC's order as the pricing/eligibility signals for AG-region capacity. <b>Next trigger:</b> FERC's ruling, or backstop-auction clearing prices/eligibility outcomes."},
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"Memory supercycle — the shortage horizon extends past 2030: the DRAM/HBM squeeze that re-priced Group's capacity budgets last cycle extended its horizon. SK Hynix has signalled the AI-driven memory shortage could last beyond 2030, with data centres absorbing ~70% of global memory output and 2026 HBM/DRAM/NAND capacity already essentially sold out under quarterly (not multi-year) pricing. HBM revenue is tracked to rise from ~$35B (2025) toward ~$60B (2026), and analysts expect elevated pricing and tight allocation to persist well beyond the current cycle",src:"Tech Insider · SK hynix Newsroom",url:"https://tech-insider.org/memory-chip-shortage-2026-ai-consumer-electronics/",why:"<span class='tag-fact'>Fact</span> Data centres take ~70% of memory output; 2026 capacity sold out; quarterly-only pricing; HBM revenue ~$35B→~$60B; SK Hynix signals shortage may persist past 2030. <span class='tag-assum'>Assumption</span> Group's server-refresh and on-prem AI capacity TCO should assume a multi-year elevated-memory regime, not a 2026–27 spike — deferring refreshes compounds cost and allocation risk. <b>Prepare:</b> hold the re-baselined memory budgets and secured allocation, extend the elevated-pricing assumption across the medium-term capacity plan, and prioritise memory-efficient refresh/consolidation where it defers new purchases. <b>Next trigger:</b> a further quarterly step-up, an HBM4 ramp/yield signal, or a capacity-easing announcement."},
+  {dom:"cloud",sev:"watch",status:"prepare",evidence:"fact",title:"Microsoft's EU Data Boundary now covers end-to-end AI processing — a named hyperscaler sovereign-AI route: Microsoft is bringing AI processing explicitly into its EU Data Boundary — prompts, embeddings, inference telemetry and related pseudonymised logs for EU customers are to remain within the EU, extending a commitment that previously emphasised storage residency. It is also offering in-country Microsoft 365 Copilot processing, expanding in 2026 to Germany, Italy, Spain, Sweden, Switzerland, Poland and others, and has introduced a Sovereign Landing Zone (SLZ) — a pre-configured, compliance-ready Azure environment that keeps data within a defined geographic boundary. This sits alongside the ~$80B sovereign-cloud market and Group's on-prem baseline (VMware Cloud Foundation 9 at ~$350/core/year with Private AI bundled)",src:"Microsoft Azure Blog · SDxCentral",url:"https://azure.microsoft.com/en-us/blog/microsoft-strengthens-sovereign-cloud-capabilities-with-new-services/",why:"<span class='tag-fact'>Fact</span> Microsoft EU Data Boundary now covers end-to-end AI processing; in-country Copilot expands to several EU markets in 2026; Sovereign Landing Zone offers a compliance-ready Azure baseline; sovereign-cloud market ~$80B. <span class='tag-assum'>Assumption</span> For an EU-operating group this gives Group three modellable sovereign-AI routes — on-prem VMware Private AI (~$350/core), EU-resident IaaS, and hyperscaler EU-boundary (Microsoft SLZ) — differentiated on control, cost and portability. <b>Prepare:</b> run a single sovereignty decision matrix across all three with AG core counts and workload-residency requirements; stress-test the Microsoft option's residual CLOUD Act / operational-sovereignty gaps; require a vCenter hardening/hunt sign-off (see the vCenter item) as a precondition of the on-prem route. <b>Next trigger:</b> an independent assessment of the EU-boundary AI-processing guarantees, or an AG-market Copilot in-country date."},
+  {dom:"gov",sev:"fyi",status:"monitor",full:true,gov:true,title:"EU AI Act — the compliance dashboard stands and the marking clock ticks to ~89 days: no new instrument this cycle. GPAI enforcement is live, with the AI Office using ‘technical compliance dialogues’ as its preferred first tool (documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal, fines up to €15M / 3% of turnover under Art. 101). Article 50 transparency is live for all in-scope systems, while the marking obligation for pre-existing generative AI carries a hard 2 December 2026 deadline (~89 days). The Digital Omnibus defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); prohibited practices and the Art. 5 ban remain in force; US firms remain in scope extraterritorially",src:"European Commission · artificialintelligenceact.eu",url:"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"},
 ];
 
 const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
@@ -449,19 +395,19 @@ const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
 function govWhy(){
   return `<div class="why">
     <span class="wl">Why it matters for Group</span>
-    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — using <b>technical compliance dialogues</b> as its preferred first tool, then documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal and fines up to €15M / 3% turnover under Art. 101; the Commission's <b>Code of Practice on Marking and Labelling</b> and the Article 50 transparency guidelines are the concrete tools. No new instrument landed this cycle, so the sharper signal is simply the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~91 days). The <b>Digital Omnibus</b> left the 2 Aug GPAI enforcement date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope extraterritorially. There is <b>no material state transition on the AI-Act thread today</b> — the open work is the schedule, not a new obligation.
+    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — using <b>technical compliance dialogues</b> as its preferred first tool, then documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal and fines up to €15M / 3% turnover under Art. 101; the Commission's <b>Code of Practice on Marking and Labelling</b> and the Article 50 transparency guidelines are the concrete tools. No new instrument landed this cycle, so the sharper signal is simply the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~89 days). The <b>Digital Omnibus</b> left the 2 Aug GPAI enforcement date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope extraterritorially. There is <b>no material state transition on the AI-Act thread today</b> — the open work is the schedule, not a new obligation.
     <table class="compliance">
       <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
       <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
       <tr><td>Art. 5 ban (AI nudifiers / NCII / CSAM)</td><td>&mdash;</td><td>Added by Omnibus</td><td><span class="badge b-new">In force · new</span></td></tr>
       <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Standing · Omnibus did not move it</td><td><span class="badge b-live">Live</span></td></tr>
       <tr><td>Art. 50 &mdash; transparency / marking (new systems)</td><td>2 Aug 2026</td><td>Live · all in-scope systems</td><td><span class="badge b-live">Live</span></td></tr>
-      <tr><td>Art. 50 &mdash; marking of pre-existing generative AI</td><td>2 Aug 2026</td><td>Transitional deadline 2 Dec 2026</td><td><span class="badge b-new">~91 days</span></td></tr>
+      <tr><td>Art. 50 &mdash; marking of pre-existing generative AI</td><td>2 Aug 2026</td><td>Transitional deadline 2 Dec 2026</td><td><span class="badge b-new">~89 days</span></td></tr>
       <tr><td>GPAI models placed before 2 Aug 2025</td><td>&mdash;</td><td>Compliant by 2 Aug 2027</td><td><span class="badge b-def">Grace period</span></td></tr>
       <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
       <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
     </table>
-    <span class="tag-fact">Fact</span> GPAI enforcement is live via technical compliance dialogues; Article 50 is live for new systems; pre-existing generative systems have a hard 2 Dec 2026 (~91-day) marking deadline; the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028). &nbsp;<span class="tag-assum">Assumption</span> This is a standing schedule, not a new trigger: put the pre-existing generative estate on a marking schedule that clears 2 Dec 2026, finish the supplier cross-check against the Transparency Code signatory list, sign the Code for AG's own in-scope systems, and mark new customer-facing agent output now.
+    <span class="tag-fact">Fact</span> GPAI enforcement is live via technical compliance dialogues; Article 50 is live for new systems; pre-existing generative systems have a hard 2 Dec 2026 (~89-day) marking deadline; the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028). &nbsp;<span class="tag-assum">Assumption</span> This is a standing schedule, not a new trigger: put the pre-existing generative estate on a marking schedule that clears 2 Dec 2026, finish the supplier cross-check against the Transparency Code signatory list, sign the Code for AG's own in-scope systems, and mark new customer-facing agent output now.
   </div>`;
 }
 
@@ -518,7 +464,6 @@ function applyFilters(){
   document.getElementById('empty').style.display = anyVisible?'none':'block';
 }
 
-// domain chips
 document.querySelectorAll('.chip.dom').forEach(ch=>{
   ch.addEventListener('click',()=>{
     document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
@@ -527,7 +472,6 @@ document.querySelectorAll('.chip.dom').forEach(ch=>{
     applyFilters();
   });
 });
-// severity chips (multi-toggle)
 document.querySelectorAll('.chip.sev').forEach(ch=>{
   ch.addEventListener('click',()=>{
     const s = ch.dataset.sev;
@@ -542,7 +486,6 @@ document.getElementById('actionOnly').addEventListener('change',e=>{
 
 render();
 
-// stagger reveal for cards on load
 window.addEventListener('load',()=>{
   document.querySelectorAll('.card').forEach((c,i)=>{
     c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
