@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 7 September 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
+    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  /* ---------- HERO (pattern + diff) ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- ACTION REQUIRED ---------- */
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  /* ---------- FILTER BAR ---------- */
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
+    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
+    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  /* compliance table inside gov card */
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
+    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+  .b-ok{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  /* ---------- RADAR ---------- */
+  .radar-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .radar-item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:9px;padding:13px 15px;box-shadow:var(--shadow)}
+  .radar-item .rt{font-size:14px;font-weight:700;color:var(--navy-deep);margin-bottom:4px;line-height:1.3}
+  .radar-item .rd{font-size:12.5px;color:var(--ink-soft)}
+  .radar-item .rd em{color:var(--navy);font-style:italic}
+
+  /* ---------- LEGEND + FOOTER ---------- */
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .radar-list{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
+      <div class="issue">ISSUE #64 · 4 DOMAINS · 8 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Monday, 7 September 2026</b></span>
+      <span>2 critical · 5 watch · 1 fyi</span>
+      <span>~5 min read</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#gov">Gov, Cyber &amp; Reg <span class="ct">3</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">2</span></a>
+    <a href="#cloud">Cloud <span class="ct">1</span></a>
+    <a href="#dc">Infra / Data Centers <span class="ct">2</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions ↗</a>
+    <a href="#action" class="reds"><span class="dot"></span> 4 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO: PATTERN + DIFF -->
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">⚡ Pattern of the Day</div>
+      <div class="ph">The threat is migrating inward — from the internet edge you patch fast to the <span class="teeth">installed base</span> you must know, own and govern.</div>
+      <p>For a fortnight this brief tracked the compression of the exploit window on the trust fabric — build pipeline, AI gateway, remote-access edge, hypervisor, and last week the browser. Today the lens turns to the estate Group already runs: a <strong>Microsoft Exchange auth-bypass (CVE-2026-62911)</strong> with <strong>public exploit code</strong> and <strong>~21,900 servers still exposed</strong> is a reminder that on-prem, internet-facing infrastructure is weaponised on the same days-not-weeks clock — and it lands the day before <strong>8 Sept Patch Tuesday</strong> while three earlier exposures still sit open: the <strong>Chrome V8 zero-day</strong> (deadline 18 Sept), the <strong>lapsed 2 Sept KEV batch</strong> (Artifactory / LiteLLM / SonicWall), and the <strong>live vCenter</strong> campaign.</p>
+      <p>The same inward turn shows on the strategic axis. Anthropic's <strong>Model Hardware Standard</strong> extends agents from "acting on data" to "acting on infrastructure" — a governance problem that arrives <em>before</em> the capability is widespread, exactly when Group can still set agent identity, deny-by-default runtime and credential isolation as preconditions rather than retrofits. And the supply side — <strong>Micron doubling HBM</strong>, data centres taking ~70% of 2026 memory, builds slipping to 2028 — means the physical substrate of any Group-owned AI platform must be secured years ahead, not quarters.</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        A shift of attention, not architecture: last week was "patch the edge faster"; this week is "know your own installed base." Confirm every on-prem/hybrid Exchange server is patched for CVE-2026-62911 now and fold it into tomorrow's Patch Tuesday; keep the three carryover Acts closed under <em>assume-compromise</em>; pull agent governance forward ahead of Fable-class agents-on-infra and Dreamforce (15–17 Sept, ~8 days); and hold the sovereign-AI (Microsoft EU Data Boundary / EU Cloud &amp; AI Act), memory-supercycle, EO 14420, PJM 30 Sept auction and <em>2 Dec EU AI Act marking</em> (~86 days) watchpoints.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>🔄 What's changed since yesterday</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">edge / trust-fabric exposures</span><span class="arrow">→</span><span class="st new">on-prem Exchange, mass-exposed</span></div>
+          <div class="diff-topic">New — the installed base joins the front</div>
+          <div class="diff-detail"><strong>Microsoft Exchange CVE-2026-62911</strong> (capture-replay auth-bypass / EoP, CVSS 8.0) has <strong>public exploit code circulating</strong> and ~<strong>21,900 servers still exposed</strong>, landing the day before <strong>8 Sept Patch Tuesday</strong>. The genuine state change today; a fresh on-prem Act. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Act · deploy Chrome fix</span><span class="arrow">→</span><span class="st new">Act held · verify fleet coverage</span></div>
+          <div class="diff-topic">Chrome 0-day — carryover, no new state</div>
+          <div class="diff-detail"><strong>CVE-2026-85046</strong> remains an open remediation item against the <strong>18 Sept</strong> KEV ceiling. No new development today; verify 152.0.7977.82+ fleet coverage and enforced auto-update. [Act]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">LAPSED · assume-compromise</span><span class="arrow">→</span><span class="st new">Act held · confirm closure</span></div>
+          <div class="diff-topic">2 Sept KEV batch — carryover, no new state</div>
+          <div class="diff-detail">Artifactory / LiteLLM / SonicWall stay past bar since 5 Sept. No new development today; assume-compromise for anything unconfirmed and hunt for forged-admin / anomalous-MCP indicators. [Act]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">vCenter campaign · live</span><span class="arrow">→</span><span class="st new">Act held · still no all-clear</span></div>
+          <div class="diff-topic">vCenter CVE-2026-59310 — carryover, no new state</div>
+          <div class="diff-detail">The unauthenticated-RCE campaign on the virtualization control plane runs unbroken (reverse_ssh + Babuk-derived ESXi ransomware). Keep patched and hunted; it underlies AG's Private AI Cloud option. [Act]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">agents on data</span><span class="arrow">→</span><span class="st new">agents on infrastructure</span></div>
+          <div class="diff-topic">New strategic signal — Fable 5.1 + Model Hardware Standard</div>
+          <div class="diff-detail"><strong>Anthropic Fable 5.1 (1 Sept)</strong> GA across three clouds (1M context, 75% cache-read price cut) + gated <strong>Mythos 5.1</strong> + a <strong>Model Hardware Standard</strong> letting agents operate physical devices. Raises agent-governance priority before proliferation. [Fact/Inference] · <em>Memory supercycle firms (Micron doubling HBM, ~70% of 2026 memory to data centres) — Radar → Prepare. EO 14420 / PJM / sovereign AI / EU AI Act carry over unchanged; the "Red Sea cable cut" resurfacing this weekend is the Sept-2025 event and is excluded.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION REQUIRED -->
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required Today</div>
+      <div class="action-head">
+        <h2>A mass-exposed Exchange auth-bypass with public exploit code lands the day before Patch Tuesday, while three carryover exposures — the Chrome zero-day, the lapsed 2 Sept KEV batch and the live vCenter campaign — stay open</h2>
+        <span class="action-sub">1 new + 3 carryover-open · assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch · NEW</span>
+            <h4>Confirm every on-prem / hybrid Microsoft Exchange server is patched for CVE-2026-62911 and fold verification into the 8 September Patch Tuesday window — a capture-replay improper-authorization / elevation-of-privilege flaw (CVSS 8.0, ZDI-26-538) from the Pwn2Own Berlin chain. Public exploit code has circulated since ~1 Sept; ~21,900 internet-facing servers were still unpatched as of early September, and NCSC-NL confirms public exploit availability. The fix is available</h4>
+            <div class="sug"><b>Suggested action · </b> Verify patch status across every on-prem and hybrid Exchange server now, fold it into tomorrow's 8 Sept Patch Tuesday cycle, restrict OWA / management-console exposure, and hunt for anomalous authentication replay. Consequence of inaction: an authentication bypass enabling user impersonation, privilege escalation and mailbox hijack on any unpatched, internet-facing Exchange server — with a public PoC lowering the bar to mass exploitation before or immediately after Patch Tuesday.</div>
+            <div class="meta-row"><span>Owner: <b>Messaging / Collaboration Infrastructure + Security Operations (Threat Hunt)</b></span><span>By when: <b>now / with the 8 Sept Patch Tuesday cycle</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch · carryover-open</span>
+            <h4>Deploy / verify the Chrome CVE-2026-85046 fix (152.0.7977.82+) across the managed endpoint fleet and confirm enforced auto-update — an actively-exploited V8 type-confusion RCE inside the sandbox (CVSS 8.8), KEV-listed 4 Sept with an 18 September federal deadline; the sixth Chrome zero-day of 2026, and Chromium-based Edge shares V8. No new development today — status held</h4>
+            <div class="sug"><b>Suggested action · </b> Verify 152.0.7977.82+ fleet coverage and enforced enterprise auto-update, confirm Chromium-Edge coverage, and prioritise any pinned-channel or high-value endpoints. Consequence of inaction: an actively-exploited RCE foothold on the broadest, most drive-by-exposed surface in the estate; the exposed tail is any endpoint with auto-update disabled or pinned to an old channel.</div>
+            <div class="meta-row"><span>Owner: <b>Endpoint / Digital Workplace + Security Operations (Threat Hunt)</b></span><span>By when: <b>now (KEV deadline 18 Sept is the ceiling, not the target)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch · carryover-open</span>
+            <h4>Treat the lapsed 2 September KEV batch as assume-compromise and confirm closure — past bar since 5 Sept: CVE-2026-82329 (JFrog Artifactory, CVSS 9.8, unauth → forged admin tokens), CVE-2026-59822 (LiteLLM MCP auth bypass; fixed 1.84.0 — LiteLLM's March-2026 supply-chain incident hit 2,500+ orgs / 430k+ CI/CD pipelines), and CVE-2026-83548/-83549 (SonicWall SMA1000 pre-auth SSRF CVSS 10.0 + OS-command injection). No new development today — status held</h4>
+            <div class="sug"><b>Suggested action · </b> Confirm every instance is patched, rotate and hunt for forged Artifactory admin tokens and anomalous federated-access reads, hunt for unauthenticated MCP calls at the AI gateway, restrict SMA1000 management-console exposure, and keep the standing NetScaler/PaperCut sweeps running. Consequence of inaction: a forged-admin foothold on the build-pipeline root of trust, an auth-free path to Group's model/MCP tooling, and pre-auth code execution on the remote-access edge — each estate-wide, and now beyond the point where patching alone can be assumed to remediate.</div>
+            <div class="meta-row"><span>Owner: <b>SecOps (Threat Hunt) + DevOps/Platform (Artifactory) + AI Platform (LiteLLM) + Network Edge (SonicWall)</b></span><span>By when: <b>immediately (deadline lapsed 5 Sept)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">04</div>
+          <div>
+            <span class="domain-tag">Governance, Cyber &amp; Regulatory Watch · carryover-open</span>
+            <h4>Keep the vCenter estate patched and threat-hunted for CVE-2026-59310 — the unauthenticated-RCE campaign on the VMware vCenter Syslog server (CVSS 9.8) remains live with no all-clear. Mass-exploited since early August; 361 IPs across 47 countries (US, France, Iran, Turkey heaviest); reverse_ssh persistence + malicious cron pivoting to Babuk-derived ESXi ransomware; KEV since 18 Aug (deadline lapsed 21 Aug). No new development today — status held; it is the exact control plane under evaluation for Group's Private AI Cloud</h4>
+            <div class="sug"><b>Suggested action · </b> Hunt for reverse_ssh, anomalous cron jobs/root processes and Syslog-path-traversal indicators; confirm every appliance is patched; restrict management-plane exposure; treat any appliance unpatched since July as potentially compromised, and require a vCenter hardening/hunt sign-off before any VMware-based AI landing-zone build. Consequence of inaction: a root foothold on the hypervisor control plane — the highest-value pivot in the estate — enabling estate-wide credential theft, ESXi ransomware, or dormant persistence.</div>
+            <div class="meta-row"><span>Owner: <b>Security Operations (Threat Hunt) + Virtualization / Platform Infrastructure</b></span><span>By when: <b>immediately (KEV deadline lapsed 21 Aug)</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- FILTER BAR -->
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="gov">Gov &amp; Reg</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
+      <span class="chip dom" data-dom="cloud">Cloud</span>
+      <span class="chip dom" data-dom="dc">Infra / Data Centers</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+  <!-- RADAR -->
+  <section id="radar">
+    <div class="kicker">📡 Radar — early &amp; longer-horizon signals</div>
+    <div class="radar-list">
+      <div class="radar-item">
+        <div class="rt">N-able N-central — fresh access-control-bypass PoC (CVE-2026-86207)</div>
+        <div class="rd">Huntress published a proof-of-concept on <strong>5 September</strong> for a flaw in N-able N-central that bypasses access controls to <strong>create unauthorized administrative accounts</strong>, weeks after a distinct N-central auth-bypass (CVE-2026-18577) was KEV-listed with confirmed customer compromises. <em>RMM/MSP platforms are a high-value pivot into managed endpoints; relevant if Group or its managed-service providers run N-central. Next trigger: confirmed in-the-wild exploitation or KEV addition.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">WordPress Super Forms + Elementor Pro under active exploitation</div>
+        <div class="rd">Attackers are exploiting <strong>CVE-2026-14894</strong> in the Super Forms plugin (unauthenticated file upload → RCE) alongside an Elementor Pro flaw, putting public WordPress sites at risk of takeover. <em>Relevant to any Group marketing/brand web property on WordPress. Next trigger: a mass-exploitation campaign or a named victim.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">Cloudflare pushes AI-native netsec and flips agentic-access defaults (15 Sept)</div>
+        <div class="rd">Cloudflare's <strong>Vulnerability Discovery and Remediation</strong> pairs OpenAI Daybreak security models with its network traffic data to find, prioritise and fix flaws; separately, from <strong>15 September</strong> its default for ad-supported pages allows search but <strong>blocks AI training and agent access</strong>. <em>A content-access, agent-governance and AI-native-defence signal for any Group web property or crawling agent. Next trigger: adoption data or a publisher/agent dispute over the default.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">PJM 6.8 GW reliability backstop auction runs 30 Sept–21 Oct</div>
+        <div class="rd">Following FERC's 3 Sept comment-window close, PJM will auction up to <strong>6.8 GW</strong> under its "bring-your-own-power or face state-approved curtailment" regime (≥50 MW single-POI, post-1 June 2027 large-load definition; 12 Oct requested effective date). <em>The pricing/eligibility signal for any PJM-footprint Group capacity. Next trigger: FERC's ruling or auction clearing prices.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">Data-center capacity slippage — 30–50% of planned 2026 builds slip to 2028</div>
+        <div class="rd">Omdia/industry analysis holds that chip, power and long-lead-item scarcity will push <strong>30–50%</strong> of planned 2026 data-center capacity to 2028; capex at the largest operators nears ~$750B in 2026. <em>Reinforces Group's lead-time and phasing assumptions for any new capacity — and compounds the memory-supply premium above. Next trigger: a named hyperscaler build delay or a further lead-time step-out.</em></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources ·</strong> Help Net Security · BleepingComputer · The Hacker News · CISA · Huntress · Anthropic · MacRumors · Computing · Tom's Hardware · Microsoft Azure Blog · European Commission · AI Agent Store (McKinsey) · Gartner · Holland &amp; Knight · CNBC · Cloudflare · Utility Dive · Manufacturing Dive · artificialintelligenceact.eu &nbsp;·&nbsp; <em>Recurring "Red Sea subsea cable cut / Azure rerouting" reporting resurfacing this weekend traces to the September 2025 incident and is excluded as not a 24–48h development.</em>
+    </div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #64</div>
+  </footer>
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"gov",   num:"1", title:"Governance, Cyber & Regulatory Watch"},
+  {id:"ai",    num:"2", title:"AI & Agentic Systems"},
+  {id:"cloud", num:"3", title:"Cloud"},
+  {id:"dc",    num:"4", title:"Infrastructure & Data Centers"},
+];
+
+const ITEMS = [
+  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"Microsoft Exchange CVE-2026-62911 — public exploit code, ~21,900 servers exposed, on the eve of Patch Tuesday: Microsoft disclosed CVE-2026-62911 on 11 August 2026 — a capture-replay improper-authorization / elevation-of-privilege flaw in Exchange Server (CVSS 8.0, ZDI-26-538) that lets an attacker who can capture and replay authentication traffic impersonate legitimate users and escalate privileges across the server. It originates in the three-bug chain used to reach SYSTEM at Pwn2Own Berlin 2026. Working public exploit code has circulated since ~1 September, and internet-scan data put roughly 21,900 unique internet-facing Exchange servers still unpatched as of early September, with the Netherlands' NCSC-NL confirming public exploit availability. The fix is available; the 8 Sept Patch Tuesday is expected to reinforce Exchange hardening alongside the \"ShieldBreak\" Defender EoP (CVE-2026-69414)",src:"Help Net Security · BleepingComputer",url:"https://www.helpnetsecurity.com/2026/09/02/microsoft-exchange-cve-2026-62911-critical-authentication-bypass-flaw/",why:"<span class='tag-fact'>Fact</span> public PoC live since ~1 Sept; ~21,900 servers exposed; capture-replay auth-bypass / EoP on Exchange Server; fix available; Patch Tuesday 8 Sept. <span class='tag-assum'>Assumption</span> Group very likely runs (or hybrid-connects) on-prem Exchange somewhere in the group; any internet-facing, unpatched server is a mailbox-hijack and privilege-escalation target with the bar to mass exploitation now low. <b>Act:</b> confirm every on-prem/hybrid Exchange server is patched now, fold verification into tomorrow's Patch Tuesday cycle, restrict OWA / management-console exposure, and hunt for anomalous authentication replay. <b>Owner:</b> Messaging / Collaboration Infrastructure + SecOps (Threat Hunt) · <b>By:</b> now / with the 8 Sept Patch Tuesday cycle. <b>Next trigger:</b> confirmed in-the-wild exploitation or KEV addition, or a mass-scan campaign following Patch Tuesday."},
+  {dom:"gov",sev:"crit",action:true,status:"act",evidence:"fact",title:"Chrome V8 zero-day CVE-2026-85046 — carryover Act, still open on every endpoint (KEV deadline 18 Sept): no new development today. The actively-exploited V8 type-confusion zero-day (CVSS 8.8), patched in Chrome 152.0.7977.82/.83 around 3 September and added to CISA KEV on 4 September with an 18 September federal remediation deadline, remains an open remediation item across the managed endpoint fleet. It is the sixth actively-exploited Chrome zero-day of 2026; Chromium-based Edge shares the V8 engine",src:"Help Net Security · CISA KEV",url:"https://www.helpnetsecurity.com/2026/09/04/google-chrome-zero-day-cve-2026-85046/",why:"<span class='tag-fact'>Fact</span> actively-exploited V8 RCE; KEV deadline 18 Sept; sixth Chrome zero-day of 2026. <span class='tag-assum'>Assumption</span> Chrome / Chromium-Edge is almost certainly Group's dominant managed browser — RCE on the broadest, most drive-by-exposed surface. <b>Act:</b> verify 152.0.7977.82+ fleet coverage and enforced auto-update; prioritise pinned-channel and high-value users. <b>Owner:</b> Endpoint / Digital Workplace + SecOps (Threat Hunt) · <b>By:</b> now (KEV deadline 18 Sept is the ceiling). <b>Next trigger:</b> exploit-kit / phishing weaponisation at scale, or a companion Chromium-Edge advisory."},
+  {dom:"ai",sev:"watch",status:"prepare",evidence:"fact",title:"Anthropic ships Fable 5.1 and a \"Model Hardware Standard\" — agents move from data to infrastructure: Anthropic released Claude Fable 5.1 on 1 September 2026, generally available across the Claude API, AWS, Google Cloud and Microsoft Azure — an improved general-purpose agent model with a 1M-token context window, a ~75% reduction in prompt cache-read pricing, and fewer false positives — alongside a gated Mythos 5.1 for vetted defenders and researchers. Separately, Anthropic introduced a Model Hardware Standard: a common driver interface that lets AI agents discover and operate microscopes, liquid handlers, robotic arms and other programmable devices through one standard rather than fragmented vendor APIs — a shift from \"agents on data\" to \"agents on infrastructure,\" starting as a research preview with a first cohort of labs and manufacturers",src:"Anthropic (System Card) · MacRumors",url:"https://www.macrumors.com/2026/09/01/anthropic-claude-fable-5-1/",why:"<span class='tag-fact'>Fact</span> Fable 5.1 GA across three clouds with a 1M context and 75% cache-read price cut; gated Mythos 5.1 for defenders; Model Hardware Standard puts agents directly onto programmable devices. <span class='tag-assum'>Inference</span> cheaper long-context agents accelerate proliferation, and an \"agents-on-infra\" standard raises the stakes on governing agent identity, deny-by-default runtime, credential isolation and audit <em>before</em> agents can touch physical or enterprise devices; the gated defender track is a defensive-parity lever. <b>Prepare:</b> pull Group's agent-control standard forward to cover device/infrastructure actuation (not just data access), decide whether to pilot Fable 5.1 on a governed landing zone, and evaluate the Mythos/defender track for Group's security team. <b>Next trigger:</b> the Model Hardware Standard leaving research preview, or a Fable 5.1 enterprise reference Group can benchmark."},
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"Memory supercycle deepens — Micron moves to double HBM capacity as data centres take ~70% of 2026 output: fresh reporting this week has Micron preparing to roughly double its high-bandwidth-memory capacity by end-2026 — targeting ~100,000 wafers/month and sharply increasing 12-high HBM4 output for Nvidia's Vera Rubin platform — while analysts warn of the most severe memory shortage in decades: more than 70% of all high-end memory produced globally in 2026 is expected to be consumed by data centres, squeezing DRAM/NAND supply for PCs, phones, cars and appliances, with SK Hynix signalling the AI-driven shortage could persist past 2030. Semiconductor lead times reached ~40 weeks in early 2026, with memory ICs among the most constrained",src:"Computing · Tom's Hardware",url:"https://www.computing.co.uk/news/2026/datacentre/datacentre-growth-triggers-global-memory-chip-crunch",why:"<span class='tag-fact'>Fact</span> Micron doubling HBM capacity for Vera Rubin; data centres to absorb ~70% of 2026 memory output; shortage projected past 2030; ~40-week memory lead times. <span class='tag-assum'>Assumption</span> Group's server-refresh cycle and on-prem AI TCO face structurally elevated memory pricing and long lead times through the medium term — a multi-year regime, not a spike. <b>Prepare:</b> price a multi-year elevated-memory assumption into on-prem AI TCO and refresh planning, lock memory-heavy procurement early against 40-week lead times, and weight the sovereignty decision matrix for the capex reality that on-prem AI now carries a memory-supply premium. <b>Next trigger:</b> a further quarterly HBM contract step-up, an HBM4 yield/ramp signal, or DRAM/NAND spot-price moves feeding server BOMs."},
+  {dom:"cloud",sev:"watch",status:"prepare",evidence:"fact",title:"Microsoft's EU Data Boundary covers end-to-end AI processing — a named hyperscaler sovereign-AI route: no new instrument today, but the sovereign-AI decision set stands and the EU policy backdrop is firming (June 2026 Cloud and AI Development Act; ~$80B sovereign-cloud market, +35.6% YoY). Microsoft's EU Data Boundary now covers end-to-end AI processing — prompts, embeddings, inference telemetry and related pseudonymised logs for EU customers remain within the EU — with in-country Microsoft 365 Copilot processing expanding across EU markets in 2026 and a Sovereign Landing Zone (SLZ) offering a compliance-ready Azure baseline. This sits against Group's on-prem VMware Private AI baseline (~$350/core/year)",src:"Microsoft Azure Blog · European Commission",url:"https://azure.microsoft.com/en-us/blog/microsoft-strengthens-sovereign-cloud-capabilities-with-new-services/",why:"<span class='tag-fact'>Fact</span> Microsoft EU Data Boundary covers end-to-end AI processing; SLZ offers a compliance-ready Azure baseline; EU Cloud &amp; AI Development Act firming the sovereignty framework; sovereign-cloud market ~$80B. <span class='tag-assum'>Assumption</span> For an EU-operating group Group has three modellable sovereign-AI routes — on-prem VMware Private AI (~$350/core), EU-resident IaaS, and hyperscaler EU-boundary (Microsoft SLZ) — differentiated on control, cost and portability; a US-incorporated provider still carries residual CLOUD Act exposure. <b>Prepare:</b> run a single sovereignty decision matrix across all three with AG core counts and residency requirements, stress-test the Microsoft option's residual CLOUD Act gaps, and require a vCenter hardening/hunt sign-off (Action 4) as a precondition of the on-prem route. <b>Next trigger:</b> an independent assessment of the EU-boundary AI-processing guarantees, or an AG-market Copilot in-country date."},
+  {dom:"ai",sev:"watch",status:"prepare",evidence:"fact",title:"Enterprise agent adoption scales as governance productises — Dreamforce (15–17 Sept) now ~8 days out: the adoption backdrop holds — McKinsey's \"State of AI in 2026\" reported large-enterprise agent scaling in one or more functions rising from 27% to 40% and 32% of organisations skipping at least one software purchase because they could build it internally with agentic tools; Gartner projects task-specific agents in 40% of enterprise apps by end-2026. Agentic capability continues moving into the security-operations workflow (SOC-analyst agents in preview), and Dreamforce 2026 (15–17 Sept) — where Agentforce across CRM/ERP/Data Cloud/Slack foregrounds governed multi-agent orchestration — is now ~8 days out. This dovetails with the agents-on-infrastructure signal above",src:"AI Agent Store (McKinsey) · Gartner",url:"https://aiagentstore.ai/ai-agent-news/this-week",why:"<span class='tag-fact'>Fact</span> large-enterprise agent scaling 27%→40%; 32% substituted internal agentic builds for purchased software; Dreamforce 15–17 Sept (~8 days). <span class='tag-assum'>Inference</span> agent scaling is majority-track at large enterprises and the build-vs-buy line is shifting toward internal agentic builds — raising the stakes on standardising agent identity, deny-by-default runtime, credential isolation and audit before proliferation outruns controls. <b>Prepare:</b> pressure-test Group's agent-control standard against the RFP field, decide the build-vs-buy posture explicitly, and slot Dreamforce as a governance/architecture reference checkpoint. <b>Next trigger:</b> Agentforce 360 governance detail at Dreamforce, or an independent review of a deny-by-default containment claim."},
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"Trump EO 14420 firms into a data-center power supply-chain exposure — data-center equipment potentially next: no new development today; the watchpoint stands. Executive Order 14420 declared a national emergency over foreign-produced bulk-power system equipment (substation transformers, grid-connected inverters, battery storage, turbines), applying to transactions initiated after 26 August 2026 and authorising the DOE to prohibit, condition or unwind transactions and set vendor-qualification requirements — with the administration reported to be weighing a parallel restriction on Chinese equipment used in data centers, amid an estimated ~15% transformer / ~8% substation shortage most acute in the 100 MVA+ segment",src:"Holland & Knight · CNBC",url:"https://www.cnbc.com/2026/09/03/us-ai-data-centers-china-supply-chain.html",why:"<span class='tag-fact'>Fact</span> EO 14420 (transactions after 26 Aug) lets DOE block/condition/unwind foreign bulk-power equipment transactions; ~15% transformer shortage; a parallel data-center equipment restriction under consideration. <span class='tag-assum'>Assumption</span> Group's US-footprint (or US-hosted) capacity plans could face longer lead times, vendor-requalification or forced replacement if grid/data-center gear is sourced from restricted vendors. <b>Prepare:</b> map Group's grid-interconnect and data-center power equipment against the EO's restricted-vendor scope, add a supply-chain-provenance test to capacity procurement, and price the transformer-shortage lead-time risk into the medium-term plan. <b>Next trigger:</b> DOE implementing rules, a named restricted-vendor list, or a formal data-center equipment order."},
+  {dom:"gov",sev:"fyi",status:"monitor",full:true,gov:true,title:"EU AI Act — the compliance dashboard stands and the marking clock ticks to ~86 days: no new instrument this cycle. GPAI enforcement is live, with the AI Office using \"technical compliance dialogues\" as its preferred first tool (documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal, fines up to €15M / 3% of turnover under Art. 101). Article 50 transparency is live for all in-scope systems, while the marking obligation for pre-existing generative AI carries a hard 2 December 2026 deadline (~86 days). The Digital Omnibus defers only Annex III (2 Dec 2027) and Annex I (2 Aug 2028); prohibited practices and the Art. 5 ban remain in force; US firms remain in scope extraterritorially",src:"European Commission · artificialintelligenceact.eu",url:"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — using <b>technical compliance dialogues</b> as its preferred first tool, then documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal and fines up to €15M / 3% turnover under Art. 101; the Commission's <b>Code of Practice on Marking and Labelling</b> and the Article 50 transparency guidelines are the concrete tools. No new instrument landed this cycle, so the sharper signal is simply the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~86 days). The <b>Digital Omnibus</b> left the 2 Aug GPAI enforcement date standing while banking Annex III to 2 Dec 2027 and Annex I to 2 Aug 2028. GPAI models placed before 2 Aug 2025 have a grace period to 2 Aug 2027; prohibited practices (Feb 2025) and the Art. 5 ban on AI nudifiers / NCII / CSAM remain in force. US companies remain in scope extraterritorially. There is <b>no material state transition on the AI-Act thread today</b> — the open work is the schedule, not a new obligation.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>Prohibited practices</td><td>2 Feb 2025</td><td>2 Feb 2025 <em>unchanged</em></td><td><span class="badge b-live">In force</span></td></tr>
+      <tr><td>Art. 5 ban (AI nudifiers / NCII / CSAM)</td><td>&mdash;</td><td>Added by Omnibus</td><td><span class="badge b-new">In force · new</span></td></tr>
+      <tr><td>GPAI enforcement powers (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>Standing · Omnibus did not move it</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 &mdash; transparency / marking (new systems)</td><td>2 Aug 2026</td><td>Live · all in-scope systems</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 &mdash; marking of pre-existing generative AI</td><td>2 Aug 2026</td><td>Transitional deadline 2 Dec 2026</td><td><span class="badge b-new">~86 days</span></td></tr>
+      <tr><td>GPAI models placed before 2 Aug 2025</td><td>&mdash;</td><td>Compliant by 2 Aug 2027</td><td><span class="badge b-def">Grace period</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit, law enforcement)</td><td>2 Aug 2026</td><td>2 Dec 2027 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028 (Omnibus)</td><td><span class="badge b-def">Deferred · law</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> GPAI enforcement is live via technical compliance dialogues; Article 50 is live for new systems; pre-existing generative systems have a hard 2 Dec 2026 (~86-day) marking deadline; the Omnibus deferred only Annex III (2 Dec 2027) and Annex I (2 Aug 2028). &nbsp;<span class="tag-assum">Assumption</span> This is a standing schedule, not a new trigger: put the pre-existing generative estate on a marking schedule that clears 2 Dec 2026, finish the supplier cross-check against the Transparency Code signatory list, sign the Code for AG's own in-scope systems, and mark new customer-facing agent output now.
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = items.length ? "0" : "1";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.length ? items.map(cardHTML).join('') : '<div class="empty-dom">No qualifying items in the last 24–48h — this domain joins the rotation as stories land.</div>'}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    const isEmpty = sec.dataset.empty === "1";
+    const okEmpty = isEmpty && (state.dom==="all" || state.dom===sec.dataset.section) && !state.actionOnly && state.sev.size>0;
+    sec.style.display = (shown || okEmpty) ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+// domain chips
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+// severity chips (multi-toggle)
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+// stagger reveal for cards on load
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>
