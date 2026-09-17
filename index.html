@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Sector Intelligence Digest — 15 September 2026 · Group Technology Architecture</title>
+<title>Daily Sector Intelligence Digest — 17 September 2026 · Group Technology Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +46,6 @@
   }
   .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 
-  /* ---------- MASTHEAD ---------- */
   .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
   .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
   .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
@@ -62,7 +61,6 @@
   .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
   .dateline b{color:var(--navy);font-weight:600}
 
-  /* ---------- STICKY NAV ---------- */
   .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
   .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
   .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
@@ -77,7 +75,6 @@
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
   .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
 
-  /* ---------- HERO (pattern + diff) ---------- */
   .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
   .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
   .pattern .ph .teeth{color:var(--red);font-style:italic}
@@ -97,7 +94,6 @@
   .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
   .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
 
-  /* ---------- ACTION REQUIRED ---------- */
   .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
   .action-band .kicker{color:#ff8a98}
   .action-band .kicker::after{background:rgba(255,255,255,.18)}
@@ -114,7 +110,6 @@
   .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
   .act .meta-row span b{color:#fff;font-weight:600}
 
-  /* ---------- FILTER BAR ---------- */
   .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
     border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
     display:flex;gap:18px;align-items:center;flex-wrap:wrap}
@@ -135,7 +130,6 @@
   .toggle input:checked{background:var(--red)}
   .toggle input:checked::after{left:17px}
 
-  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
   .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
   .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
   .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
@@ -164,7 +158,6 @@
   .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
   .card.full{grid-column:1/-1}
 
-  /* compliance table inside gov card */
   table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
   table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
     color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
@@ -179,14 +172,12 @@
   .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
   .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
 
-  /* ---------- RADAR ---------- */
   .radar-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
   .radar-item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:9px;padding:13px 15px;box-shadow:var(--shadow)}
   .radar-item .rt{font-size:14px;font-weight:700;color:var(--navy-deep);margin-bottom:4px;line-height:1.3}
   .radar-item .rd{font-size:12.5px;color:var(--ink-soft)}
   .radar-item .rd em{color:var(--navy);font-style:italic}
 
-  /* ---------- LEGEND + FOOTER ---------- */
   .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
   .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
   .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
@@ -217,30 +208,28 @@
 </head>
 <body>
 
-
-<!-- MASTHEAD -->
 <header class="masthead">
   <div class="wrap">
     <div class="brandline">
       <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
-      <div class="issue">ISSUE #70 · 3 DOMAINS · 5 ITEMS</div>
+      <div class="issue">ISSUE #71 · 5 DOMAINS · 7 ITEMS</div>
     </div>
     <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
     <div class="dateline">
-      <span><b>Tuesday, 15 September 2026</b></span>
-      <span>2 critical · 3 watch · 0 fyi</span>
+      <span><b>Thursday, 17 September 2026</b></span>
+      <span>2 critical · 5 watch · 0 fyi</span>
       <span>~5 min read</span>
     </div>
   </div>
 </header>
 
-
-<!-- STICKY NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="#sec">Security &amp; Resilience <span class="ct">3</span></a>
     <a href="#ai">AI &amp; Agentic <span class="ct">1</span></a>
-    <a href="#dc">Infrastructure &amp; Data Centers <span class="ct">1</span></a>
+    <a href="#platform">Platform &amp; Cloud <span class="ct">1</span></a>
+    <a href="#dc">Infrastructure &amp; DCs <span class="ct">1</span></a>
+    <a href="#gov">Regulation &amp; Compliance <span class="ct">1</span></a>
     <span class="nav-sep"></span>
     <a href="archive.html">Past editions ↗</a>
     <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
@@ -249,62 +238,60 @@
 
 <div class="wrap">
 
-  <!-- HERO: PATTERN + DIFF -->
   <section class="hero reveal" style="border-bottom:1px solid var(--line)">
     <div class="pattern">
       <div class="kicker">⚡ Pattern of the Day</div>
-      <div class="ph">The patch clock is never quiet — <span class="teeth">the strategy clock starts on someone else's schedule.</span></div>
-      <p>Issue #70, covering the <strong>~24 hours since Issue #69</strong> — a focused, security-led edition with one genuine strategic event. A new maximum-severity zero-day landed overnight: <strong>Cisco added CVE-2026-76461 (CVSS 9.8)</strong>, an unauthenticated SQL-injection in Secure Email Gateway that yields <strong>root code execution from a single crafted email</strong>, to CISA KEV with a <strong>17 September deadline</strong> and no workaround. It resets the defensive clock to two days even as two others count down — <strong>Chrome (18 Sept)</strong> and the exploited <strong>Windows EoP zero-days (22 Sept)</strong>.</p>
-      <p>Disclosure-to-KEV compression is now the steady state, not the exception. On the strategic side, <strong>Dreamforce opened today (15–17 Sept)</strong> and reframed agent governance as <strong>infrastructure</strong> — an AI Control Plane, Agentforce 360, a MuleSoft Agent Fabric keynote, and the Salesforce–Anthropic <strong>Claudeforce</strong> integration entering open beta this month — while <strong>SK Hynix warned memory scarcity may persist past 2030</strong>. The two inputs to AG's own AI build are being defined this week by suppliers.</p>
+      <div class="ph">The perimeter that authenticates and inspects <span class="teeth">is itself the way in.</span></div>
+      <p>Issue #71, covering the <strong>~48 hours since Issue #70</strong>. In seven days AG's suppliers produced two maximum-severity, unauthenticated-root zero-days in exactly the appliances that stand at the edge and decide who is trusted: Cisco <strong>Secure Email Gateway (CVE-2026-76461, deadline today)</strong> and now <strong>Identity Services Engine (CVE-2026-76460, CVSS 10.0, deadline Friday)</strong>. Neither was found by proactive research — SEG was already being exploited on disclosure, and <strong>ISE surfaced only from a customer support ticket</strong>, meaning at least one enterprise was compromised before the advisory existed.</p>
+      <p>Disclosure-to-KEV compression is no longer the story; <strong>pre-disclosure compromise of identity and mail infrastructure</strong> is. On the strategic side, <strong>Dreamforce closed (15–17 Sept)</strong> with the agent-control plane fully productized — AIforce, the Nvidia-built <strong>Koa</strong> CRM reasoning model, <strong>Claudeforce in public beta</strong>, and every frontier model on Agentforce via Amazon Bedrock — while the <strong>HBM memory floor</strong> under any on-prem AI build stays elevated (Micron shipping 48GB 16-high samples, doubling capacity).</p>
       <div class="ag-take">
         <b>For Group</b>
-        A tempo message. On the <em>defensive clock</em>, dictated by attackers: patch Secure Email Gateway to AsyncOS 16.5.0-780 before 17 Sept (no workaround), finish the Chrome fleet (18 Sept) and the fleet-wide September Windows cumulative incl. RDS session hosts (22 Sept, KIR in place), and hold the Cisco FMC + appliance/backlog on verify-and-hunt. On the <em>strategic clock</em>, set by vendors' launch calendars: use Dreamforce this week to read the AI Control Plane's governance model against AG's own <em>before</em> committing to any single vendor's plane, and lock HBM procurement lead-times now. Standing watch: EU AI Act 2 Dec marking (~78 days); GitLab CVE-2026-85706 deadline passed 14 Sept (residual hunt only where exposed).
+        Two clocks, two owners. On the <em>defensive clock</em>, set by attackers: patch Identity Services Engine to a fixed release before 19 Sept (no workaround), confirm Secure Email Gateway on AsyncOS 16.5.0-780 today, finish the Chrome fleet (18 Sept) and the September Windows cumulative incl. RDS (22 Sept), and — because both Cisco flaws were found only when a victim surfaced — hunt the identity and mail tiers rather than trusting version strings. On the <em>strategic clock</em>, set by vendors' calendars: read the AIforce / agent-control plane against AG's own standard <em>before</em> committing, treat Claudeforce's public beta as an evaluation not a default, and hold the elevated-HBM assumption in on-prem AI TCO. Standing watch: EU AI Act 2 Dec marking (~76 days); CRA reporting in force.
       </div>
     </div>
 
     <div class="diff">
-      <h3>🔄 What's changed since Issue #69</h3>
+      <h3>🔄 What's changed since Issue #70</h3>
       <div class="diff-list">
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">New</span><span class="arrow">→</span><span class="st new">Act · 2-day deadline</span></div>
+          <div class="diff-states"><span class="st old">New</span><span class="arrow">→</span><span class="st new">Act · deadline 19 Sept</span></div>
+          <div class="diff-topic">Cisco Identity Services Engine CVE-2026-76460</div>
+          <div class="diff-detail">A maximum-severity (CVSS 10.0) <strong>unauthenticated API auth-bypass → root</strong> in ISE / ISE-PIC, confirmed actively exploited and KEV-added 16 Sept with a <strong>19 Sept</strong> deadline and no workaround. Cisco found it <strong>while resolving a customer support case</strong>. [Fact] <em>— the new entrant.</em></div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Act · deadline today</span><span class="arrow">→</span><span class="st new">verify-and-hunt</span></div>
           <div class="diff-topic">Cisco Secure Email Gateway CVE-2026-76461</div>
-          <div class="diff-detail">A maximum-severity (CVSS 9.8) <strong>unauthenticated SQL-injection → root RCE via a single crafted email</strong> was disclosed as actively exploited and added to CISA KEV (14 Sept) with a <strong>17 Sept</strong> deadline; fix is <strong>AsyncOS 16.5.0-780</strong>, no workaround. [Fact] <em>— the new entrant.</em></div>
+          <div class="diff-detail">The CVSS 9.8 unauth SQLi → root flaw reaches its <strong>17 Sept</strong> KEV deadline today; posture shifts to confirm-patched (AsyncOS 16.5.0-780) plus residual hunt where any appliance was reachable and unpatched. [Fact]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">Prepare · awaiting keynote</span><span class="arrow">→</span><span class="st new">keynote landing today</span></div>
-          <div class="diff-topic">Dreamforce / agent governance</div>
-          <div class="diff-detail">Dreamforce opened <strong>15 Sept</strong>: Salesforce made <strong>governance the infrastructure</strong> — AI Control Plane, Agentforce 360 ($1.5B ARR, +240% YoY), a MuleSoft Agent Fabric keynote (16 Sept), and <strong>Claudeforce</strong> open beta this month. The trigger AG's Salesforce watchpoint named has arrived. [Fact]</div>
+          <div class="diff-states"><span class="st old">Act</span><span class="arrow">→</span><span class="st new">carries · clocks tightening</span></div>
+          <div class="diff-topic">Chrome · Windows EoP zero-days</div>
+          <div class="diff-detail">Chrome CVE-2026-85046 (<strong>18 Sept</strong>) is now the nearest ceiling; the two exploited Windows EoP zero-days (<strong>22 Sept</strong>) are 5 days out. No new state; carried. [Fact]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">Act · deadline today</span><span class="arrow">→</span><span class="st new">deadline passed · residual hunt</span></div>
-          <div class="diff-topic">GitLab CVE-2026-85706 (CVSS 10.0)</div>
-          <div class="diff-detail">The CVSS 10.0 file-read reached its 14 Sept KEV deadline and drops off the active-Act list; residual threat-hunt only where an instance was internet-reachable and unpatched. [Fact / Inference]</div>
+          <div class="diff-states"><span class="st old">Prepare · keynote landing</span><span class="arrow">→</span><span class="st new">concrete platform</span></div>
+          <div class="diff-topic">Dreamforce / agent-control plane</div>
+          <div class="diff-detail">Day 2 (16 Sept) delivered <strong>AIforce</strong>, the Nvidia-built <strong>Koa</strong> CRM reasoning model, and <strong>Claudeforce in public beta</strong> (was "expected this month"), plus every frontier model on Agentforce via <strong>Amazon Bedrock</strong>. Evidence extended. [Fact]</div>
         </div>
         <div class="diff-item">
-          <div class="diff-states"><span class="st old">Act</span><span class="arrow">→</span><span class="st new">carries · 7 days to deadline</span></div>
-          <div class="diff-topic">Windows EoP zero-days · Chrome</div>
-          <div class="diff-detail">The two exploited EoP zero-days are now <strong>7 days</strong> from their 22 Sept KEV deadline (RDS KIR remains the enabler); Chrome CVE-2026-85046 (18 Sept) is the nearest ceiling. No new state; carried. [Fact]</div>
+          <div class="diff-states"><span class="st old">—</span><span class="arrow">→</span><span class="st new">New · Monitor</span></div>
+          <div class="diff-topic">Acronis Backup CVE-2026-87886</div>
+          <div class="diff-detail">A CVSS 7.8 local privilege-escalation in the Acronis Backup plugin for cPanel/Plesk on Linux, <strong>exploited in limited targeted attacks</strong> and KEV-added 16 Sept — folded into the appliance hunt where hosting is in scope. [Fact]</div>
         </div>
         <div class="diff-item">
           <div class="diff-states"><span class="st old">Monitor</span><span class="arrow">→</span><span class="st new">evidence extended</span></div>
-          <div class="diff-topic">HBM memory supercycle</div>
-          <div class="diff-detail">SK Hynix now warns the memory shortage <strong>may persist past 2030</strong> (previously framed as a multi-year cycle), lengthening the horizon on AG's elevated-memory TCO assumption. [Fact]</div>
-        </div>
-        <div class="diff-item">
-          <div class="diff-states"><span class="st old">Monitor / Act</span><span class="arrow">→</span><span class="st new">carried · no change</span></div>
-          <div class="diff-topic">FMC · appliance backlog · Miro · CRA · AI Act</div>
-          <div class="diff-detail">Cisco FMC and the NetScaler/FortiOS/vCenter/N-central backlog still open; Bending Spoons–Miro, CRA reporting (in force 11 Sept) and the EU AI Act 2 Dec marking carried in state without material change. [Fact]</div>
+          <div class="diff-topic">HBM supercycle · Oracle CPU · AI Act</div>
+          <div class="diff-detail">Micron shipping <strong>HBM4 48GB 16-high</strong> samples and doubling capacity; Oracle's Sept CPU (104 critical) landed 16 Sept; EU AI Act 2 Dec marking (~76 days) and CRA reporting carried without material change. [Fact]</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ACTION REQUIRED -->
   <section id="action" style="border:none;padding-top:34px">
     <div class="action-band reveal">
       <div class="kicker">Action Required</div>
       <div class="action-head">
-        <h2>A new unauthenticated-root zero-day in Cisco Secure Email Gateway (CVSS 9.8, no workaround) resets the patch clock to two days — while Chrome (18 Sept) and the exploited Windows EoP zero-days (22 Sept) count down and the FMC / appliance backlog stays on verify-and-hunt</h2>
+        <h2>A second maximum-severity unauthenticated-root Cisco zero-day — Identity Services Engine (CVSS 10.0, deadline Friday) — lands as the Secure Email Gateway clock runs out today, Chrome tomorrow and Windows Monday, and the appliance backlog stays on verify-and-hunt</h2>
         <span class="action-sub">1 new critical + 2 carryover-open · assign owner &amp; date</span>
       </div>
       <div class="actions">
@@ -312,41 +299,42 @@
           <div class="num">01</div>
           <div>
             <span class="domain-tag">Security &amp; Operational Resilience · NEW — 2-day deadline</span>
-            <h4>Patch Cisco Secure Email Gateway to AsyncOS 16.5.0-780 (CVE-2026-76461, CVSS 9.8) — an unauthenticated SQL-injection in the e-mail-parsing logic that yields root code execution from a single crafted email, actively exploited, with no workaround</h4>
-            <div class="sug"><b>Suggested action · </b> Patch customer-managed appliances to AsyncOS 16.5.0-780 (confirm Cloud instances are upgraded by Cisco) before the 17 Sept KEV deadline; where any appliance was reachable and unpatched, hunt for post-exploitation on the gateway (new local accounts, cron, outbound connections, mail-store access) rather than assuming a clean patch. Consequence of inaction: an attacker-controlled email delivers root on the mail-security appliance with no user interaction — a foothold at the perimeter that inspects all inbound mail.</div>
-            <div class="meta-row"><span>Owner: <b>Messaging / Email Security + Security Operations (Threat Hunt)</b></span><span>By when: <b>17 September (CISA KEV deadline; no workaround)</b></span></div>
+            <h4>Patch Cisco Identity Services Engine to a fixed release (CVE-2026-76460, CVSS 10.0) before 19 Sept — an unauthenticated API auth-bypass giving remote attackers root, confirmed exploited, found in a customer support case, with no workaround</h4>
+            <div class="sug"><b>Suggested action · </b> Upgrade ISE / ISE-PIC to a fixed patch level (3.5 P4, 3.4 P7, 3.3 P12, 3.2 P11, 3.1 P12) before 19 Sept. Because the flaw was found in the wild and lets an attacker run commands as root and delete indicators of compromise, treat any internet-reachable or unpatched ISE as suspect and hunt for post-exploitation (rogue admin accounts, altered logs, outbound connections) rather than assuming a clean patch. Consequence of inaction: ISE is the network-access-control and identity-policy plane — root on it lets an attacker mint access, disable enforcement and erase their tracks across the estate, a compromise patching alone will not remediate once exposure predates the fix.</div>
+            <div class="meta-row"><span>Owner: <b>Network Access Control / Identity Infrastructure + Security Operations (Threat Hunt)</b></span><span>By when: <b>19 September (CISA KEV; no workaround)</b></span></div>
           </div>
         </div>
         <div class="act">
           <div class="num">02</div>
           <div>
-            <span class="domain-tag">Security &amp; Operational Resilience · carryover — clocks ticking</span>
-            <h4>Close the two open patch clocks: deploy Chrome V8 CVE-2026-85046 to the managed-browser fleet before 18 Sept, and push the September Windows cumulative fleet-wide — including RDS session hosts (KIR applied) — before 22 Sept (exploited EoP zero-days CVE-2026-85880 / CVE-2026-81963)</h4>
-            <div class="sug"><b>Suggested action · </b> Deploy Chrome across the fleet before 18 Sept; validate the RDS Known Issue Rollback (shipped 13 Sept) on a pilot ring, then push the September cumulative fleet-wide incl. RDS session hosts before 22 Sept (RDS RCE CVE-2026-69525, CVSS 9.8, also ships in this release). Consequence of inaction: the exploited EoP zero-days remain the privilege-escalation completion step for any open RCE foothold; with the RDS blocker resolved, leaving session-host farms or the browser fleet unpatched is now a choice, not a constraint.</div>
-            <div class="meta-row"><span>Owner: <b>Endpoint / Digital Workplace + Server / Platform Patch Management + Security Operations</b></span><span>By when: <b>Chrome 18 September; Windows EoP zero-days 22 September (KEV)</b></span></div>
+            <span class="domain-tag">Security &amp; Operational Resilience · three ticking clocks</span>
+            <h4>Close the three ticking KEV patch clocks: confirm Secure Email Gateway on AsyncOS 16.5.0-780 today (CVE-2026-76461, CVSS 9.8), deploy Chrome V8 CVE-2026-85046 fleet-wide before 18 Sept, and push the September Windows cumulative incl. RDS session hosts before 22 Sept (exploited EoP zero-days CVE-2026-85880 / CVE-2026-81963)</h4>
+            <div class="sug"><b>Suggested action · </b> Confirm all SEG appliances are patched today and hunt where any was reachable and unpatched (no workaround); deploy Chrome across the fleet before 18 Sept; validate the RDS Known Issue Rollback (13 Sept) on a pilot ring, then push the September cumulative fleet-wide incl. RDS before 22 Sept (RDS RCE CVE-2026-69525, CVSS 9.8, ships in this release). Consequence of inaction: the mail appliance yields root from a single crafted email, and the EoP zero-days are the privilege-escalation completion step for any open RCE foothold; with the RDS blocker gone, leaving session hosts or the browser fleet unpatched is a choice, not a constraint.</div>
+            <div class="meta-row"><span>Owner: <b>Messaging / Email Security + Endpoint / Digital Workplace + Server Patch Management + SecOps</b></span><span>By when: <b>SEG 17 Sept · Chrome 18 Sept · Windows EoP 22 Sept</b></span></div>
           </div>
         </div>
         <div class="act">
           <div class="num">03</div>
           <div>
-            <span class="domain-tag">Security &amp; Operational Resilience · carryover-open</span>
-            <h4>Hold Cisco Secure FMC on verify-rotate-hunt and keep the lapsed appliance / management-plane backlog on assume-compromise — FMC exploitation (CVE-2026-20079 → root, static-cred CVE-2026-20316) stays active and attributed (Sandworm / Qilin); NetScaler, FortiOS, N-central and the live vCenter campaign have no all-clear</h4>
-            <div class="sug"><b>Suggested action · </b> Verify fixed builds, rotate the FMC static credentials, and hunt the specific TTPs (Cyclops Blink, reverse shells, proxy/tunneling tools, rogue admin accounts, endpoint target lists) rather than trusting version strings; where any self-managed GitLab was internet-reachable and unpatched between 10–14 Sept (CVE-2026-85706, deadline passed), rotate CI/CD secrets and review commits-API logs. Consequence of inaction: each is an estate-wide pivot past the point where patching alone can be assumed to remediate — where exposure predated the fix, only hunting closes it.</div>
-            <div class="meta-row"><span>Owner: <b>Network Edge / Firewall Ops + SecOps (Threat Hunt) + Virtualization + Vendor/MSP + DevOps</b></span><span>By when: <b>immediately (FMC deadline lapsed &amp; attributed; backlog past federal date)</b></span></div>
+            <span class="domain-tag">Security &amp; Operational Resilience · carryover-open + new exploited LPE</span>
+            <h4>Hold the appliance / management-plane backlog on verify-and-hunt — Cisco FMC (attributed Sandworm / Qilin), NetScaler, FortiOS, N-central and the live vCenter campaign — and patch the new exploited Acronis Backup cPanel/Plesk flaw (CVE-2026-87886) where hosting is in scope</h4>
+            <div class="sug"><b>Suggested action · </b> Verify fixed builds, rotate the FMC static credentials (CVE-2026-20316) and hunt the specific TTPs (Cyclops Blink, reverse shells, rogue admin accounts, endpoint target lists) rather than trusting version strings; keep NetScaler / FortiOS / N-central / vCenter on assume-compromise; where AG runs the Acronis Backup plugin for cPanel &amp; WHM or the Plesk extension on Linux, patch CVE-2026-87886 (CVSS 7.8 LPE, exploited) to cPanel build 1.9.3 HF3 / Plesk 1.8.11.638. Consequence of inaction: each is an estate-wide pivot past the point where patching alone can be assumed to remediate — where exposure predated the fix, only hunting closes it.</div>
+            <div class="meta-row"><span>Owner: <b>Network Edge / Firewall Ops + SecOps (Threat Hunt) + Virtualization + Vendor/MSP + Web Hosting / DevOps</b></span><span>By when: <b>immediately (FMC lapsed &amp; attributed; Acronis KEV 16 Sept)</b></span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- FILTER BAR -->
   <div class="filterbar" id="filterbar">
     <div class="fgroup">
       <span class="flabel">Domain</span>
       <span class="chip dom on" data-dom="all">All</span>
       <span class="chip dom" data-dom="sec">Security &amp; Resilience</span>
       <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
-      <span class="chip dom" data-dom="dc">Infrastructure &amp; Data Centers</span>
+      <span class="chip dom" data-dom="platform">Platform &amp; Cloud</span>
+      <span class="chip dom" data-dom="dc">Infrastructure &amp; DCs</span>
+      <span class="chip dom" data-dom="gov">Regulation &amp; Compliance</span>
     </div>
     <div class="fgroup">
       <span class="flabel">Severity</span>
@@ -360,34 +348,32 @@
   <div id="grid"></div>
   <div class="empty" id="empty">No items match the current filter.</div>
 
-  <!-- RADAR -->
   <section id="radar">
     <div class="kicker">📡 Radar — early &amp; longer-horizon signals</div>
     <div class="radar-list">
       <div class="radar-item">
-        <div class="rt">Dreamforce Day 2–3 governance detail</div>
-        <div class="rd">The <strong>MuleSoft Agent Fabric</strong> keynote (16 Sept, 3:30pm PT) and IBM watsonx Orchestrate joining the fabric are where concrete orchestration, error-handling and memory-control specifics land. <em>Directly gates Signal 4. Next trigger: the keynote governance / pricing detail.</em></div>
+        <div class="rt">Pre-disclosure compromise of identity/mail infrastructure</div>
+        <div class="rd">Cisco's ISE 10.0 was found only in a <strong>customer support ticket</strong>, and the SEG 9.8 was already exploited on disclosure — both edge appliances were breached before defenders knew. The story is no longer disclosure-to-KEV speed but <strong>victim-first discovery</strong>. <em>Raises the cost of every open identity, mail and management exposure. Next trigger: first in-the-wild use of an autonomously-discovered zero-day, or a named AG-sector victim.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Turkish sovereign cloud — Türksat Gölbaşı + Turkcell/Google $3B region</div>
-        <div class="rd">The Gölbaşı national DC (TIER-III, <strong>domestic software</strong>, e-Devlet, service 2027) and the Turkcell–Google Cloud <strong>$3B hyperscale region</strong> in Ankara (2028–2029) frame Türkiye's data-residency trajectory. <em>Watched for AG's Türkiye data-residency posture. Next trigger: a firm commissioning date, KVKK localization decision, or public-sector cloud procurement rule.</em></div>
+        <div class="rt">Türkiye sovereign cloud — Türksat Gölbaşı + Turkcell/Google $3B region</div>
+        <div class="rd">The Gölbaşı national DC (35,300 m², 8×+ capacity, <strong>domestic software</strong> for e-Devlet, service 2027) and the Turkcell–Google Cloud <strong>$3B hyperscale region</strong> in Ankara (build from Q1 2026, full capacity 2028) frame Türkiye's data-residency trajectory. <em>Watched for AG's Türkiye data-residency posture. Next trigger: a firm commissioning date, KVKK localization decision, or public-sector cloud procurement rule.</em></div>
       </div>
       <div class="radar-item">
         <div class="rt">EU sovereign cloud becomes a procurement test</div>
-        <div class="rd">NIS2, DORA and the <strong>Cloud &amp; AI Development Act</strong> are converging into a CIO procurement criterion; EU sovereign-cloud spend ~€12.6B in 2026, yet 82% of German firms want to end US-cloud dependence while <strong>78% remain dependent</strong> in practice. <em>Feeds the carryover sovereignty decision matrix. Next trigger: a CADA implementing step, or an EU-boundary AI-processing assurance AG can test.</em></div>
+        <div class="rd">The Commission's <strong>Cloud Sovereignty Framework</strong> now references Gaia-X; AWS's <strong>European Sovereign Cloud</strong> went live in Brandenburg (Jan 2026, €7.8B, standalone German GmbH); NIS2, DORA and the Cloud &amp; AI Development Act converge into a CIO procurement criterion. <em>Feeds the carryover sovereignty decision matrix. Next trigger: a CADA implementing step, or an EU-boundary AI-processing assurance AG can test.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">SASE consolidation → "Continuous Adaptive Trust"</div>
-        <div class="rd">Fortinet's 15 Sept SASE Summit and the wider 2026 shift replace static ZTNA with continuous, behaviour- and <strong>agent-intent-aware</strong> trust, plus "sovereign edges" that decrypt in-country. <em>Watched for AG's zero-trust and data-residency network posture. Next trigger: a concrete AG-relevant SASE roadmap or sovereign-edge SKU.</em></div>
+        <div class="rt">Data-center liquid-cooling supply consolidates</div>
+        <div class="rd">Blackstone's 10 Sept acquisition of <strong>Flow Control Holdings</strong> (engineered DC liquid-cooling components) tightens the supply chain AG's next-gen high-density, 800V / liquid-cooled racks depend on. <em>Watched for AG capacity-build supply exposure. Next trigger: a lead-time or pricing signal on liquid-cooling components.</em></div>
       </div>
       <div class="radar-item">
-        <div class="rt">Disclosure-to-KEV compression is now steady state</div>
-        <div class="rd">Cisco's Secure Email Gateway flaw was KEV-listed the day exploitation was confirmed; SonicWall's SMA1000 pair (CVE-2026-83548/83549) hit <strong>CVSS 10 and KEV within a day</strong> of disclosure. <em>Raises the cost of every open edge, mail and management exposure. Next trigger: first in-the-wild use of an autonomously-discovered zero-day.</em></div>
+        <div class="rt">SASE → continuous adaptive trust + post-quantum</div>
+        <div class="rd">Cloudflare completed <strong>post-quantum encryption across its SASE stack</strong> and was named the sole Visionary in the 2026 SASE and SSE Magic Quadrants; the wider shift replaces static ZTNA with behaviour- and <strong>agent-intent-aware</strong> trust and in-country "sovereign edges." <em>Watched for AG's zero-trust and data-residency network posture. Next trigger: a concrete AG-relevant SASE roadmap or sovereign-edge SKU.</em></div>
       </div>
     </div>
   </section>
 
-  <!-- LEGEND -->
   <section style="border-bottom:none">
     <div class="kicker">Severity Key</div>
     <div class="legend">
@@ -399,22 +385,21 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="src-line">
-      <strong style="color:var(--navy)">Sources ·</strong> CISA KEV · SecurityOnline · ISSSource · The Hacker News · Cisco Talos · Microsoft · Forkast · Salesforce · Salesforce Developers · VentureBeat · Tech-Insider · Data Center Dynamics &nbsp;·&nbsp; <em>Issue #70 covers the ~24 hours since Issue #69 (14 September). A focused, security-led edition: five primary items (sec 3, ai 1, dc 1) — deliberately short on a day whose material developments were one new critical zero-day, two continuing patch clocks and one strategic event (Dreamforce). Confirmed facts, informed inference and assumptions are labelled inline.</em>
+      <strong style="color:var(--navy)">Sources ·</strong> CISA KEV · The Hacker News · BleepingComputer · SecurityWeek · TechRadar · Tenable · Qualys · Help Net Security · Oracle Security Alerts · SiliconANGLE · Salesforce · CX Today · Computer Weekly · Barchart · Data Center Dynamics · artificialintelligenceact.eu · European Commission · Cloudflare · invest.gov.tr · Anadolu Agency &nbsp;·&nbsp; <em>Issue #71 covers the ~48 hours since Issue #70 (15 September). A focused, security-led edition: seven primary items (sec 3, ai 1, platform 1, dc 1, gov 1) — deliberately concise on a window whose material developments were a second maximum-severity Cisco zero-day (ISE, CVSS 10.0), three converging KEV patch deadlines, one new exploited backup-plugin LPE, and the close of Dreamforce. Confirmed facts, informed inference and assumptions are labelled inline.</em>
     </div>
-    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #70</div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #71</div>
   </footer>
 </div>
 
 <script>
 const DOMAINS = [
   {id:"sec",      num:"1", title:"Security & Operational Resilience"},
-  {id:"gov",      num:"2", title:"Regulation & Compliance"},
-  {id:"dc",       num:"3", title:"Infrastructure & Data Centers"},
-  {id:"ai",       num:"4", title:"AI & Agentic Systems"},
-  {id:"platform", num:"5", title:"Platform & Cloud Economics"},
+  {id:"ai",       num:"2", title:"AI & Agentic Systems"},
+  {id:"platform", num:"3", title:"Platform & Cloud Economics"},
+  {id:"dc",       num:"4", title:"Infrastructure & Data Centers"},
+  {id:"gov",      num:"5", title:"Regulation & Compliance"},
   {id:"sovereign",num:"6", title:"Data Sovereignty & Sovereign AI"},
   {id:"net",      num:"7", title:"Connectivity & Networking"},
   {id:"tr",       num:"8", title:"Turkish IT Sector"},
@@ -422,35 +407,39 @@ const DOMAINS = [
 ];
 
 const ITEMS = [
-  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"New unauthenticated-root zero-day in Cisco Secure Email Gateway — CVE-2026-76461 (CVSS 9.8), KEV deadline 17 Sept, no workaround: Cisco has disclosed active exploitation of CVE-2026-76461, a maximum-tier (CVSS 9.8) SQL-injection in Cisco Secure Email Gateway (formerly Email Security Appliance / ESA). Due to insufficient validation in the email-parsing logic, an unauthenticated, remote attacker can send a single crafted email message containing malicious SQL and, through it, execute arbitrary commands with root privileges on the underlying operating system. CISA added the flaw to its Known Exploited Vulnerabilities catalog on 14 September 2026 with a federal remediation deadline of 17 September. Cisco released AsyncOS 16.5.0-780 for customer-managed appliances and upgraded Secure Email Cloud instances; there are no workarounds, so patching is the only remediation",src:"CISA KEV (14 Sept add) · SecurityOnline · ISSSource",url:"https://www.cisa.gov/news-events/alerts/2026/09/14/cisa-adds-one-known-exploited-vulnerability-catalog",why:"<span class='tag-fact'>Fact</span> CVE-2026-76461 (CVSS 9.8) unauthenticated SQL-injection → root RCE in Cisco Secure Email Gateway, triggered by a single crafted email; actively exploited; KEV-added 14 Sept, deadline 17 Sept; fixed AsyncOS 16.5.0-780; no workaround. <span class='tag-assum'>Assumption</span> Cisco Secure Email Gateway is a plausible component of AG's inbound mail-security tier. <b>Act:</b> patch to AsyncOS 16.5.0-780 (or confirm Cloud instances are upgraded) before 17 Sept; where any appliance was reachable and unpatched, hunt for post-exploitation on the gateway (new local accounts, cron, outbound connections, mail-store access) rather than assuming a clean patch. <b>Owner:</b> Messaging / Email Security + SecOps · <b>By:</b> 17 Sept. <b>Next trigger:</b> a public PoC, a named victim, or evidence of mail interception / credential capture."},
-  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"Two open patch clocks — Chrome V8 (KEV 18 Sept) and the exploited Windows EoP zero-days (KEV 22 Sept, now deployable fleet-wide): two CISA KEV deadlines remain live on core AG endpoint platforms. Chrome V8 CVE-2026-85046 (type-confusion RCE, CVSS 8.8) carries an 18 September remediation deadline for the managed-browser fleet. The September Windows cumulative still carries the two actively-exploited elevation-of-privilege zero-days — CVE-2026-85880 (ALPC, CVSS 7.8) and CVE-2026-81963 (Update Stack → SYSTEM, CVSS 7.8) — with a 22 September KEV deadline, plus RDS RCE CVE-2026-69525 (CVSS 9.8). The Known Issue Rollback Microsoft shipped on 13 September (marking the RDS regression \"Mitigated\" on Server 2019/2022/2025) removed the last staging blocker, so the cumulative can now be pushed fleet-wide, including to RDS session hosts",src:"CISA KEV · Microsoft (KIR Group Policy)",url:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog",why:"<span class='tag-fact'>Fact</span> Chrome CVE-2026-85046 (KEV 18 Sept) and the Windows EoP zero-days CVE-2026-85880 / CVE-2026-81963 (KEV 22 Sept) are the two live deadlines; the RDS KIR (13 Sept) unblocked fleet-wide Windows patching including RDS. <span class='tag-assum'>Assumption</span> Windows + Chrome are AG's dominant endpoint/browser platforms; RDS session-host farms are a core remote-delivery tier. <b>Act:</b> deploy Chrome across the fleet before 18 Sept and the September cumulative fleet-wide (RDS included, KIR validated) before 22 Sept. <b>Owner:</b> Endpoint / Digital Workplace + Server Patch Management + SecOps · <b>By:</b> 18 / 22 Sept. <b>Next trigger:</b> an out-of-band cumulative superseding the KIR, or public exploitation of the RDS RCE."},
-  {dom:"sec",sev:"watch",action:true,status:"act",evidence:"fact",title:"Cisco FMC and the lapsed appliance / management-plane backlog stay on verify-and-hunt: the active exploitation of Cisco Secure Firewall Management Center remains attributed to three threat clusters against CVE-2026-20079 (CVSS 10.0 auth-bypass → root) and the static-credential CVE-2026-20316 (CVSS 5.3) — including UAT-11823 deploying a Cyclops Blink variant tied to Russia's Sandworm, and UAT-11988 using FMC tooling to build an endpoint target list with Qilin-ransomware TTPs. The standing management-plane backlog has no all-clear: NetScaler CVE-2026-19490 (CVSS 9.3, publicly weaponized), FortiOS CVE-2025-25249 (PivotC2 RAT on FortiGate), N-able N-central CVE-2026-86218 (pre-auth RCE, CVSS 10.0; HF4 build 2026.3.1.14) and the live VMware vCenter CVE-2026-59310 campaign all remain open. Separately, GitLab CVE-2026-85706 (CVSS 10.0) passed its 14 September KEV deadline",src:"The Hacker News · Cisco Talos · CISA KEV",url:"https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html",why:"<span class='tag-fact'>Fact</span> FMC exploitation is active and attributed (Sandworm / Qilin), with a second exploited flaw (static credentials); the appliance/management-plane backlog (NetScaler, FortiOS, N-central, vCenter) has no all-clear. <span class='tag-assum'>Assumption</span> each maps to a high-value AG pivot — firewall-management tier, remote-access ADC, edge firewall, RMM/MSP control plane, hypervisor root. <b>Act:</b> verify fixed builds, rotate the FMC static credentials, and hunt the specific TTPs rather than trusting version strings; where any GitLab instance was internet-reachable and unpatched between 10–14 Sept, rotate CI/CD secrets and review commits-API logs. <b>Owner:</b> Network Edge / Firewall Ops + SecOps + Virtualization + Vendor/MSP + DevOps · <b>By:</b> immediately. <b>Next trigger:</b> a named AG-sector victim, IOCs matching AG telemetry, or an all-clear on the vCenter campaign."},
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"Cisco Identity Services Engine CVE-2026-76460 (CVSS 10.0) — unauthenticated root via API auth-bypass, exploited, KEV deadline 19 Sept, no workaround: Cisco has disclosed active exploitation of CVE-2026-76460, a maximum-severity (CVSS 10.0) vulnerability in an API endpoint of Cisco Identity Services Engine (ISE) and the ISE Passive Identity Connector (ISE-PIC) that applies insufficient authentication controls. An unauthenticated, remote attacker can bypass authentication and execute commands with root privileges on the appliance — including hiding or deleting indicators of compromise — regardless of device configuration. Cisco discovered the flaw while resolving a customer TAC support case, meaning at least one enterprise was compromised before the advisory existed. CISA added it to KEV on 16 September with a 19 September federal deadline; there is no workaround. Fixed releases: ISE/ISE-PIC 3.5 Patch 4, 3.4 Patch 7, 3.3 Patch 12, 3.2 Patch 11, 3.1 Patch 12",src:"CISA KEV (16 Sept) · The Hacker News · BleepingComputer",url:"https://www.cisa.gov/news-events/alerts/2026/09/16/cisa-adds-two-known-exploited-vulnerabilities-catalog",why:"<span class='tag-fact'>Fact</span> CVE-2026-76460 (CVSS 10.0) unauthenticated API auth-bypass → root on Cisco ISE / ISE-PIC; actively exploited (found in a customer TAC case); KEV-added 16 Sept, deadline 19 Sept; no workaround; fixed in 3.5 P4 / 3.4 P7 / 3.3 P12 / 3.2 P11 / 3.1 P12. <span class='tag-assum'>Assumption</span> ISE is a plausible core of AG's network-access-control and identity-policy tier. <b>Act:</b> patch to a fixed release before 19 Sept; treat any exposed/unpatched ISE as suspect and hunt post-exploitation (rogue admin accounts, altered logs, outbound connections) rather than trusting the patch. <b>Owner:</b> Network Access Control / Identity Infrastructure + SecOps · <b>By:</b> 19 Sept. <b>Next trigger:</b> a public PoC, a named victim, or IOCs matching AG telemetry."},
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"Three ticking KEV patch clocks — Secure Email Gateway (today), Chrome (18 Sept), Windows EoP zero-days (22 Sept): three live CISA KEV deadlines sit on core AG mail and endpoint platforms. Cisco Secure Email Gateway CVE-2026-76461 (CVSS 9.8, unauthenticated SQL-injection → root via a single crafted email, no workaround) reaches its 17 September deadline today; the fix is AsyncOS 16.5.0-780. Chrome V8 CVE-2026-85046 (type-confusion RCE, CVSS 8.8) carries an 18 September deadline for the managed-browser fleet. The September Windows cumulative still carries the two actively-exploited elevation-of-privilege zero-days — CVE-2026-85880 (ALPC) and CVE-2026-81963 (Update Stack → SYSTEM), both CVSS 7.8 — with a 22 September deadline, plus RDS RCE CVE-2026-69525 (CVSS 9.8). The Known Issue Rollback Microsoft shipped 13 September removed the last blocker to pushing the cumulative fleet-wide, including RDS session hosts",src:"CISA KEV · Tenable (Sept Patch Tuesday)",url:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog",why:"<span class='tag-fact'>Fact</span> SEG CVE-2026-76461 (KEV deadline today, no workaround, fix AsyncOS 16.5.0-780), Chrome CVE-2026-85046 (KEV 18 Sept) and the Windows EoP zero-days CVE-2026-85880 / CVE-2026-81963 (KEV 22 Sept) are three live deadlines; the RDS KIR (13 Sept) unblocked fleet-wide Windows patching incl. RDS. <span class='tag-assum'>Assumption</span> SEG, Chrome and Windows/RDS are core AG mail/endpoint/remote-delivery tiers. <b>Act:</b> confirm SEG patched today and hunt where exposed; deploy Chrome before 18 Sept; push the September cumulative fleet-wide (RDS included, KIR validated) before 22 Sept. <b>Owner:</b> Messaging / Email Security + Endpoint / Digital Workplace + Server Patch Management + SecOps · <b>By:</b> 17 / 18 / 22 Sept. <b>Next trigger:</b> an out-of-band cumulative superseding the KIR, or public exploitation of the RDS RCE."},
+  {dom:"sec",sev:"watch",action:true,status:"act",evidence:"fact",title:"Appliance / management-plane backlog stays on verify-and-hunt — Cisco FMC (attributed) + NetScaler/FortiOS/N-central/vCenter, now with new exploited Acronis Backup LPE: the active exploitation of Cisco Secure Firewall Management Center remains attributed against CVE-2026-20079 (CVSS 10.0 auth-bypass → root) and static-credential CVE-2026-20316 — including a Cyclops Blink variant tied to Sandworm (UAT-11823) and FMC tooling used to build endpoint target lists with Qilin TTPs (UAT-11988). The standing backlog has no all-clear: NetScaler CVE-2026-19490 (CVSS 9.3, weaponized), FortiOS CVE-2025-25249 (PivotC2 RAT), N-able N-central CVE-2026-86218 (pre-auth RCE, CVSS 10.0) and the live VMware vCenter CVE-2026-59310 campaign all remain open. New this window: the Acronis Backup plugin for cPanel & WHM and the Plesk extension on Linux — CVE-2026-87886 (CVSS 7.8 local privilege escalation), exploited in limited targeted attacks and KEV-added 16 September; fixed in cPanel build 1.9.3 HF3 and Plesk 1.8.11.638",src:"The Hacker News (FMC) · Help Net Security (Acronis)",url:"https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html",why:"<span class='tag-fact'>Fact</span> FMC exploitation is active and attributed (Sandworm / Qilin) with a second exploited flaw (static credentials); the appliance/management-plane backlog (NetScaler, FortiOS, N-central, vCenter) has no all-clear; and a new exploited Acronis Backup LPE (CVE-2026-87886, CVSS 7.8) was KEV-added 16 Sept. <span class='tag-assum'>Assumption</span> each maps to a high-value AG pivot — firewall-management, remote-access ADC, edge firewall, RMM/MSP control plane, hypervisor root, and web-hosting/backup tier. <b>Act:</b> verify fixed builds, rotate the FMC static credentials and hunt the specific TTPs rather than trusting version strings; patch Acronis where cPanel/Plesk hosting is in scope. <b>Owner:</b> Network Edge / Firewall Ops + SecOps + Virtualization + Vendor/MSP + Web Hosting/DevOps · <b>By:</b> immediately. <b>Next trigger:</b> a named AG-sector victim, IOCs matching AG telemetry, or an all-clear on the vCenter campaign."},
 
-  {dom:"ai",sev:"watch",action:false,status:"prepare",evidence:"fact",title:"Dreamforce opens — Salesforce makes agent governance the infrastructure layer; Claudeforce enters open beta: Dreamforce 2026 opened today (15–17 September) with Salesforce making explicit that governance is no longer a bolt-on compliance layer but the infrastructure. Agentforce 360 is positioned as the platform's centre of gravity — agent-build tooling, the CRM/Data Cloud data agents reason over, the governance frameworks that constrain them, and the observability to watch them in production — and has reached $1.5 billion ARR, up 240% year over year. The Trusted Enterprise AI Harness's AI Control Plane handles agent identity, policy enforcement and lifecycle across multi-vendor agents; MuleSoft Agent Fabric (dedicated keynote 16 Sept, with IBM's watsonx Orchestrate joining the fabric) provides orchestration and observability; and the Salesforce–Anthropic \"Claudeforce\" integration — Claude as a reasoning model inside Salesforce, and Salesforce as a plugin with prebuilt sales skills inside Claude — is expected in open beta this month",src:"Forkast · Salesforce (Claudeforce) · Salesforce Developers",url:"https://forkast.news/dreamforce-2026-salesforce-is-betting-the-whole-stack-on-agent-governance-as-infrastructure/",why:"<span class='tag-fact'>Fact</span> Dreamforce opened 15 Sept; Salesforce framed governance as infrastructure — AI Control Plane (identity/policy/lifecycle over multi-vendor agents), Agentforce 360 ($1.5B ARR), MuleSoft Agent Fabric (keynote 16 Sept), Claudeforce open beta this month. <span class='tag-assum'>Inference</span> the market is converging on a single control plane over multi-vendor agents; whoever owns that plane owns agent identity, actuation policy and audit across the estate — a strategic architecture choice, not a feature purchase. <b>Prepare:</b> read the AI Control Plane's governance model (identity, deny-by-default actuation, credential isolation, audit) against AG's own agent-control standard this week, and decide build-vs-buy before committing to any single vendor's plane; treat Claudeforce as an evaluable integration path given AG's existing Claude use, not a default. <b>Owner:</b> AI Platform / Enterprise Architecture. <b>Next trigger:</b> the MuleSoft Agent Fabric / governance keynote detail (16 Sept), or AG-eligible pricing and terms."},
+  {dom:"ai",sev:"watch",action:false,status:"prepare",evidence:"fact",title:"Dreamforce closes — AIforce, the Nvidia-built Koa reasoning model and Claudeforce public beta make the agent-control plane a product: Dreamforce 2026 (15–17 September) closed with the agent-control plane fully productized. The AIforce keynote (16 Sept) introduced AIforce and Koa — a reasoning model custom-built for CRM data with Nvidia, to drive multi-step Agentforce workflows — while the Salesforce–Anthropic Claudeforce integration (Claude as a reasoning model inside Salesforce; Salesforce as a plugin with prebuilt skills inside Claude) moved into public beta for joint customers. Agentforce now offers Amazon Bedrock's full frontier-model range (Anthropic and Nvidia now, OpenAI coming soon), alongside expanded Google Cloud and AWS partnerships. Nvidia, Anthropic and OpenAI leaders all appeared at the event. The market is converging on a single governance / identity / orchestration plane over multi-vendor agents",src:"SiliconANGLE · Salesforce (AIforce) · CX Today",url:"https://siliconangle.com/2026/09/15/ai-progress-and-responsibility-nvidia-anthropic-and-openai-ceos-weigh-in-at-salesforces-annual-event/",why:"<span class='tag-fact'>Fact</span> Dreamforce closed 17 Sept; the AIforce keynote (16 Sept) delivered AIforce, the Nvidia-built Koa CRM reasoning model, Claudeforce in public beta, and Agentforce access to Amazon Bedrock's full frontier-model range. <span class='tag-assum'>Inference</span> the market is converging on a single control plane over multi-vendor agents; whoever owns that plane owns agent identity, actuation policy and audit across the estate — a strategic architecture choice, not a feature purchase. <b>Prepare:</b> read the AIforce / control-plane governance model (identity, deny-by-default actuation, credential isolation, audit) against AG's own agent-control standard and decide build-vs-buy before committing to any single vendor's plane; treat Claudeforce's public beta as an evaluable path given AG's existing Claude use, not a default. <b>Owner:</b> AI Platform / Enterprise Architecture. <b>Next trigger:</b> AG-eligible Claudeforce pricing/terms, or concrete multi-vendor governance/orchestration specifics."},
 
-  {dom:"dc",sev:"watch",action:false,status:"monitor",evidence:"fact",title:"SK Hynix warns the memory shortage may persist past 2030 — extending AG's elevated-memory TCO horizon: the HBM-led memory supercycle deepened. SK Hynix has warned the memory-chip shortage may last past 2030, with DRAM, NAND and HBM production through 2026 described as essentially sold out; Micron's 2026 HBM allocation is likewise gone, with data-centre customers requesting roughly 50% more memory than it can commit. Up to 70% of all memory chips produced globally in 2026 are expected to be consumed by AI data centres, and HBM now takes around 23% of total DRAM wafer capacity (up from single digits two years ago); Bank of America pegs the 2026 HBM market at ~$54.6 billion, +58% year over year. Samsung, SK Hynix and Micron are all reallocating cleanroom capacity toward HBM and scaling in parallel",src:"Tech-Insider (SK Hynix past-2030) · Data Center Dynamics",url:"https://tech-insider.org/memory-chip-shortage-2026-ai-consumer-electronics/",why:"<span class='tag-fact'>Fact</span> SK Hynix warns the memory shortage may persist past 2030; 2026 DRAM/NAND/HBM essentially sold out; ~70% of 2026 memory output headed to AI data centres; HBM ~23% of DRAM wafer capacity. <span class='tag-assum'>Assumption</span> any AG on-prem AI or GPU-server build depends on HBM-equipped accelerators whose availability and price track this supply gap. <b>Monitor→Prepare:</b> lengthen the elevated-memory assumption in on-prem AI TCO from \"multi-year\" toward \"structural through the decade,\" and lock procurement lead-times now — late orders slip further and pay a widening scarcity premium. <b>Owner:</b> Infrastructure / AI Platform + Procurement. <b>Next trigger:</b> a quarterly HBM contract step-up, an HBM4 yield/ramp signal, or DRAM/NAND spot moves."},
+  {dom:"platform",sev:"watch",action:false,status:"monitor",evidence:"fact",title:"Oracle September 2026 Critical Patch Update — 800+ fixes, 104 critical; one RCE with conflicting exploitation reporting: Oracle's quarterly Critical Patch Update landed 16 September with 800+ fixes, 104 rated critical and several at CVSS 9.8, spanning Database, middleware, E-Business Suite and Java. Reporting on one remote-code-execution CVE (CVE-2026-64849) as actively exploited is conflicting across sources — some attribute the exploited RCE to a non-Oracle component — so it is not treated as an Act item pending confirmation. For any AG Oracle estate this is the routine quarterly patch-planning trigger, not an emergency",src:"Oracle Security Alert (Sept 2026) · Qualys",url:"https://www.oracle.com/security-alerts/cspusep2026.html",why:"<span class='tag-fact'>Fact</span> Oracle's Sept 2026 CPU carries 800+ fixes, 104 critical, several CVSS 9.8; the active-exploitation claim on CVE-2026-64849 is conflicting across sources. <span class='tag-assum'>Assumption</span> AG's Oracle database/middleware footprint, if any, inherits this quarter's critical-fix backlog. <b>Monitor:</b> schedule the CPU into the normal quarterly patch window; confirm whether CVE-2026-64849 touches an in-use Oracle product before escalating. <b>Owner:</b> Database / Middleware Platform + Patch Management. <b>Next trigger:</b> a CISA KEV addition of an Oracle CPU CVE, or a confirmed in-the-wild PoC against an in-use product."},
+
+  {dom:"dc",sev:"watch",action:false,status:"monitor",evidence:"fact",title:"HBM supercycle extends — Micron ships HBM4 48GB 16-high samples and moves to double capacity; memory floor under on-prem AI stays elevated: the HBM-led memory supercycle deepened. Suppliers are moving from 12-high to 16-high stacks (36→48 GB); Micron has shipped HBM4 48GB 16-high samples — a 33% capacity step over the 36GB 12-high part — and is preparing to roughly double HBM capacity toward ~100,000 wafers/month by the end of 2026. HBM4 sits at roughly $550/stack (36GB 12-high). SK Hynix leads at 50–55% share; 2026 DRAM, NAND and HBM are effectively sold out, with ~70% of 2026 memory output headed to AI data centres. The 'shortage may persist past 2030' framing from Issue #70 holds",src:"Barchart (Micron HBM4) · Data Center Dynamics",url:"https://www.barchart.com/story/news/780922/micron-in-high-volume-production-of-hbm4-designed-for-nvidia-vera-rubin-pcie-gen6-ssd-and-socamm2",why:"<span class='tag-fact'>Fact</span> Micron shipping HBM4 48GB 16-high samples and doubling HBM capacity toward ~100k wafers/month by end-2026; HBM4 ~$550/stack; SK Hynix 50–55% share; 2026 memory effectively sold out, ~70% to AI DCs. <span class='tag-assum'>Assumption</span> any AG on-prem AI or GPU-server build depends on HBM-equipped accelerators whose availability and price track this gap. <b>Monitor:</b> hold the elevated-memory assumption in on-prem AI TCO at 'structural through the decade' and lock procurement lead-times now — late orders slip further and pay a widening scarcity premium. <b>Owner:</b> Infrastructure / AI Platform + Procurement. <b>Next trigger:</b> a quarterly HBM contract step-up, an HBM4 yield/ramp signal, or DRAM/NAND spot moves."},
+
+  {dom:"gov",sev:"watch",action:false,status:"monitor",evidence:"fact",full:true,gov:true,title:"EU AI Act 2 December marking deadline ~76 days out; CRA Article 14 reporting in force — the standing compliance clock advances: no new instrument landed this cycle, so the sharper signal is the calendar advancing. GPAI enforcement is live (technical compliance dialogues first, then documentation requests, evaluations, restriction/withdrawal, fines up to €15M / 3% turnover) and Article 50 transparency applies to all in-scope systems, but the marking obligation for generative AI already on the market carries a hard transitional deadline of 2 December 2026 (~76 days). Separately, the Cyber Resilience Act's Article 14 vulnerability/incident reporting (24h/72h/14-day, via the ENISA Single Reporting Platform) has been in force since 11 September, three years ahead of full CRA application (11 December 2027)",src:"artificialintelligenceact.eu · European Commission",url:"https://artificialintelligenceact.eu/implementation-timeline/"},
 ];
 
 const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
 
-function craWhy(){
-  return `<div class="why">
-    <span class="wl">Why it matters for Group</span>
-    The CRA's <b>Article 14 reporting duties are now in force</b> — the first CRA obligation with fines behind it, three years ahead of full application (11 Dec 2027). Any manufacturer of a product with digital elements placed on the EU market must run a <b>24h → 72h → 14-day/one-month</b> disclosure cadence to ENISA and the national CSIRT, via the ENISA Single Reporting Platform, for actively-exploited vulnerabilities and severe incidents. It applies to products <b>already on the market</b>, not only new ones.
-    <span class="tag-fact">Fact</span> Mandatory 24h/72h/14-day CRA reporting via ENISA + national CSIRT; applies to products already on the market; fines up to €15M / 2.5% turnover. &nbsp;<span class="tag-assum">Assumption</span> AG's direct obligation depends on whether any AG entity places products with digital elements on the EU market; as a buyer, AG inherits supplier reporting behaviour. <b>Prepare:</b> confirm in-scope manufacturing exposure; if in scope, verify the 24h/72h/14-day workflow is wired to the ENISA platform and national CSIRT with a named owner.
-  </div>`;
-}
-
 function govWhy(){
   return `<div class="why">
     <span class="wl">Why it matters for Group</span>
-    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — using <b>technical compliance dialogues</b> as its preferred first tool, then documentation requests, technical evaluations, risk-mitigation demands, model restriction/withdrawal and fines up to €15M / 3% turnover under Art. 101. No new instrument landed this cycle, so the sharper signal is simply the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026</b> (~78 days).
-    <span class="tag-fact">Fact</span> GPAI enforcement is live; Article 50 is live for new systems; pre-existing generative systems have a hard 2 Dec 2026 (~78-day) marking deadline. &nbsp;<span class="tag-assum">Assumption</span> This is a standing schedule, not a new trigger.
+    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — technical compliance dialogues first, then documentation requests, evaluations, restriction/withdrawal and fines up to €15M / 3% turnover. No new instrument landed this cycle; the sharper signal is the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026 (~76 days)</b>. Separately, <b>CRA Article 14 reporting is in force</b> (since 11 Sept), the first CRA obligation with fines behind it.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>GPAI enforcement (fines up to €15M / 3% turnover)</td><td>2 Aug 2026</td><td>2 Aug 2026 <em>unchanged</em></td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 marking (generative AI)</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) · 2 Dec 2026 (pre-existing)</td><td><span class="badge b-live">Live · ~76 days</span></td></tr>
+      <tr><td>CRA Art. 14 reporting (24h/72h/14-day, ENISA platform)</td><td>—</td><td>in force 11 Sept 2026</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit scoring)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> GPAI enforcement is live; Article 50 marking for pre-existing generative AI is due 2 Dec 2026 (~76 days); CRA Art. 14 reporting is in force. &nbsp;<span class="tag-assum">Assumption</span> AG must mark pre-existing generative customer content by 2 Dec; CRA binds AG directly if any AG entity places products with digital elements on the EU market, and via suppliers otherwise. <b>Monitor:</b> keep the marking programme funded to 2 Dec and inventory generative customer-facing content; confirm in-scope CRA exposure and that the 24h/72h/14-day workflow is wired to ENISA + national CSIRT with a named owner.
   </div>`;
 }
 
 function cardHTML(it){
-  const why = it.cra ? craWhy() : it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
   return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
     <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
     <h3>${it.title}</h3>
@@ -464,7 +453,7 @@ function render(){
   grid.innerHTML = '';
   DOMAINS.forEach(d=>{
     const items = ITEMS.filter(i=>i.dom===d.id);
-    if(!items.length) return; // hide domains with zero items this edition
+    if(!items.length) return;
     const sec = document.createElement('section');
     sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = "0";
     sec.innerHTML = `
@@ -501,7 +490,6 @@ function applyFilters(){
   document.getElementById('empty').style.display = anyVisible?'none':'block';
 }
 
-// domain chips
 document.querySelectorAll('.chip.dom').forEach(ch=>{
   ch.addEventListener('click',()=>{
     document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
@@ -510,7 +498,6 @@ document.querySelectorAll('.chip.dom').forEach(ch=>{
     applyFilters();
   });
 });
-// severity chips (multi-toggle)
 document.querySelectorAll('.chip.sev').forEach(ch=>{
   ch.addEventListener('click',()=>{
     const s = ch.dataset.sev;
@@ -525,7 +512,6 @@ document.getElementById('actionOnly').addEventListener('change',e=>{
 
 render();
 
-// stagger reveal for cards on load
 window.addEventListener('load',()=>{
   document.querySelectorAll('.card').forEach((c,i)=>{
     c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
