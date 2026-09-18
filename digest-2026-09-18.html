@@ -1,1 +1,513 @@
-__DATED_HTML__
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 18 September 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+  .b-ok{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  .radar-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .radar-item{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:9px;padding:13px 15px;box-shadow:var(--shadow)}
+  .radar-item .rt{font-size:14px;font-weight:700;color:var(--navy-deep);margin-bottom:4px;line-height:1.3}
+  .radar-item .rd{font-size:12.5px;color:var(--ink-soft)}
+  .radar-item .rd em{color:var(--navy);font-style:italic}
+
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .radar-list{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">▰</span> <span class="co">Group</span> · Technology Architecture</div>
+      <div class="issue">ISSUE #72 · 5 DOMAINS · 8 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Friday, 18 September 2026</b></span>
+      <span>2 critical · 6 watch · 0 fyi</span>
+      <span>~5 min read</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#sec">Security &amp; Resilience <span class="ct">4</span></a>
+    <a href="#ai">AI &amp; Agentic <span class="ct">1</span></a>
+    <a href="#platform">Platform &amp; Cloud <span class="ct">1</span></a>
+    <a href="#dc">Infrastructure &amp; DCs <span class="ct">1</span></a>
+    <a href="#gov">Regulation &amp; Compliance <span class="ct">1</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions ↗</a>
+    <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">⚡ Pattern of the Day</div>
+      <div class="ph">From the appliance to the forged token, <span class="teeth">the trust fabric is the attack surface.</span></div>
+      <p>Issue #72, covering the <strong>~24 hours since Issue #71</strong> — a quiet window with two clocks running down and one new entrant. Cisco's quiet addition of an <strong>iACL interim mitigation</strong> to the Identity Services Engine advisory (CVE-2026-76460, CVSS 10.0, deadline tomorrow) is an admission dressed as guidance: with no full fix beyond patching, the only other defence is to stop the management API from being reachable at all — an authentication plane you can only protect by hiding it.</p>
+      <p>Hours later, watchTowr's honeypots confirmed attackers forging administrator JWTs against exposed <strong>WSO2 API Manager</strong> instances (CVE-2026-5430, CVSS 9.8), defeating signature verification to mint admin access on an enterprise API gateway patched five months ago. Different vendors, same weakness: the mechanism that decides <strong>who is trusted</strong> — an ISE API endpoint, a JWT signature check — is what attackers defeat, and in both the fix has existed for a while, but exposure predating it is what pays.</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        The defensive clock, set by attackers: patch Identity Services Engine before 19 Sept and apply the iACL mitigation now where the upgrade can't finish in time; deploy Chrome fleet-wide <em>today</em> (18 Sept), confirm Secure Email Gateway (deadline lapsed 17 Sept) and push the September Windows cumulative incl. RDS before 22 Sept; and — new this window — inventory any WSO2 API-gateway estate, confirm the CVE-2026-5430 fix and hunt for forged-token access on anything that was internet-reachable and unpatched. Assume the trust layer is reachable until proven otherwise; verify, don't trust version strings. Standing strategic/regulatory items (Dreamforce agent plane, HBM floor, Oracle CPU, EU AI Act 2 Dec marking ~75 days) carry without new state.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>🔄 What's changed since Issue #71</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Act</span><span class="arrow">→</span><span class="st new">deadline tomorrow · iACL added</span></div>
+          <div class="diff-topic">Cisco Identity Services Engine CVE-2026-76460</div>
+          <div class="diff-detail">The CVSS 10.0 unauth API auth-bypass → root reaches its <strong>19 Sept</strong> KEV deadline tomorrow; Cisco now publishes an <strong>infrastructure ACL (iACL) interim mitigation</strong> — a shift from "no workaround" to "no full fix, but limit management-plane reachability." Exploitation continues; no public PoC yet. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">—</span><span class="arrow">→</span><span class="st new">New · Prepare</span></div>
+          <div class="diff-topic">WSO2 API Manager CVE-2026-5430</div>
+          <div class="diff-detail">A CVSS 9.8 <strong>JWT-signature-verification bypass</strong> → admin account takeover moved into confirmed in-the-wild exploitation; watchTowr honeypots captured forged administrator tokens from <strong>13 Sept</strong>. Patched since April 2026 — the risk is unpatched, internet-exposed instances. Folded into the exposed-service hunt. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Act</span><span class="arrow">→</span><span class="st new">deadline today</span></div>
+          <div class="diff-topic">Chrome CVE-2026-85046</div>
+          <div class="diff-detail">The V8 type-confusion RCE (CVSS 8.8) reaches its <strong>18 Sept</strong> deadline today — deploy across the managed-browser fleet now. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Act · deadline lapsed</span><span class="arrow">→</span><span class="st new">verify-and-hunt</span></div>
+          <div class="diff-topic">Cisco Secure Email Gateway CVE-2026-76461</div>
+          <div class="diff-detail">The CVSS 9.8 unauth SQLi → root flaw passed its 17 Sept deadline; posture is confirm-patched (AsyncOS 16.5.0-780) plus residual hunt where any appliance was reachable. Windows EoP zero-days (<strong>22 Sept</strong>) now 4 days out. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Prepare / Monitor</span><span class="arrow">→</span><span class="st new">carried · no new state</span></div>
+          <div class="diff-topic">Dreamforce · Oracle CPU · HBM · AI Act</div>
+          <div class="diff-detail">The agent-control plane (AIforce / Koa / Claudeforce public beta), Oracle's Sept CPU (104 critical), the HBM4 supercycle and the EU AI Act 2 Dec marking (~75 days) carry without material change this window. [Fact]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required</div>
+      <div class="action-head">
+        <h2>The Cisco Identity Services Engine clock reaches its final day (deadline tomorrow) with a newly-published iACL interim mitigation, Chrome's deadline lands today, and a fresh actively-exploited WSO2 API-gateway JWT bypass joins the verify-and-hunt backlog</h2>
+        <span class="action-sub">2 critical + 1 carryover-open · assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience · deadline tomorrow</span>
+            <h4>Patch Cisco Identity Services Engine to a fixed release before 19 Sept (CVE-2026-76460, CVSS 10.0); apply the new iACL interim mitigation now where the upgrade can't complete in time</h4>
+            <div class="sug"><b>Suggested action · </b> Upgrade ISE / ISE-PIC to a fixed patch level (3.5 P4, 3.4 P7, 3.3 P12, 3.2 P11, 3.1 P12) before 19 Sept; where an upgrade cannot finish by the deadline, apply Cisco's interim infrastructure ACL (iACL) guidance to permit only required management- and control-plane traffic to the appliance, then patch. Because the flaw was found in the wild and lets an attacker run commands as root and delete indicators of compromise, treat any internet-reachable or unpatched ISE as suspect and hunt for post-exploitation (rogue admin accounts, altered logs, outbound connections). Consequence of inaction: ISE is the network-access-control and identity-policy plane — root on it lets an attacker mint access, disable enforcement and erase their tracks, a compromise patching alone will not remediate once exposure predates the fix.</div>
+            <div class="meta-row"><span>Owner: <b>Network Access Control / Identity Infrastructure + Security Operations (Threat Hunt)</b></span><span>By when: <b>19 September (CISA KEV; iACL is a risk-reducer, not remediation)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience · ticking clocks</span>
+            <h4>Close the KEV patch clocks: deploy Chrome V8 CVE-2026-85046 fleet-wide today (18 Sept), confirm Secure Email Gateway on AsyncOS 16.5.0-780 (deadline lapsed 17 Sept) and hunt, and push the September Windows cumulative incl. RDS before 22 Sept (exploited EoP zero-days CVE-2026-85880 / CVE-2026-81963)</h4>
+            <div class="sug"><b>Suggested action · </b> Deploy Chrome across the managed-browser fleet today; confirm all SEG appliances are patched and hunt where any was reachable and unpatched (no workaround); validate the RDS Known Issue Rollback (13 Sept) on a pilot ring, then push the September cumulative fleet-wide incl. RDS before 22 Sept (RDS RCE CVE-2026-69525, CVSS 9.8, ships in this release). Consequence of inaction: the mail appliance yields root from a single crafted email, and the EoP zero-days are the privilege-escalation completion step for any open RCE foothold; with the RDS blocker gone, leaving session hosts or the browser fleet unpatched is a choice, not a constraint.</div>
+            <div class="meta-row"><span>Owner: <b>Messaging / Email Security + Endpoint / Digital Workplace + Server Patch Management + SecOps</b></span><span>By when: <b>Chrome 18 Sept (today) · SEG lapsed → verify · Windows EoP 22 Sept</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience · carryover-open + new exploited entrant</span>
+            <h4>Hold the exposed-service backlog on verify-and-hunt — Cisco FMC (attributed Sandworm / Qilin), NetScaler, FortiOS, N-central, vCenter, Acronis Backup — and add the newly-exploited WSO2 API Manager JWT bypass (CVE-2026-5430) where an API-gateway estate is in scope</h4>
+            <div class="sug"><b>Suggested action · </b> Verify fixed builds, rotate the FMC static credentials (CVE-2026-20316) and hunt the specific TTPs rather than trusting version strings; keep NetScaler / FortiOS / N-central / vCenter and the Acronis Backup cPanel/Plesk LPE (CVE-2026-87886) on assume-compromise; new this window, where AG runs WSO2 API Manager, API Control Plane, Traffic Manager or Universal Gateway, confirm the CVE-2026-5430 fix (CVSS 9.8, JWT-signature bypass → admin takeover; fixed since April 2026) is deployed on every instance and hunt for forged-token access on any that were internet-reachable and unpatched. Consequence of inaction: each is an estate-wide pivot past the point where patching alone remediates; the WSO2 flaw hands an unauthenticated attacker administrator access to the API gateway that fronts internal services.</div>
+            <div class="meta-row"><span>Owner: <b>Network Edge / Firewall Ops + SecOps (Threat Hunt) + Virtualization + Vendor/MSP + API Platform / Integration</b></span><span>By when: <b>immediately (WSO2 exploitation confirmed 13–16 Sept; appliance batch past federal date)</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="sec">Security &amp; Resilience</span>
+      <span class="chip dom" data-dom="ai">AI &amp; Agentic</span>
+      <span class="chip dom" data-dom="platform">Platform &amp; Cloud</span>
+      <span class="chip dom" data-dom="dc">Infrastructure &amp; DCs</span>
+      <span class="chip dom" data-dom="gov">Regulation &amp; Compliance</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+  <section id="radar">
+    <div class="kicker">📡 Radar — early &amp; longer-horizon signals</div>
+    <div class="radar-list">
+      <div class="radar-item">
+        <div class="rt">From appliance to token — the trust layer is the attack surface</div>
+        <div class="rd">Cisco's ISE 10.0 gains an <strong>iACL mitigation</strong> (protect the auth plane by hiding it) as WSO2's <strong>JWT-signature bypass</strong> forges admin tokens; the mechanism that decides who is trusted is what attackers defeat, appliance or token alike, and in both the fix predates the exposure that pays. <em>Watched as the shape of the current threat wave. Next trigger: a public PoC for either, or a named AG-sector victim.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">Türkiye regional data-infrastructure push</div>
+        <div class="rd">Türk Telekom International is expanding data-centre, cloud, cybersecurity and AI activity across Central Asia and the Turkic states (<strong>GCCM 2026, Almaty, 17 Sept</strong>), while Turkcell's data-centre investment reached <strong>€598M in Q1 2026</strong> ahead of the Google Cloud Ankara hyperscale region. <em>Watched for AG's Türkiye data-residency and regional connectivity posture. Next trigger: a firm commissioning date, KVKK localization decision, or public-sector cloud procurement rule.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">KVKK audits pivot to cloud, AI and SaaS</div>
+        <div class="rd">Turkish DPA (<strong>KVKK</strong>) supervision in 2026 has shifted toward technology-focused reviews — cloud computing, AI, SaaS — against a standing data-localization backdrop for regulated sectors (BDDK, BTK). <em>Watched for AG's Türkiye compliance exposure. Next trigger: a formal KVKK guidance note or a cloud/AI localization decision affecting AG's Türkiye estate.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">EU sovereign cloud becomes a procurement test</div>
+        <div class="rd">The Commission's <strong>Cloud Sovereignty Framework</strong> references Gaia-X (400+ certified providers; first Level-3 labels issued); AWS's <strong>European Sovereign Cloud</strong> is live in Brandenburg (Jan 2026); NIS2, DORA and the Cloud &amp; AI Development Act converge into a CIO procurement criterion. <em>Feeds the carryover sovereignty decision matrix. Next trigger: a CADA implementing step, or an EU-boundary AI-processing assurance AG can test.</em></div>
+      </div>
+      <div class="radar-item">
+        <div class="rt">Data-center liquid-cooling supply consolidates</div>
+        <div class="rd">Blackstone's 10 Sept acquisition of <strong>Flow Control Holdings</strong> (engineered DC liquid-cooling components) tightens the supply chain AG's next-gen high-density, liquid-cooled racks depend on. <em>Watched for AG capacity-build supply exposure. Next trigger: a lead-time or pricing signal on liquid-cooling components.</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources ·</strong> CISA KEV · The Hacker News · Help Net Security · Qualys · SecurityWeek · Cyber Daily · watchTowr · Tenable · Oracle Security Alerts · Salesforce · SiliconANGLE · Barchart · Data Center Dynamics · artificialintelligenceact.eu · European Commission · Sabah · CHIP Online · invest.gov.tr · Anadolu Agency &nbsp;·&nbsp; <em>Issue #72 covers the ~24 hours since Issue #71 (17 September). A deliberately concise, security-led edition: eight primary items (sec 4, ai 1, platform 1, dc 1, gov 1) on a slow window whose material developments were the Cisco ISE deadline reaching its final day with a newly-published iACL interim mitigation, the Chrome deadline landing today, and one genuine new entrant — the actively-exploited WSO2 API Manager JWT-signature bypass (CVE-2026-5430). Security carries four items because the material developments were concentrated there; strategic and regulatory items are carried without new state and labelled as such. Confirmed facts, informed inference and assumptions are labelled inline.</em>
+    </div>
+    <div class="colophon"><span class="mark">▰</span> Group · Technology Architecture · Daily Sector Intelligence Digest · Issue #72</div>
+  </footer>
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"sec",      num:"1", title:"Security & Operational Resilience"},
+  {id:"ai",       num:"2", title:"AI & Agentic Systems"},
+  {id:"platform", num:"3", title:"Platform & Cloud Economics"},
+  {id:"dc",       num:"4", title:"Infrastructure & Data Centers"},
+  {id:"gov",      num:"5", title:"Regulation & Compliance"},
+  {id:"sovereign",num:"6", title:"Data Sovereignty & Sovereign AI"},
+  {id:"net",      num:"7", title:"Connectivity & Networking"},
+  {id:"tr",       num:"8", title:"Turkish IT Sector"},
+  {id:"tech",     num:"9", title:"Technology & Sector Shifts"},
+];
+
+const ITEMS = [
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"Cisco Identity Services Engine CVE-2026-76460 (CVSS 10.0) — KEV deadline tomorrow; Cisco now publishes an iACL interim mitigation, confirming no clean fix beyond patching: CVE-2026-76460 is a maximum-severity flaw in an API endpoint of Cisco Identity Services Engine (ISE) and the ISE Passive Identity Connector (ISE-PIC) that applies insufficient authentication controls, letting an unauthenticated remote attacker bypass the web-based management interface and execute commands with root privileges — including hiding or deleting indicators of compromise — regardless of device configuration. Cisco discovered it resolving a customer TAC case, meaning at least one enterprise was compromised before the advisory existed. CISA added it to KEV on 16 September with a 19 September deadline (tomorrow). There is still no workaround that resolves the flaw, but Cisco now advises applying infrastructure access control lists (iACLs) to permit only required management- and control-plane traffic to the affected device as an interim risk-reducer before patching. Fixed releases: ISE/ISE-PIC 3.5 Patch 4, 3.4 Patch 7, 3.3 Patch 12, 3.2 Patch 11, 3.1 Patch 12",src:"Help Net Security · Qualys ThreatPROTECT · SecurityWeek",url:"https://www.helpnetsecurity.com/2026/09/17/cisco-ise-vulnerability-exploited-cve-2026-76460/",why:"<span class='tag-fact'>Fact</span> CVE-2026-76460 (CVSS 10.0) unauthenticated API auth-bypass → root on Cisco ISE / ISE-PIC; actively exploited (found in a customer TAC case); KEV-added 16 Sept, deadline 19 Sept (tomorrow); no full workaround but Cisco now publishes an iACL interim mitigation; fixed in 3.5 P4 / 3.4 P7 / 3.3 P12 / 3.2 P11 / 3.1 P12. <span class='tag-assum'>Assumption</span> ISE is a plausible core of AG's network-access-control and identity-policy tier. <b>Act:</b> patch to a fixed release before 19 Sept; where the upgrade cannot complete in time, apply the iACL mitigation and then patch; treat any exposed/unpatched ISE as suspect and hunt post-exploitation rather than trusting the patch. <b>Owner:</b> Network Access Control / Identity Infrastructure + SecOps · <b>By:</b> 19 Sept. <b>Next trigger:</b> a public PoC, a named victim, or IOCs matching AG telemetry."},
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"Ticking KEV patch clocks — Secure Email Gateway (lapsed 17 Sept), Chrome (today, 18 Sept), Windows EoP zero-days (22 Sept): three CISA KEV deadlines on core AG mail and endpoint platforms are at or near their limit. Cisco Secure Email Gateway CVE-2026-76461 (CVSS 9.8, unauthenticated SQL-injection → root via a single crafted email, no workaround) passed its 17 September deadline — posture is now confirm-patched (AsyncOS 16.5.0-780) plus hunt where any appliance was reachable. Chrome V8 CVE-2026-85046 (type-confusion RCE, CVSS 8.8) carries an 18 September deadline — today — for the managed-browser fleet. The September Windows cumulative still carries the two actively-exploited elevation-of-privilege zero-days — CVE-2026-85880 (ALPC) and CVE-2026-81963 (Update Stack → SYSTEM), both CVSS 7.8 — with a 22 September deadline, plus RDS RCE CVE-2026-69525 (CVSS 9.8). The Known Issue Rollback Microsoft shipped 13 September removed the last blocker to pushing the cumulative fleet-wide, including RDS session hosts",src:"CISA KEV · Tenable (Sept Patch Tuesday)",url:"https://www.cisa.gov/known-exploited-vulnerabilities-catalog",why:"<span class='tag-fact'>Fact</span> SEG CVE-2026-76461 (deadline lapsed 17 Sept, no workaround, fix AsyncOS 16.5.0-780), Chrome CVE-2026-85046 (KEV deadline today, 18 Sept) and the Windows EoP zero-days CVE-2026-85880 / CVE-2026-81963 (KEV 22 Sept) are live deadlines; the RDS KIR (13 Sept) unblocked fleet-wide Windows patching incl. RDS. <span class='tag-assum'>Assumption</span> SEG, Chrome and Windows/RDS are core AG mail/endpoint/remote-delivery tiers. <b>Act:</b> deploy Chrome today; confirm SEG patched and hunt where exposed; push the September cumulative fleet-wide (RDS included, KIR validated) before 22 Sept. <b>Owner:</b> Messaging / Email Security + Endpoint / Digital Workplace + Server Patch Management + SecOps · <b>By:</b> Chrome 18 Sept · SEG verify · Windows EoP 22 Sept. <b>Next trigger:</b> an out-of-band cumulative superseding the KIR, or public exploitation of the RDS RCE."},
+  {dom:"sec",sev:"watch",action:false,status:"prepare",evidence:"fact",title:"WSO2 API Manager CVE-2026-5430 (CVSS 9.8) — JWT-signature bypass forges admin tokens; confirmed in-the-wild exploitation of an enterprise API gateway patched since April: watchTowr reports active in-the-wild exploitation of CVE-2026-5430 (CVSS 9.8), an improper cryptographic-signature-verification flaw in WSO2 API Manager. JWT authentication can be bypassed when a token is signed with an unsupported algorithm, letting an attacker present a forged token with administrator privileges and take over accounts. The firm's honeypot network captured admin-privileged JWTs arriving from 13 September, with threat actors testing exposed systems despite fixes having been available for months. The flaw affects multiple WSO2 products — API Manager, API Control Plane, Traffic Manager and Universal Gateway. WSO2 addressed it in April 2026, published an advisory in May and a CVE record in August; it is not yet on CISA KEV",src:"The Hacker News · Cyber Daily",url:"https://thehackernews.com/2026/09/active-exploitation-attempts-target.html",why:"<span class='tag-fact'>Fact</span> CVE-2026-5430 (CVSS 9.8) is a JWT-signature-verification bypass in WSO2 API Manager → forged admin tokens / account takeover; watchTowr confirms in-the-wild exploitation with admin JWTs captured from 13 Sept; affects API Manager, API Control Plane, Traffic Manager, Universal Gateway; fixed since April 2026; not yet on KEV. <span class='tag-assum'>Assumption</span> WSO2 is a widely deployed enterprise API-management layer; wherever AG fronts internal services with it, an unpatched internet-reachable instance yields unauthenticated admin access. <b>Prepare:</b> inventory any WSO2 API-management footprint, confirm every instance carries the CVE-2026-5430 fix, and hunt for forged-token / anomalous-admin activity where an instance was internet-reachable and unpatched. <b>Owner:</b> API Platform / Integration + SecOps (Threat Hunt). <b>Next trigger:</b> a CISA KEV addition, a public PoC, or forged-token indicators matching AG telemetry."},
+  {dom:"sec",sev:"watch",action:true,status:"act",evidence:"fact",title:"Appliance / management-plane backlog stays on verify-and-hunt — Cisco FMC (attributed) + NetScaler / FortiOS / N-central / vCenter / Acronis Backup: the active exploitation of Cisco Secure Firewall Management Center remains attributed against CVE-2026-20079 (CVSS 10.0 auth-bypass → root) and static-credential CVE-2026-20316 — including a Cyclops Blink variant tied to Sandworm (UAT-11823) and FMC tooling used to build endpoint target lists with Qilin TTPs (UAT-11988). The standing backlog has no all-clear: NetScaler CVE-2026-19490 (CVSS 9.3, weaponized), FortiOS CVE-2025-25249 (PivotC2 RAT), N-able N-central CVE-2026-86218 (pre-auth RCE, CVSS 10.0), the live VMware vCenter CVE-2026-59310 campaign, and the Acronis Backup plugin for cPanel & WHM / Plesk on Linux CVE-2026-87886 (CVSS 7.8 LPE, exploited; fixed cPanel 1.9.3 HF3 / Plesk 1.8.11.638) all remain open",src:"The Hacker News (FMC) · Help Net Security (Acronis)",url:"https://thehackernews.com/2026/09/cisco-fmc-flaws-exploited-to-steal.html",why:"<span class='tag-fact'>Fact</span> FMC exploitation is active and attributed (Sandworm / Qilin) with a second exploited flaw (static credentials); the appliance/management-plane backlog (NetScaler, FortiOS, N-central, vCenter, Acronis Backup LPE) has no all-clear. <span class='tag-assum'>Assumption</span> each maps to a high-value AG pivot — firewall-management, remote-access ADC, edge firewall, RMM/MSP control plane, hypervisor root, and web-hosting/backup tier. <b>Act:</b> verify fixed builds, rotate the FMC static credentials and hunt the specific TTPs rather than trusting version strings; keep the batch on assume-compromise and patch Acronis where cPanel/Plesk hosting is in scope. <b>Owner:</b> Network Edge / Firewall Ops + SecOps + Virtualization + Vendor/MSP + Web Hosting/DevOps · <b>By:</b> immediately. <b>Next trigger:</b> a named AG-sector victim, IOCs matching AG telemetry, or an all-clear on the vCenter campaign."},
+
+  {dom:"ai",sev:"watch",action:false,status:"prepare",evidence:"fact",title:"Dreamforce agent-control plane — AIforce, the Nvidia-built Koa reasoning model and Claudeforce public beta (carried; no new state): Dreamforce 2026 (15–17 September) closed with the agent-control plane productized: AIforce and Koa (a CRM reasoning model custom-built with Nvidia for multi-step Agentforce workflows), the Salesforce–Anthropic Claudeforce integration in public beta for joint customers, and Agentforce access to Amazon Bedrock's full frontier-model range (Anthropic and Nvidia now, OpenAI soon). No new development this window; carried as a standing strategic item because it frames a build-vs-buy decision AG controls. The market is converging on a single governance / identity / orchestration plane over multi-vendor agents",src:"Salesforce (AIforce) · SiliconANGLE",url:"https://www.salesforce.com/news/stories/aiforce-announcement/",why:"<span class='tag-fact'>Fact</span> Dreamforce closed 17 Sept; the AIforce keynote delivered AIforce, the Nvidia-built Koa CRM reasoning model, Claudeforce in public beta, and Agentforce access to Amazon Bedrock's full frontier-model range. Carried; no new state this window. <span class='tag-assum'>Inference</span> the market is converging on a single control plane over multi-vendor agents; whoever owns that plane owns agent identity, actuation policy and audit across the estate — a strategic architecture choice, not a feature purchase. <b>Prepare:</b> read the AIforce / control-plane governance model against AG's own agent-control standard and decide build-vs-buy before committing to any single vendor's plane; treat Claudeforce's public beta as an evaluable path given AG's existing Claude use, not a default. <b>Owner:</b> AI Platform / Enterprise Architecture. <b>Next trigger:</b> AG-eligible Claudeforce pricing/terms, or concrete multi-vendor governance/orchestration specifics."},
+
+  {dom:"platform",sev:"watch",action:false,status:"monitor",evidence:"fact",title:"Oracle September 2026 Critical Patch Update — 800+ fixes, 104 critical (carried; schedule into the quarterly window): Oracle's quarterly CPU landed 16 September with 800+ fixes, 104 rated critical and several at CVSS 9.8, spanning Database, middleware, E-Business Suite and Java. Reporting on one RCE (CVE-2026-64849) as actively exploited remains conflicting across sources — some attribute it to a non-Oracle component — so it is not treated as an Act item pending confirmation. No new state this window; carried as the routine quarterly patch-planning trigger for any AG Oracle estate",src:"Oracle Security Alert (Sept 2026) · Qualys",url:"https://www.oracle.com/security-alerts/cspusep2026.html",why:"<span class='tag-fact'>Fact</span> Oracle's Sept 2026 CPU carries 800+ fixes, 104 critical, several CVSS 9.8; the active-exploitation claim on CVE-2026-64849 is conflicting across sources. Carried; no new state this window. <span class='tag-assum'>Assumption</span> AG's Oracle database/middleware footprint, if any, inherits this quarter's critical-fix backlog. <b>Monitor:</b> schedule the CPU into the normal quarterly patch window; confirm whether CVE-2026-64849 touches an in-use Oracle product before escalating. <b>Owner:</b> Database / Middleware Platform + Patch Management. <b>Next trigger:</b> a CISA KEV addition of an Oracle CPU CVE, or a confirmed in-the-wild PoC against an in-use product."},
+
+  {dom:"dc",sev:"watch",action:false,status:"monitor",evidence:"fact",title:"HBM supercycle — Micron 48GB 16-high, capacity doubling; memory floor under on-prem AI stays elevated (carried): the HBM-led memory supercycle is unchanged from Issue #71 — suppliers moving from 12-high to 16-high stacks (36→48 GB), Micron shipping HBM4 48GB 16-high samples and preparing to roughly double HBM capacity toward ~100,000 wafers/month by the end of 2026. HBM4 sits at roughly $550/stack (36GB 12-high). SK Hynix leads at 50–55% share; 2026 DRAM, NAND and HBM are effectively sold out, with ~70% of 2026 memory output headed to AI data centres. The 'shortage may persist past 2030' framing holds",src:"Barchart (Micron HBM4) · Data Center Dynamics",url:"https://www.barchart.com/story/news/780922/micron-in-high-volume-production-of-hbm4-designed-for-nvidia-vera-rubin-pcie-gen6-ssd-and-socamm2",why:"<span class='tag-fact'>Fact</span> Micron shipping HBM4 48GB 16-high samples and doubling HBM capacity toward ~100k wafers/month by end-2026; HBM4 ~$550/stack; SK Hynix 50–55% share; 2026 memory effectively sold out, ~70% to AI DCs. Carried; no new state this window. <span class='tag-assum'>Assumption</span> any AG on-prem AI or GPU-server build depends on HBM-equipped accelerators whose availability and price track this gap. <b>Monitor:</b> hold the elevated-memory assumption in on-prem AI TCO at 'structural through the decade' and lock procurement lead-times now. <b>Owner:</b> Infrastructure / AI Platform + Procurement. <b>Next trigger:</b> a quarterly HBM contract step-up, an HBM4 yield/ramp signal, or DRAM/NAND spot moves."},
+
+  {dom:"gov",sev:"watch",action:false,status:"monitor",evidence:"fact",full:true,gov:true,title:"EU AI Act 2 December marking deadline ~75 days out; CRA Article 14 reporting in force — the standing compliance clock advances: no new instrument landed this cycle, so the sharper signal is the calendar advancing. GPAI enforcement is live (technical compliance dialogues first, then documentation requests, evaluations, restriction/withdrawal, fines up to €15M / 3% turnover) and Article 50 transparency applies to all in-scope systems, but the marking obligation for generative AI already on the market carries a hard transitional deadline of 2 December 2026 (~75 days). Separately, the Cyber Resilience Act's Article 14 vulnerability/incident reporting (24h/72h/14-day, via the ENISA Single Reporting Platform) has been in force since 11 September, three years ahead of full CRA application (11 December 2027)",src:"artificialintelligenceact.eu · European Commission",url:"https://artificialintelligenceact.eu/implementation-timeline/"},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — technical compliance dialogues first, then documentation requests, evaluations, restriction/withdrawal and fines up to €15M / 3% turnover. No new instrument landed this cycle; the sharper signal is the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026 (~75 days)</b>. Separately, <b>CRA Article 14 reporting is in force</b> (since 11 Sept), the first CRA obligation with fines behind it.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>GPAI enforcement (fines up to €15M / 3% turnover)</td><td>2 Aug 2026</td><td>2 Aug 2026 <em>unchanged</em></td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 marking (generative AI)</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) · 2 Dec 2026 (pre-existing)</td><td><span class="badge b-live">Live · ~75 days</span></td></tr>
+      <tr><td>CRA Art. 14 reporting (24h/72h/14-day, ENISA platform)</td><td>—</td><td>in force 11 Sept 2026</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit scoring)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> GPAI enforcement is live; Article 50 marking for pre-existing generative AI is due 2 Dec 2026 (~75 days); CRA Art. 14 reporting is in force. &nbsp;<span class="tag-assum">Assumption</span> AG must mark pre-existing generative customer content by 2 Dec; CRA binds AG directly if any AG entity places products with digital elements on the EU market, and via suppliers otherwise. <b>Monitor:</b> keep the marking programme funded to 2 Dec and inventory generative customer-facing content; confirm in-scope CRA exposure and that the 24h/72h/14-day workflow is wired to ENISA + national CSIRT with a named owner.
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    if(!items.length) return;
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = "0";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} item${items.length>1?'s':''} · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.map(cardHTML).join('')}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    sec.style.display = shown ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>
