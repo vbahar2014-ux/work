@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 30 September 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
+    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  /* ---------- HERO (pattern + diff) ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- ACTION REQUIRED ---------- */
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  /* ---------- FILTER BAR ---------- */
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
+    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
+    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  /* compliance table inside gov card */
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
+    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  /* ---------- RADAR ---------- */
+  .radar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px}
+  .radar .ritem{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .radar .ritem:last-child{border-bottom:none}
+  .radar .rdot{width:9px;height:9px;border-radius:50%;background:var(--slate);margin-top:6px}
+  .radar .rtext{font-size:14px;color:var(--ink-soft)}
+  .radar .rtext b{color:var(--navy-deep);font-weight:700}
+  .radar .rtext .nt{display:block;font-family:var(--mono);font-size:11px;color:var(--slate);margin-top:4px;letter-spacing:.02em}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  /* ---------- LEGEND + FOOTER ---------- */
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">&#9648;</span> <span class="co">Group</span> &middot; Technology Architecture</div>
+      <div class="issue">ISSUE #79 &middot; 2 DOMAINS &middot; 3 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Wednesday, 30 September 2026</b></span>
+      <span>1 critical &middot; 2 watch</span>
+      <span>~4 min read</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#sec">Security &amp; Resilience <span class="ct">2</span></a>
+    <a href="#gov">Regulation &amp; Compliance <span class="ct">1</span></a>
+    <a href="#radar">Radar <span class="ct">5</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions &#8599;</a>
+    <a href="#action" class="reds"><span class="dot"></span> 3 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+    <!-- HERO: PATTERN + DIFF -->
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">&#9889; Pattern of the Day</div>
+      <div class="ph">The three-day clock ran its course &mdash; and <span class="teeth">speed alone still lost.</span></div>
+      <p>NetScaler is the first vulnerability to run CISA's highest-risk tier end-to-end in public, and this window is where it broke: a public <strong>watchTowr PoC on 29 September</strong> turned targeted exploitation into <strong>internet-wide mass scanning within minutes</strong>, against roughly <strong>42,000 exposed appliances</strong> of which fewer than <strong>10% were patched</strong>. The compromise arrived <em>before</em> the 30 September federal deadline, not after it &mdash; and Citrix's own guidance is now to check for compromise <strong>before</strong> upgrading, because the attacker web shells survive the patch.</p>
+      <p>The lesson for the perimeter is that a remediation SLA measured in days is necessary but no longer sufficient: when weaponisation trails disclosure by hours, the operative control for internet-facing appliances shifts from &ldquo;patch inside the window&rdquo; to &ldquo;assume-compromise and hunt by default,&rdquo; and the architecture that wins is the one that limits blast radius &mdash; edge-to-core segmentation, short-lived sessions, and credential rotation &mdash; so an edge foothold is not a network foothold. Meanwhile a fresh actively-exploited Apple CoreGraphics zero-day joined KEV, and the older lapsed KEV wall stays on verify-and-hunt.</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        Treat every customer-managed NetScaler exposed before the 27 Sept patch as compromised until disproven: hunt for web shells and lateral movement, rotate credentials/sessions, and check-then-upgrade to 14.1-73.37 / 13.1-64.23 (or FIPS equivalents) &mdash; patching alone does not evict the intruder. Prioritise patching executive and high-risk Apple devices for CVE-2026-86950 (macOS 26.7.1 / 15.8.1, iOS/iPadOS). Re-baseline the internet-facing patch SLA toward a three-day target but pair it with a standing assume-compromise posture, because speed alone did not hold here. Standing item: EU AI Act 2 Dec marking (~63 days), CRA Art. 14 in force.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>&#128260; What's changed since Issue #78</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">No PoC / no victim</span><span class="arrow">&rarr;</span><span class="st new">mass exploitation</span></div>
+          <div class="diff-topic">NetScaler weaponised: public PoC, 100+ victims</div>
+          <div class="diff-detail">A <strong>watchTowr PoC for CVE-2026-88771</strong> went public <strong>29 Sept</strong>, triggering internet-wide scanning within minutes; Censys sees <strong>~42,000</strong> exposed appliances (&lt;10% patched), and Kevin Beaumont reports <strong>100+ victim organisations</strong> with unique per-victim web shells. Mandiant traces CVE-2026-88772 to <strong>state-linked</strong> actors since early Sept, across government/financial/telecom/legal in North America and Europe. [Fact / reported]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">Patch = remediation</span><span class="arrow">&rarr;</span><span class="st new">patch &ne; remediation</span></div>
+          <div class="diff-topic">Citrix: check for compromise before upgrading</div>
+          <div class="diff-detail">Citrix now advises customers to determine whether they were compromised <strong>before</strong> upgrading &mdash; attacker web shells (hidden behind fake stylesheet paths) survive the patch, so NetScaler itself joins the assume-compromise wall even for those who patched on time. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">&mdash;</span><span class="arrow">&rarr;</span><span class="st new">new KEV entry</span></div>
+          <div class="diff-topic">Apple CoreGraphics zero-day added to KEV</div>
+          <div class="diff-detail"><strong>CVE-2026-86950</strong> (out-of-bounds write &rarr; RCE, CVSS 8.8) was patched <strong>28 Sept</strong> (macOS 26.7.1 / 15.8.1, iOS/iPadOS) and added to <strong>CISA KEV 29 Sept</strong>; Apple cites an &ldquo;extremely sophisticated&rdquo; attack on targeted individuals. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">first live test</span><span class="arrow">&rarr;</span><span class="st new">speed proven insufficient</span></div>
+          <div class="diff-topic">BOD 26-04 three-day clock: the lesson lands</div>
+          <div class="diff-detail">NetScaler ran the full three-day highest-risk tier, yet mass compromise arrived <strong>before</strong> the 30 Sept deadline &mdash; evidence that a days-scale SLA must be paired with a default assume-compromise posture for internet-facing appliances. [Fact / Inference]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">&mdash;</span><span class="arrow">&rarr;</span><span class="st new">No material transition</span></div>
+          <div class="diff-topic">AI &middot; sovereignty &middot; infrastructure &middot; connectivity &middot; Turkish IT &middot; platform</div>
+          <div class="diff-detail">No development met the 24&ndash;48h bar; the WordPress / SharePoint / MikroTik + WSO2 / Adobe Commerce + Check Point / Arista / F5 lapsed wall stays on verify-and-hunt; EU AI Act (~63 days) advances only on the calendar; a reported Turkcell&ndash;Google Cloud Türkiye region is a 2025 deal, not this window. [Fact]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ACTION REQUIRED -->
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required</div>
+      <div class="action-head">
+        <h2>Assume-compromise on NetScaler and hunt before upgrading, patch the exploited Apple zero-day on high-risk devices, and hold the lapsed KEV wall on verify-and-hunt</h2>
+        <span class="action-sub">3 decisions &middot; assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; deadline reached (30 Sept) &middot; assume-compromise</span>
+            <h4>Treat every internet-exposed NetScaler as compromised until disproven: hunt and contain before upgrading CVE-2026-88771 / CVE-2026-88772</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Following Citrix's updated guidance, determine whether each customer-managed NetScaler ADC / Gateway was compromised <b>before</b> upgrading &mdash; run the Citrix / NetScaler Console IOC scanner and file-integrity monitor, hunt for attacker web shells (hidden behind fake stylesheet paths), lateral movement and outbound exfiltration (a reported staging host was 138.199.200[.]90), and rotate credentials, sessions and secrets reachable from the appliance. Then upgrade to 14.1-73.37 or 13.1-64.23 (or FIPS builds 14.1-73.37 FIPS / 13.1-37.279); there is no workaround, and a clean scan is not proof of no compromise. A public watchTowr PoC (29 Sept) drove internet-wide mass scanning against ~42,000 exposed hosts (&lt;10% patched), with 100+ reported victim organisations. Consequence of inaction: patching alone leaves the intruder in place &mdash; NetScaler fronts remote access and load-balancing, so a surviving web shell is a persistent pre-auth foothold that state-linked and ransomware actors are already using for lateral movement.</div>
+            <div class="meta-row"><span>Owner: <b>Network Edge / Remote Access + Identity Infra + SecOps (Threat Hunt)</b></span><span>By when: <b>immediately (deadline reached; active mass exploitation)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; new KEV (29 Sept) &middot; actively exploited</span>
+            <h4>Patch the exploited Apple CoreGraphics zero-day CVE-2026-86950, prioritising executive and high-risk devices</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Deploy Apple's 28 Sept fixes for CVE-2026-86950 (out-of-bounds write in CoreGraphics &rarr; arbitrary code execution on a maliciously crafted file, CVSS 8.8): macOS Tahoe 26.7.1, macOS Sequoia 15.8.1, and the corresponding iOS/iPadOS updates. Added to CISA KEV 29 Sept; Apple attributes it to an &ldquo;extremely sophisticated attack against specific targeted individuals&rdquo; (reported by Meta Product Security), so prioritise executive, board, finance and IT-admin devices and anything used for high-value approvals, then complete the fleet on the managed-update cycle. Consequence of inaction: an espionage-grade actor with a working file-based RCE against unpatched high-value endpoints; targeting is narrow but the payoff per device is high.</div>
+            <div class="meta-row"><span>Owner: <b>Endpoint / Digital Workplace (EUC) + Mobile / MDM + SecOps</b></span><span>By when: <b>high-risk devices now; fleet per CISA KEV timeline</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; carried &middot; lapsed &rarr; verify-and-hunt</span>
+            <h4>Hold the lapsed KEV wall on assume-compromise &mdash; no new lapses this window, no all-clear on the backlog</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Everything whose KEV clock has lapsed stays on verify-and-hunt: WordPress CVE-2026-87902 (9.2), SharePoint CVE-2026-65660 (8.8) and MikroTik RouterOS CVE-2026-67279 (6.9) from 28 Sept; WSO2 CVE-2026-5430 (9.8) + Adobe Commerce CVE-2026-71362 (9.1) from 27 Sept; the Check Point (CVE-2026-93616 / CVE-2026-85102), Arista VeloCloud (CVE-2026-93952, 10.0) and F5 BIG-IP APM (CVE-2026-94127, 9.8) cluster from 25 Sept; Zyxel GS1900 CVE-2026-7273, Veeam CVE-2026-32996, and the standing backlog (Cisco ISE, Linux kernel trio, Windows EoP, Chrome, SEG, Cisco FMC, NetScaler CVE-2026-19490, FortiOS, N-central, vCenter, Acronis). Confirm fixes are actually deployed, run vendor IoC hunts, rotate FMC static credentials, restrict management-plane access. Consequence of inaction: each is an admin/root/SYSTEM pivot or edge foothold past the point where patching alone remediates; a lapsed deadline on a reachable, unpatched asset is a breach hypothesis until disproven.</div>
+            <div class="meta-row"><span>Owner: <b>Digital / Web + SharePoint + API Platform + Network Edge/Firewall Ops + SD-WAN + Identity Infra + Endpoint + SecOps</b></span><span>By when: <b>immediately (lapsed / exploited)</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="sec">Security &amp; Resilience</span>
+      <span class="chip dom" data-dom="gov">Regulation &amp; Compliance</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+    <!-- RADAR -->
+  <section id="radar">
+    <div class="kicker">&#128225; Radar &mdash; early &amp; longer-horizon signals</div>
+    <div class="radar">
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>EU AI Act Article 50 marking deadline for pre-existing generative AI is ~63 days out (2 Dec 2026).</b> GPAI enforcement is live and CRA Article 14 reporting has been in force since 11 Sept; only the calendar advanced this window, so the standing Tier-1 obligation is carried here rather than as a full card. <span class="nt">Next trigger: first formal GPAI enforcement action, or Commission guidance on Art. 50 marking formats.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>Roundcube webmail CVE-2026-48842 under active exploitation (still not on KEV).</b> A pre-auth SQL injection (CVSS 8.1) in the virtuser_query plugin exposing mail credentials and stored messages; fixed in 1.6.16 / 1.7.1, with the Canadian Centre for Cyber Security confirming in-the-wild exploitation. <span class="nt">Next trigger: KEV addition, a mass-scan campaign, or Roundcube found in AG's mail estate.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>A dormant GitHub Actions supply-chain compromise remains live via mutable tags.</b> Two actions-cool actions (issues-helper, maintain-one-comment), re-enabled 16 Sept with uncleaned malicious release tags from the May Mini Shai-Hulud campaign, re-executed their payload for any workflow pinned to those tags. <span class="nt">Next trigger: AG repositories confirmed referencing the named actions, or a broader wave of re-enabled dormant compromises.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>EU DMA cloud gatekeeper decision looms.</b> The Commission's preliminary designation of AWS and Azure moves toward a final decision due by November; interoperability and data-portability obligations would follow. <span class="nt">Next trigger: the final designation decision, or published gatekeeper obligations.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>NIST AI Agent Standards Initiative and competing agent-interoperability protocols advance.</b> Federal work on interoperable, secure agent communication (alongside A2A / MCP) is an input to AG's agent-control and agent-identity standard as agentic deployments scale. <span class="nt">Next trigger: a published NIST agent-security profile, or a protocol reaching a stable/adopted specification.</span></div></div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources &middot;</strong> CISA KEV &middot; CISA (BOD 26-04 / Vulnerability Bulletin sunset) &middot; Citrix CTX697096 &middot; Help Net Security &middot; Cybersecurity Dive &middot; Mandiant / GTIG &middot; watchTowr &middot; Censys &middot; Shadowserver &middot; GreyNoise &middot; Kevin Beaumont &middot; TechTimes &middot; Apple &middot; artificialintelligenceact.eu &middot; European Commission &middot; NIST &nbsp;&middot;&nbsp; <em>Issue #79 (Wednesday, 30 September) is a short, security-led edition covering the last 24&ndash;48 hours (29&ndash;30 September). Three primary items (sec 2, gov 1); one critical, two watch. The dominant development is escalation: the two Citrix NetScaler zero-days (CVE-2026-88771 / CVE-2026-88772, both CVSS 9.5) moved from targeted exploitation with no public PoC into internet-wide mass attacks after a watchTowr PoC on 29 September, with 100+ reported victims and web shells that survive the patch &mdash; so patching alone no longer remediates. A fresh actively-exploited Apple CoreGraphics zero-day (CVE-2026-86950) was added to CISA KEV on 29 September. The regulation item reads BOD 26-04's three-day clock through NetScaler's first full public run, whose lesson is that patch-speed alone is no longer sufficient for internet-facing appliances. AI, data sovereignty, infrastructure/data centers, connectivity, platform economics and the Turkish IT sector recorded no development meeting the 24&ndash;48h materiality bar and are held as Radar or omitted rather than padded; a reported Turkcell&ndash;Google Cloud Türkiye region was verified as a 2025 deal and excluded. Confirmed facts, informed inference and reported third-party figures are labelled inline; every date, deadline, CVSS score and version cited was verified against the primary source before publication.</em>
+    </div>
+    <div class="colophon"><span class="mark">&#9648;</span> Group &middot; Technology Architecture &middot; Daily Sector Intelligence Digest &middot; Issue #79</div>
+  </footer>
+
+
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"sec",      num:"1", title:"Security & Operational Resilience"},
+  {id:"ai",       num:"2", title:"AI & Agentic Systems"},
+  {id:"platform", num:"3", title:"Platform & Cloud Economics"},
+  {id:"dc",       num:"4", title:"Infrastructure & Data Centers"},
+  {id:"gov",      num:"5", title:"Regulation & Compliance"},
+  {id:"sovereign",num:"6", title:"Data Sovereignty & Sovereign AI"},
+  {id:"net",      num:"7", title:"Connectivity & Networking"},
+  {id:"tr",       num:"8", title:"Turkish IT Sector"},
+  {id:"tech",     num:"9", title:"Technology & Sector Shifts"},
+];
+
+const ITEMS = [
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"NetScaler zero-day exploitation escalates into mass attacks &mdash; and patching no longer removes the intruder: a public watchTowr proof-of-concept for CVE-2026-88771 landed on 29 September and, per Lupovis, opportunistic internet-wide scanning began within minutes. Censys counts roughly 42,000 internet-facing NetScaler ADC/Gateway hosts (Shadowserver: 20,000+ visible and potentially vulnerable), of which Kevin Beaumont estimates fewer than 10% are patched, while tracking 100+ victim organisations each carrying a unique web shell that cannot be scanned for remotely. Mandiant/GTIG traces CVE-2026-88772 exploitation to suspected state-linked actors since early September, with dozens of organisations impacted across North America and Europe in government, financial services, education, telecommunications and legal/professional services. The flaws are unchanged &mdash; CVE-2026-88771 (improper input validation &rarr; unauthenticated RCE, CVSS 9.5) and CVE-2026-88772 (DTLS memory overflow &rarr; RCE/DoS, CVSS 9.5), fixed only in 14.1-73.37 / 13.1-64.23, no workaround &mdash; but Citrix now advises checking for compromise BEFORE upgrading, because the web shells (hidden behind fake stylesheet paths) survive the patch. The 30 September federal deadline arrives with the appliances already mass-compromised, not merely at risk",src:"Help Net Security &middot; Cybersecurity Dive (Mandiant) &middot; Citrix CTX697096",url:"https://www.helpnetsecurity.com/2026/09/29/netscaler-zero-day-exploitation-escalates-into-mass-attacks-cve-2026-88771/",why:"<span class='tag-fact'>Fact</span> A watchTowr PoC for CVE-2026-88771 went public 29 Sept, triggering internet-wide mass scanning; Citrix now tells customers to check for compromise before upgrading because attacker web shells survive the patch; fixed builds 14.1-73.37 / 13.1-64.23; KEV 27 Sept; federal deadline 30 Sept. <span class='tag-assum'>Reported</span> ~42,000 exposed hosts (Censys) / 20,000+ (Shadowserver), &lt;10% patched, 100+ victims (Beaumont); Mandiant ties CVE-2026-88772 to state-linked actors since early Sept across government/financial/telecom/legal in North America and Europe. <span class='tag-assum'>Assumption</span> NetScaler is the archetypal internet-facing remote-access tier and AG already carries an open NetScaler item (CVE-2026-19490), so the appliance is plausibly in the estate; an unauth RCE here is a pre-auth network-edge foothold. <b>Act:</b> treat anything exposed before the 27 Sept patch as compromised &mdash; hunt web shells + lateral movement, rotate credentials/sessions, then check-and-upgrade; patching alone does not evict the intruder. <b>Owner:</b> Network Edge / Remote Access + Identity Infra + SecOps (Threat Hunt) &middot; <b>By:</b> immediately (deadline reached; active mass exploitation). <b>Next trigger:</b> IoCs matching AG NetScaler telemetry, a named AG-sector victim, or a public exploit chain for CVE-2026-88772."},
+
+  {dom:"sec",sev:"watch",action:true,status:"act",evidence:"fact",title:"A new actively-exploited Apple CoreGraphics zero-day joins CISA KEV &mdash; CVE-2026-86950: Apple patched CVE-2026-86950 on 28 September, an out-of-bounds write in CoreGraphics (its graphics-rendering framework) where processing a maliciously crafted file may lead to arbitrary code execution (CVSS 8.8). Fixed in macOS Tahoe 26.7.1 and macOS Sequoia 15.8.1 (macOS 27 unaffected) plus the corresponding iOS/iPadOS updates, with improved bounds checking. Apple states the flaw was used in an &ldquo;extremely sophisticated attack against specific targeted individuals,&rdquo; reported by Meta Product Security &mdash; a departure from the academic/Citizen Lab pattern of prior CoreGraphics exploits. CISA added it to the KEV catalogue on 29 September, the single addition that day",src:"TechTimes &middot; Apple security advisory &middot; CISA KEV",url:"https://www.techtimes.com/articles/328261/20260930/apple-patches-exploited-coregraphics-zero-day-macos-tahoe-sequoia.htm",why:"<span class='tag-fact'>Fact</span> CVE-2026-86950 is an out-of-bounds write in CoreGraphics (&rarr; arbitrary code execution on a crafted file, CVSS 8.8), patched 28 Sept in macOS 26.7.1 / 15.8.1 and iOS/iPadOS, added to CISA KEV 29 Sept; Apple confirms in-the-wild use in a targeted attack. <span class='tag-assum'>Assumption</span> AG runs a mixed macOS/iOS estate including executive and IT-admin devices; a file-based RCE exploited by an espionage-grade actor is a high-value-endpoint risk even though targeting is currently narrow. <b>Act:</b> deploy the fixes now to executive, board, finance and IT-admin devices and high-value approval endpoints, then complete the fleet on the managed cycle. <b>Owner:</b> Endpoint / Digital Workplace (EUC) + Mobile / MDM + SecOps &middot; <b>By:</b> high-risk devices now; fleet per CISA KEV timeline. <b>Next trigger:</b> a broader (non-targeted) exploitation campaign, a public exploit, or the flaw appearing in commodity spyware."},
+
+  {dom:"gov",sev:"watch",action:false,status:"prepare",evidence:"fact",title:"BOD 26-04's three-day KEV clock has run its first full public test &mdash; and the lesson is that patch-speed alone is no longer a sufficient control: the regime that went live this week (severity-based weekly Vulnerability Bulletin retired 28 Sept; risk-based tiering with a three-calendar-day window for publicly-exposed + KEV-listed + automatable + impactful flaws) had NetScaler as its first AG-relevant live test. NetScaler ran the full tier end-to-end &mdash; KEV 27 Sept, deadline 30 Sept &mdash; yet mass compromise via a public PoC arrived BEFORE the deadline, and the vendor's own guidance is now check-for-compromise-before-you-patch. The takeaway for AG's SLA design is not merely &ldquo;go faster&rdquo;: when weaponisation trails disclosure by hours, a days-scale remediation SLA must be paired with a standing assume-compromise-and-hunt posture and blast-radius controls for internet-facing appliances",src:"CISA &mdash; Vulnerability Bulletin sunset (BOD 26-04)",url:"https://content.govdelivery.com/accounts/USDHSCISA/bulletins/42b055b",why:"<span class='tag-fact'>Fact</span> BOD 26-04's top tier is a three-calendar-day KEV window; NetScaler ran it end-to-end (KEV 27 Sept &rarr; deadline 30 Sept) yet was mass-compromised before the deadline once a PoC went public, and Citrix advises checking for compromise before upgrading. The weekly Vulnerability Bulletin was retired 28 Sept, leaving KEV + Alerts/Advisories + CVE. <span class='tag-assum'>Inference</span> A days-scale SLA is necessary but not sufficient when exploitation trails disclosure by hours; the operative control for internet-facing appliances shifts toward assume-compromise + hunt by default plus edge-to-core segmentation and credential/session rotation to cap blast radius. <b>Prepare:</b> re-baseline AG's internet-facing / KEV-listed SLA toward a three-day target AND codify a standing assume-compromise runbook for perimeter appliances; confirm the feed migration from the retired weekly bulletin to KEV + Advisories is complete and SecOps intake still captures everything the bulletin used to surface. <b>Owner:</b> SecOps / Vulnerability Management + Enterprise Architecture. <b>Next trigger:</b> a coverage gap found after the bulletin sunset, or the next AG-relevant CVE that is weaponised inside its three-day window."},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    Enforcement is live and <b>not</b> paused. Since 2 August 2026 the Commission, through the AI Office, has exercised its Chapter V powers over GPAI providers — technical compliance dialogues first, then documentation requests, evaluations, restriction/withdrawal and fines up to €15M / 3% turnover. No new instrument landed this cycle; the sharper signal is the <b>calendar advancing</b>: Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026 (~63 days)</b>. Separately, <b>CRA Article 14 reporting is in force</b> (since 11 Sept), the first CRA obligation with fines behind it.
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>GPAI enforcement (fines up to €15M / 3% turnover)</td><td>2 Aug 2026</td><td>2 Aug 2026 <em>unchanged</em></td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 marking (generative AI)</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) · 2 Dec 2026 (pre-existing)</td><td><span class="badge b-live">Live · ~63 days</span></td></tr>
+      <tr><td>CRA Art. 14 reporting (24h/72h/14-day, ENISA platform)</td><td>—</td><td>in force 11 Sept 2026</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit scoring)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred</span></td></tr>
+    </table>
+    <span class="tag-fact">Fact</span> GPAI enforcement is live; Article 50 marking for pre-existing generative AI is due 2 Dec 2026 (~63 days); CRA Art. 14 reporting is in force. &nbsp;<span class="tag-assum">Assumption</span> AG must mark pre-existing generative customer content by 2 Dec; CRA binds AG directly if any AG entity places products with digital elements on the EU market, and via suppliers otherwise. <b>Monitor:</b> keep the marking programme funded to 2 Dec and inventory generative customer-facing content; confirm in-scope CRA exposure and that the 24h/72h/14-day workflow is wired to ENISA + national CSIRT with a named owner.
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    if(!items.length) return; // hide domains with zero items
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = "0";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.map(cardHTML).join('')}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    sec.style.display = shown ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+// domain chips
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+// severity chips (multi-toggle)
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+// stagger reveal for cards on load
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>
