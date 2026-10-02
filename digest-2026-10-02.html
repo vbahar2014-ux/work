@@ -1,2 +1,530 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><title>probe</title></head><body>probe</body></html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Sector Intelligence Digest — 2 October 2026 · Group Technology Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --paper-2:#efeae0;
+    --ink:#1b2a3a;
+    --ink-soft:#42546a;
+    --navy:#1b3a5c;
+    --navy-deep:#142c45;
+    --red:#c8102e;
+    --red-deep:#9c0c23;
+    --amber:#b7791f;
+    --slate:#64748b;
+    --line:#d9d2c4;
+    --line-strong:#c3baa8;
+    --card:#fffdf8;
+    --shadow:0 1px 0 rgba(20,44,69,.04), 0 8px 24px -16px rgba(20,44,69,.35);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Hanken Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:130px}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -10%, rgba(27,58,92,.05), transparent 40%),
+      radial-gradient(circle at 100% 0%, rgba(200,16,46,.04), transparent 35%);
+    background-attachment:fixed;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{padding:34px 0 22px;border-bottom:3px double var(--navy)}
+  .brandline{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .brand{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--navy);font-weight:600}
+  .brand .mark{color:var(--red)}
+  .brand .co{font-size:1.5em}
+  .issue{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-soft)}
+  h1.title{
+    font-family:var(--serif);font-weight:600;font-size:clamp(38px,6.5vw,76px);
+    line-height:.95;letter-spacing:-.02em;color:var(--navy-deep);margin:14px 0 10px;
+    font-optical-sizing:auto;
+  }
+  .title .em{font-style:italic;color:var(--red)}
+  .dateline{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+  .dateline b{color:var(--navy);font-weight:600}
+
+  /* ---------- STICKY NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(246,243,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-strong)}
+  .nav-inner{max-width:1180px;margin:0 auto;padding:9px 28px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .nav a{font-family:var(--mono);font-size:11px;letter-spacing:.03em;text-decoration:none;color:var(--ink-soft);
+    padding:5px 9px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+  .nav a:hover{background:var(--paper-2);color:var(--navy)}
+  .nav a .ct{font-weight:600;color:var(--navy);font-size:10px;background:var(--paper-2);padding:1px 5px;border-radius:20px}
+  .nav a.reds{color:var(--red);font-weight:600}
+  .nav a.reds .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15)}
+  .nav-sep{flex:1}
+
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line-strong)}
+
+  /* ---------- HERO (pattern + diff) ---------- */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;gap:42px;align-items:start}
+  .pattern .ph{font-family:var(--serif);font-size:clamp(24px,3vw,34px);line-height:1.12;color:var(--navy-deep);font-weight:600;margin-bottom:16px;letter-spacing:-.01em}
+  .pattern .ph .teeth{color:var(--red);font-style:italic}
+  .pattern p{font-size:16.5px;color:var(--ink-soft);margin-bottom:14px;max-width:54ch}
+  .pattern p strong{color:var(--navy);font-weight:700}
+  .pattern .ag-take{border-left:3px solid var(--red);padding:8px 0 8px 16px;font-size:15.5px;color:var(--ink)}
+  .pattern .ag-take b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px}
+
+  .diff h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:14px;font-weight:600}
+  .diff-list{display:flex;flex-direction:column;gap:11px}
+  .diff-item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 14px;box-shadow:var(--shadow)}
+  .diff-states{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;margin-bottom:5px;flex-wrap:wrap}
+  .st{padding:2px 7px;border-radius:5px;letter-spacing:.02em}
+  .st.old{background:var(--paper-2);color:var(--slate)}
+  .st.new{background:rgba(200,16,46,.1);color:var(--red-deep);font-weight:600}
+  .arrow{color:var(--red);font-weight:700}
+  .diff-topic{font-weight:700;font-size:13.5px;color:var(--navy-deep)}
+  .diff-detail{font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+  /* ---------- ACTION REQUIRED ---------- */
+  .action-band{background:linear-gradient(180deg,var(--navy-deep),var(--navy));color:#fff;border-radius:14px;padding:26px 28px;box-shadow:0 20px 50px -28px rgba(20,44,69,.7)}
+  .action-band .kicker{color:#ff8a98}
+  .action-band .kicker::after{background:rgba(255,255,255,.18)}
+  .action-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+  .action-head h2{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .action-sub{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em}
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:16px 18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--red);border-radius:10px}
+  .act .num{font-family:var(--serif);font-size:30px;color:rgba(255,255,255,.35);line-height:1;font-weight:600}
+  .act h4{font-size:15.5px;font-weight:700;margin-bottom:7px;line-height:1.3}
+  .act .domain-tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#ffb3bd}
+  .act .sug{font-size:13.5px;color:rgba(255,255,255,.82);margin:6px 0 10px}
+  .act .sug b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#ff8a98;font-weight:600}
+  .act .meta-row{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.55)}
+  .act .meta-row span b{color:#fff;font-weight:600}
+
+  /* ---------- FILTER BAR ---------- */
+  .filterbar{position:sticky;top:42px;z-index:30;background:rgba(246,243,236,.94);backdrop-filter:blur(8px);
+    border:1px solid var(--line-strong);border-radius:12px;padding:12px 16px;margin:30px 0 0;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  .flabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-right:2px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.02em;border:1px solid var(--line-strong);background:var(--card);
+    color:var(--ink-soft);padding:5px 11px;border-radius:20px;cursor:pointer;transition:.15s;user-select:none}
+  .chip:hover{border-color:var(--navy);color:var(--navy)}
+  .chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.sev-crit.on{background:var(--red);border-color:var(--red)}
+  .chip.sev-watch.on{background:var(--amber);border-color:var(--amber)}
+  .chip.sev-fyi.on{background:var(--slate);border-color:var(--slate)}
+  .chip .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .sw.crit{background:var(--red)} .sw.watch{background:var(--amber)} .sw.fyi{background:var(--slate)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);cursor:pointer}
+  .toggle input{appearance:none;width:34px;height:19px;background:var(--line-strong);border-radius:20px;position:relative;cursor:pointer;transition:.2s}
+  .toggle input::after{content:"";position:absolute;width:15px;height:15px;background:#fff;border-radius:50%;top:2px;left:2px;transition:.2s}
+  .toggle input:checked{background:var(--red)}
+  .toggle input:checked::after{left:17px}
+
+  /* ---------- DOMAIN SECTIONS / CARDS ---------- */
+  .dom-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+  .dom-num{font-family:var(--serif);font-size:44px;font-weight:600;color:var(--line-strong);line-height:.8}
+  .dom-titleblock h2{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--navy-deep);letter-spacing:-.01em;line-height:1.05}
+  .dom-titleblock .dcount{font-family:var(--mono);font-size:11px;color:var(--slate);letter-spacing:.06em;margin-top:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow);
+    position:relative;display:flex;flex-direction:column;transition:transform .15s, box-shadow .15s;border-left-width:4px}
+  .card:hover{transform:translateY(-2px);box-shadow:0 14px 34px -20px rgba(20,44,69,.5)}
+  .card.crit{border-left-color:var(--red)}
+  .card.watch{border-left-color:var(--amber)}
+  .card.fyi{border-left-color:var(--slate)}
+  .card .sevtag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:600;margin-bottom:9px;align-self:flex-start}
+  .card.crit .sevtag{color:var(--red)} .card.watch .sevtag{color:var(--amber)} .card.fyi .sevtag{color:var(--slate)}
+  .sevtag .pip{width:9px;height:9px;border-radius:50%}
+  .crit .pip{background:var(--red)} .watch .pip{background:var(--amber)} .fyi .pip{background:var(--slate)}
+  .card h3{font-size:16px;font-weight:700;line-height:1.28;color:var(--navy-deep);margin-bottom:10px}
+  .card .src{font-family:var(--mono);font-size:11px;margin-bottom:12px}
+  .card .src a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--line-strong)}
+  .card .src a:hover{color:var(--red);border-color:var(--red)}
+  .card .why{margin-top:auto;background:var(--paper);border-radius:8px;padding:11px 13px;font-size:13.5px;color:var(--ink-soft)}
+  .card .why .wl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;display:block;margin-bottom:4px}
+  .card .why b{color:var(--navy);font-weight:700}
+  .tag-fact{font-family:var(--mono);font-size:9.5px;background:rgba(27,58,92,.1);color:var(--navy);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .tag-assum{font-family:var(--mono);font-size:9.5px;background:rgba(183,121,31,.14);color:var(--amber);padding:1px 5px;border-radius:4px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  .card.full{grid-column:1/-1}
+
+  /* compliance table inside gov card */
+  table.compliance{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:12.5px}
+  table.compliance th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;text-align:left;
+    color:var(--slate);border-bottom:1.5px solid var(--line-strong);padding:7px 10px;font-weight:600}
+  table.compliance td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.compliance tr:last-child td{border-bottom:none}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;letter-spacing:.04em;white-space:nowrap}
+  .b-live{background:rgba(200,16,46,.12);color:var(--red-deep)}
+  .b-def{background:var(--paper-2);color:var(--slate)}
+  .b-new{background:rgba(27,58,92,.12);color:var(--navy)}
+
+  /* ---------- RADAR ---------- */
+  .radar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 4px}
+  .radar .ritem{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .radar .ritem:last-child{border-bottom:none}
+  .radar .rdot{width:9px;height:9px;border-radius:50%;background:var(--slate);margin-top:6px}
+  .radar .rtext{font-size:14px;color:var(--ink-soft)}
+  .radar .rtext b{color:var(--navy-deep);font-weight:700}
+  .radar .rtext .nt{display:block;font-family:var(--mono);font-size:11px;color:var(--slate);margin-top:4px;letter-spacing:.02em}
+
+  .empty{display:none;text-align:center;padding:40px;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  .empty-dom{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--slate);background:var(--paper);border:1px dashed var(--line-strong);border-radius:10px;padding:18px 16px;text-align:center;letter-spacing:.02em}
+
+  /* ---------- LEGEND + FOOTER ---------- */
+  .legend{display:flex;gap:28px;flex-wrap:wrap;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 22px}
+  .legend .li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ink-soft);max-width:240px}
+  .legend .pip{width:11px;height:11px;border-radius:50%;margin-top:4px;flex:none}
+  .legend .li b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+  footer{padding:34px 0 60px}
+  footer .src-line{font-family:var(--mono);font-size:11px;color:var(--slate);line-height:1.9;letter-spacing:.02em}
+  footer .colophon{margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);border-top:1px solid var(--line);padding-top:16px}
+  footer .colophon .mark{color:var(--red)}
+
+  .reveal{opacity:0;transform:translateY(14px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:32px}
+    .cards{grid-template-columns:1fr}
+    .act{grid-template-columns:1fr}
+    .act .num{display:none}
+    h1.title{font-size:44px}
+    .filterbar{top:40px}
+  }
+  @media print{
+    .nav,.filterbar,body::before{display:none}
+    .card,.act,.diff-item{break-inside:avoid;box-shadow:none}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="brand"><span class="mark">&#9648;</span> <span class="co">Group</span> &middot; Technology Architecture</div>
+      <div class="issue">ISSUE #81 &middot; 3 DOMAINS &middot; 3 ITEMS</div>
+    </div>
+    <h1 class="title">Daily Sector <span class="em">Intelligence</span> Digest</h1>
+    <div class="dateline">
+      <span><b>Friday, 2 October 2026</b></span>
+      <span>1 critical &middot; 2 watch</span>
+      <span>~5 min read</span>
+    </div>
+  </div>
+</header>
+
+
+<!-- STICKY NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#sec">Security &amp; Resilience <span class="ct">1</span></a>
+    <a href="#dc">Infrastructure &amp; DC <span class="ct">1</span></a>
+    <a href="#platform">Platform &amp; Cloud <span class="ct">1</span></a>
+    <a href="#radar">Radar <span class="ct">5</span></a>
+    <span class="nav-sep"></span>
+    <a href="archive.html">Past editions &#8599;</a>
+    <a href="#action" class="reds"><span class="dot"></span> 5 need action</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+    <!-- HERO: PATTERN + DIFF -->
+  <section class="hero reveal" style="border-bottom:1px solid var(--line)">
+    <div class="pattern">
+      <div class="kicker">&#9889; Pattern of the Day</div>
+      <div class="ph">Two clocks are running &mdash; the edge you must fix today, and the <span class="teeth">compute bill you're locked into through 2030.</span></div>
+      <p>On the operational clock, <strong>FortiMail</strong> is the fourth internet-reachable, pre-authentication appliance flaw in roughly a week &mdash; after Cisco Catalyst SD-WAN Manager, Citrix NetScaler and Apple CoreGraphics &mdash; and it follows the same script: a crafted request reaches a management interface that should never have been exposed, no credentials required, and the payoff is code execution on a device in the trust path for mail, remote access or the WAN. The lesson compounds: the management and edge plane is the standing breach surface, and <strong>isolation matters as much as the patch</strong>.</p>
+      <p>On the structural clock, the AI-compute buildout that increasingly rides on that same infrastructure is <strong>financializing</strong> in public view. Micron's record quarter converts memory scarcity into take-or-pay contracts stretching to 2030, and Broadcom lending Anthropic $42B to lease its own chips shows demand so large it now has to be <strong>vendor-financed</strong> &mdash; concentrating supply and credit risk in a handful of names.</p>
+      <div class="ag-take">
+        <b>For Group</b>
+        Inventory every internet-reachable FortiMail, pull its management interface off the internet (or restrict IBE / the admin interface per Fortinet) and patch to 8.0.2 / 7.6.7 / 7.4.9 immediately; assume-compromise any appliance reachable before patch. Hold the carried edge items (Cisco SD-WAN Manager, NetScaler, Apple CoreGraphics) on their standing posture. Treat Micron's $100B take-or-pay memory lock-ins (shortage guided through end-2027) and Broadcom's $42B Anthropic financing as a hardening of Group's on-prem AI TCO and vendor-concentration assumptions. Standing: EU AI Act Art.&nbsp;50 marking for pre-existing generative AI due 2 Dec 2026 (~61 days); CRA Art.&nbsp;14 in force.
+      </div>
+    </div>
+
+    <div class="diff">
+      <h3>&#128260; What's changed since Issue #80</h3>
+      <div class="diff-list">
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">&mdash;</span><span class="arrow">&rarr;</span><span class="st new">new KEV entry</span></div>
+          <div class="diff-topic">FortiMail auth-less file-write zero-day</div>
+          <div class="diff-detail">Fortinet disclosed <strong>CVE-2026-104286</strong> (CVSS 9.8) on <strong>1 Oct</strong> &mdash; an unauthenticated path-traversal + NULL-byte flaw allowing arbitrary file write and code execution via the FortiMail management interface. Exploited as a zero-day; added to <strong>CISA KEV 1 Oct</strong> with a <strong>4 Oct</strong> federal deadline; fixed in 8.0.2 / 7.6.7 / 7.4.9 (7.2 must migrate). [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">monitor</span><span class="arrow">&rarr;</span><span class="st new">prepare</span></div>
+          <div class="diff-topic">Memory supercycle now contractual</div>
+          <div class="diff-detail">Micron reported record <strong>$54.23B</strong> Q4 FY2026 revenue (+379% YoY); 14 hyperscaler customers now hold ~<strong>$100B</strong> of minimum-revenue memory commitments through 2030 (+$22B deposits), with shortages guided <strong>through end-2027</strong>. The elevated-memory assumption in Group's on-prem AI TCO hardens from a monitor to an evidenced prepare &mdash; lock HBM/DRAM lead-times. [Fact]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">&mdash;</span><span class="arrow">&rarr;</span><span class="st new">new signal</span></div>
+          <div class="diff-topic">AI compute is now vendor-financed</div>
+          <div class="diff-detail"><strong>Broadcom</strong> disclosed (in Anthropic's IPO filing) it will lend Anthropic <strong>up to $42B</strong> to lease the chips behind ~$125.2B of compute; Broadcom shares fell on circular-financing concern. A fresh data point on AI-compute concentration and the financial entanglement of Group-relevant infrastructure vendors. [Fact / reported]</div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-states"><span class="st old">&mdash;</span><span class="arrow">&rarr;</span><span class="st new">No material transition</span></div>
+          <div class="diff-topic">Carried: edge wall &middot; sovereignty &middot; connectivity &middot; Turkish IT</div>
+          <div class="diff-detail">Cisco SD-WAN Manager (KEV 30 Sept), NetScaler (deadline lapsed 30 Sept), Apple CoreGraphics (KEV 29 Sept) and the lapsed-KEV wall stay on their standing posture. EU AI Act 2 Dec marking advances only on the calendar (~61 days); CRA Art.&nbsp;14 in force; NIS2/DORA autumn convergence nears. No 24&ndash;48h transition in sovereignty, connectivity or Turkish IT. [Fact]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ACTION REQUIRED -->
+  <section id="action" style="border:none;padding-top:34px">
+    <div class="action-band reveal">
+      <div class="kicker">Action Required</div>
+      <div class="action-head">
+        <h2>Isolate and patch the FortiMail zero-day now; hold the carried edge-appliance items (Cisco SD-WAN Manager, NetScaler, Apple) and the lapsed KEV wall on their standing assume-compromise posture</h2>
+        <span class="action-sub">5 decisions &middot; assign owner &amp; date</span>
+      </div>
+      <div class="actions">
+        <div class="act">
+          <div class="num">01</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; new KEV (1 Oct) &middot; active zero-day &middot; federal deadline 4 Oct</span>
+            <h4>Inventory, isolate and patch FortiMail against the actively-exploited zero-day CVE-2026-104286</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Inventory every FortiMail appliance, prioritising any with its administrative/management interface reachable from the internet. Apply Fortinet's mitigations now &mdash; disable access to the management interface from the internet or restrict it to a trusted private network, and disable Identity-Based Encryption (IBE) support via the CLI &mdash; and upgrade immediately to a fixed release: 8.0.2 or later, 7.6.7 or later, or 7.4.9 or later (the 7.2 branch must migrate to 7.4+). Because the flaw gives an unauthenticated attacker arbitrary file write and code execution, hunt any appliance that was internet-reachable before patching for unexpected files, web shells and config changes, and treat it as potentially compromised. Consequence of inaction: an unauthenticated attacker writes files and runs code on the email-security gateway &mdash; a device in the trust path for all inbound/outbound mail &mdash; a foothold for mail interception, credential capture and onward intrusion.</div>
+            <div class="meta-row"><span>Owner: <b>Messaging / Email Security Gateway + Network Edge + SecOps (Threat Hunt)</b></span><span>By when: <b>immediately (KEV 1 Oct; active exploitation; federal deadline 4 Oct)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">02</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; carried &middot; KEV (30 Sept) &middot; no workaround</span>
+            <h4>Isolate and patch Cisco Catalyst SD-WAN Manager against the actively-exploited auth-bypass CVE-2026-76504</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Inventory every Catalyst SD-WAN Manager (formerly vManage), apply Cisco's interim mitigation (restrict management access to trusted hosts, firewall the control components) and upgrade to a fixed train &mdash; 20.9.10.1 / 20.12.8.2 / 20.15.6.1 / 20.18.4.1 / 26.1.2.1 / 26.2.1 (releases before 20.9 migrate); there is no workaround. Hunt for unauthenticated admin API use, unexpected config/template pushes and new admin sessions; assume-compromise any manager reachable before patch. Consequence of inaction: unauthenticated admin control of the entire SD-WAN fabric &mdash; routing, policy and segmentation across all sites.</div>
+            <div class="meta-row"><span>Owner: <b>Network Edge / SD-WAN Operations + SecOps (Threat Hunt)</b></span><span>By when: <b>immediately (KEV 30 Sept; active exploitation; no workaround)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">03</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; carried &middot; deadline lapsed (30 Sept) &middot; assume-compromise</span>
+            <h4>Hold NetScaler on hunt-before-upgrade &mdash; CVE-2026-88771 / CVE-2026-88772</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Treat each customer-managed NetScaler ADC / Gateway as assume-compromise: run the Citrix / NetScaler Console IOC scan, hunt web shells (hidden behind fake stylesheet paths), lateral movement and outbound staging, rotate credentials / sessions / secrets, then upgrade to 14.1-73.37 / 13.1-64.23 (FIPS 14.1-73.37 FIPS / 13.1-37.279). A clean scan is not proof of no compromise; web shells survive the patch. Consequence of inaction: a surviving web shell is a persistent pre-auth foothold on an appliance fronting remote access and load-balancing.</div>
+            <div class="meta-row"><span>Owner: <b>Network Edge / Remote Access + Identity Infrastructure + SecOps (Threat Hunt)</b></span><span>By when: <b>immediately (deadline lapsed; compromise active)</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">04</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; carried &middot; actively exploited (targeted)</span>
+            <h4>Patch the exploited Apple CoreGraphics zero-day CVE-2026-86950 on executive and high-risk devices</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Deploy Apple's 28 Sept fixes for CVE-2026-86950 (CoreGraphics out-of-bounds write &rarr; RCE on a crafted file, CVSS 8.8): macOS Tahoe 26.7.1, macOS Sequoia 15.8.1, and the corresponding iOS/iPadOS updates. Added to CISA KEV 29 Sept; prioritise executive, board, finance and IT-admin devices and high-value approval endpoints, then complete the fleet on the managed cycle. Consequence of inaction: an espionage-grade file-based RCE against unpatched high-value endpoints.</div>
+            <div class="meta-row"><span>Owner: <b>Endpoint / Digital Workplace (EUC) + Mobile / MDM + SecOps</b></span><span>By when: <b>high-risk devices now; fleet per CISA KEV timeline</b></span></div>
+          </div>
+        </div>
+        <div class="act">
+          <div class="num">05</div>
+          <div>
+            <span class="domain-tag">Security &amp; Operational Resilience &middot; carried &middot; lapsed &rarr; verify-and-hunt</span>
+            <h4>Hold the lapsed KEV wall on assume-compromise &mdash; no new lapses this window</h4>
+            <div class="sug"><b>Suggested action &middot; </b> Everything whose KEV clock has lapsed stays on verify-and-hunt: WordPress CVE-2026-87902 (9.2), SharePoint CVE-2026-65660 (8.8), MikroTik RouterOS CVE-2026-67279 (6.9); WSO2 CVE-2026-5430 (9.8) + Adobe Commerce CVE-2026-71362 (9.1); the Check Point (CVE-2026-93616 / CVE-2026-85102), Arista VeloCloud (CVE-2026-93952, 10.0) and F5 BIG-IP APM (CVE-2026-94127, 9.8) cluster; Zyxel GS1900 CVE-2026-7273, Veeam CVE-2026-32996, and the standing backlog (Cisco ISE, Linux kernel trio, Windows EoP, Chrome, SEG, Cisco FMC, NetScaler CVE-2026-19490, FortiOS, N-central, vCenter, Acronis). Confirm fixes are deployed, run vendor IoC hunts, rotate FMC static credentials, restrict management-plane access. Consequence of inaction: each is an admin/root/SYSTEM pivot or edge foothold past the point where patching alone remediates.</div>
+            <div class="meta-row"><span>Owner: <b>Digital / Web + SharePoint + API Platform + Network Edge/Firewall Ops + SD-WAN + Identity Infra + Endpoint + SecOps</b></span><span>By when: <b>immediately (lapsed / exploited)</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filterbar" id="filterbar">
+    <div class="fgroup">
+      <span class="flabel">Domain</span>
+      <span class="chip dom on" data-dom="all">All</span>
+      <span class="chip dom" data-dom="sec">Security &amp; Resilience</span>
+      <span class="chip dom" data-dom="dc">Infrastructure &amp; DC</span>
+      <span class="chip dom" data-dom="platform">Platform &amp; Cloud</span>
+    </div>
+    <div class="fgroup">
+      <span class="flabel">Severity</span>
+      <span class="chip sev sev-crit on" data-sev="crit"><span class="sw crit"></span>Critical</span>
+      <span class="chip sev sev-watch on" data-sev="watch"><span class="sw watch"></span>Watch</span>
+      <span class="chip sev sev-fyi on" data-sev="fyi"><span class="sw fyi"></span>FYI</span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="actionOnly">Action only</label>
+  </div>
+
+  <div id="grid"></div>
+  <div class="empty" id="empty">No items match the current filter.</div>
+
+    <!-- RADAR -->
+  <section id="radar">
+    <div class="kicker">&#128225; Radar &mdash; early &amp; longer-horizon signals</div>
+    <div class="radar">
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>Apple CoreGraphics zero-day CVE-2026-86950 stays on the patch list (no new state this window).</b> Out-of-bounds write &rarr; arbitrary code execution on a crafted file (CVSS 8.8), patched 28 Sept (macOS 26.7.1 / 15.8.1, iOS/iPadOS) and added to CISA KEV 29 Sept; exploited in a targeted attack. The standing action is to patch executive and high-risk devices first. <span class="nt">Next trigger: a broader non-targeted campaign, a public exploit, or the flaw appearing in commodity spyware.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>AI data-center power is being contracted in 20-year nuclear blocks.</b> Amazon signed a 20-year agreement with Constellation Energy for the Calvert Cliffs facility (~$3B of upgrades) to supply AI-data-center electricity &mdash; another signal that power, not silicon, is the binding constraint and that hyperscalers are locking generation decades out. Context for Group's assumptions about regional power availability and data-center siting economics. <span class="nt">Next trigger: a comparable power deal in Group's European/Turkish footprint, or a grid-cost-allocation ruling.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>EU AI Act Article 50 marking for pre-existing generative AI is ~61 days out (2 December 2026).</b> GPAI enforcement is live and CRA Article 14 reporting has been in force since 11 September; only the calendar advanced this window. <span class="nt">Next trigger: first formal GPAI enforcement action, or Commission guidance on Art. 50 marking formats.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>NIS2 / DORA autumn-2026 convergence approaches for Group's EU entities.</b> Commentary frames autumn 2026 as the point at which national NIS2 registration, self-assessment and supervisory readiness &mdash; plus management-body liability &mdash; stop tolerating &ldquo;still implementing,&rdquo; alongside live DORA enforcement. No single hard date this window, but a near-term governance milestone for any in-scope entity. <span class="nt">Next trigger: a national registration/enforcement deadline, or a first supervisory action against an in-scope entity.</span></div></div>
+      <div class="ritem"><span class="rdot"></span><div class="rtext"><b>EU DMA cloud gatekeeper decision for AWS + Azure due by November.</b> The Commission's preliminary designation moves toward a final decision; interoperability and data-portability obligations would follow and bear on Group's cloud-sourcing and portability posture. <span class="nt">Next trigger: the final designation decision (by November), or published gatekeeper obligations.</span></div></div>
+    </div>
+  </section>
+
+  <!-- LEGEND -->
+  <section style="border-bottom:none">
+    <div class="kicker">Severity Key</div>
+    <div class="legend">
+      <div class="li"><span class="pip" style="background:var(--red)"></span><span><b>Critical</b>Acts on a deadline or live threat — decide this cycle.</span></div>
+      <div class="li"><span class="pip" style="background:var(--amber)"></span><span><b>Watch</b>Material shift to factor into a model or roadmap.</span></div>
+      <div class="li"><span class="pip" style="background:var(--slate)"></span><span><b>FYI</b>Context worth knowing; no action implied.</span></div>
+      <div class="li"><span class="tag-fact" style="margin-top:2px">Fact</span><span style="margin-left:2px">Verified from source.</span></div>
+      <div class="li"><span class="tag-assum" style="margin-top:2px">Assumption</span><span style="margin-left:2px">Editorial inference, not yet confirmed.</span></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="src-line">
+      <strong style="color:var(--navy)">Sources &middot;</strong> CISA KEV (FortiMail added 1 Oct) &middot; Fortinet PSIRT advisory &middot; BleepingComputer &middot; runZero &middot; Micron Q4 FY2026 results &middot; TechTimes &middot; Korea JoongAng Daily &middot; CNBC &middot; Semafor &middot; Cisco PSIRT &middot; Citrix CTX697096 &middot; Apple &middot; artificialintelligenceact.eu &middot; European Commission &middot; Constellation Energy / Amazon &nbsp;&middot;&nbsp; <em>Issue #81 (Friday, 2 October 2026) is a short edition covering the last 24&ndash;48 hours (1&ndash;2 October) with three primary items across Security &amp; Operational Resilience, Infrastructure &amp; Data Centers, and Platform &amp; Cloud Economics. The lead is a new critical, actively-exploited FortiMail zero-day (CVE-2026-104286, CVSS 9.8, unauthenticated arbitrary file write on the management interface) disclosed and KEV-listed on 1 October with a 4 October federal deadline &mdash; the fourth internet-facing pre-auth appliance flaw in a week. Alongside it, two hard data points on the AI-compute cost curve: Micron's record $54.23B quarter with ~$100B of take-or-pay hyperscaler memory contracts through 2030 and shortages guided through end-2027, and Broadcom's disclosed offer to lend Anthropic up to $42B to lease chips. Data sovereignty, regulation, connectivity and the Turkish IT sector recorded no development meeting the 24&ndash;48h materiality bar and are held as Radar or omitted rather than padded. Confirmed facts, informed inference and reported third-party figures are labelled inline; every date, deadline, CVSS score and fixed-version number cited was verified against the primary or authoritative source before publication.</em>
+    </div>
+    <div class="colophon"><span class="mark">&#9648;</span> Group &middot; Technology Architecture &middot; Daily Sector Intelligence Digest &middot; Issue #81</div>
+  </footer>
+
+
+</div>
+
+<script>
+const DOMAINS = [
+  {id:"sec",      num:"1", title:"Security & Operational Resilience"},
+  {id:"ai",       num:"2", title:"AI & Agentic Systems"},
+  {id:"platform", num:"3", title:"Platform & Cloud Economics"},
+  {id:"dc",       num:"4", title:"Infrastructure & Data Centers"},
+  {id:"gov",      num:"5", title:"Regulation & Compliance"},
+  {id:"sovereign",num:"6", title:"Data Sovereignty & Sovereign AI"},
+  {id:"net",      num:"7", title:"Connectivity & Networking"},
+  {id:"tr",       num:"8", title:"Turkish IT Sector"},
+  {id:"tech",     num:"9", title:"Technology & Sector Shifts"},
+];
+
+const ITEMS = [
+  {dom:"sec",sev:"crit",action:true,status:"act",evidence:"fact",title:"A critical, actively-exploited FortiMail zero-day (CVE-2026-104286) lets an unauthenticated attacker write files and run code via the management interface &mdash; CISA KEV-listed 1 October, federal deadline 4 October: Fortinet disclosed the flaw on 1 October, a critical vulnerability (CVSS 9.8) in FortiMail, its email-security gateway, combining improper path-traversal limitation with improper NULL-byte neutralization so that an unauthenticated attacker can write arbitrary files to the underlying system via crafted HTTP/HTTPS requests to the management interface, and thereby execute unauthorized code or commands. It is being exploited in zero-day attacks, and CISA added it to the Known Exploited Vulnerabilities catalogue the same day, with the US federal remediation deadline set for 4 October. Affected releases are FortiMail 8.0.0&ndash;8.0.1, 7.6.0&ndash;7.6.6, 7.4.0&ndash;7.4.8 and 7.2.0&ndash;7.2.9; fixes are available in 8.0.2, 7.6.7 and 7.4.9 (the 7.2 branch must migrate to 7.4+). Where immediate patching is not possible, Fortinet's workarounds are to disable access to the management interface from the internet (or restrict it to a trusted private network) and to disable Identity-Based Encryption (IBE) support via the CLI",src:"CISA KEV (1 Oct) &middot; Fortinet PSIRT &middot; BleepingComputer &middot; runZero",url:"https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-fortimail-flaw-exploited-in-zero-day-attacks/",why:"<span class='tag-fact'>Fact</span> CVE-2026-104286 is an unauthenticated path-traversal + NULL-byte flaw in FortiMail (CVSS 9.8) allowing arbitrary file write &rarr; code execution via the management interface; exploited as a zero-day; disclosed 1 Oct and added to CISA KEV the same day (federal deadline 4 Oct); fixed in 8.0.2 / 7.6.7 / 7.4.9 (7.2 migrate to 7.4+); workarounds are to restrict the management interface and disable IBE via CLI. <span class='tag-assum'>Assumption</span> Fortinet is a mainstream enterprise security vendor and FortiMail is plausibly in AG's mail-security tier; an email-security gateway sits in the trust path for all inbound/outbound mail, so pre-auth code execution there is a high-value foothold, not a peripheral appliance. <b>Act:</b> inventory every FortiMail, pull its management interface off the internet and patch to the fixed train immediately; assume-compromise and hunt any appliance internet-reachable before patch. <b>Owner:</b> Messaging / Email Security Gateway + Network Edge + SecOps (Threat Hunt) &middot; <b>By:</b> immediately (KEV 1 Oct; active exploitation; federal deadline 4 Oct). <b>Next trigger:</b> a public PoC / exploit chain, a named victim, mass-scan telemetry, or FortiMail found internet-exposed in AG's estate."},
+
+  {dom:"dc",sev:"watch",status:"prepare",evidence:"fact",title:"Micron closes FY2026 with a record $54.23B quarter and ~$100B of take-or-pay hyperscaler memory contracts through 2030 &mdash; scarcity is now contractual and guided through end-2027: Micron reported fiscal Q4 2026 (ended 30 September) revenue of $54.23B, up roughly 379% year-on-year and its sixth consecutive record quarter, on AI-driven memory demand. The structurally significant disclosure is contractual: Micron now holds 16 Strategic Customer Agreements, 14 of them carrying minimum contracted revenue obligations of approximately $100B in aggregate extending through calendar 2030, with customers having placed about $22B in upfront deposits to secure production priority. HBM4 is shipping in volume (for Nvidia's Vera Rubin platform), and management guided that memory supply shortages will persist through the end of 2027 &mdash; so the memory tightness AG has tracked as an assumption is now locked into multi-year, take-or-pay commitments by the largest buyers",src:"Micron Q4 FY2026 results &middot; TechTimes &middot; Korea JoongAng Daily",url:"https://www.techtimes.com/articles/328376/20261001/micron-posts-record-54b-quarter-locks-hyperscalers-100b-memory-contracts.htm",why:"<span class='tag-fact'>Fact</span> Micron Q4 FY2026 revenue $54.23B (+379% YoY, sixth consecutive record); 14 hyperscaler customers on ~$100B minimum-revenue memory commitments through 2030 (+$22B deposits); HBM4 shipping in volume; shortages guided through end-2027. <span class='tag-assum'>Assumption</span> Elevated, now contractually-committed memory pricing feeds directly into the TCO of any on-prem or co-located AI/GPU platform AG builds and into server/endpoint refresh costs; hyperscaler take-or-pay lock-ins mean smaller buyers face higher prices and allocation risk. <b>Prepare:</b> harden the elevated-memory assumption in AG's AI-infrastructure TCO as structural through at least 2027, and lock HBM/DRAM procurement lead-times and pricing now rather than assuming spot normalization. <b>Next trigger:</b> a further HBM4 yield/ramp signal, a DRAM/NAND spot move, or a step-up in AG's own memory contract pricing at renewal."},
+
+  {dom:"platform",sev:"watch",status:"monitor",evidence:"fact",title:"Broadcom to lend Anthropic up to $42B to lease its chips &mdash; AI-compute demand is now large enough to be vendor-financed, concentrating supply and credit risk: Anthropic's IPO filing, surfaced on 1 October, disclosed that Broadcom will offer to lend Anthropic up to $42B to finance the leasing of the custom AI chips behind roughly one-third of Anthropic's ~$125.2B five-year compute commitment. Broadcom's shares fell on the news as analysts flagged the now-familiar pattern of a chip supplier financing its own customer's purchases &mdash; the same vendor-financing / circularity concern raised around other AI-infrastructure megadeals. This is not an AG transaction, but it is a clean public data point on how the AI-compute buildout is now being funded: demand so large it must be underwritten with debt, and supply and credit risk concentrating in a small number of infrastructure vendors",src:"CNBC &middot; Semafor",url:"https://www.cnbc.com/2026/10/01/broadcom-lending-anthropic-42-billion-chips-reuters.html",why:"<span class='tag-fact'>Fact</span> Anthropic's IPO filing (surfaced 1 Oct) discloses Broadcom will offer to lend Anthropic up to $42B to lease chips behind ~1/3 of Anthropic's ~$125.2B five-year compute commitment; Broadcom shares fell on circular-financing concern. <span class='tag-assum'>Assumption</span> Broadcom is an AG-relevant vendor (VMware), and the structure bears on AG's assumptions about AI-infrastructure cost durability, vendor financial health and concentration risk in the compute and virtualization supply chain AG depends on. <b>Monitor:</b> factor vendor-concentration and circular-financing risk into AG's multi-year AI-infrastructure sourcing and TCO assumptions; treat the durability of today's AI-compute pricing and vendor balance sheets as a live variable, not a constant. <b>Next trigger:</b> further vendor-financed AI-compute megadeals, a credit-quality signal from a key AG infrastructure vendor, or regulatory/accounting scrutiny of circular AI financing."},
+];
+
+const SEVLABEL = {crit:"Critical",watch:"Watch",fyi:"FYI"};
+
+function govWhy(){
+  return `<div class="why">
+    <span class="wl">Why it matters for Group</span>
+    EU AI Act enforcement is live and <b>not</b> paused. Article 50's transparency duties apply immediately to all in-scope systems, but the <b>marking obligation for generative AI already on the market carries a transitional deadline of 2 December 2026 (~61 days)</b>. Separately, <b>CRA Article 14 reporting is in force</b> (since 11 Sept).
+    <table class="compliance">
+      <tr><th>Obligation</th><th>Original</th><th>New</th><th>Status</th></tr>
+      <tr><td>GPAI enforcement (fines up to &euro;15M / 3% turnover)</td><td>2 Aug 2026</td><td>2 Aug 2026 <em>unchanged</em></td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Art. 50 marking (generative AI)</td><td>2 Aug 2026</td><td>2 Aug 2026 (new) &middot; 2 Dec 2026 (pre-existing)</td><td><span class="badge b-live">Live &middot; ~61 days</span></td></tr>
+      <tr><td>CRA Art. 14 reporting (24h/72h/14-day, ENISA platform)</td><td>&mdash;</td><td>in force 11 Sept 2026</td><td><span class="badge b-live">Live</span></td></tr>
+      <tr><td>Annex III HRAIS (recruitment, credit scoring)</td><td>2 Aug 2026</td><td>2 Dec 2027</td><td><span class="badge b-def">Deferred</span></td></tr>
+      <tr><td>Annex I HRAIS (medical devices, radio equipment)</td><td>2 Aug 2027</td><td>2 Aug 2028</td><td><span class="badge b-def">Deferred</span></td></tr>
+    </table>
+  </div>`;
+}
+
+function cardHTML(it){
+  const why = it.gov ? govWhy() : `<div class="why"><span class="wl">Why it matters for Group</span>${it.why}</div>`;
+  return `<div class="card ${it.sev} ${it.full?'full':''}" data-dom="${it.dom}" data-sev="${it.sev}" data-action="${it.action?1:0}">
+    <span class="sevtag"><span class="pip"></span>${SEVLABEL[it.sev]}</span>
+    <h3>${it.title}</h3>
+    <div class="src"><a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a></div>
+    ${why}
+  </div>`;
+}
+
+function render(){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  DOMAINS.forEach(d=>{
+    const items = ITEMS.filter(i=>i.dom===d.id);
+    if(!items.length) return; // hide domains with zero items
+    const sec = document.createElement('section');
+    sec.id = d.id; sec.dataset.section = d.id; sec.dataset.empty = "0";
+    sec.innerHTML = `
+      <div class="dom-head">
+        <div class="dom-num">${d.num}</div>
+        <div class="dom-titleblock">
+          <h2>${d.title}</h2>
+          <div class="dcount">${items.length} items · <span class="visc">${items.length}</span> shown</div>
+        </div>
+      </div>
+      <div class="cards">${items.map(cardHTML).join('')}</div>`;
+    grid.appendChild(sec);
+  });
+  applyFilters();
+}
+
+const state = {dom:"all", sev:new Set(["crit","watch","fyi"]), actionOnly:false};
+
+function applyFilters(){
+  let anyVisible=false;
+  document.querySelectorAll('section[data-section]').forEach(sec=>{
+    let shown=0;
+    sec.querySelectorAll('.card').forEach(c=>{
+      const okDom = state.dom==="all" || c.dataset.dom===state.dom;
+      const okSev = state.sev.has(c.dataset.sev);
+      const okAct = !state.actionOnly || c.dataset.action==="1";
+      const vis = okDom && okSev && okAct;
+      c.style.display = vis?'':'none';
+      if(vis){shown++;anyVisible=true;}
+    });
+    sec.style.display = shown ? '' : 'none';
+    const v = sec.querySelector('.visc'); if(v) v.textContent = shown;
+  });
+  document.getElementById('empty').style.display = anyVisible?'none':'block';
+}
+
+// domain chips
+document.querySelectorAll('.chip.dom').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    document.querySelectorAll('.chip.dom').forEach(x=>x.classList.remove('on'));
+    ch.classList.add('on');
+    state.dom = ch.dataset.dom;
+    applyFilters();
+  });
+});
+// severity chips (multi-toggle)
+document.querySelectorAll('.chip.sev').forEach(ch=>{
+  ch.addEventListener('click',()=>{
+    const s = ch.dataset.sev;
+    if(state.sev.has(s)){state.sev.delete(s);ch.classList.remove('on');}
+    else{state.sev.add(s);ch.classList.add('on');}
+    applyFilters();
+  });
+});
+document.getElementById('actionOnly').addEventListener('change',e=>{
+  state.actionOnly = e.target.checked; applyFilters();
+});
+
+render();
+
+// stagger reveal for cards on load
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.card').forEach((c,i)=>{
+    c.style.animation='rise .5s cubic-bezier(.2,.7,.2,1) forwards';
+    c.style.animationDelay=(Math.min(i,12)*0.035)+'s';
+    c.style.opacity=0;
+  });
+});
+</script>
+</body>
+</html>
